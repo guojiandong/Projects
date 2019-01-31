@@ -1,0 +1,1031 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Smart.Utility</name>
+    </assembly>
+    <members>
+        <member name="T:Smart.Utility.BuildSql">
+            <summary>
+            构造Sql语句(插入)
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.BuildSql.BuildQueryString(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            通过参数和表明生成插入语句
+            </summary>
+            <param name="paraList">key=字段名，value= 字段值的字典</param>
+            <param name="tableName">表名</param>
+            <returns>Insert 语句</returns>
+        </member>
+        <member name="T:Smart.Utility.ChineseToSpell">
+            <summary>
+            将简体中文汉字转换为拼音
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.ChineseToSpell.Convert(System.String,System.Int32)">
+            <summary>
+            返回汉字的拼音或简拼
+            </summary>
+            <param name="chinese">汉字字符串</param>
+            <param name="returnType">0为返回拼音，1为返回简拼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.ConfigHelper.GetConfigString(System.String)">
+            <summary>
+            得到AppSettings中的配置字符串信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.ConfigHelper.GetConfigBool(System.String)">
+            <summary>
+            得到AppSettings中的配置Bool信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.ConfigHelper.GetConfigDecimal(System.String)">
+            <summary>
+            得到AppSettings中的配置Decimal信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.ConfigHelper.GetConfigInt(System.String)">
+            <summary>
+            得到AppSettings中的配置int信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Smart.Utility.ConnectionInfo">
+            <summary>
+            数据库连接字符串加密解密
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ConnectionInfo.CONN_STRING">
+            <summary>
+            数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.ConnectionInfo.DecryptDBConnectionString(System.String)">
+            <summary>
+            解密字符串
+            </summary>
+            <param name="InputConnectionString">加密的连接字符串</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Smart.Utility.ConnectionInfo.EncryptDBConnectionString(System.String)">
+            <summary>
+            加密数据库连接字符串
+            </summary>
+            <param name="encryptedString">加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.DataCache.GetCache(System.String)">
+            <summary>
+            获取当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="CacheKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.DataCache.SetCache(System.String,System.Object)">
+            <summary>
+            设置当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="CacheKey"></param>
+            <param name="objObject"></param>
+        </member>
+        <member name="M:Smart.Utility.DataCache.SetCache(System.String,System.Object,System.DateTime,System.TimeSpan)">
+            <summary>
+            设置当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="CacheKey"></param>
+            <param name="objObject"></param>
+        </member>
+        <member name="M:Smart.Utility.Date.WeekService.GetDaysOfWeeks(System.Int32,System.Int32,System.Globalization.CalendarWeekRule,System.DateTime@,System.DateTime@)">
+            <summary>
+            获取一年中指定的一周的开始日期和结束日期。开始日期遵循ISO 8601即星期一。
+            </summary>
+            <remarks>Write by vrhero</remarks>
+            <param name="year">年（1 到 9999）</param>
+            <param name="weeks">周（1 到 53）</param>
+            <param name="weekrule">确定首周的规则</param>
+            <param name="first">当此方法返回时，则包含参数 year 和 weeks 指定的周的开始日期的 System.DateTime 值；如果失败，则为 System.DateTime.MinValue。如果参数 year 或 weeks 超出有效范围，则操作失败。该参数未经初始化即被传递。</param>
+            <param name="last">当此方法返回时，则包含参数 year 和 weeks 指定的周的结束日期的 System.DateTime 值；如果失败，则为 System.DateTime.MinValue。如果参数 year 或 weeks 超出有效范围，则操作失败。该参数未经初始化即被传递。</param>
+            <returns>成功返回 true，否则为 false。</returns>
+        </member>
+        <member name="T:Smart.Utility.Domain.WhoisSearch">
+            <summary>
+            域名Whois信息查询
+            调用方式：GetDomainStatus("qq.com", "com") 或 GetDomainContract("qq.com")
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.Domain.WhoisSearch.GetDomain(System.String)">
+            <summary>
+            域名注册信息
+            </summary>
+            <param name="domain">输入域名，不包含www</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.Domain.WhoisSearch.GetDomain(System.String,System.String)">
+            <summary>
+            指定whois查询域名信息
+            </summary>
+            <param name="domain">输入域名，不包含www</param>
+            <param name="strServer">输入whois</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.Domain.WhoisSearch.GetDomainContract(System.String)">
+            <summary>
+            域名注册信息和联系人信息
+            </summary>
+            <param name="domain">输入域名，不包含www</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.Domain.WhoisSearch.GetDomainStatus(System.String,System.String)">
+            <summary>
+            域名状态
+            </summary>
+            <param name="domain">输入域名，不包含www</param>
+            <param name="domainType">域名类型（国际域名：com|国内域名：cn）</param>
+            <returns></returns>
+        </member>
+        <member name="T:Smart.Utility.Alerts">
+            <summary>
+            一些常用的Js调用
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.Alerts.Extjs(System.String)">
+            <summary>
+            弹出JavaScript小窗口
+            </summary>
+            <param name="js">窗口信息</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.Alert(System.String)">
+            <summary>
+            弹出JavaScript小窗口
+            </summary>
+            <param name="js">窗口信息</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.AlertAndRedirect(System.String,System.String)">
+            <summary>
+            弹出消息框并且转向到新的URL
+            </summary>
+            <param name="message">消息内容</param>
+            <param name="toURL">连接地址</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.GoHistory(System.Int32)">
+            <summary>
+            回到历史页面
+            </summary>
+            <param name="value">-1/1</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.CloseWindow">
+            <summary>
+            关闭当前窗口
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.Alerts.RefreshParent(System.String)">
+            <summary>
+            刷新父窗口
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.Alerts.RefreshOpener">
+            <summary>
+            刷新打开窗口
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.Alerts.OpenWebFormSize(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            打开指定大小的新窗体
+            </summary>
+            <param name="url">地址</param>
+            <param name="width">宽</param>
+            <param name="heigth">高</param>
+            <param name="top">头位置</param>
+            <param name="left">左位置</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.JavaScriptLocationHref(System.String)">
+            <summary>
+            转向Url制定的页面
+            </summary>
+            <param name="url">连接地址</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.ShowModalDialogWindow(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            打开指定大小位置的模式对话框
+            </summary>
+            <param name="webFormUrl">连接地址</param>
+            <param name="width">宽</param>
+            <param name="height">高</param>
+            <param name="top">距离上位置</param>
+            <param name="left">距离左位置</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.errinfo(System.String[])">
+            <summary>
+            返回错误信息格式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.Alerts.errinfo(System.String)">
+            <summary>
+            返回错误信息格式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.Alerts.AjaxAlert(System.String,System.Web.UI.Control)">
+            <summary>
+            Ajax弹出消息
+            </summary>
+            <param name="message">弹出消息</param>
+            <param name="control">控件名称(UpdatePanel,在User Control(*.ascx)中用this)</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.AjaxAlertGoPage(System.String,System.String,System.Web.UI.Control)">
+            <summary>
+             Ajax弹出消息后,跳转到另一个页面(同一个窗口),如果要跳转的页面是当前页面,则刷新当前页面
+            </summary>
+            <param name="message">弹出消息</param>
+            <param name="gopage">要跳转到的页面(test.aspx)</param>
+            <param name="control">控件名称(UpdatePanel,在User Control(*.ascx)中用this)</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.AjaxRegisterScript(System.String,System.Web.UI.Control)">
+            <summary>
+            向页面注册javascript
+            </summary>
+            <param name="strScript">javascript语句</param>
+            <param name="control">控件名称(UpdatePanel,在User Control(*.ascx)中用this)</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.Alert(System.String,System.Web.UI.Page)">
+            <summary>
+            alert弹出消息
+            </summary>
+            <param name="message">弹出消息</param>
+            <param name="page">this</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.AlertGoPage(System.String,System.String,System.Web.UI.Page)">
+            <summary>
+            alert弹出消息后,跳转到另一个页面(同一个窗口),如果要跳转的页面是当前页面,则刷新当前页面
+            </summary>
+            <param name="message">弹出消息</param>
+            <param name="gopage">要跳转到的页面(test.aspx)</param>
+            <param name="page">this</param>
+        </member>
+        <member name="M:Smart.Utility.Alerts.RegisterScript(System.String,System.Web.UI.Page)">
+            <summary>
+            向页面注册javascript
+            </summary>
+            <param name="strScript">javascript语句</param>
+            <param name="page">this</param>
+        </member>
+        <member name="T:Smart.Utility.IpAddress">
+            <summary>
+            本机IP地址相关信息的获取
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.IpAddress.GetLocationIpAddress">
+            <summary>
+            获取本机IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Smart.Utility.NumberToChineseChar">
+            <summary>
+            本程序用于将小写数字转换为
+            1. 一般中文大写数字
+            2. 人民币大写数字
+            </summary>
+        </member>
+        <member name="F:Smart.Utility.NumberToChineseChar.chnGenText">
+            <summary>
+            一般大写中文数字数组
+            </summary>
+        </member>
+        <member name="F:Smart.Utility.NumberToChineseChar.chnGenDigit">
+            <summary>
+            一般大写数组
+            </summary>
+        </member>
+        <member name="F:Smart.Utility.NumberToChineseChar.chnRMBText">
+            <summary>
+            人民币数据
+            </summary>
+        </member>
+        <member name="F:Smart.Utility.NumberToChineseChar.chnRMBDigit">
+            <summary>
+            人民币计量单位数据组
+            </summary>
+        </member>
+        <member name="F:Smart.Utility.NumberToChineseChar.chnRMBUnit">
+            <summary>
+            人民币单位（角分）
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.#cctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.Convert(System.String,System.Boolean)">
+            <summary>
+            主转换函数
+            </summary>
+            <param name="numberChar">待转换数字字符串</param>
+            <param name="convertToRMB">是否转换成人民币</param>
+            <returns>转换成的大写字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.Convert(System.Int32,System.Boolean)">
+            <summary>
+            主转换函数
+            </summary>
+            <param name="number">待转换数字</param>
+            <param name="convertToRMB">是否转换成人民币</param>
+            <returns>转换成的大写字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.Convert(System.Decimal,System.Boolean)">
+            <summary>
+            主转换函数
+            </summary>
+            <param name="number">待转换数字</param>
+            <param name="convertToRMB">是否转换成人民币</param>
+            <returns>转换成的大写字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.Convert(System.Int32)">
+            <summary>
+            主转换函数
+            </summary>
+            <param name="number">待转换数字</param>
+            <returns>转换成的大写字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.ConvertNumber(System.Text.StringBuilder@,System.String@,System.Boolean)">
+            <summary>
+            转换数字
+            </summary>
+            <param name="chineseText">转换后的字符串</param>
+            <param name="numberChar">数字字符串</param>
+            <param name="convertToRMB">是否转换为人民币 true:转换 false:不转换</param>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.CheckDigit(System.String@,System.Boolean)">
+            <summary>
+            检查输入数字有效性
+            </summary>
+            <param name="numberChar">待转换的数据字符串</param>
+            <param name="convertToRMB">是否转换为人民币格式</param>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.ExtractSign(System.Text.StringBuilder@,System.String@,System.Boolean)">
+            <summary>
+            提取输入字符串的符号
+            </summary>
+            <param name="chineseText">转换后的字符串</param>
+            <param name="numberChar">数字字符串</param>
+            <param name="convertToRMB">是否转换为人民币格式</param>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.ConvertIntegral(System.String,System.Boolean)">
+            <summary>
+            转换整数部分
+            </summary>
+            <param name="strIntegral"></param>
+            <param name="convertToRMB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.NumberToChineseChar.ConvertFractional(System.String,System.Boolean)">
+            <summary>
+            转换小数部分
+            </summary>
+            <param name="strFractional"></param>
+            <param name="convertToRMB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Smart.Utility.PublicCheck">
+            <summary>
+            公共检查
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.CheckDate(System.String,System.String)">
+            <summary>
+            判断结束日期不能超过开始日期2个月，没有超过返回true ，超过则抛出异常。
+            </summary>
+            <param name="beginDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.CheckBeginEndDate(System.String,System.String)">
+            <summary>
+            判断起止日期格式是否正确，正确返回true ， 不正确抛出异常。
+            </summary>
+            <param name="beginDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.CheckBeginEndDate(System.DateTime,System.DateTime)">
+            <summary>
+            判断起止日期格式是否正确，正确返回true ， 不正确抛出异常。
+            </summary>
+            <param name="beginDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.CheckBeginEndDate(System.String,System.String,System.Boolean)">
+            <summary>
+            检查开始结束日期
+            </summary>
+            <param name="beginDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <param name="IsCheckCurrentDate">是否检查当前日期
+            （如果此条件为True，则查询结束日期不等于或晚于当前日期）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.IsNumeric(System.String)">
+            <summary>
+            判断是否是数字,是数字，返回真true，不是数字返回假false
+            </summary>
+            <param name="str">字符串</param>
+            <returns>是数字，返回真true，不是数字返回假false</returns>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.IsMoney(System.String)">
+            <summary>
+            验证输入字符串是否是金额类型,是金额类型，返回true,如：0、0.1　0.01等;否则返回false
+            </summary>
+            <param name="money">待判断的值</param>
+            <returns>是金额类型，返回true,如：0、0.1　0.01等;否则返回false</returns>
+        </member>
+        <member name="M:Smart.Utility.PublicCheck.RndNum(System.Int32)">
+            <summary>
+            生成随机数
+            </summary>
+            <param name="VcodeNum">生成字母的个数</param>
+            <returns>string</returns>
+        </member>
+        <member name="T:Smart.Utility.RegexLib">
+            <summary>
+            验证类
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsEmpty(System.String)">
+            <summary>
+            验证空字符或“”字符
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true:验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsBool(System.String)">
+            <summary>
+            是否Bool型
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true:验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidIp(System.String)">
+            <summary>
+            验证IP 
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidDate(System.String)">
+            <summary>
+            验证Date：年月日 
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidNumber(System.String,System.Int32,System.Int32)">
+            <summary>
+            验证值大小：是否在minValue至maxValue之间 
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <param name="minValue">最小值</param>
+            <param name="strIn">最大值</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidDecimal(System.String)">
+            <summary>
+            验证是否为小数 
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidEmail(System.String)">
+            <summary>
+            验证Email地址 
+            </summary>      
+            <param name="strIn">待验证字符串</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidPostfix(System.String)">
+            <summary>
+            验证后缀名是否为有效的图片 
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.MDYToDMY(System.String)">
+            <summary>
+            dd-mm-yy 的日期形式代替 mm/dd/yy 的日期形式。 
+            </summary>
+            <param name="input"></param>
+            <returns>替换后的格式</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidTel(System.String)">
+            <summary>
+            验证是否为电话号码 
+            </summary>
+            <param name="strIn">待验证字符串</param>
+            <returns>true：验证通过</returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidStr(System.String)">
+            <summary>
+            验证是否为数字和字母组成的字符串，禁止输入其他非法字符
+            </summary>
+            <param name="strIn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.RegexLib.IsValidName(System.String)">
+            <summary>
+            验证是否为字母数字汉字
+            </summary>
+            <param name="strIn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.SecurityEncryption.MD5(System.String,System.Int32)">
+            <summary>
+            MD5加密算法
+            </summary>
+            <param name="str">字符串</param>
+            <param name="code">加密方式,16或32</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.SecurityEncryption.DESEncrypt(System.String)">
+            <summary>
+            DES加密。
+            </summary>
+            <param name="inputString">输入字符串。</param>
+            <returns>加密后的字符串。</returns>
+        </member>
+        <member name="M:Smart.Utility.SecurityEncryption.DESDecrypt(System.String)">
+            <summary>
+            DES解密。
+            </summary>
+            <param name="inputString">输入字符串。</param>
+            <returns>解密后的字符串。</returns>
+        </member>
+        <member name="T:Smart.Utility.SerializeUtilities">
+            <summary>
+            实用序列化助手
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.SerializeUtilities.Serialize``1(``0)">
+            <summary>
+            序列化 对象到字符串
+            </summary>
+            <param name="obj">泛型对象</param>
+            <returns>序列化后的字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.SerializeUtilities.Desrialize``1(``0,System.String)">
+            <summary>
+            反序列化 字符串到对象
+            </summary>
+            <param name="obj">泛型对象</param>
+            <param name="str">要转换为对象的字符串</param>
+            <returns>反序列化出来的对象</returns>
+        </member>
+        <member name="M:Smart.Utility.ISessionBox.Checked(System.String,System.Object)">
+            <summary>
+            检查Session是否有效
+            </summary>
+            <param name="name">Session名称</param>
+            <param name="value">Session值</param>
+            <returns>结果：true有效，false无效</returns>
+        </member>
+        <member name="M:Smart.Utility.ISessionBox.Add(System.String,System.Object)">
+            <summary>
+            增加一个Session
+            </summary>
+            <param name="name">Session名称</param>
+            <param name="value">Session值</param>
+            <returns>结果：true成功，false失败</returns>
+        </member>
+        <member name="M:Smart.Utility.ISessionBox.Remove(System.String)">
+            <summary>
+            移除一个Session
+            </summary>
+            <param name="name">Session名称</param>
+            <returns>结果：true成功，false失败</returns>
+        </member>
+        <member name="M:Smart.Utility.ISessionBox.Update(System.String,System.Object)">
+            <summary>
+            更新一个Session
+            </summary>
+            <param name="name">Session名称</param>
+            <param name="value">Session值</param>
+            <returns>结果：true成功，false失败</returns>
+        </member>
+        <member name="M:Smart.Utility.ISessionBox.Get(System.String)">
+            <summary>
+            获取一个Session
+            </summary>
+            <param name="name">Session名称</param>
+            <returns>Session Object值对象</returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.ReturnStr(System.String)">
+            <summary>
+            取字符串中的非数字字符
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.MathRound(System.Double,System.Int32)">
+            <summary>
+            四舍五入方法
+            </summary>
+            <param name="Value">需要四舍五入的值</param>
+            <param name="Digits">需要精确的位数，整数位为正，小数位为负。例：精确到小数第二位就是-2。精确到整数第二位就是2</param>
+            <returns>四舍五入后的值</returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.ToColor(System.String)">
+            <summary>
+            将字符串转换为Color
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.IsDateString(System.String)">
+            <summary>
+            判断字符串是否是yy-mm-dd字符串
+            </summary>
+            <param name="str">待判断字符串</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.RemoveHtml(System.String)">
+            <summary>
+            移除Html标记
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.RemoveUnsafeHtml(System.String)">
+            <summary>
+            过滤HTML中的不安全标签
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.IsSafeSqlString(System.String)">
+            <summary>
+            检测是否有Sql危险字符
+            </summary>
+            <param name="str">要判断字符串</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.IsSafeUserInfoString(System.String)">
+            <summary>
+            检测是否有危险的可能用于链接的字符串
+            </summary>
+            <param name="str">要判断字符串</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="P:Smart.Utility.StringHandle.AppPath">
+            <summary>
+            取得系统路径
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.GetFurl">
+            <summary>
+            获取面源网面的地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.GetIP">
+            <summary>
+            获得当前页面客户端的IP
+            </summary>
+            <returns>当前页面客户端的IP</returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.HtmlCode(System.String)">
+            <summary>
+            功能:对表 表单内容进行转换HTML操作,
+            </summary>
+            <param name="s">html字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.CodeHtml(System.String)">
+            <summary>
+            功能:对表 表单内容进行转换HTML操作,
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.StringHandle.FilterXSS(System.String)">
+            <summary>     
+            过滤xss攻击脚本     
+            </summary>     
+            <param name="input">传入字符串</param>     
+            <returns>过滤后的字符串</returns>     
+        </member>
+        <member name="T:Smart.Utility.StringHelper">
+            <summary>
+            字符串处理
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.StringHelper.GetSubStr(System.String,System.Int32)">
+            <summary>
+            获取子字符串
+            </summary>
+            <param name="inputString">输入字符串</param>
+            <param name="len">截取长度</param>
+            <returns>截取字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.StringHelper.SubString(System.String,System.String,System.String)">
+            <summary>
+            截取字符串
+            </summary>
+            <param name="htmlText">源字符串</param>
+            <param name="PreviousFlag">信息前标志</param>
+            <param name="FollowingFlag">信息后标志</param>
+            <returns>截取结果</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsInt32Num(System.Object)">
+            <summary>
+            判断对象是否为Int32类型的数字
+            </summary>
+            <param name="Expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsLetter(System.String)">
+            <summary>
+            判断是否为字母
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsNumeric(System.String)">
+            <summary>
+            判断是否为数字
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsDouble(System.Object)">
+            <summary>
+            判断是整数或小数
+            </summary>
+            <param name="Expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsUnsign(System.String)">
+              <summary> 
+              判断一个字符串是否是正数型的字符串 
+              </summary> 
+              <param name= "strValue "> 字符串 </param> 
+              <returns> 是则返回true，否则返回false </returns> 
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsUnsignDouble(System.String)">
+              <summary> 
+              判断一个字符串是否是正数型的字符串 
+              </summary> 
+              <param name= "strValue "> 字符串 </param> 
+              <returns> 是则返回true，否则返回false </returns> 
+        </member>
+        <member name="M:Smart.Utility.TypeParse.StrToBool(System.Object,System.Boolean)">
+            <summary>
+            string型转换为bool型
+            </summary>
+            <param name="strValue">要转换的字符串</param>
+            <param name="defValue">缺省值</param>
+            <returns>转换后的bool类型结果</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.StrToInt(System.Object,System.Int32)">
+            <summary>
+            将对象转换为Int32类型
+            </summary>
+            <param name="strValue">要转换的字符串</param>
+            <param name="defValue">缺省值</param>
+            <returns>转换后的int类型结果</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.StrToFloat(System.Object,System.Single)">
+            <summary>
+            string型转换为float型
+            </summary>
+            <param name="strValue">要转换的字符串</param>
+            <param name="defValue">缺省值</param>
+            <returns>转换后的int类型结果</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsNumericArray(System.String[])">
+            <summary>
+            判断给定的字符串数组(strNumber)中的数据是不是都为数值型
+            </summary>
+            <param name="strNumber">要确认的字符串数组</param>
+            <returns>是则返加true 不是则返回 false</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.StringArrayToString(System.String[],System.Char)">
+            <summary>
+            将字符串数组转成字符串
+            </summary>
+            <param name="strArray">字符串数组</param>        
+            <param name="Separator">分隔符</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.IsStringArray(System.String,System.String[])">
+            <summary>
+            判断字符串是否在字符串数组中存在
+            </summary>
+            <param name="str">字符串</param>
+            <param name="strArray">字符串数组</param>
+            <returns>是则返加true 不是则返回 false</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.ReturnStringSeat(System.String,System.String[])">
+            <summary>
+            判断字符串在字符串数组中的位置
+            </summary>
+            <param name="str">字符串</param>
+            <param name="strArray">字符串数组</param>
+            <returns>返回位置</returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.MaxInt(System.Int32[])">
+            <summary>
+            取数组中最大值
+            </summary>
+            <param name="n">数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.MaxStr(System.String[])">
+            <summary>
+            取数组中最大值
+            </summary>
+            <param name="n">数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.MinInt(System.Int32[])">
+            <summary>
+            取数组中最小值
+            </summary>
+            <param name="n">数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.TypeParse.MinStr(System.String[])">
+            <summary>
+            取数组中最小值
+            </summary>
+            <param name="n">数组</param>
+            <returns></returns>
+        </member>
+        <member name="T:Smart.Utility.ValidateCode">
+            <summary>
+            生成彩色随机验证码
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.Length">
+            <summary>
+            验证码长度(默认5个验证码的长度)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.FontSize">
+            <summary>
+            验证码字体大小(默认10像素)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.Padding">
+            <summary>
+            边框补边距(默认1像素)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.Chaos">
+            <summary>
+            是否输出燥点(默认不输出)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.ChaosColor">
+            <summary>
+            输出燥点的颜色(默认灰色)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.BackgroundColor">
+            <summary>
+            自定义背景色(默认白色)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.Colors">
+            <summary>
+            自定义随机颜色数组
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.Fonts">
+            <summary>
+            自定义字体数组
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.CodeSerial">
+            <summary>
+            自定义随机码字符串序列(使用逗号分隔)
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.Border">
+            <summary>
+            是否画边框
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.BorderColor">
+            <summary>
+            边框颜色　默认Color.Gainsboro
+            </summary>
+        </member>
+        <member name="P:Smart.Utility.ValidateCode.BorderWidth">
+            <summary>
+            边框宽度
+            </summary>
+        </member>
+        <member name="M:Smart.Utility.ValidateCode.CreateImageCode(System.String)">
+            <summary>
+            生成校验码图片
+            </summary>
+            <param name="code">代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.ValidateCode.CreateImageOnPage(System.String,System.Web.HttpContext)">
+            <summary>
+            将创建好的图片输出到页面
+            </summary>
+            <param name="code"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Smart.Utility.ValidateCode.CreateVerifyCode(System.Int32)">
+            <summary>
+            生成随机字符码
+            </summary>
+            <param name="codeLen">长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsEmail(System.String)">
+            <summary>
+            判断是否为Email
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsIP(System.String)">
+            <summary>
+            判断是否为IP地址
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsURL(System.String)">
+            <summary>
+            判断是否为URL地址
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsID(System.String)">
+            <summary>
+            判断是否为正确的身份证号码
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsPhone(System.String)">
+            <summary>
+            判断是否为电话号码格式
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsDate(System.String)">
+            <summary>
+            判断是否为日期
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsChinese(System.String)">
+            <summary>
+            判断是否为中文字符
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsCharNumber(System.String)">
+            <summary>
+            判断是否为字母数字组合
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsName(System.String)">
+            <summary>
+            判断是否为字母数字下划线组合
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.Utility.VerifyData.IsCharNum(System.String)">
+            <summary>
+            判断是否为字符或是数字
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

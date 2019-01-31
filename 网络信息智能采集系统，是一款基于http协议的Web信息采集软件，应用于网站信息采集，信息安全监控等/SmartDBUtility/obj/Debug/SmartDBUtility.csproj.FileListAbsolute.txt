@@ -1,0 +1,11 @@
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\bin\Debug\Smart.DBUtility.XML
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\bin\Debug\Smart.DBUtility.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\bin\Debug\Smart.DBUtility.pdb
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\bin\Debug\Smart.Security.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\bin\Debug\Smart.Security.pdb
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\bin\Debug\Smart.Security.xml
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\obj\Debug\SmartDBUtility.csprojAssemblyReference.cache
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\obj\Debug\SmartDBUtility.csproj.CoreCompileInputs.cache
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\obj\Debug\SmartDBUtility.csproj.CopyComplete
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\obj\Debug\Smart.DBUtility.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartDBUtility\obj\Debug\Smart.DBUtility.pdb

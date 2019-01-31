@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Smart.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Smart.Security.Encrypter">
+            <summary>
+            安全类（字符串加、解密）
+            </summary>
+        </member>
+        <member name="M:Smart.Security.Encrypter.Encrypt(System.String)">
+            <summary> 
+            使用缺省密钥字符串加密 
+            </summary> 
+            <param name="original">明文</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Decrypt(System.String)">
+            <summary> 
+            使用缺省密钥解密 
+            </summary> 
+            <param name="original">密文</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Decrypt(System.String,System.String)">
+            <summary> 
+            使用给定密钥解密 
+            </summary> 
+            <param name="original">密文</param> 
+            <param name="key">密钥</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Decrypt(System.String,System.Text.Encoding)">
+            <summary> 
+            使用缺省密钥解密,返回指定编码方式明文 
+            </summary> 
+            <param name="original">密文</param> 
+            <param name="encoding">编码方式</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Encrypt(System.String,System.String)">
+            <summary> 
+            使用给定密钥加密 
+            </summary> 
+            <param name="original">原始文字</param> 
+            <param name="key">密钥</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Decrypt(System.String,System.String,System.Text.Encoding)">
+            <summary> 
+            使用给定密钥解密 
+            </summary> 
+            <param name="encrypted">密文</param> 
+            <param name="key">密钥</param> 
+            <param name="encoding">字符编码方案</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.MakeMD5(System.Byte[])">
+            <summary> 
+            生成MD5摘要 
+            </summary> 
+            <param name="original">数据源</param> 
+            <returns>摘要</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Encrypt(System.Byte[],System.Byte[])">
+            <summary> 
+            使用给定密钥加密 
+            </summary> 
+            <param name="original">明文</param> 
+            <param name="key">密钥</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Decrypt(System.Byte[],System.Byte[])">
+            <summary> 
+            使用给定密钥解密数据 
+            </summary> 
+            <param name="encrypted">密文</param> 
+            <param name="key">密钥</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Encrypt(System.Byte[])">
+            <summary> 
+            使用缺省密钥加密 
+            </summary> 
+            <param name="original">原始数据</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Smart.Security.Encrypter.Decrypt(System.Byte[])">
+            <summary> 
+            使用缺省密钥解密数据 
+            </summary> 
+            <param name="encrypted">密文</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="T:Smart.Security.MD5">
+            <summary>
+            MD5加密类
+            </summary>
+        </member>
+        <member name="M:Smart.Security.MD5.MD5Encrypt(System.String,System.String@)">
+            <summary>		
+            将一段字符串使用MD5算法加密，并返回加密后的字符串
+            </summary>
+            <param name="clearText">原始明文字符串</param>
+            <param name="encryptedText">经过MD5算法加密后的密文字符串</param>
+        </member>
+        <member name="M:Smart.Security.MD5.MD5Encrypt(System.String)">
+            <summary>
+            将一段字符串使用MD5算法加密，并返回加密后的字符串
+            </summary>
+            <param name="clearText">原始明文字符串</param>
+            <returns>经过MD5算法加密后的密文字符串</returns>
+        </member>
+    </members>
+</doc>

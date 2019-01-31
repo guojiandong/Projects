@@ -1,0 +1,7 @@
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\bin\Debug\Smart.Security.XML
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\bin\Debug\Smart.Security.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\bin\Debug\Smart.Security.pdb
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\obj\Debug\SmartSecurity.csprojAssemblyReference.cache
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\obj\Debug\SmartSecurity.csproj.CoreCompileInputs.cache
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\obj\Debug\Smart.Security.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSecurity\obj\Debug\Smart.Security.pdb

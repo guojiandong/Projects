@@ -1,0 +1,753 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Smart.DBUtility</name>
+    </assembly>
+    <members>
+        <member name="F:Smart.DBUtility.AccessHelper.connectionString">
+            <summary>
+            数据库连接字符串(web.config来配置)ConnectionStrings
+            连接字符串示例格式：Provider=Microsoft.Jet.Oledb.4.0;Data Source=|DataDirectory|db1.mdb
+            </summary>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ColumnExists(System.String,System.String)">
+            <summary>
+            判断是否存在某表的某个字段
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="columnName">列名称</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.TabExists(System.String)">
+            <summary>
+            表是否存在
+            </summary>
+            <param name="TableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSql(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSqlTran(System.Collections.Generic.List{System.String})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">多条SQL语句</param>		
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSqlTran(System.Collections.ArrayList)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">多条SQL语句</param>		
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSql(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSqlGet(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSqlInsertImg(System.String,System.Byte[])">
+            <summary>
+            向数据库里插入图像格式的字段(和上面情况类似的另一种实例)
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="fs">图像字节,数据库的字段类型为image的情况</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteReader(System.String)">
+            <summary>
+            执行查询语句，返回OleDbDataReader ( 注意：调用该方法后，一定要对OleDbDataReader进行Close )
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>OleDbDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSql(System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSqlTran(System.Collections.Hashtable)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的OleDbParameter[]）</param>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteSqlTranWithIndentity(System.Collections.Hashtable)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的OleDbParameter[]）</param>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.GetSingle(System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.ExecuteReader(System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行查询语句，返回OleDbDataReader ( 注意：调用该方法后，一定要对OleDbDataReader进行Close )
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>OleDbDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.Query(System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.RunProcedure(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行存储过程，返回OleDbDataReader ( 注意：调用该方法后，一定要对OleDbDataReader进行Close )
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OleDbDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.RunProcedure(System.String,System.Data.IDataParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.BuildQueryCommand(System.Data.OleDb.OleDbConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            构建 OleDbCommand 对象(用来返回一个结果集，而不是一个整数值)
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OleDbCommand</returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.RunProcedure(System.String,System.Data.IDataParameter[],System.Int32@)">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.AccessHelper.BuildIntCommand(System.Data.OleDb.OleDbConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            创建 OleDbCommand 对象实例(用来返回一个整数值)	
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OleDbCommand 对象实例</returns>
+        </member>
+        <member name="T:Smart.DBUtility.OracleHelper">
+            <summary>
+            Oracle 数据访问
+            </summary>
+        </member>
+        <member name="F:Smart.DBUtility.OracleHelper.ConnectionString">
+            <summary>
+            数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            Execute a database query which does not include a select
+            </summary>
+            <param name="connectionString">Connection string to database</param>
+            <param name="commandType">Command type either stored procedure or SQL</param>
+            <param name="commandText">Acutall SQL Command</param>
+            <param name="commandParameters">Parameters to bind to the command</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.Data.OracleClient.OracleTransaction,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            Execute an OracleCommand (that returns no resultset) against an existing database transaction 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "PublishOrders", new OracleParameter(":prodid", 24));
+            </remarks>
+            <param name="trans">an existing database transaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or PL/SQL command</param>
+            <param name="commandParameters">an array of OracleParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.Data.OracleClient.OracleConnection,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            Execute an OracleCommand (that returns no resultset) against an existing database connection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connectionString, CommandType.StoredProcedure, "PublishOrders", new OracleParameter(":prodid", 24));
+            </remarks>
+            <param name="connection">an existing database connection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or PL/SQL command</param>
+            <param name="commandParameters">an array of OracleParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.Data.OracleClient.OracleCommand,System.Data.CommandType,System.String,System.Boolean,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行非查询操作的重载，增加了是否清除oracle参数的参数字段 
+            </summary>
+            <param name="command">数据库连接命令对象</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandText">命令</param>
+            <param name="isClearPara">是否清除oracle参数</param>
+            <param name="commandParameters">oracle参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.Data.OracleClient.OracleCommand@)">
+            <summary>
+            执行非查询操作的重载，增加了是否清除oracle参数的参数字段 
+            </summary>
+            <param name="command">数据库连接命令对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行SQL语句操作数据库
+            </summary>
+            <param name="commandText">SQL语句</param>
+            <param name="commandParameters">参数数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.String)">
+            <summary>
+            执行SQL语句操作数据库
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteReader(System.String,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            Execute a select query that will return a result set
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or PL/SQL command</param>
+            <param name="commandParameters">an array of OracleParamters used to execute the command</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteReader(System.String)">
+            <summary>
+            执行Reader.提供从数据源读取数据行的只进流的方法
+            </summary>
+            <param name="commandText">SQL文本命令</param>
+            <returns>OracleDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行查询，并将查询返回的结果集中第一行的第一列作为.Net的数据类型返回。忽略额外的列或行。
+            Execute an OracleCommand that returns the first column of the first record against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             Object obj = ExecuteScalar(connectionString, CommandType.StoredProcedure, "PublishOrders", new OracleParameter(":prodid", 24));
+            </remarks>
+            <param name="connectionString">一个有效的连接字符串</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or PL/SQL command</param>
+            <param name="commandParameters">an array of OracleParamters used to execute the command</param>
+            <returns>An object that should be converted to the expected type using Convert.To{Type}</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteScalar(System.Data.OracleClient.OracleTransaction,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行查询，并将查询返回的结果集中第一行的第一列作为.Net的数据类型返回。忽略额外的列或行。
+            Execute	a OracleCommand (that returns a 1x1 resultset)	against	the	specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <param name="transaction">A	valid SqlTransaction</param>
+            <param name="commandType">The CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">The stored procedure name	or PL/SQL command</param>
+            <param name="commandParameters">An array of	OracleParamters used to execute the command</param>
+            <returns>An	object containing the value	in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteScalar(System.Data.OracleClient.OracleConnection,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行查询，并将查询返回的结果集中第一行的第一列作为.Net的数据类型返回。忽略额外的列或行。
+            Execute an OracleCommand that returns the first column of the first record against an existing database connection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             Object obj = ExecuteScalar(conn, CommandType.StoredProcedure, "PublishOrders", new OracleParameter(":prodid", 24));
+            </remarks>
+            <param name="connection">一个现有的数据库连接 </param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or PL/SQL command</param>
+            <param name="commandParameters">an array of OracleParamters used to execute the command</param>
+            <returns>An object that should be converted to the expected type using Convert.To{Type}</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteScalar(System.Data.CommandType,System.String)">
+            <summary>
+            执行查询，并将查询返回的结果集中第一行的第一列作为.Net的数据类型返回。忽略额外的列或行。
+            </summary>
+            <param name="commandType">命令类型</param>
+            <param name="commandText">命令文本</param>
+            <returns></returns>
+            创建标识：张晋20070508
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteScalar(System.String)">
+            <summary>
+            执行查询，并将查询返回的结果集中第一行的第一列作为.Net的数据类型返回。忽略额外的列或行。
+            </summary>
+            <param name="commandText">sql语句</param>
+            <returns></returns>
+            创建标识：张晋20070508
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.PrepareCommand(System.Data.OracleClient.OracleCommand,System.Data.OracleClient.OracleConnection,System.Data.OracleClient.OracleTransaction,System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            Internal function to prepare a command for execution by the database
+            </summary>
+            <param name="cmd">Existing command object</param>
+            <param name="conn">Database connection object</param>
+            <param name="trans">Optional transaction object</param>
+            <param name="commandType">Command type, e.g. stored procedure</param>
+            <param name="commandText">Command test</param>
+            <param name="commandParameters">Parameters for the command</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.Int32@)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">int型输出值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedureOutValue(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.Int32@,System.Int32@)">
+            <summary>
+             获取
+            </summary>
+            <param name="storedProcName"></param>
+            <param name="parameters"></param>
+            <param name="out_msg"></param>
+            <param name="out_result"></param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.Int32@,System.Int32@)">
+            <summary>
+            申请充值接口
+            </summary>
+            <param name="storedProcName"></param>
+            <param name="parameters"></param>
+            <param name="out_msg"></param>
+            <param name="out_result"></param>
+            <param name="planid"></param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.String@)">
+            <summary>
+            执行存储过程（一个decimal型和一个字符型输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Int32@,System.Decimal@,System.String@,System.String@,System.Decimal@,System.String@)">
+            <summary>
+            执行存储过程（卡登记）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.String@,System.DateTime@,System.Decimal@,System.String@)">
+            <summary>
+            执行存储过程（发放职员卡）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.String@,System.DateTime@,System.Int32@,System.Decimal@,System.String@)">
+            <summary>
+            执行存储过程（补办功能卡）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.String@,System.Decimal@,System.String@)">
+            <summary>
+            执行存储过程（补办普通乘车卡）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="cardNo">输出卡号</param>
+            <param name="id">输出发卡流水号</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@)">
+            <summary>
+            执行存储过程（一个数值型输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@)">
+            <summary>
+            执行存储过程（一个字符型输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.String@,System.Data.DataSet@)">
+            <summary>
+            执行存储过程（一个decimal型、一个字符型、一个游标输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+            <param name="io_allrec">游标</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.Int32@,System.Data.DataSet@)">
+            <summary>
+            执行存储过程（一个string型、一个int型、一个游标输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_msg">输出信息</param>
+            <param name="out_result">输入标记</param>
+            <param name="io_allrec">游标</param>
+        </member>
+        <!-- 对于成员“M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.Decimal@,System.String@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.Decimal@,System.String@,System.Int32@)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Int32@,System.Int32@,System.String@)">
+            <summary>
+            执行存储过程（一个int型、一个字符型、一个游标输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_back">decimal型输出数值</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="out_msg">输出信息</param>
+        </member>
+        <!-- 对于成员“M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.Int32@,System.Int32@,System.Int32@,System.String@)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.Decimal@,System.Data.DataSet@)">
+            <summary>
+            执行存储过程（一个decimal型、一个游标输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_result">decimal型输出数值</param>
+            <param name="io_allrec">游标</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.Data.DataSet@)">
+            <summary>
+            执行存储过程（一个字符型、一个游标输出参数）
+            </summary>
+            <param name="storedProcName">存储过程名称</param>
+            <param name="parameters">参数集</param>
+            <param name="out_msg">输出信息</param>
+            <param name="io_allrec">游标</param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.Decimal@,System.String@,System.String@,System.Int32@,System.String@,System.Int32@)">
+            <summary>
+             执行存储过程
+            </summary>
+            <param name="storedProcName"></param>
+            <param name="parameters"></param>
+            <param name="out_outid"></param>
+            <param name="out_opfare"></param>
+            <param name="out_bankcardno"></param>
+            <param name="out_msg"></param>
+            <param name="out_result"></param>
+            <param name="out_cardno"></param>
+            <param name="out_cardsn"></param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.RunProcedure(System.String,System.Data.OracleClient.OracleParameter[],System.String@,System.String@,System.Int32@)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName"></param>
+            <param name="parameters"></param>
+            <param name="out_outid"></param>
+            <param name="out_msg"></param>
+            <param name="out_result"></param>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.GetPagedRecordsCount(System.String)">
+            <summary>
+            获得记录总数（仅在存储过程分页中使用）
+            </summary>
+            <param name="sqlCount">查询语句,含排序部分</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="sqlString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.Query(System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            执行查询语句,返回DataTable
+            </summary>
+            <param name="commandType">执行类型</param>
+            <param name="commandText">语句</param>
+            <param name="commandParameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.BuildQueryCommand(System.Data.OracleClient.OracleConnection,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            构建 OracleCommand 对象(用来返回一个结果集，而不是一个整数值)
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OracleCommand</returns>
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.BuildCommand(System.Data.OracleClient.OracleConnection,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            构建 OracleCommand 对象
+            </summary>
+            <param name="connection">OracleConnection对象</param>
+            <param name="sqlStr">sql语句</param>
+            <param name="parameters">OracleParameter参数对象</param>
+            <returns>OracleCommand对象</returns>		
+        </member>
+        <member name="M:Smart.DBUtility.OracleHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.OracleClient.OracleParameter[])">
+            <summary>
+            通过命令类型、命令和参数组执行费查询操作
+            </summary>
+            <param name="commandType"></param>
+            <param name="commandText"></param>
+            <param name="commandParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Smart.DBUtility.SqlServerHelper">
+            <summary>
+            SqlServer数据库连接助手
+            </summary>
+        </member>
+        <member name="F:Smart.DBUtility.SqlServerHelper.connectionString">
+            <summary>
+            数据库连接字符串(web.config来配置)ConnectionStrings
+            </summary>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ColumnExists(System.String,System.String)">
+            <summary>
+            判断是否存在某表的某个字段
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="columnName">列名称</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.TabExists(System.String)">
+            <summary>
+            表是否存在
+            </summary>
+            <param name="TableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSql(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSqlTran(System.Collections.Generic.List{System.String})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">多条SQL语句</param>		
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSqlTran(System.Collections.ArrayList)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">多条SQL语句</param>		
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSql(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSqlGet(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSqlInsertImg(System.String,System.Byte[])">
+            <summary>
+            向数据库里插入图像格式的字段(和上面情况类似的另一种实例)
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="fs">图像字节,数据库的字段类型为image的情况</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteReader(System.String)">
+            <summary>
+            执行查询语句，返回SqlDataReader ( 注意：调用该方法后，一定要对SqlDataReader进行Close )
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>SqlDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSql(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSqlTran(System.Collections.Hashtable)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的SqlParameter[]）</param>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteSqlTranWithIndentity(System.Collections.Hashtable)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的SqlParameter[]）</param>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.GetSingle(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.ExecuteReader(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行查询语句，返回SqlDataReader ( 注意：调用该方法后，一定要对SqlDataReader进行Close )
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>SqlDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.Query(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.RunProcedure(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行存储过程，返回SqlDataReader ( 注意：调用该方法后，一定要对SqlDataReader进行Close )
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>SqlDataReader</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.RunProcedure(System.String,System.Data.IDataParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.BuildQueryCommand(System.Data.SqlClient.SqlConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            构建 SqlCommand 对象(用来返回一个结果集，而不是一个整数值)
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>SqlCommand</returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.RunProcedure(System.String,System.Data.IDataParameter[],System.Int32@)">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smart.DBUtility.SqlServerHelper.BuildIntCommand(System.Data.SqlClient.SqlConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            创建 SqlCommand 对象实例(用来返回一个整数值)	
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>SqlCommand 对象实例</returns>
+        </member>
+    </members>
+</doc>

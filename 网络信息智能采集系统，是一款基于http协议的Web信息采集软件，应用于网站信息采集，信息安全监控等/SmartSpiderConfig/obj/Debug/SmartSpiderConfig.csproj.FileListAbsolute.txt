@@ -1,0 +1,13 @@
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\SmartSpider.Config.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\SmartSpider.Config.pdb
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\Smart.Utility.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\Smart.Security.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\Smart.Utility.pdb
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\Smart.Utility.xml
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\Smart.Security.pdb
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\bin\Debug\Smart.Security.xml
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\obj\Debug\SmartSpiderConfig.csprojAssemblyReference.cache
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\obj\Debug\SmartSpiderConfig.csproj.CoreCompileInputs.cache
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\obj\Debug\SmartSpiderConfig.csproj.CopyComplete
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\obj\Debug\SmartSpider.Config.dll
+C:\Users\luxshare-ict\Downloads - 副本\网络信息智能采集系统，是一款基于http协议的Web信息采集软件，应用于网站信息采集，信息安全监控等领域\SmartSpiderConfig\obj\Debug\SmartSpider.Config.pdb
