@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "<p>Currently Point/Size and Rectangle are redefined. When moving the QrCodeControl.cs and Renderer.cs into the assembly there are numerous naming clashes with System.Drawing.</p>\n<p>&nbsp;</p>\n<p>From what i see the main reason of having a separate class is the ToString() visualization in the debugger.</p>\n<p>&nbsp;</p>\n<p>Suggestion is to either rename the internal classes, use fully qualified names (like System.Drawing.Point) or just swap them for the System.Drawing ones.</p>\n<p>&nbsp;</p>\n<p>wvd_vegt</p>\n",
+    "LastUpdatedDate": "2011-10-19T22:12:14.99-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-17T01:40:27.777-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Rename Size/Point etc so they do not clash with System.Drawing",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 326
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

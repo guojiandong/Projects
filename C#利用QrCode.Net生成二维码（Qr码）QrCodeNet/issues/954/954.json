@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nthe NuGet version of the library does not work when used together with .NET 4.5, I had to manually rebuild the library to make it work. Please rebuild the library for .NET 4.5 and update the NuGet package.",
+    "LastUpdatedDate": "2015-01-14T00:18:03.45-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2014-11-08T06:21:24.067-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Not working on .NET 4.5",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 954
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I believe there are two different Nuget version. One is not create by us and it has issue.",
+      "PostedDate": "2014-11-09T11:09:14.17-08:00",
+      "Id": 164214
+    }
+  ]
+}

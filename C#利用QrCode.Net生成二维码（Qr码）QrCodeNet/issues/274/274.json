@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "<p>Improvement / rewrite of BitVector class to enable O(1) concatenation of BitVectors.</p>\n<p>Current implementation of BitVector.Append(BitVector) involves resizing first copy of all elements of second.</p>\n<p>The idea is to implement LINQ - like lazy concatenation using wrapping two parts into one object.</p>\n",
+    "LastUpdatedDate": "2011-10-04T00:14:00.007-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-27T04:34:10.71-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Improvement / rewrite of BitVector class to enable O(1) concatenation of BitVectors",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 274
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with changeset 4703.",
+      "PostedDate": "2011-09-27T09:25:04.037-07:00",
+      "Id": 85097
+    },
+    {
+      "Message": "I have changed some code under EncodeBase. Instead of combine each BitVector, It will append new content on sequence. That will eliminate combine action. Avoid using BitVector.Append(BitVector), result as O(1).\r\n\r\nProblem will be heavily using ByRef method \"ref\".\r\n\r\nTest result from Nunit test is small performance gain. \r\n\r\nBefore change. Test for AlphaNumEncode(CSV and reference test)\r\nLowest time 1.0070576\r\nAverage time is around 1.019\r\n\r\nAfter change. \r\nAverage time is 0.986\r\nHighest time 1.0380571",
+      "PostedDate": "2011-10-02T18:40:26.043-07:00",
+      "Id": 85098
+    },
+    {
+      "Message": "Associated with check-in 5080",
+      "PostedDate": "2011-10-04T00:14:00.007-07:00",
+      "Id": 85099
+    }
+  ]
+}

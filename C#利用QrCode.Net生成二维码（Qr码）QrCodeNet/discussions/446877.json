@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1056134",
+    "ThreadId": "446877",
+    "Html": "I have tried with 2 different scanners, the QR code seems to add a carriage return on my qr code. This causes me issues on a website I am working on.\r<br />\n<br />\nI don't want this feature. Is it possible to switch this off?\r<br />\n<br />\n<br />\nThank you<br />\n",
+    "PostedDate": "2013-06-12T18:36:41.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056195",
+    "ThreadId": "446877",
+    "Html": "Could you include a sample code image? There shouldn't be anything extra other than the one you put in.\r<br />\n<br />\nAlso please provide your string input with that code image.\r<br />\n<br />\nOn top of that, if you could try that image on ZXing's decoder first, if that one decode fine then there is nothing I can do about it.\r<br />\n<br />\ndecoder address: <a href=\"http://zxing.org/w/decode.jspx\" rel=\"nofollow\">http://zxing.org/w/decode.jspx</a><br />\n",
+    "PostedDate": "2013-06-12T23:53:20.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

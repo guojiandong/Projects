@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>ISO/IEC 18004 2006 P. 32  Chapter 6.4.9 Terminator</p>\n<p>P.33 Chapter 6.4.10 Bit Stream to codeword conversion --  Padding and pad codwords.</p>\n",
+    "LastUpdatedDate": "2011-12-01T21:11:16.597-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-11-30T18:06:28.783-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Terminator, Padding, Pad codewords implementation and Test",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 423
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Checkin 9430\r\nImplement terminator class for Terminator, Padding, Pad codewords. \r\nImplement terminator class's Nunit test. ",
+      "PostedDate": "2011-11-30T21:54:11.903-08:00",
+      "Id": 85136
+    }
+  ]
+}

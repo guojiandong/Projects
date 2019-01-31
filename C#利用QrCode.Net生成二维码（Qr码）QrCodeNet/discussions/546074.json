@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1247807",
+    "ThreadId": "546074",
+    "Html": "If I select a set size for the QR code, lets say 90px and then I alter the Correction level the actual pixel size of the QR codes alters. It varies depending on the Correction level selected. Therefore I can never get an exact QR code size. \r<br />\n<br />\nReally would appreciate some help on this as I need to get these codes printed and I have tried everything I know to stop the size changing. \r<br />\n<br />\nI also was trying to get a 49x49 QR code but the Library doesn't seem to accept it. Again I just get an odd size generated.\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2014-05-21T02:48:39.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248211",
+    "ThreadId": "546074",
+    "Html": "If you setup as fixed code size then code will be according to that size or smaller.\r<br />\n<br />\nThis was design decision I made before, that quality of code is on priority instead of blend image. If you want explicit correct size, then use fixed code size on DrawingBrushRenderer. \r<br />\n<br />\n<a href=\"https://qrcodenet.codeplex.com/wikipage?title=DrawingBrushRenderer&amp;referringTitle=Renderer\" rel=\"nofollow\">https://qrcodenet.codeplex.com/wikipage?title=DrawingBrushRenderer&referringTitle=Renderer</a>\r<br />\n<br />\nIt will scale code to specific size.\r<br />\n<br />\n49x49 is a bit tricky. In some case encoder will ignore that size, since if we have 49+ module per each side, then we cannot display code properly in 49x49 px image. You won't be able to read it by decoder.\r<br />\n<br />\nImage without blend and with all cell proper rendered is on first priority than just give you what you want. 49x49 is way too small for medium size QrCode.\r<br />\n<br />\nI would suggest that 49x49 code should be either scale down version or just a dummy code, while you click on it, it should give out large image. If you render out on website, then css can do all the work without need of small image.\r<br />\n<br />\nShort string input, with sharp rendering without blend is best practice when you want your client able to decode it with any mobile and at longer distance. Try to do some decode in real environment under different condition you will know why I made such decision. Not just send perfect image direct to decoder.<br />\n",
+    "PostedDate": "2014-05-21T18:23:21.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248216",
+    "ThreadId": "546074",
+    "Html": "Thank you for the swift and comprehensive reply. <br />\n<br />\nI agree that the cell properly rendered is the most important thing. I was also wondering if 49 was probably a bad size to aim for  :) <br />\n<br />\nThe reason I need something about this size is that I need codes for a wrist band. The print area is only 12mm x 12mm and so I was trying to get the largest and clearest and most accurately read image possible to fit that area. <br />\n<br />\nIn your experience, if that was the area limitation, 12mm x 12mm  what would you recommend as a settings to go for as to size and correction etc etc, so that when the code was read, it was 99% times read without trouble. The data looks like this ;    <a href=\"http://www.mywebiste.com/?user=AU00000001\" rel=\"nofollow\">http://www.mywebiste.com/?user=AU00000001</a><br />\n<br />\nthanks for your help<br />\nregards<br />\n",
+    "PostedDate": "2014-05-21T18:51:09.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248644",
+    "ThreadId": "546074",
+    "Html": "First shorten that url. There are a lot of different shorten service out there. In most of time, those service provide consistent url length which is also good.\r<br />\n<br />\n<a href=\"https://developers.google.com/url-shortener/v1/getting_started\" rel=\"nofollow\">https://developers.google.com/url-shortener/v1/getting_started</a>\r<br />\n<br />\nYou could write small app for that to generate massive amount of shortened url. Shorten as shorten url include user id as whole not just your site url.\r<br />\n<br />\n<br />\nOnce url is short, amount of code cell should decrease a lot. Generate one and give it a try, record how many cell per each side.\r<br />\n<br />\nLevel 1 Code.  holds 17~25 characters (alpha numeric or acs ii)  7~10 with high error correction\r<br />\nLevel 2 Code.  holds 32~43 characters (alpha numeric or acs ii)   14~20 with high error correction\r<br />\n<br />\nHere is a shortened url: <a href=\"http://goo.gl/xwCNC\" rel=\"nofollow\">http://goo.gl/xwCNC</a>\r<br />\n<br />\n19 characters. Level 2 code with medium to high correction, or level 3 code will do.\r<br />\n<br />\n<a href=\"http://zxing.appspot.com/generator/\" rel=\"nofollow\">http://zxing.appspot.com/generator/</a>\r<br />\n<br />\nChoose iso-8859-1 character encode, quality H with shortened url. It is about 29x29 cells, quality Q is 25x25 cells. \r<br />\n<br />\nFor quality H. better size will be 29x29 or 58x58.\r<br />\nFor quality Q. better size will be 25x25 or 50x50\r<br />\n<br />\nAbove are all with outside border set to zero cells. If add border, it will of course require larger size. But in most case, when you print on something, you won't print code's edge to target's edge anyway. So ignore border sometime is alright.\r<br />\n<br />\nThis should give you some idea how you should do it. Shorten URL is KEY. With your above url it will be too long to make it easy to read.<br />\n",
+    "PostedDate": "2014-05-22T16:14:50.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248648",
+    "ThreadId": "546074",
+    "Html": "Additionally, reader is important too. QrCode reader 90% of them are junk. Faster and accurate reader is hard to find.\r<br />\n<br />\n<a href=\"https://play.google.com/store/apps/details?id=com.threegvision.products.inigma.Android\" rel=\"nofollow\">https://play.google.com/store/apps/details?id=com.threegvision.products.inigma.Android</a>\r<br />\n<br />\ni-nigma is very good reader. Code read speed and error correction is on top of chart. Hard to find it as it's name. <br />\n",
+    "PostedDate": "2014-05-22T16:22:31.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250380",
+    "ThreadId": "546074",
+    "Html": "Thank you for taking the time to detail all of this.\r<br />\n<br />\ncheers<br />\n",
+    "PostedDate": "2014-05-28T02:58:40.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

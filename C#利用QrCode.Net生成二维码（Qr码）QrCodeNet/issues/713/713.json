@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>Currently the assemblies available for download (v0.3) are not strongly signed, which means a manual code download and compilation with a key is needed to sign the assemblies so that they can be referenced by other strongly signed assemblies.</p>\n",
+    "LastUpdatedDate": "2015-06-22T16:41:20.687-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-09T06:13:03.947-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Provide signed assemblies out of the box",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 713
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks for report. I will make sure there is an signed assembly on next release. For version 0.3 I will see what I can do with it. ",
+      "PostedDate": "2012-04-10T14:12:27.743-07:00",
+      "Id": 85164
+    }
+  ]
+}

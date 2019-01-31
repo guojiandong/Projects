@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "801993",
+    "ThreadId": "346417",
+    "Html": "<p>Hello,</p>\n<p>Im trying to render a QR-Code that will be recognized as a Contact when scanned by Smartphones.<br />The string Im trying to render is:</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>MECARD:N:Firstname Lastname;NOTE:Companyname;ADR:Address;TEL:0123456;EMAIL:firstname.lastname@company.com;URL:http://www.company.com;;</p>\n<p>&nbsp;</p>\n<p>Im rendering this string without any linebreaks in it.<br />When I render it with QrCode.Net and scan it with my smartphone I get the exact string displayed...<br />When I render it with Google API and scan it, the phone recognizes it as a contact...</p>\n<p>So the QR-Code that is rendered with QrCode.Net is not recognized as a contact...</p>\n<p>Do you know why this is happening? Any help is welcome!</p>\n<p>&nbsp;/Edit:<br />This is the string rendered by QrCode.Net:<br /><a href=\"http://www.abload.de/img/samplestringsoj4o.png\">http://www.abload.de/img/samplestringsoj4o.png</a></p>\n<p>This is rendered by Google-API:<br /><a href=\"http://www.abload.de/img/samplestring-google1ik5s.png\">http://www.abload.de/img/samplestring-google1ik5s.png</a></p>",
+    "PostedDate": "2012-02-27T06:15:47.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802221",
+    "ThreadId": "346417",
+    "Html": "<p>I use i-ngma to parse both QrCode, it give me same result as mecard contact. Google decoder can not. By further investment on output, I found that by copy past your content to generate QrCode by QrCode.Net. The result I got is different to the one you post  up there.&nbsp;</p>\n<p>Now I have use QrCode.Net to create a QrCode, uploaded to imageshack, you can check yourself.&nbsp;</p>\n<p><a href=\"http://zxing.org/w/decode?u=http%3A%2F%2Fimg52.imageshack.us%2Fimg52%2F3558%2F93670613.png&amp;full=true\">http://img52.imageshack.us/img52/3558/93670613.png</a></p>\n<p>After use ZXing decoder online and use browser's view source function you can find out exactly raw text.&nbsp;</p>\n<p>For the one I generate:&nbsp;</p>\n<p><span>MECARD:N:Firstname Lastname;NOTE:Companyname;ADR:Address;TEL:0123456;EMAIL:firstname.lastname@company.com;URL:http://www.company.com;;</span></p>\n<p><span>Here is the one rendered by Google-API that you provide up there.&nbsp;</span></p>\n<p><span><span>MECARD:N:Firstname Lastname;NOTE:Companyname;ADR:Address;TEL:0123456;EMAIL:firstname.lastname@company.com;URL:http://www.company.com;;</span></span></p>\n<p><span><span>And here is the one you create by QrCode.Net</span></span></p>\n<p><span><span><span>&amp;#65279;MECARD:N:Firstname Lastname;NOTE:Companyname;ADR:Address;TEL:0123456;EMAIL:firstname.lastname@company.com;URL:http://www.company.com;;</span></span></span></p>\n<p><span><span><span>The one you encode actually have some extra string at front. I don't know what's going on there, maybe you can find out.&nbsp;</span></span></span></p>\n<p>&nbsp;</p>\n<p><span><span><span>Note: As you can see, my image is exactly same as Google-API's one. How I generate is just use demo contain inside sourcecode and copy paste your input string. Our library use google-API as test reference, only two part is different.&nbsp;</span></span></span></p>\n<p><span><span><span>1. QrCode.Net will sometime generate QrCode one size smaller than Google-API. As they lack on determine algorithm to properly use most&nbsp;efficient size.&nbsp;</span></span></span></p>\n<p><span><span><span>2. We use auto detect for eight-bit encode where Google-API ask you to input encoding table(for example: iso-8859-1&nbsp;). That will cause Google-API turn some&nbsp;character&nbsp;that not belong to that encoding table to become question mark. You can  easily test out by select character encoding to iso-8859-1 and input text with some japanese, korean or chinese on ZXing generator page. You will find out result during decode is all question mark.&nbsp;</span></span></span></p>\n<p><span><span><span>That's only output viable different between two encoder. Other difference will be just algorithm we use, but result will be exactly same.&nbsp;</span></span></span></p>\n<p><span><span><span>Hope that helps you.&nbsp;</span></span></span></p>\n<p>Silverlancer</p>",
+    "PostedDate": "2012-02-27T13:05:51.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802979",
+    "ThreadId": "346417",
+    "Html": "<p>Thanks for your detailed reply.</p>\n<p>Im sorry but I cant confirm your thoughts.<br /> The string you mentioned seems to be caused by the ZXing Decoder. If you download my QR-Code and decode it with ZXing by uploading instead of giving the URL, der string is not there.</p>\n<p>I also copied the MECARD-String to your Demo Program and scanned the Code with Barcode Scanner, but its not working... What the heck am I doing wrong?</p>\n<p>May there be some issues with the charset? I saw a setting for default encoding in some file of qrcode.net, but cant find it anymore... Can you give me the filename?</p>\n<p>Thanks a lot for your help!</p>\n<p>&nbsp;</p>\n<p>/Edit:<br />I downloaded the newest build and now its working with the demo application. Im going to try to recompile my program with that build and see if it works.</p>",
+    "PostedDate": "2012-02-28T22:52:45.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803023",
+    "ThreadId": "346417",
+    "Html": "<p>Which version did you use before? If you could provide I might be able to find out reason.&nbsp;</p>\r\n<p>Default encoding is for different ISO/IEC documentation. It's mainly for which encoding table to use for eight bit byte encoding.&nbsp;</p>",
+    "PostedDate": "2012-02-29T01:14:10.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803063",
+    "ThreadId": "346417",
+    "Html": "<p>Before I used 11247.</p>\r\n<p>Im trying now with the latest build. But Im recoding my program at the moment because I needed to change a lot of things...</p>\r\n<p>I will give feedback again when recode is complete and I managed to generate QR-Codes with the new build.</p>",
+    "PostedDate": "2012-02-29T02:59:34.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803084",
+    "ThreadId": "346417",
+    "Html": "<p>Everything seems to work now as expected :) Thanks for your help!</p>\r\n<p>This QR-Code-Generator ist really nice work :)</p>",
+    "PostedDate": "2012-02-29T03:40:21.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

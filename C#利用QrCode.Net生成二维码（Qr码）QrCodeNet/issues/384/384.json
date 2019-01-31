@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": "",
+    "Description": "<p>Hi, I wrote a WPF control for QRCode.Net.</p>\n<p>&nbsp;</p>\n<p>I left off the &quot;artistic mode&quot; as in WPF you&#39;d just put your own banner across the control. You can change the background and foreground to any brush (imagebrush, gradient, solid color), and the &quot;padding&quot; property functions as the quiet zone...</p>\n<p>&nbsp;</p>\n<p>I&#39;d submit a patch, but I&#39;m not sure exactly where you want to put my code - inside QrCode.Net, or in its own project etc. So I&#39;m attaching my version of your source but with two new projects, the WPF control and a test WPF application. I hope one of you guys will incorporate my code soon!</p>\n<p>&nbsp;</p>\n<p>The same code will *almost* work in silverlight (and on windows phone), but we&#39;d have to make some changes to Gma.QrCodeNet.Encoder first.</p>\n",
+    "LastUpdatedDate": "2012-04-16T21:42:16.307-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-11-09T14:34:33.393-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WPF control",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 384
+  },
+  "FileAttachments": [
+    {
+      "FileId": 596017,
+      "FileName": "Gma.QrCodeNet plus WPF.zip",
+      "DownloadUrl": ".\\596017"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Oops there's one mistake in there - please see https://gist.github.com/1353306 for the correct version of QrCodeElement.cs - the Margin's default was being overridden but it should have been the Padding. ",
+      "PostedDate": "2011-11-09T14:41:05.24-08:00",
+      "Id": 85132
+    },
+    {
+      "Message": "I have some issue compile your code at moment. I'm currently using sharpdeveloper 4.0. We might have to see if gmamaladze can help you to put that in. \r\n\r\nControl should be all under Encoder.Windows.Control. ",
+      "PostedDate": "2011-11-13T01:50:30.827-08:00",
+      "Id": 85133
+    },
+    {
+      "Message": "Associated with check in 11648 ",
+      "PostedDate": "2012-01-15T20:58:46.167-08:00",
+      "Id": 85134
+    },
+    {
+      "Message": "Associated with check in 11892 \r\nImplemented  two WPF control for QrCode. ",
+      "PostedDate": "2012-01-29T19:03:55.437-08:00",
+      "Id": 85135
+    }
+  ]
+}

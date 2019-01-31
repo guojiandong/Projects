@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1043880",
+    "ThreadId": "443743",
+    "Html": "QrEncoder qre = new QrEncoder( ErrorCorrectionLevel.H );\r<br />\nQrCode qc = qre.Encode( &quot;Hello World&quot; );\r<br />\nGeometryGroup gg = GeometryRenderer.DarkModuleGeometry( qc.Matrix );\r<br />\n<br />\nWhen I scan back the resulting code, it always begins with a Japanese sentence ending dot followed by a Katakana 'so' character prepended to it. It doesn't matter what text I give it, it always prepends these two characters. I don't see any way to tell it that the input is explicitly English text. <br />\n",
+    "PostedDate": "2013-05-15T06:56:02.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044047",
+    "ThreadId": "443743",
+    "Html": "Use following link to decode, see what comes back.\r<br />\n<br />\n<br />\n<a href=\"http://zxing.org/w/decode.jspx\" rel=\"nofollow\">http://zxing.org/w/decode.jspx</a>\r<br />\n<br />\nSometime issue might relate to decoder instead of encoder.<br />\n",
+    "PostedDate": "2013-05-15T11:42:38.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044849",
+    "ThreadId": "443743",
+    "Html": "I've test this extensively now. I've read the QRcode that your library generates with the link you send and it works correctly.. Additionally, I read this code with an iPhone, and iPod, three different Android phone and they also work fine.\r<br />\n<br />\nHowever, on my Windows Phone 7.5 using the built in Bing scanner, it always prepends these two character on any QRcode generated from your library. Using the same Bing scanner, I've successfully read every QR code I physically have and all kinds of normal and augmented QR code images found from a google search. Actually, I would say that the Bing decoder is better than most of the other ones I've tried. But for some reason it wants to augment the string presented from your QRcodes.\r<br />\n<br />\nAny suggestions or things to try?<br />\n",
+    "PostedDate": "2013-05-16T19:20:47.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045018",
+    "ThreadId": "443743",
+    "Html": "Have you tried use zxing to generate QRcode and decode with bing scanner?\r<br />\n<br />\nAlso post your QrCode here, with input.<br />\n",
+    "PostedDate": "2013-05-17T04:20:36.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045020",
+    "ThreadId": "443743",
+    "Html": "<a href=\"http://kamocu.com/en/qrcode/\" rel=\"nofollow\">http://kamocu.com/en/qrcode/</a>\r<br />\n<br />\nJust tried use QrCode.Net to create some code and decode with bing scanner. No katakana at front of message.<br />\n",
+    "PostedDate": "2013-05-17T04:25:09.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

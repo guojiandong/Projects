@@ -1,0 +1,57 @@
+<div class="wikidoc"><h1>QrCodeImgControl</h1>This page provides a guide for use WPF QrCodeImgControl. (After <b>check-in 15721</b>)<br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.WPF<br />
+<h3>Syntax</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> QrCodeImgControl : Control
+</pre></div>
+<h3>Remarks</h3>QrCodeImgControl is WPF user control.<br /><br />It is base on WriteableBitmap. The size of image within the control is set up by &quot;QrCodeWidthInch&quot; property. 1 inch = 2.54 centimetres. It will try to detect device&#39;s DPI and construct WriteableBitmap with proper pixel width. Default DPI is set up at 96. <br /><br />Image within control&#39;s size won&#39;t be constant, but it will be around QrCodeWIdthInch. Thus memory usage is a bit stable compare to Geometry control. But that will only viable once version of QrCode grow pass some point, also relate to the size of image.<br /><br />WriteableBitmap can be set up with two different pixel format with IsGrayImage property. Gray8 and Pbgra32. Below are detail for both pixel format. <br />Gray8<br />Number of int32 per row: (Rounds up)(writeablebitmap.pixelwidth / 4)<br />Number of row: writeablebitmap.pixelheight<br />Pbgra32<br />Number of int32 per row: writeablebitmap.pixelwidth<br />Number of row: writeablebitmap.pixelheight<br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>QrCodeImgControl</td><td>Initialize a new instance of QrCodeImgControl Class.</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>Lock</td><td>Lock class, changes to Text or ErrorCorrectLevel dependency property won&#39;t re-encode QrCode.</td></tr>
+<tr><td><a href="http://goo.gl/itlQh">Unlock</a></td><td>Unlock class then re-encode QrCode and redraw WriteableBitmap if not freezed</td></tr>
+<tr><td>Freeze</td><td>Freeze class, changes to brush, quiet zone or other visual dependency property won&#39;t redraw WriteableBitmap</td></tr>
+<tr><td>UnFreeze</td><td>UnFreeze class, then redraw WriteableBitmap</td></tr>
+<tr><td>OnQrMatrixChanged</td><td>Raises after re-encode QrMatrix</td></tr></table><br />
+<h3>Properties</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>LightColor</td><td>Dependency property for light module colour</td></tr>
+<tr><td>DarkColor</td><td>Dependency property for dark module colour</td></tr>
+<tr><td>QrCodeWidthInch</td><td>Dependency property for QrCode width in inch</td></tr>
+<tr><td>QuietZoneModule</td><td>Dependency property for QuietZoneModules enum</td></tr>
+<tr><td>ErrorCorrectLevel</td><td>Dependency property for ErrorCorrectionLevel enum</td></tr>
+<tr><td>Text</td><td>Dependency property for input text string</td></tr>
+<tr><td>IsGrayImage</td><td>Dependency property for boolean indicate WriteableBitmap&#39;s image format</td></tr>
+<tr><td>WBitmap</td><td>Dependency property for WriteableBitmap</td></tr></table><br />
+<h3>Events</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>QrMatrixChanged</td><td>Occur after QrCode re-encode</td></tr></table><br />
+<h3>Example</h3><b>XAML</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">QrCodeImgControl</span> <span style="color:Red;">Grid.Row</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">1</span><span style="color:Black;">&quot;</span> <span style="color:Red;">HorizontalAlignment</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Stretch</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Margin</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">0</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Name</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">qrControl</span><span style="color:Black;">&quot;</span> <span style="color:Red;">VerticalAlignment</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Stretch</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Height</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Auto</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Width</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Auto</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Text</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">test</span><span style="color:Black;">&quot;</span> <span style="color:Red;">QuietZoneModule</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Zero</span><span style="color:Black;">&quot;</span> <span style="color:Red;">IsGrayImage</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">True</span><span style="color:Black;">&quot;</span> <span style="color:Red;">LightColor</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">#FFFFCCFF</span><span style="color:Black;">&quot;</span> <span style="color:Red;">DarkColor</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">#FF910000</span><span style="color:Black;">&quot;</span> <span style="color:Blue;">/&gt;</span>
+</pre></div><br /><b>C#</b><br /><div style="color:Black;background-color:White;"><pre>
+qrControl.Text = <span style="color:#A31515;">&quot;QrCode.Net&quot;</span>;
+
+BitMatrix qrMatrix = qrControl.GetQrMatrix();    <span style="color:Green;">//Qr Bit matrix for input string &quot;QrCode.Net&quot;</span>
+
+qrControl.Lock();
+qrControl.ErrorCorrectLevel = ErrorCorrectionLevel.M;    <span style="color:Green;">//It won&#39;t re-encode qrCode</span>
+qrControl.Text= <span style="color:#A31515;">&quot;lock test&quot;</span>;
+qrMatrix = qrControl.GetQrMatrix();    <span style="color:Green;">//Bit matrix return from method is still for input string &quot;QrCode.Net&quot;</span>
+qrControl.Unlock();   <span style="color:Green;">//Re-encode and redraw WriteableBitmap</span>
+
+qrMatrix = qrControl.GetQrMatrix();    <span style="color:Green;">//Bit matrix return from method is now &quot;lock test&quot;</span>
+
+qrControl.Freeze();
+qrControl.DarkColor = Colors.Red;   <span style="color:Green;">//It won&#39;t redraw image. </span>
+qrControl.Text = <span style="color:#A31515;">&quot;Freeze test&quot;</span>;   <span style="color:Green;">//Re-encode qrcode but won&#39;t redraw image</span>
+qrMatrix = qrControl.GetQrMatrix();    <span style="color:Green;">//Bit matrix return from method is now &quot;Freeze test&quot;</span>
+qrControl.UnFreeze();   <span style="color:Green;">//Redraw image</span>
+
+qrControl.Lock();
+qrControl.Freeze();
+qrControl.LightColor = Colors.Yellow;  <span style="color:Green;">//It won&#39;t redraw. </span>
+qrControl.Text = <span style="color:#A31515;">&quot;Lock &amp; Freeze Test&quot;</span>;  <span style="color:Green;">//It won&#39;t re-encode</span>
+qrMatrix = qrControl.GetQrMatrix();   <span style="color:Green;">//Bit matrix return from method is still &quot;Freeze test&quot;</span>
+qrControl.Unlock();    <span style="color:Green;">//Unlock class, re-encode but won&#39;t redraw</span>
+qrControl.UnFreeze();   <span style="color:Green;">//unfreeze and redraw image</span>
+
+<span style="color:Green;">//Unlock before UnFreeze. Else it will redraw image twice. </span>
+
+qrMatrix = qrControl.GetQrMatrix();    <span style="color:Green;">//QrCode for input string &quot;Lock &amp; Freeze Test&quot;</span>
+</pre></div></div><div class="ClearBoth"></div>

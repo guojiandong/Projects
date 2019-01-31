@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "955970",
+    "ThreadId": "406739",
+    "Html": "\r\n<p>Have you guys used any .NET Barcode library to generate barcode in your .NET program? How's it? I need to generate barcode in my .NET program.</p>\r\n",
+    "PostedDate": "2012-12-14T00:53:31.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955973",
+    "ThreadId": "406739",
+    "Html": "\r\n<p>One of my friends told me .NET Barcode library from Onbarcode is good. But I&nbsp; know nothing about Onbarcode. I have heard this name for the first time. Where can I see their products and buy it.</p>\r\n",
+    "PostedDate": "2012-12-14T00:58:06.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "956032",
+    "ThreadId": "406739",
+    "Html": "\r\n<p>This is open source project. Free of charge, just check license. We do it use our free time with different reasons.&nbsp;</p>\r\n<p>You can give it a try and see whether you like it or not.&nbsp;</p>\r\n<p>Documentation is here:</p>\r\n<p>QrCode Info</p>\r\n<p>http://qrcodenet.codeplex.com/wikipage?title=QrCode&referringTitle=Documentation</p>\r\n<p>Renderer for generate different images:</p>\r\n<p>http://qrcodenet.codeplex.com/wikipage?title=Renderer&referringTitle=Documentation</p>\r\n<p>Controller to use on .Net applications:</p>\r\n<p>http://qrcodenet.codeplex.com/wikipage?title=User%20Controls&referringTitle=Documentation</p>\r\n<p>&nbsp;</p>\r\n<p>But this project is only for QrCode, if you need others, I would suggest ZXing. They have .Net library.</p>\r\n<p>https://code.google.com/p/zxing/</p>\r\n",
+    "PostedDate": "2012-12-14T03:54:16.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

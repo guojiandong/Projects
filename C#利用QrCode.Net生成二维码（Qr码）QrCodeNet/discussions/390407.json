@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "895946",
+    "ThreadId": "390407",
+    "Html": "\r\n<p>hi can i use Web came to Recoginize a predefined QRcode and display the Corresponding text</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-06T02:51:17.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "896360",
+    "ThreadId": "390407",
+    "Html": "<p>More detailed description will be appreciate.</p>\r\n<p>You want decode function? Predefined QrCode in which form? Like as image or as bit matrix.&nbsp;</p>\r\n<p>Also which kind of web you talking about.&nbsp;</p>",
+    "PostedDate": "2012-08-07T00:36:30.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911996",
+    "ThreadId": "390407",
+    "Html": "<p><a href=\"http://www.keepdynamic.com/csharp-barcode-reader/qr-code.shtml\">C# QR Code decoder</a></p>",
+    "PostedDate": "2012-09-12T21:58:06.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

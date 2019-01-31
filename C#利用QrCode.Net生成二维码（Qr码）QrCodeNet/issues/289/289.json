@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>Implementing encoder for Kanji mode according to chapter 8.4 Data encodation / 8.4.4 Kanji Byte Mode. And reference test for Kanji mode</p>\n",
+    "LastUpdatedDate": "2011-10-19T22:12:39.877-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-03T03:04:51.863-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implementing encoder for Kanji mode according to chapter 8.4 Data encodation / 8.4.4 Kanji Byte Mode",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 289
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Solution is not compile clean.\r\nPlease include \"KanjiEncoderTestDataSet.csv\" to project file and check-in.",
+      "PostedDate": "2011-10-04T01:08:46.263-07:00",
+      "Id": 85119
+    }
+  ]
+}

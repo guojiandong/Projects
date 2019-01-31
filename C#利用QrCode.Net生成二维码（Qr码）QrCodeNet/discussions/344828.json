@@ -1,0 +1,266 @@
+[
+  {
+    "Id": "799935",
+    "ThreadId": "344828",
+    "Html": "\r\n<p>I wrote an extension to QrCode.Net that exports a generated matrix in EPS format. As QR codes are mainly intended to be printed, a vector format is more appropriate to be imported in Adobe Illustrator for example.</p>\r\n<p>The code is compact and supports colors, quiet zone and sizing.</p>\r\n<p>I would like to contribute to the project but I don't know how or if such an extension is actually welcome.</p>\r\n<p>Please advise.</p>\r\n",
+    "PostedDate": "2012-02-25T12:58:04.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801429",
+    "ThreadId": "344828",
+    "Html": "<p>hi. iMarti.</p>\r\n<p>I think generate matrix in EPS format will be good for this library. You can contact with coordinator directly for join project.&nbsp;</p>\r\n<p>One thing I am curious will be if you have used any EPS generation library or your code will be native handle that. I'm asking that because of license issue. If that library is more restrict, then probably is not good idea to put it in.&nbsp;</p>\r\n<p>Currently my goal is to create proper rendering class for QrCode.Net that can generate QrCode with most common C# GDI function. &nbsp;So other people could inspire code from this library and create their own rendering class for their specific needs. For EPS format, Personally I would think it's good addition as long as there is no License issue.&nbsp;</p>\r\n<p>I'm not expert with License or even coding. Fix me if I'm wrong.&nbsp;</p>\r\n<p>Silverlancer</p>",
+    "PostedDate": "2012-02-26T21:45:41.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801467",
+    "ThreadId": "344828",
+    "Html": "<p>I actually used to be a native PostScript speaker years ago. Drawing squares on a surface is pretty simple so I made it without any library.</p>\n<p>I'm contacting the coordinator.</p>",
+    "PostedDate": "2012-02-26T22:14:26.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801901",
+    "ThreadId": "344828",
+    "Html": "<p>Cool. :)</p>",
+    "PostedDate": "2012-02-27T03:23:10.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803610",
+    "ThreadId": "344828",
+    "Html": "<p>Hi Silverlancer,</p>\r\n<p>I'm not sure if this is the right place to discuss about implementation, but do you think that I should write a Renderer class to EPS export like the existing ones generating images? The existing renderers are associated to WinForms or WPF controls where mine doesn't have to.</p>\r\n<p>I submitted a request to join the project a few days ago, but the project manager isn't responding. Are you in contact with him?</p>",
+    "PostedDate": "2012-03-01T01:13:44.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803680",
+    "ThreadId": "344828",
+    "Html": "<p>No, I'm not in contact with him ever since 2 month ago. I had sent him letter before Christmas, no reply as well. As I am only a developer in this project, I can not invite people. It's a bit tricky.&nbsp;</p>\r\n<p>For rendering class I wrote before, I might want to redo it. EPS probably only need to deal with filestream. We can have good discuss on that later and try to figure out best solution.&nbsp;</p>",
+    "PostedDate": "2012-03-01T03:50:55.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808218",
+    "ThreadId": "344828",
+    "Html": "<p>Good news Silverlancer, I've been accepted as a project developer!</p>\r\n<p>I've looked at all the help I could find here, but it's still unclear how we collaborate. I'm using SVN, do I simply add my code an commit the changes? Where does the discussion between developers take place? Do we use email or this discussion board?</p>",
+    "PostedDate": "2012-03-09T11:02:01.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808282",
+    "ThreadId": "344828",
+    "Html": "<p>We can use this discussion board.&nbsp;</p>\n<p>As you said above, just add your code and commit the changes. What I normally do is use SVN to get latest version and working on it, make sure update your version again before commit.&nbsp;</p>\n<p>You can also create a new item inside issue tracker under your name, so you can add progress or anything that relate to your code.</p>\n<p>I think you are right, that EPS renderer should be separate from Bitmap renderer. Currently my plan is to decide a proper namespace for controls and all renderer, then sub namespace under that to separate different component. If you have any suggestions  just let me know.&nbsp;</p>\n<p>For quiet zone, I'm currently thinking if we should give user more options. Like no quiet zone at all. As quiet zone sometime gives limitation to people who want to place QrCode at some document. White space between character and QrCode probably enough to  serve quiet zone specification already, not to mention that most likely normal character or marks on document will be wipe out by noise filter inside decoder anyway.&nbsp;</p>",
+    "PostedDate": "2012-03-09T13:54:34.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808404",
+    "ThreadId": "344828",
+    "Html": "<p>In my opinion, what will guide the classes organization are the following constraints:</p>\r\n<ul>\r\n<li>You may want to render an image without using any control, so the renderer classes should be separated from the controls. The controls would be using a renderer.</li>\r\n<li>There is a set of parameters that are common to all renderers but not so many: the matrix (obviously), the quiet zone and eventually colors. Many of the remaining parameters are specific to each renderer: brushes instead of colors, physical size (for EPS) vs. pixel size... I don't know whether we should have a renderer base class to be extended for each specificity?</li>\r\n<li>I had trouble getting the original string from the control as it is private. I wanted to use it to generate the export file name or store it within the EPS header. I think it could be a public property of the Matrix.</li>\r\n</ul>\r\n<p>I'm not sure about the namespace organization, I still have to think about it, but I think that controls should definitely be separated from the core functions. I usually don't like having to add dependencies that are not always needed. Imagine an asp.net or console application generating QR codes that needs WPF dependency.</p>",
+    "PostedDate": "2012-03-10T01:12:00.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808597",
+    "ThreadId": "344828",
+    "Html": "<p>Few things I would like to point out will be as following.</p>\n<p>Controls and renderer are already separate. Controls do use renderer class to render image or graphic.&nbsp;</p>\n<p>Encoder class, and Renderer are all on their own, where Interface control will be using Encoder class and Renderer class.</p>\n<p>Currently, renderer class will accept parameter as following:</p>\n<ol>\n<li>QuietZone </li>\n<li>Brush or Color </li>\n<li>Matrix </li>\n<li>Module Pixel Size </li>\n</ol>\n<p>Renderer class locate at two parts, for Winform's Graphics is under Windows/Controls. Where WPF's WriteableBitmap and DrawingContext is under Windows/WPF. &nbsp;Class name and Parameter it requires are either same or very close. Thus user can choose anything  that suitable to their code. Only thing current not supported is Silverlight.&nbsp;</p>\n<p>Control does contain input string and it's public at least for Winform's control. As I just use Winform control's default text parameter. I will take look at WPF control later.</p>\n<p>QrCodeEncoder class that use to encode, doesn't have input string property, Input string will be use as encoder method's argument and won't save inside Encoder class.&nbsp;</p>\n<p>Before next beta release, I will redo our documentation page to give a more detailed overview of our Library.&nbsp;</p>\n<p>Edit:</p>\n<p>QrCodeEncoder is under namespace: &nbsp;Gma.QrCodeNet.Encoding;</p>\n<p>Library originally doesn't have control or renderer class, it was added according to user request. Before we add those class, user have to draw QrCode on their own where now they can choose basic renderer or control for their project. Hope that gives you some inside out about status of this project. Sorry about all the messy for current release, that's one of stuff I would like to solve in near future.&nbsp;</p>",
+    "PostedDate": "2012-03-10T14:04:42.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808603",
+    "ThreadId": "344828",
+    "Html": "<p>Well, sorry if I talked too quickly, it's the QRCode that I could not get from the WinForms control. Anyway, it seems I should better leave you organize the overall project. Just tell me what interface or style I should comply to and I will add the renderer I wrote. My contribution is actually too small to influence the whole project.</p>",
+    "PostedDate": "2012-03-10T14:33:25.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808621",
+    "ThreadId": "344828",
+    "Html": "<p>Good point, Even they use WinForm or WPF control, they might still want to use matrix on other stuff.&nbsp;</p>\r\n<p>Your EPS renderer will be output through Filestream to local storage place only right? I think I will get current Renderer class ordered within next few days and you can work on that once I upload it.</p>\r\n<p>You are welcome to work on other part of project too, like improve algorithm, code or class. I will try my best to explain what I know for any part of this project. Unless you are only limit yourselves to EPS part, that's fine as well. There are no limitation or what so ever, just enjoy coding and have some fun. :)</p>\r\n<p>Coding style you can check out link here.</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Developer%20Documentation%20for%20Contributors&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Developer%20Documentation%20for%20Contributors&amp;referringTitle=Documentation</a></p>",
+    "PostedDate": "2012-03-10T16:48:20.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810630",
+    "ThreadId": "344828",
+    "Html": "<p>Sorry for delay. I still haven't fully finish renderer part, but I have upload what I did in the past few days. I guess those interface under Render namespace won't be much useful for you. You can just place your work under that Render namespace without use any of interface there.&nbsp;</p>\r\n<p>I was thinking of some interface for WriteToStream method, but it turns out other renderer require one more parameter, which is imageformat. That has nothing to do with your EPS.&nbsp;</p>\r\n<p>There are some Enum you might able to use, like QuietZoneModules. Also create a task under Issue tracker for your EPS part, write some detail about what you are going to do, and check in number for each check-in that's relate to your project. Just make easier for other developer or user to check what's going on. &nbsp;</p>",
+    "PostedDate": "2012-03-14T21:14:09.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815795",
+    "ThreadId": "344828",
+    "Html": "<p>Hi Silverlancer,</p>\r\n<p>did you have a chance to test the EPS renderer? It is stable now and has two rendering techniques.</p>\r\n<p>The only thing remaining is to include your ISizeCalculation parameter. I still have to understand its logic and see how it can apply to physical dimensions used in PostScript.</p>",
+    "PostedDate": "2012-03-26T14:16:52.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815915",
+    "ThreadId": "344828",
+    "Html": "<p>Sorry for lack on update. I will test EPS renderer and let you know.&nbsp;</p>\r\n<p>For ISizeCalculation, our original idea with QrCode size is fixed module size. Module is black or white cell inside QrCode matrix. So if people set up 7 pixel wide for module size, then QrCode print out size will be module size times (QrCode matrix size + 2 quiet zone number). Where quiet zone is at both side of QrCode.&nbsp;</p>\r\n<p>Then some people point out, what if they want fixed QrCode size, where they don't care about module size(cell size). So current implementation is a bit dodgy, just let them input QrCode width, then use width to divide (qrCode matrix width + 2 quiet zone number), and use that as module size. But you know you can not always get integer, nothing I can do about decimal pixel colour, unless I scale them down to grey, WPF's renderer can actually do that scaling pretty well, as long as I use vector streamgeometry to renderer or output images, but winform's one will be tricky.&nbsp;</p>\r\n<p>Anyway, long story short. Current ISizecalculation will be separate to two sub class that use that interface, one with fixed module size, the other with fixed code size. That will just make easier which kind of variable user want to put into renderer class. Else I have to put QrCode width, module width and other variable into renderer with another boolean variable to indicate which kind of calculation need to use. That's how I put ISizecalculation there.</p>",
+    "PostedDate": "2012-03-26T23:52:15.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815929",
+    "ThreadId": "344828",
+    "Html": "<p>Ok I understand the need for ISizeCalculation. Now for EPS, there is no such a thing as a pixel. All the dimensions are physical so generating an EPS QRCode needs a different unit than the pixel. The natural PostScript unit is the point, that is 1/72 of an inch, I think it is best to use it. There is no rounding so any floating point value is accepted.</p>\r\n<p>Otherwise there is a compression technique that can be applied on certain EPS files, do you think it is worth trying it. Current generated file sizes range from 5 to 15kb (for very large QRCodes), I'm not sure it will be a real benefit, the compression could be around 50%.</p>",
+    "PostedDate": "2012-03-27T00:26:28.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815974",
+    "ThreadId": "344828",
+    "Html": "<p>Size's unit issue is a problem. I'm thinking of expand imageformat enum to include EPS. So if user choose that, I will internally use your renderer to render. That could help user easily output EPS file without create another renderer. Cons will be size is actually pixel size, when we output EPS will be point. Too messy. I will check around that if I can find a way around.&nbsp;</p>\r\n<p>For compress, it's good to have but not must. You can do it when you have spare time or when user request. Not in hurry I think. Personally I like size to be small, but that most likely relate to bitmap issue. As bitmap file will take huge space if size is too big. Vector file shouldn't have that problem I guess, as long as graph same, size doesn't affect file size.&nbsp;</p>\r\n<p>Let me know if I got anything wrong, as I'm new with vector file.&nbsp;</p>",
+    "PostedDate": "2012-03-27T02:25:35.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816341",
+    "ThreadId": "344828",
+    "Html": "<p>I have checked output of EPS renderer. It looks solid, the only issue I have found is you didn't aware of matrix equals to null. Return value of encoder can be null if they use TryEncode method instead of normal encode. Matrix is null means their input string is either empty or too large. For people who use Encode method to encode empty string or huge amount of data, they will get exception. Which is issue that winform demo's EPS render current have. That's easy fix I think.</p>\r\n<p>For size issue, I think it shouldn't be big problem. For winform, people expect 96 DPI where EPS uses 72 DPI. Conversion will be user input pixel divide by 96 times 72. One pixel equal to one dot, only thing makes them different will be dot per inch which is DPI. Thus your renderer is actually taking pixel as well, just base on 72 DPI's pixel instead of 96. So if graphic renderer is going to call your EPS renderer, it can simply convert DPI then pass correct value over.&nbsp;</p>\r\n<p>Currently your renderer taking colour variable from namespace System.Drawing, so there are small issue for people who use silverlight or WPF, as they normally use colour under namespace System.Windows.Media. If they load System.Drawing namespace just for colour, then that will consume a bit of resource. My suggestion will be create interface for colour, similar as ISizeCalculator, so user can user their preferred colour variable, then the interface will return RGB value as integer or floating variable to renderer when it request.&nbsp;</p>\r\n<p>That's what I have found and some of my thought. What do you think.&nbsp;</p>",
+    "PostedDate": "2012-03-27T19:19:10.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817068",
+    "ThreadId": "344828",
+    "Html": "<p>I modified the EPS renderer to use the ISizeCalculation and saw some limitation:</p>\r\n<ul>\r\n<li>if I use the FixedModuleSize class, I can only select integer dimensions where a double is acceptable. For example if I want that a module is 1mm wide, I should enter 1 / 25.4 * 72 = 2.83 pt</li>\r\n<li>if I use the FixedCodeSize class it is worse as the module size is rounded</li>\r\n</ul>\r\n<p>Therefore I didn't commit my changes as the result is not good as the existing version. I can commit it if you want.</p>\r\n<p>One idea would be to duplicate the FixedModuleSize and FixedCodeSize with classes accepting double values, but the ISizeCalculation won't accept that.</p>\r\n<p>Concerning the color problem, you could simply create a custom ARGB structure, that each renderer can convert in its own color class.</p>",
+    "PostedDate": "2012-03-29T03:51:44.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817405",
+    "ThreadId": "344828",
+    "Html": "<p>Each renderer load drawing class still have issue that will use whole drawing library, also with renderer dealing with two different pointer. But that issue is small, can add similar interface any time.&nbsp;</p>\n<p>For size, you don't have to use iSize, one way to solve will be make two WriteToStream method. As other renderer specify size inside renderer properties not method properties. That will be easier to use interface. EPS one use size at method properties. So this way probably easier. Other renderer call EPS should be easy, if user want specific decimal input, then can directly call EPS renderer.&nbsp;</p>\n<p>WriteToStream(matrix modulesize stream)</p>\n<p>{</p>\n<p><span style=\"white-space: pre;\"> </span>if(matrix != null)</p>\n<p><span style=\"white-space: pre;\"> </span>this.WriteToStream(matrix, modulesize* (matrix.width + 2*quietZone), stream);</p>\n<p>}</p>\n<p>WriteToStream(matrix CodeSize stream)</p>\n<p>{</p>\n<p>}&nbsp;</p>\n<p>Just commit change that dealing with matrix is null will do.&nbsp;</p>",
+    "PostedDate": "2012-03-29T14:27:31.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "822634",
+    "ThreadId": "344828",
+    "Html": "<p>Hey iMarti. People suggest that we might want to use stream for all renderer, that will makes easier for people who uses our library. You wanna take look at that case?</p>",
+    "PostedDate": "2012-04-11T15:13:24.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823937",
+    "ThreadId": "344828",
+    "Html": "<p>Ok I changed the parameter to Stream. At first I thought that a StreamWriter is more correct than an anonymous Stream as we actually need to write. Otherwise the method can receive a bad stream, so you either let an exception raise or you have to test the CanWrite property. What error handling do you recommend?</p>",
+    "PostedDate": "2012-04-14T23:03:24.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824147",
+    "ThreadId": "344828",
+    "Html": "<p>Same, I prefer StreamWriter as well. Seriously, they are different thing, should treat it differently when use different renderer.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>If implement as stream, exception probably use ArguementOutOfRange(\"stream\", \"bad stream\"). and state it under method comment. So when people use that method they know which kind of exception they can expect.&nbsp;</p>\r\n<p>If you want stick with StreamWriter, Personally I don't mind. Or should I say at my point of view I'm more prefer StreamWriter.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>By the way. Which kind of stream you think it will be a bad stream. I thought about it before, If user pass streamwriter to that method that might cause some issue. Never test it, just my assumption. &nbsp;Like streamWriter sw = new Streamwriter(streamwriter); That just doesn't look good.</p>",
+    "PostedDate": "2012-04-15T19:06:18.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824294",
+    "ThreadId": "344828",
+    "Html": "<p>.NET has actually many different streams, and I must admit I don't know them all and only look at them when I need to do something. Their inheritance tree is not simple.</p>\r\n<p>I think that the Stream parameter is really better as not many people know that an EPS file is a text file, so opening a file with File.CreateText instead File.OpenWrite is hard to understand.</p>\r\n<p>I think that we should always use Stream and test for the availability of the features we need, like CanWrite. For example in a test I'm working on, I wrote an HTTP handler generating QRCode images, and provided the HTTP Response.OutputStream to the WriteToStream method, which failed. I don't know the reason, but solved it by providing a MemoryStream that I then flushed to the Response.OutputStream. That workaround is a useless additional step.</p>",
+    "PostedDate": "2012-04-16T02:21:37.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824358",
+    "ThreadId": "344828",
+    "Html": "<p>Similar thing happen at my end as well. Not stream, but on writeablebitmap. The old QrCodeImageControl under WPF working fine before. I have changed nothing with WriteableBitmapExtension. Recreate renderer and control, now funny thing happens. With pixelFormat set up to Gray8, whole image got screw up. Pbgra32 which is fine.&nbsp;</p>\r\n<p>Draw same item on old control, Gray8 image is fine too. So weird.&nbsp;</p>\r\n<p>Gonna do more test tomorrow see if I can find what's going on.&nbsp;</p>\r\n<p>For stream, I'm kind on same boat, only look at them when I need to use it. Will look into stream issue on other renderer once I finish dealing with that Gray8 issue.&nbsp;</p>",
+    "PostedDate": "2012-04-16T04:58:51.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832797",
+    "ThreadId": "344828",
+    "Html": "<p>Hey iMarti</p>\r\n<p>I have come across some project that want to use your EPS renderer under WPF application, as I have stated earlier, the color EPS renderer use is not really friendly to WPF nor to Silverlight. Thus I have create EPSColor wrap and changed some code inside EPS renderer.&nbsp;</p>\r\n<p>Sorry about not inform you earlier, please take look and see if all the changes are Ok.&nbsp;</p>\r\n<p>Also for LightColor != Color.Transparent condition, I have changed it to LightColor.A != 0. As transparent color create by Color.Transparent's alpha value is zero. Makes easier for System.Windows.Media.Color.&nbsp;</p>",
+    "PostedDate": "2012-05-06T19:43:04.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "834151",
+    "ThreadId": "344828",
+    "Html": "<p>Hi Silverlancer,</p>\r\n<p>I checked your changes and you've done it perfectly. I only updated the comments to match the implementation.</p>",
+    "PostedDate": "2012-05-09T11:12:37.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893121",
+    "ThreadId": "344828",
+    "Html": "<p>I am having a problem with the export to EPS function.</p>\r\n<p>When I fill in information like the part below and export it as an EPS file, the left square isn't an square. The bottom is lost<br />so the QR Readers aren't able to scan the code.</p>\r\n<p>This only happens with EPS.. exporting to BMP or PNG is working correct... What is wrong?</p>\r\n<p>BEGIN:VCARD<br />VERSION:3.0<br />N:Braakie;Frankie;van;;<br />FN:Frankie van Braakie<br />ORG:Logisz B.V.<br />TITLE:Senior Webdeveloper<br />EMAIL;type=INTERNET;type=WORK:frank.vanbraak@domain.nl<br />TEL;type=WORK:+31111111145<br />TEL;type=FAX:+31444444455<br />TEL;type=CELL:+31666666665<br />ADR;type=WORK:;;Street 7;city;;NL 7001 CH;Nederland<br />URL;type=WORK:http://www.domainname.nl/fbra<br />END:VCARD</p>",
+    "PostedDate": "2012-07-30T08:48:15.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893187",
+    "ThreadId": "344828",
+    "Html": "<p>Hi Logisz, what software are you using to view or render the EPS file? I checked in Adobe Illustrator and it displayed correctly. I was able to scan it and got the VCard.</p>\r\n<p>One thing that may have happened is the \"Artboard\" that I can see in Illustrator. It is not set in the generated EPS and it can be used to crop the rendered squares.</p>\r\n<p>I noticed another error that you didn't mention. The last row of squares is partly missing. It doesn't prevent the code from being scanned because of the correction level. I still have to investigate whether those squares are missing from the generated EPS file or is Illustrator misunderstanding the file.</p>\r\n<p>Concerning your problem; try to open the file in another software and provide more details about your environment.</p>",
+    "PostedDate": "2012-07-30T11:01:38.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893208",
+    "ThreadId": "344828",
+    "Html": "<p>I found the reason for missing squares in the last row, corrected in revision 18407:</p>\r\n<p>In the EPS renderer, the StreamWriter was not flushed correctly, producing incomplete files for large QR codes. Added a using statement to correct it.</p>\r\n<p>Logisz: this may also correct your problem, as the footer part of the document was also missing, failing to restore the correct context. Please try again and tell me if you still have issues.</p>",
+    "PostedDate": "2012-07-30T11:41:13.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893461",
+    "ThreadId": "344828",
+    "Html": "<p>I did some simple tests which failed previously and now is working correctly..</p>\r\n<p>so I guess this update did fix the issue..</p>\r\n<p>Thanks... (btw I am busy creating an Windows application to create batch QR codes, so generation correct EPS codes was a real showstopper..)</p>",
+    "PostedDate": "2012-07-31T00:34:30.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893494",
+    "ThreadId": "344828",
+    "Html": "<p>I'm glad to hear that it's working for you now.</p>\r\n<p>I would like to hear about your experience in real world use of EPS generated QR Codes: how other softwares are reading them, how well they are rendered on concrete media... Is the file size an issue? Try also the alternate file format if the default one is not perfect:</p>\r\n<p>renderer.DrawingTechnique = EpsModuleDrawingTechnique.Image;</p>",
+    "PostedDate": "2012-07-31T02:18:09.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "899012",
+    "ThreadId": "344828",
+    "Html": "<p>So far its working correctly.. The file size is not a problem at all..</p>\r\n<p>We will start using the program about next month.. We have a costumer with this situation.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks so far</p>",
+    "PostedDate": "2012-08-13T23:41:05.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

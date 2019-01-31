@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": "",
+    "Description": "<p>Implementing encoder for 8-bit Byte mode according to chapter 8.4 Data encodation / 8.4.4 8-bit Byte Mode</p>\n",
+    "LastUpdatedDate": "2011-10-19T22:12:39.417-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-27T04:37:53.043-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implementing encoder for 8-bit Byte mode according to chapter 8.4 Data encodation / 8.4.4 8-bit Byte Mode",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 275
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I will try work on this. As table from ISO QR code. and map table from http://charset.7jp.net/jis0201.html\r\n\r\nOnly issue will be \r\n\r\n5C\t5C\t5C\tC2A5\t     00A5\t  ¥     //On C# unicode16 JP yan mark same as our $ sign. 00A5 \r\n7E\t7E\t7E\tE280BE\t203E\t~      // http://en.wikipedia.org/wiki/Shift_JIS   QRcode it says char \"‾\" instead of that table's \"~\"",
+      "PostedDate": "2011-09-29T01:41:20.723-07:00",
+      "Id": 85100
+    },
+    {
+      "Message": "Never mind. Just found 203E on unicode table . http://en.wikibooks.org/wiki/Unicode/Character_reference/2000-2FFF\r\nwhich is actually \"‾\"",
+      "PostedDate": "2011-09-29T04:20:51.57-07:00",
+      "Id": 85101
+    },
+    {
+      "Message": "Associated with changeset 5134.",
+      "PostedDate": "2011-10-03T13:02:21.453-07:00",
+      "Id": 85102
+    },
+    {
+      "Message": "Resolved with check-in 5152",
+      "PostedDate": "2011-10-04T00:11:10.497-07:00",
+      "Id": 85103
+    }
+  ]
+}

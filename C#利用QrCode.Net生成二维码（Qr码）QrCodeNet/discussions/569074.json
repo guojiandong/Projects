@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1310597",
+    "ThreadId": "569074",
+    "Html": "hello guys.. im a student and ill be having my thesis next semester...\r<br />\nmy group and i had already made a system on vb6.0 but the panels are requesting for QRCODe..can you share me some knowledge on how to put QRCODE in vb6.0? thanks in advanced..\r<br />\n-mark<br />\n",
+    "PostedDate": "2014-10-05T11:57:09.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1310601",
+    "ThreadId": "569074",
+    "Html": "Sorry, currently we don't support VB6. One way you could do is to have a server back end then request server to create QrCode. Server can by in latest .Net version.\r<br />\n<br />\nYou could use SharpDevelop IDE and combine with ServiceStack for server end, which can host locally. Then use VB6 to request. Return item could be Base64 format of byte array that describe the QrCode you have create. Then at end, use VB6.0 to paint on your UI. That's easiest I can think of, else you have to find VB6.0 library or rewrite it yourself.<br />\n",
+    "PostedDate": "2014-10-05T12:36:58.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

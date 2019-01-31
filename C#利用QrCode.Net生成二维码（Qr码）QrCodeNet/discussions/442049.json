@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1037525",
+    "ThreadId": "442049",
+    "Html": "Is there any method that returns of type Image or something like that, so I can assign it to a picturebox ?<br />\n<br />\nBecause I tried with this: <br />\n<pre><code>protected override void OnPaint(PaintEventArgs e)\n        {\n            \n            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);\n            QrCode qrCode;\n            encoder.TryEncode(&quot;link to some website&quot;, out qrCode);\n\n            new GraphicsRenderer(\n                new FixedCodeSize(200, QuietZoneModules.Two)).Draw(e.Graphics, qrCode.Matrix);\n            base.OnPaint(e);    \n        }\n\n        private void Form1_Load(object sender, EventArgs e)\n        {\n            pictureBox1.Invalidate();\n        }</code></pre>\n\nBut didn't really work...<br />\n",
+    "PostedDate": "2013-04-30T00:48:31.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037540",
+    "ThreadId": "442049",
+    "Html": "I solved it: <br />\n<pre><code>public partial class Form1 : Form\n    {\n        public event PaintEventHandler Paint;\n        public Form1()\n        {\n            InitializeComponent();\n        }\n\n        private void Form1_Load(object sender, EventArgs e)\n        {\n            pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);\n            this.Controls.Add(pictureBox1);\n        }\n\n        private void pictureBox_Paint(object sender, PaintEventArgs e)\n        {\n            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);\n            QrCode qrCode;\n            encoder.TryEncode(&quot;www.abix.dk&quot;, out qrCode);\n\n            new GraphicsRenderer(\n                new FixedCodeSize(200, QuietZoneModules.Two)).Draw(e.Graphics, qrCode.Matrix);\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2013-04-30T01:45:00.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

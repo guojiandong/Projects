@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "<p>See chapter 7.3 Symbol structure</p>\n<p>7.3.2 Finder pattern</p>\n<p>7.3.3 Separators</p>\n<p>7.3.4 Timing Pattern</p>\n<p>7.3.5 Alignment Patterns</p>\n<p>&nbsp;</p>\n<p>See reference implementation under:</p>\n<p>MatrixUtil.embedBasicPatterns</p>\n",
+    "LastUpdatedDate": "2011-10-07T14:35:24.53-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-30T08:37:52.323-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement positioning patterns",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 285
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with changeset 4920.",
+      "PostedDate": "2011-09-30T08:38:34.09-07:00",
+      "Id": 85114
+    },
+    {
+      "Message": "Associated with changeset 5054.",
+      "PostedDate": "2011-10-02T13:36:32.023-07:00",
+      "Id": 85115
+    },
+    {
+      "Message": "Associated with changeset 5181.",
+      "PostedDate": "2011-10-04T01:34:31.02-07:00",
+      "Id": 85116
+    },
+    {
+      "Message": "Associated with changeset 5210.",
+      "PostedDate": "2011-10-04T06:50:43.54-07:00",
+      "Id": 85117
+    },
+    {
+      "Message": "Associated with changeset 5535.",
+      "PostedDate": "2011-10-07T14:35:24.53-07:00",
+      "Id": 85118
+    }
+  ]
+}

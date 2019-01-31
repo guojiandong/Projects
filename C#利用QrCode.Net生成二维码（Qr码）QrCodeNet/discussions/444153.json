@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1045531",
+    "ThreadId": "444153",
+    "Html": "I downloaded and built the WPF sample. Worked fine. From: <a href=\"https://qrcodenet.codeplex.com/SourceControl/changeset/73a7d2eead6816ebb79ce16457192505cf108446\" rel=\"nofollow\">https://qrcodenet.codeplex.com/SourceControl/changeset/73a7d2eead6816ebb79ce16457192505cf108446</a>\r<br />\n<br />\nDid a file new Wpf project net 4.5 added in the dll via nuget. Looks like runtime v4.0.30319 Messed around with it for awhile without success. Removed the nuGet package, then added Gma.QrCodeNet.Encoding in from the source build. <strong>Boom</strong>! Yup, working, happy. Gma.QrCodeNet.Encoding runtime v4.0.30319\r<br />\n<br />\n??? Guess I'll use the .dll from the source build for now...<br />\n",
+    "PostedDate": "2013-05-18T12:47:13.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045543",
+    "ThreadId": "444153",
+    "Html": "nuget package, you installed was QrCode.Net or QrCodeNet. There are two package there. \r<br />\n<br />\nAlso what's your project type. .Net 4.5, or windows store. \r<br />\n<br />\n<br />\nIf source code compiled one works for you that's all good. Only problem is not signed dll, thus it have to stay with where application installed.<br />\n",
+    "PostedDate": "2013-05-18T14:17:16.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045547",
+    "ThreadId": "444153",
+    "Html": "NuGet package installed was qrcode.net Note: the runtime version from nuGet and that which I built were the same. \r<br />\nMy project is WPF 4.5\r<br />\n<br />\nI do hope to publish the source. It's a WPF client that POSTs to one of the Azure web api samples and displays the QR code to view the image. \r<br />\n<br />\nIt's working very well. My Nokia Lumia 920 is reading the QR codes quickly from different sizes and distances. Thank you for this project!<br />\n",
+    "PostedDate": "2013-05-18T14:54:09.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045550",
+    "ThreadId": "444153",
+    "Html": "I will create a 4.5 dummy project later to test Nuget package out. \r<br />\n<br />\nGlade you like our project. <br />\n",
+    "PostedDate": "2013-05-18T15:22:44.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1047312",
+    "ThreadId": "444153",
+    "Html": "4.5 version is not working. Use 4.0 library for now, I will fix it.\r<br />\n<br />\nThanks for report.<br />\n",
+    "PostedDate": "2013-05-22T11:42:37.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1047554",
+    "ThreadId": "444153",
+    "Html": "Fixed on my side. I will update to source code and nuget this weekend. Hopefully. \r<br />\n<br />\nIf you want it in urgent.\r<br />\n<br />\nInside Gma.QrCodenet.Encoding.Net45\\Properties\\AssemblyInfo.cs\r<br />\n<br />\nEdit that file to include below  (Because ThemeInfo is not specified, thus generic theme is not applied. My fault not double check 4.5 version before release.)\r<br />\n<br />\n<br />\n<br />\nusing System.Windows;\r<br />\n<br />\n[assembly: ThemeInfo(<br />\n<pre><code>ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located\n//(used if a resource is not found in the page, \n// or application resource dictionaries)\nResourceDictionaryLocation.SourceAssembly //where the generic resource dictionary is located\n//(used if a resource is not found in the page, \n// app, or any theme specific resource dictionaries)</code></pre>\n\n)]<br />\n",
+    "PostedDate": "2013-05-23T00:43:23.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067741",
+    "ThreadId": "444153",
+    "Html": "Did nuget ever get updated? The following is what I found off the nuget page on the Download page and in NuGet manager in vs:\r<br />\n<br />\nVersion History\r<br />\nVersion \r<br />\nDownloads \r<br />\nLast updated \r<br />\nQrCode.Net 0.4.0.0  725  Sunday, March 17 2013  \r<br />\n",
+    "PostedDate": "2013-07-12T15:44:44.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

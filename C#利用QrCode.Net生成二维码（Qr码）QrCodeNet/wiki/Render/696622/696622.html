@@ -1,0 +1,52 @@
+<div class="wikidoc">
+<p><strong>Project Description</strong><br>
+The goal of the project is provding an easy to use, fully managed .Net library for handling QR code according to ISO/IEC 18004.<br>
+<br>
+</p>
+<h1>QrCode.Net</h1>
+<h2>The Goal of the Project</h2>
+<p>The goal of the project is to provide an easy to use, managed .Net library for:</p>
+<ol>
+<li>Crating QR code bit matrix from text &ndash; encoding. </li><li>Rendering of QR code bit matrix to screen, into an image file or stream. </li><li>Decoding QR code given as bit matrix. </li><li>Detection and recognition of QR code captures. </li><li>The library should support Windows Phone 7 and Silverlight </li></ol>
+<h2>QrCode Generator (Web version)</h2>
+<p>iMarti have spent some time and completed a demo version of web generator. Below is link to that site.
+<br>
+<br>
+<a href="http://kamocu.com/en/qrcode/">http://kamocu.com/en/qrcode/</a><br>
+<br>
+Also you can give suggestion and feedback for that site at our discussions board.
+<br>
+<br>
+<a href="http://qrcodenet.codeplex.com/discussions/432586">http://qrcodenet.codeplex.com/discussions/432586</a></p>
+<h2>Current state</h2>
+<p>Library for encoding and rendering matrix to screen, image or stream done.<br>
+Demo for this library no longer use <a href="http://code.google.com/p/zxing/">http://code.google.com/p/zxing/</a>ZXing's port.
+<br>
+After rewrite, performance to generate QrCode matrix have been increased. <br>
+Here is test result(microsecond):<br>
+Input string length: 74<br>
+Nunit performance test output(Test under Test Project PerformanceTest/QrCodePTest. ):<br>
+EC performance 1000 Tests~ QrCode.Net: 3929 ZXing: 5221<br>
+<br>
+Also QrCode.Net encoder library will now able to analyse input string and decide when to use UTF8 for complex input string.<br>
+<br>
+<img title="DemoAppSnapshot.png" src="http://i3.codeplex.com/Download?ProjectName=qrcodenet&DownloadId=284289" alt="DemoAppSnapshot.png"></p>
+<h2>Artistic QR Codes</h2>
+<p>Artistic QrCode will no longer under development. And we will not implement that feature.<br>
+<br>
+If QrCode lose error correction, then it shouldn't exist. Simple as that. Error correction protects QrCode to be able to read from bad environment, or damaged code. While Artistic approach will destroy it.
+<br>
+<br>
+Other than making QrCode looks pretty, it doesn't bring any feature on to the table, and even destroy original feature. If you want to give information about internal data of QrCode, write label under QrCode instead of Artistic Code.</p>
+<h2>References</h2>
+<ol>
+<li>ZXing - google's QR code implementation <a href="http://code.google.com/p/zxing/">
+http://code.google.com/p/zxing/</a>. </li><li>QR code @ Wikipedia - <a href="http://en.wikipedia.org/wiki/QR_code">http://en.wikipedia.org/wiki/QR_code</a>.
+</li><li>ISO/IEC 18004:2000(E) - QR code specification <a href="http://www.codeplex.com/Download?ProjectName=qrcodenet&DownloadId=284291">
+qr_code.pdf</a> </li><li>ISO/IEC 18004:2006(E) - QR code specification <a href="http://www.codeplex.com/Download?ProjectName=qrcodenet&DownloadId=321409">
+ISOIEC 18004_2006Cor 1_2009.pdf</a> </li><li>Very compact illustrated guide for understanding QR code <a href="http://qrbcn.com/imatgesbloc/Three_QR_Code.pdf">
+http://qrbcn.com/imatgesbloc/Three_QR_Code.pdf</a> </li></ol>
+<p>&nbsp;</p>
+<p><img src="http://www.jetbrains.com/img/logos/webstorm_logo.gif" alt="" width="360" height="81"></p>
+<p>Sponsored by Jetbrains with WebStorm IDE for future Web demo and API page.&nbsp;</p>
+</div><div class="ClearBoth"></div>

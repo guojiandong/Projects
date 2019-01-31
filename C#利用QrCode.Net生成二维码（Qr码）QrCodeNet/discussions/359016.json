@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "846999",
+    "ThreadId": "359016",
+    "Html": "\r\n<p>I want use QRCODE.NET to a app in windows ,but as i use C#,how to code to use the dll,is there somebody has simple example,thanks&nbsp;</p>\r\n",
+    "PostedDate": "2012-06-09T17:55:38.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847019",
+    "ThreadId": "359016",
+    "Html": "<p>Once you have create project using Visual studio, check under your solution explorer at top right side. Right click References =&gt; add reference =&gt; browse tab =&gt; find and select dll file and press OK button.&nbsp;</p>\r\n<p>Now you can use QrCode.Net's namespace under any C# file in that project.&nbsp;</p>\r\n<p>If you can not find control under toolbox, mouse over any item inside toolbox and right click, select choose toolbox items then under .Net framwork components use browse button to select dll file then tick QrCode control under that list.&nbsp;</p>\r\n<p>Hope that helps.&nbsp;</p>",
+    "PostedDate": "2012-06-09T22:40:55.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911993",
+    "ThreadId": "359016",
+    "Html": "<p>Detailed <a href=\"http://www.keepdynamic.com/dotnet-barcode-winforms/qr-code.shtml\">.NET WinForms QR Code control integration and creation</a>.</p>",
+    "PostedDate": "2012-09-12T21:51:54.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934036",
+    "ThreadId": "359016",
+    "Html": "<p><span style=\"color: #253340; font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif; line-height: 19.483333587646484px;\">Once you have create project using Visual studio, check under your solution explorer at top right side. Right click References =&gt; add reference =&gt; browse tab =&gt; find and select dll file and press OK button.&nbsp;</span></p>\r\n<p>in the solution explorer at top right side.the result of Add Reference is have a yellow Exclamation mark on \"Gma.QrCodeNet.Encoding\" item and cant't to use.</p>\r\n<p>&nbsp;</p>\r\n<p>If you can not find control under toolbox, mouse over any item inside toolbox and right click, select choose toolbox items then under .Net framwork components use browse button to select dll file then tick QrCode control under that list.&nbsp;</p>\r\n<p><span style=\"color: #ff0000;\">\"Gma.Net\\Gma.QrCodeNet.Encoding.dll\" is not a Microsoft.net Module</span></p>\r\n<p>&nbsp;</p>\r\n<p>I use vs2008</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-10-29T20:15:48.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934052",
+    "ThreadId": "359016",
+    "Html": "<p>For first one, its most likely your .net framework. Official dll is build on .Net 4.0. If you are working on old framework, please download latest source file and compile on your own.&nbsp;</p>\r\n<p>Another thing is that, project is base on vs2010. You will have to download and install vs2010 express for easy compile, else you might have to use vs2008 and create a project, port all cs file to that project and compile.&nbsp;</p>\r\n<p>For toolbox, I'm not sure. I haven't work on vs 2008 for ages. That's something you might have to find out on your own.</p>",
+    "PostedDate": "2012-10-29T22:53:29.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934100",
+    "ThreadId": "359016",
+    "Html": "<p>thanks very much!</p>\r\n<p>i have already install vs2010 and .net framework4.0</p>\r\n<p>and now every thing is well.....</p>",
+    "PostedDate": "2012-10-30T01:41:43.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934320",
+    "ThreadId": "359016",
+    "Html": "<p>Most of code should be compatible with .net 3.5. You can compile under that if your project requires.&nbsp;</p>",
+    "PostedDate": "2012-10-30T10:29:12.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

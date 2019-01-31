@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "<p>Use Error correction capacity table and Error correction Level to determine which version we will be using for user input.  Table 13 Page 35</p>\n<p>&nbsp;</p>\n<p>Create proper data structure for Table 13, also proper method to return Version number with given error correction level and input data codewords number. </p>\n<p>&nbsp;</p>\n<p>Implement Nunit test for Version control.</p>\n",
+    "LastUpdatedDate": "2011-12-05T23:40:11.46-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-24T15:03:13.073-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Version Control. Chapter 8.5.1 Error correction capacity (ISO/IEC 18004:2000)",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 347
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Check-In 7282\r\nVersion control algorithm and test done. \r\nTo be able to decide version we need 4 properties. ( datacontent bits without  header[after encoding], mode, error correction level,  encoding[only for eightbitbyte])\r\nmode and encoding will be key to decide if header need ECI(Extended channel interpretation) header or not.\r\nIt use dynamic system to increase header length as we raise version number. Then return proper version number which can contain header plus data content bits. \r\nTodo: Test for Version table.  ",
+      "PostedDate": "2011-11-01T19:13:03.09-07:00",
+      "Id": 85120
+    },
+    {
+      "Message": "Check-In 7285\r\nImplement test for Version table. \r\n\r\nTestMethod under Version should be disable during release version. ",
+      "PostedDate": "2011-11-01T21:24:57.483-07:00",
+      "Id": 85121
+    },
+    {
+      "Message": "Associate with Check-in 9580\r\nCreate struct class specific for Version control method's return value.  ",
+      "PostedDate": "2011-12-05T23:39:58.337-08:00",
+      "Id": 85122
+    }
+  ]
+}

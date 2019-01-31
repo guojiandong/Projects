@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Tested, as penalty scale calculation rely on good performance when retrieval value from matrix(penalty calculation is major bottle neck for QrCode generation), and shift byte to get different value and combine with mask calculation is big performance hit. Thus close this issue. ",
+    "ClosedDate": "2012-05-02T05:36:30.937-07:00",
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>Currently there is some issues with Bitmatrix. Where it wraps two array to present bit matrix and each bit&#39;s status. It could be combine into one byte array, make it less request for index. </p>\n<p>&nbsp;</p>\n<p>Idea is to use different binary position for different value or status. </p>\n<p>00000000 &lt; 8 bit byte variable.  </p>\n<p>Position 0 = matrix value. 0 or 1.</p>\n<p>Position 2 = It has been used or not.  0 = no data input. 1 data exist. </p>\n<p>Position 4 = Indicate whether current bit value is for marks or data value, as masks will only xor with data value. </p>\n<p>&nbsp;</p>\n<p>Mask will represent as 8 bit byte value as well, where mask bit will store at position 0. During penalty evaluation, bit matrix will extract value from bitmatrix and check at position 4, return current value if it&#39;s marks, or xor with mask if it&#39;s data.</p>\n",
+    "LastUpdatedDate": "2012-05-02T05:36:30.937-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-30T19:49:16.857-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Improve Bitmatrix",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 752
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Tested, performance hit very hard. Insert and retrieval cost three times compare to old one, four times slower if include mask calculation. As each masked matrix need heavy penalty calculation, thus will not change TristateMatrix. \r\n",
+      "PostedDate": "2012-05-02T05:33:14.737-07:00",
+      "Id": 85186
+    }
+  ]
+}

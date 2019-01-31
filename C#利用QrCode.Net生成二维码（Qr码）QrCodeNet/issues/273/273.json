@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 8,
+    "Custom": "",
+    "Description": "<p>Implementing encoder for alphanumeric mode according to chapter 8.4 Data encodation / 8.4.3 Alphanumeric Mode</p>\n",
+    "LastUpdatedDate": "2011-10-10T19:09:29.25-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-27T04:16:52.427-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implementing encoder for alphanumeric mode according to chapter 8.4 Data encodation / 8.4.3 Alphanumeric Mode",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 273
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with changeset 4675.",
+      "PostedDate": "2011-09-27T04:18:09.8-07:00",
+      "Id": 85089
+    },
+    {
+      "Message": "See specification under: http://www.codeplex.com/Download?ProjectName=QrCodeNet&DownloadId=284291\r\n1. Implemented unit tests for Gma.QrCodeNet.Encoding.Tests.DataEncodation.AlphanumericEncoder under Gma.QrCodeNet.Encoding.Tests.DataEncodation.AlphanumericEncoderTest. The test also contains calls to reference implementation.\r\n2. Created stub of the class AlphanumericEncoder.\r\nThe next task would be filling the AlphanumericEncoder with functionality and making tests green.",
+      "PostedDate": "2011-09-27T04:24:48.19-07:00",
+      "Id": 85090
+    },
+    {
+      "Message": "Hi, would you like to take over this task?\r\nRegards\r\nGeorge",
+      "PostedDate": "2011-09-27T04:25:37.35-07:00",
+      "Id": 85091
+    },
+    {
+      "Message": "Good job! One point: I would try to avoid code duplication between \"normal\" and \"tryparse style\" methods.",
+      "PostedDate": "2011-09-29T07:59:52.813-07:00",
+      "Id": 85092
+    },
+    {
+      "Message": "Question: Have you run tests under Gma.QrCodeNet.Encoding.Tests.DataEncodation.AlphaumericEncoderTest? I still have over 500 failures.",
+      "PostedDate": "2011-09-29T08:01:39.61-07:00",
+      "Id": 85093
+    },
+    {
+      "Message": "I will check it later. ",
+      "PostedDate": "2011-09-29T18:54:22.207-07:00",
+      "Id": 85094
+    },
+    {
+      "Message": "Test passed. My stupid mistake. :(\r\nint code = getAlphanumericCode(content[positionFromEnd]);   << I used \"i\" from for loop instead of use PositionFromEnd\r\n\r\n",
+      "PostedDate": "2011-09-29T21:48:43.237-07:00",
+      "Id": 85095
+    },
+    {
+      "Message": "Resolved with check-in 4857, 4890",
+      "PostedDate": "2011-10-04T00:09:39.513-07:00",
+      "Id": 85096
+    }
+  ]
+}

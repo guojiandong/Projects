@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "<p>According to ISO/IEC 18004/2006 P45, 46. Chapter 6.6 Constructing final message codewords sequence.</p>\n<p>Implement method to generate error correction codewords after data codewords.</p>\n<p>Implement Nunit test for EC method.</p>\n",
+    "LastUpdatedDate": "2011-12-13T23:19:50.37-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-12-09T10:51:45.443-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error Correction generate for data codewords",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 430
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with check-in 9879 \r\nMethod for generate error correction codewords done. ",
+      "PostedDate": "2011-12-09T10:52:28.307-08:00",
+      "Id": 85140
+    },
+    {
+      "Message": "Associated with check in 10288 \r\nFix bug for ECgenerator\r\nImplement reference test for ECGenerator",
+      "PostedDate": "2011-12-13T21:45:36.93-08:00",
+      "Id": 85141
+    },
+    {
+      "Message": "Associated with Check in 10295 \r\nImplement Test from txt dataset for ECGenerator.",
+      "PostedDate": "2011-12-13T23:19:33.6-08:00",
+      "Id": 85142
+    }
+  ]
+}

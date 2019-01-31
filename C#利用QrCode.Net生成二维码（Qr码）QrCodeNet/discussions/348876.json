@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "811372",
+    "ThreadId": "348876",
+    "Html": "Hi Is it possible to use this in an access report ? If so can you give me an example on how to generate the QRcode from a record set If its not possible can you point me to something that will Thanks Kevin",
+    "PostedDate": "2012-03-16T04:59:09.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811657",
+    "ThreadId": "348876",
+    "Html": "<p>Hi Kevin.</p>\r\n<p>I'm not sure what you are exactly wanna to do. &nbsp;Do you mean you have a set of string inside access database that you want to turn them into QrCode then display inside access report or something else.&nbsp;</p>\r\n<p>Here is some link might be useful.&nbsp;</p>\r\n<p><a href=\"https://office.microsoft.com/en-us/access-help/use-images-in-your-access-forms-reports-and-controls-HA001147204.aspx#BMstoreimages\">https://office.microsoft.com/en-us/access-help/use-images-in-your-access-forms-reports-and-controls-HA001147204.aspx#BMstoreimages</a></p>\r\n<p>Our project is purely a .Net library, you can actually code a small application use this library to encode any given string to QrCode then create image or EPS file according to that. But that application will also involve some code to extract data out of access file and put image or image link back into it after process.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>For access module you can check following link.</p>\r\n<p><a href=\"http://www.idautomation.com/fonts/qr-code/\">http://www.idautomation.com/fonts/qr-code/</a></p>\r\n<p>http://www.barcodesoft.com/qrcodeAccess.aspx</p>\r\n<p>http://www.morovia.com/fonts/qrcode/</p>",
+    "PostedDate": "2012-03-16T14:14:07.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811671",
+    "ThreadId": "348876",
+    "Html": "<p>Hi,</p>\r\n<p><span style=\"white-space: pre;\"> </span>Thanks for the info however all these require paying for a solution.</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>I have good but OLD VBA experience hence my question can this solution be used within MS Access ? this will read data from a field and produce the QRCode in the report as a graphic.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-16T14:35:29.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811694",
+    "ThreadId": "348876",
+    "Html": "<p>Sorry I don't have any experience with VBA. I do see articles that teaches how to compile C# library to be&nbsp;usable&nbsp;to access, but then which kind of function is acceptable by access and which kind of graphic display renderer can be used within access, I have no idea.&nbsp;</p>\r\n<p>So far, I don't know any library that can be directly use under access or similar field which is free for commercial use.&nbsp;</p>\r\n<p>For non commercial use you can check out this one.&nbsp;</p>\r\n<p><a href=\"http://strokescribe.com/en/price.html\">http://strokescribe.com/en/price.html</a></p>",
+    "PostedDate": "2012-03-16T16:33:50.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814339",
+    "ThreadId": "348876",
+    "Html": "<p>You can reference the DLL in Access and use it to create a file, which you use as the Picture property in an Image control on a form or report.</p>",
+    "PostedDate": "2012-03-22T16:26:58.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1251148",
+    "ThreadId": "348876",
+    "Html": "I've heard something like <a href=\"http://www.businessrefinery.com/excel-barcode/qr_code.html\" rel=\"nofollow\">excel qr code</a>, don't know if this kind of thing be helpful to your situation or not. I quite a newbie on these kind of thing, got to study further.<br />\n",
+    "PostedDate": "2014-05-30T01:50:01.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

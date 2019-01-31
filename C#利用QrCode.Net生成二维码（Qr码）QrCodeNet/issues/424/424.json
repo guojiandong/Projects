@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "<p>Remove version number requirement.</p>\n<p>Change test according to that. </p>\n<p>Re-code EncoderBase.Encode method. It should contain following step.</p>\n<p>1. Require input content, mode, encoding string.</p>\n<p>2. Use GetDataBits to encode content.</p>\n<p>3. Use result from GetDataBits and use VersionControl function to find proper version.</p>\n<p>4. Generate header and add databits from GetDataBits after. </p>\n<p>5. Return proper struct class contain Bitlist for header + databits and also error correction block info from version.</p>\n<p>&nbsp;</p>\n<p>Also consider next terminator step. Whether implement inside Encode method or create separate one.</p>\n",
+    "LastUpdatedDate": "2011-12-08T10:47:12.3-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-12-01T21:17:52.03-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Restructure EncoderBase.cs",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 424
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with Check in 9467.\r\n\r\nTODO: Re-code EncoderBase.Encode method",
+      "PostedDate": "2011-12-01T21:19:26.88-08:00",
+      "Id": 85137
+    },
+    {
+      "Message": "Associated with Check in 9580\r\n\r\nFinished DataCodeword generate part. \r\nTODO: Nunit test",
+      "PostedDate": "2011-12-05T01:08:57.36-08:00",
+      "Id": 85138
+    },
+    {
+      "Message": "Associated with check in 9789, 9794\r\nNunit reference test and CSV test.",
+      "PostedDate": "2011-12-08T10:46:32.49-08:00",
+      "Id": 85139
+    }
+  ]
+}

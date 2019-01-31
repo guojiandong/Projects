@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1459884",
+    "ThreadId": "650241",
+    "Html": "Hi,\r<br />\nHow can I use this in SSRS report?<br />\n",
+    "PostedDate": "2016-01-20T02:01:36.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1487567",
+    "ThreadId": "650241",
+    "Html": "I used this:\r<br />\n<br />\nFIRST:\r<br />\nI wrote easy method for convert QrCode.Matrix to byte array into QrEncoder class\r<br />\n<br />\nSECOND:\r<br />\n<a href=\"http://www.codeproject.com/Articles/789254/How-to-embed-Barcodes-in-your-SSRS-report\" rel=\"nofollow\">http://www.codeproject.com/Articles/789254/How-to-embed-Barcodes-in-your-SSRS-report</a>\r<br />\n<br />\nwhere Class name: Gma.QrCodeNet.Encoding.QrEncoder\r<br />\n<br />\nand Code:\r<br />\nPublic Function Convert(Text As String) As Byte()<br />\n<pre><code>       Dim bitmapData As Byte() = Nothing\n\n   bitmapData = bar.EncodeToBytes(Text)\n\n       Return bitmapData</code></pre>\n\nEnd Function\r<br />\n<br />\nTHIRD:\r<br />\n<a href=\"http://stackoverflow.com/questions/13379804/could-not-load-file-or-assembly-in-reporting-services\" rel=\"nofollow\">http://stackoverflow.com/questions/13379804/could-not-load-file-or-assembly-in-reporting-services</a>\r<br />\n<br />\nAND LAST:\r<br />\nadd to assembly:\r<br />\ngacutil -i Gma.QrCodeNet.Encoding.dll<br />\n",
+    "PostedDate": "2016-11-08T03:18:56.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

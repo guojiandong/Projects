@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "<p>Hello together,</p>\n<p>&nbsp;</p>\n<p>i saw that you got an own ImageFormat:&quot;Gma.QrCodeNet.Encoding.Windows.Render.ImageFormatEnum&quot;, but the render functions  expects a &quot;System.Drawing.Imaging.ImageFormat&quot; -Type and if i interpret this right, you&#39;re using internal the ImageFormatEnum? </p>\n<p>Because if i overgive now an &quot;emf&quot;-Type to the &quot;writeToStream&quot; method, i get an exception, so it would be more usefull to set the parameter to ImageFormatEnum instead of System.Drawing.Imaging.Imageformat.</p>\n<p>&nbsp;</p>\n<p>Best regards</p>\n<p>Hasenzahn</p>\n",
+    "LastUpdatedDate": "2012-04-16T21:40:53.277-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-12T04:58:37.913-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System.Drawing.Imaging.ImageFormat - Suggest",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 733
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I'm only use imageformatenum for WPF. WPF doesn't have that enum, If I load ImageFormat under drawing namespace, then library will load whole namespace just for that enum for WPF renderer. \r\n\r\nWPF = ImageFormatEnum => JPEG, BMP, PNG, WDP, GIF, TIFF. \r\nGraphic = ImageFormat => BMP Emf Exif Gif Icon Jpeg MemoryBmp Png Tiff Wmf. \r\n\r\nGraphicRenderer with Emf should be properly output correct image. I just test it on demo. \r\nIf error still exist, please give me a sample code and what exception you got. ",
+      "PostedDate": "2012-04-12T14:50:59.673-07:00",
+      "Id": 85177
+    },
+    {
+      "Message": "Hello Silverlancer,\r\nhere Examplecode which throw's an error:\r\n\r\nError: System.ArgumentNullException = {\"Value cannot be null.\r\nParameter: encoder\"}\r\n\r\nCode:\r\n\r\n            Dim pictureStream As New System.IO.FileStream(\"D:\\test.emf\", IO.FileMode.Create)\r\n            Dim qrEncoder As New QrEncoder(ErrorCorrectionLevel.H)\r\n            Dim qrCode As New QrCode\r\n            qrEncoder.TryEncode(\"http://www.example.com\", qrCode)\r\n            Dim pictureRender As New Gma.QrCodeNet.Encoding.Windows.Render.GraphicsRenderer(New Gma.QrCodeNet.Encoding.Windows.Render.FixedModuleSize(5, Windows.Render.QuietZoneModules.Two), Brushes.Black, Brushes.White)\r\n\r\n            pictureRender.WriteToStream(qrCode.Matrix, System.Drawing.Imaging.ImageFormat.Emf, pictureStream)\r\n\r\n            pictureStream.Flush()\r\n            pictureStream.Close()\r\n\r\nBest regards\r\nHasenzahn\r\n",
+      "PostedDate": "2012-04-13T01:55:37.223-07:00",
+      "Id": 85178
+    },
+    {
+      "Message": "My bad. I found what's going on behind. \r\n\r\nWhen you use the Save method to save a graphic image as a Windows Metafile Format (WMF) or Enhanced Metafile Format (EMF) file, the resulting file is saved as a Portable Network Graphics (PNG) file instead. This behavior occurs because the GDI+ component of the .NET Framework does not have an encoder that you can use to save files as .wmf or .emf files.\r\n\r\nHere is copy paste from MSDN. I have also checked all encoder under ImageCodecInfo. There are only 5 encoder support by .Net. Which is following: BMP, JPEG, GIF, TIFF, PNG. Any metaFile will not support by Image.Save command. As there are no encoder belong to that category. \r\n\r\nI do found a way to save metaFile. I will implement with my next check in. \r\n\r\nThanks for report that issue. Really appreciate. ",
+      "PostedDate": "2012-04-13T16:42:02.933-07:00",
+      "Id": 85179
+    },
+    {
+      "Message": "http://msdn.microsoft.com/en-us/library/system.drawing.graphics.addmetafilecomment.aspx\r\nReference for what I am going to put into renderer for EMF/WMF metafile creation. ",
+      "PostedDate": "2012-04-13T23:26:00.787-07:00",
+      "Id": 85180
+    },
+    {
+      "Message": "15096. Implement MetaFile creation. (Emf, Wmf)",
+      "PostedDate": "2012-04-16T21:40:24.33-07:00",
+      "Id": 85181
+    }
+  ]
+}

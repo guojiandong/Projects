@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "918584",
+    "ThreadId": "397194",
+    "Html": "\r\n<p>Hi,&nbsp;</p>\r\n<p>I'm using QRCodeNet to display a simple QR code, which contains address info (vCard) onto</p>\r\n<p>an ASP.Net page. &nbsp;Problem is that the QR code has a border around the right and bottom which looks bad but also seems to stop the QR code being&nbsp;recognised&nbsp; when scanned horizontally. &nbsp;My code is shown below, any ideas?&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>String vcs = vc.ToString();\r\n                QrEncoder qrEncoder = <span style=\"color:blue\">new</span> QrEncoder(ErrorCorrectionLevel.H);\r\n                QrCode qrCode = <span style=\"color:blue\">new</span> QrCode();\r\n                qrEncoder.TryEncode(vcs, <span style=\"color:blue\">out</span> qrCode);            \r\n\r\n                <span style=\"color:blue\">if</span> (qrCode != <span style=\"color:blue\">null</span>)\r\n                {\r\n                    Renderer renderer = <span style=\"color:blue\">new</span> Renderer(3, Brushes.Black, Brushes.White);\r\n                    MemoryStream ms = <span style=\"color:blue\">new</span> MemoryStream();\r\n                    renderer.WriteToStream(qrCode.Matrix, ms, ImageFormat.Png);\r\n                    <span style=\"color:blue\">return</span> Image.FromStream(ms);\r\n                }              \r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Appreciate this may be more to do with my using of the Image object.&nbsp;</p>\r\n",
+    "PostedDate": "2012-09-27T09:29:45.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "919310",
+    "ThreadId": "397194",
+    "Html": "<p><a href=\"http://qrcodenet.codeplex.com/discussions/360974\">http://qrcodenet.codeplex.com/discussions/360974</a></p>\r\n<p>Already solved. Please grab latest source code and use that version.&nbsp;</p>\r\n<p>There are documentations for latest source code. Which is here:</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>",
+    "PostedDate": "2012-09-28T23:55:09.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920021",
+    "ThreadId": "397194",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>silverlancer wrote:</strong><br />\r\n<p><a href=\"http://qrcodenet.codeplex.com/discussions/360974\">http://qrcodenet.codeplex.com/discussions/360974</a></p>\r\n<p>Already solved. Please grab latest source code and use that version.&nbsp;</p>\r\n<p>There are documentations for latest source code. Which is here:</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>\r\n</blockquote>\r\n<p>Thanks, I will give that a try.&nbsp;</p>",
+    "PostedDate": "2012-10-01T06:43:16.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "921891",
+    "ThreadId": "397194",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>silverlancer wrote:</strong><br>\r\n<p><a href=\"http://qrcodenet.codeplex.com/discussions/360974\">http://qrcodenet.codeplex.com/discussions/360974</a></p>\r\n<p>Already solved. Please grab latest source code and use that version.&nbsp;</p>\r\n<p>There are documentations for latest source code. Which is here:</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>\r\n</blockquote>\r\n<p>&nbsp;</p>\r\n<p>Hi,&nbsp;</p>\r\n<p>The new versiond of the dll (Gma.QrCodeNet.Encoding) is exactly the same as the one in my solution.</p>\r\n<p>v4.0.30319</p>\r\n<p>Have I got the correct version?&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-10-04T07:18:22.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "921994",
+    "ThreadId": "397194",
+    "Html": "<p>Where did you download newest version?</p>\r\n<p>&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/SourceControl/changeset/view/19515\"><a href=\"http://qrcodenet.codeplex.com/SourceControl/list/changesets\">http://qrcodenet.codeplex.com/SourceControl/list/changesets</a></a></p>\r\n<p>&nbsp;</p>\r\n<p>Latest version doesn't have any dll file include, you have to compile on your own. I don't remember I have set up version, the one you post is most likely C#'s version. Project version probably still at 1.0.0.0, as I have been lazy to modify that number.&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-10-04T10:44:11.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "922424",
+    "ThreadId": "397194",
+    "Html": "<p>Hi,&nbsp;</p>\r\n<p>I downloaded it from here, on the downloads tab. &nbsp;&nbsp;</p>\r\n<p>Do I just need to download the solution and compile if? &nbsp;If so where do I get the solution&nbsp;</p>\r\n<p>as all the downloads I've seen are for a zip containing three dlls.&nbsp;</p>",
+    "PostedDate": "2012-10-05T06:51:49.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "922704",
+    "ThreadId": "397194",
+    "Html": "<p>I have provide link on my last post. Under source control tab and select history. Grab newest version compile yourself with release version. You can also adjust compile setting on your own not big deal. Then you should have a proper dll under release folder. Google around for how to compile library you should easily find answer.&nbsp;</p>",
+    "PostedDate": "2012-10-05T20:49:30.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929448",
+    "ThreadId": "397194",
+    "Html": "<p>Hi There,</p>\r\n<p>I found myself in the same situation as TheDaveGray. There is a border around every image.&nbsp;</p>\r\n<p>So I downloaded the latest version from <a href=\"http://qrcodenet.codeplex.com/SourceControl/changeset/view/19515\">here</a>&nbsp;(download-button) and compiled it. But now I can't seem te call \"Renderer\" anymore. Do you know in which NameSpace it is used in?&nbsp;</p>\r\n<p>All the examples use a \"Renderer\".</p>\r\n<p>If Renderer is not available anymore: do you have a sample code for writing a stream to file?</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2012-10-19T08:18:46.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929673",
+    "ThreadId": "397194",
+    "Html": "<p>&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/discussions/360974\">http://qrcodenet.codeplex.com/discussions/360974</a></p>\r\n<p>Already solved. Please grab latest source code and use that version.&nbsp;</p>\r\n<p>There are documentations for latest source code. Which is here:</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>\r\n<p>&nbsp;</p>\r\n<p>^</p>\r\n<p>My first post for this discussion. Hope it helps.&nbsp;</p>",
+    "PostedDate": "2012-10-19T16:59:40.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931098",
+    "ThreadId": "397194",
+    "Html": "<p>Thanks for your answer, but I can't still seem to write the stream to a file. This is what i've got so far:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: green;\">'Building QRcode</span>\r\n<span style=\"color: blue;\">Dim</span> QRCodeEncoder <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> QrEncoder(ErrorCorrectionLevel.H)\r\n<span style=\"color: blue;\">Dim</span> QRCode <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> QrCode\r\n            \r\n<span style=\"color: blue;\">Dim</span> QRrender <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> Windows.Render.GraphicsRenderer(<span style=\"color: blue;\">New</span> Windows.Render.FixedModuleSize(4, Render.QuietZoneModules.Two), Brushes.Black, Brushes.White)\r\n<span style=\"color: blue;\">Dim</span> QRStream <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> MemoryStream()\r\n\r\nQRCodeEncoder.TryEncode(QRCodeUrl, QRCode)\r\n\r\nQRrender.WriteToStream(QRCode.Matrix, imageFormat:=System.Drawing.Imaging.ImageFormat.Png, stream:=QRStream)\r\n\r\n<span style=\"color: green;\">'Previous version of QRcode generator (with border)</span>\r\n<span style=\"color: green;\">'Dim QRRender As New Renderer(10, Brushes.Black, Brushes.White)</span>\r\n<span style=\"color: green;\">'QRRender.CreateImageFile(QRCode.Matrix, \"c:\\temp\\QRcode.bmp\", imageFormat:=System.Drawing.Imaging.ImageFormat.Bmp)</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>But how do I write the stream to an image? In the previous version there was a function called CreateImageFile, to ehm..create an image file. Is there any substitute for this function? If not...can you show me how to do this (and tell me why the CreateImageFile had to leave the project?)</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2012-10-23T07:28:21.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931221",
+    "ThreadId": "397194",
+    "Html": "<p>Use filestream instead of memory stream. Example inside demo which come along with source code.&nbsp;</p>\r\n<p>Even though they are written in C#, but most likely similar to VB.&nbsp;</p>",
+    "PostedDate": "2012-10-23T10:35:54.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

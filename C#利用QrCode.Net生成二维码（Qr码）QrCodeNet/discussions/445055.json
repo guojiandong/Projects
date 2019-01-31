@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1049013",
+    "ThreadId": "445055",
+    "Html": "Want to know if I am doing to it right.<br />\n<pre><code>string text = &quot;Meniň adym Begenç Amanow&quot;;\nvar qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);\nvar qrCode = new QrCode();\nqrEncoder.TryEncode(text, out qrCode);\nvar renderer = new GraphicsRenderer(new FixedCodeSize(200, QuietZoneModules.Two));\nvar ms = new System.IO.MemoryStream();\nrenderer.WriteToStream(qrCode.Matrix, System.Drawing.Imaging.ImageFormat.Png, ms);</code></pre>\n\nWasn't properly encoding Unicode characters. \r<br />\nI used solution provided in this link: <a href=\"http://stackoverflow.com/questions/6198744/convert-string-utf-16-to-utf-8-in-c-sharp/14761024#14761024\" rel=\"nofollow\">StackOverflow</a>\r<br />\ni.e I converted Utf-16 string to Utf-8 string<br />\n<pre><code>string text = Utf16ToUtf8(&quot;Meniň adym Begenç Amanow&quot;);</code></pre>\n\nand it worked like charm :)\r<br />\nIs there any problem with my approach or is there proper way to do this?\r<br />\n<br />\nThank you for this piece of art.\r<br />\nBegench Amanov.<br />\n",
+    "PostedDate": "2013-05-26T23:45:59.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049110",
+    "ThreadId": "445055",
+    "Html": "Somehow it is encode with iso 8859-1. I will check code later see if I can fix it. \r<br />\n<br />\nThanks for report. <br />\n",
+    "PostedDate": "2013-05-27T03:50:35.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050307",
+    "ThreadId": "445055",
+    "Html": "Thank you for your concern. Will wait for your answer.<br />\n",
+    "PostedDate": "2013-05-29T13:37:22.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051661",
+    "ThreadId": "445055",
+    "Html": "I have fixed at my side. Problem is not relate to UTF16 to UTF8 but ISO-8859-1's encoding. \r<br />\n<br />\nWhat happen is when we try to convert &quot;ň&quot; by using ISO-8859-1 to byte array, it return 110. Which is &quot;n&quot;. Char &quot;ň&quot; doesn't exist in ISO-8859-1, where it should normally return question mark instead. That's where it went all wrong. All the char you have provide all turn into normal English letter. I don't know what's behind with MSFT's magic encoding solution. That makes char recognition really hard. \r<br />\n<br />\nThe way I have resolved is to convert back to string after initial and check if both string are same, that will introduce one more step of work. On the other hand, I have removed majority of encoding table check from ELC set. Which should help balance everything out. As since we have released our library, more and more case is showing complete ELC set might cause problem in one way or another. Thus remove all by default encoding and utf8 probably is best way for now.\r<br />\n<br />\nI will do some more work before commit my fix. This is post just to let you know what exactly happen. <br />\n",
+    "PostedDate": "2013-06-01T21:41:58.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051663",
+    "ThreadId": "445055",
+    "Html": "Thank you.\r<br />\nMy I suggest?\r<br />\nWill not it simplify encoding if you only use utf-8 and remove everything other?<br />\n",
+    "PostedDate": "2013-06-01T22:04:36.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051738",
+    "ThreadId": "445055",
+    "Html": "That will never be an option. Reason behind is UTF8 QrCode will be huge. It should be avoid whenever possible. And utf8 is not on ISO QrCode specification. Current UTF8 implementation is what all decoder and encoder agreed under the table. It's not in char table set nor we use any char table indication. Only thing we can tell it is UTF8 is BOM char.\r<br />\n<br />\nLet's say &quot;Hellow World&quot;. If use iso 8859-1 to encode, then code will be around size version 2~3 (my guess), then if use UTF8 it will be larger. So, if we want to print QrCode on business card what will happen? Each white and black square will be so small that cause huge density also cause code hard to read and easily damaged by scratch. \r<br />\n<br />\nPriority of which one to use should always be following:  Numeric &gt; alpha numeric &gt; kanji (japanese) &gt; 8859-1 (or shift-js for japanese specification) &gt; other 8bit byte char set &gt; UTF8. \r<br />\n<br />\nOr in other word, if I can use 2 bytes to represent 4~6 char, that's far better than 2 bytes only display 1 char. On the other hand, with least bytes, code's number of zero and one will be so small that on same size People can scan from far away. That's the power of use better char set.<br />\n",
+    "PostedDate": "2013-06-02T04:54:26.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051793",
+    "ThreadId": "445055",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div>\r\n<div>Ok now i understand. So you only use utf-8 if other encoding doesn't have character.<br>\r\n</div>\r\nVery good decision. But can you compare utf-8 and other encodings? I don't think<br>\r\n</div>\r\nit will so much larger.<br>\r\n</div>\r\n",
+    "PostedDate": "2013-06-02T09:16:20.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051868",
+    "ThreadId": "445055",
+    "Html": "Very large. Other encoding have special process to make them smaller.\r<br />\n<br />\nFor version 1 QrCode. The smallest normal QrCode. It can contain 42 numeric, or 25 alpha numeric, or 17 bytes, or 10 kanji.   While for bytes.. 8859-1 means 17 char, while utf8 only 8 char.\r<br />\n<br />\nFor full table please check ISO/IEC 18004:2006(E) - QR code specification - page 33.\r<br />\n<br />\nThat specification you can download from our first page. <br />\n",
+    "PostedDate": "2013-06-02T15:12:23.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051870",
+    "ThreadId": "445055",
+    "Html": "As for Kanji, we normally check before anything else. Kanji only for japanese's word char. Thus all belong to unicode range. While kanji have special process to make them smaller than unicode. Each char is smaller than 2 bytes. Little bit not huge.<br />\n",
+    "PostedDate": "2013-06-02T15:14:35.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051933",
+    "ThreadId": "445055",
+    "Html": "I downloaded pdf on first page and read page 33. Now i understand. Thank you for your explanation.<br />\n",
+    "PostedDate": "2013-06-02T23:16:04.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

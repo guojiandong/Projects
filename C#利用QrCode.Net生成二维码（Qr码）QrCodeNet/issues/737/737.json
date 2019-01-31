@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "<p>When I use the DrawingBrushRenderer with the following code, the quiet zone is not rendered and the matrix modules are stretched:</p>\n<p>&nbsp;</p>\n<p>var render = new DrawingBrushRenderer(new FixedModuleSize(5, QuietZoneModules.Four));</p>\n<p>var ms = new MemoryStream();</p>\n<p>render.WriteToStream(qrCode.Matrix, ImageFormatEnum.PNG, ms);</p>\n<p>&nbsp;</p>\n<p>When using the GraphicsRenderer instead, the quiet zone is rendered correctly.</p>\n",
+    "LastUpdatedDate": "2012-04-16T21:45:46.187-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-16T03:35:26.82-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing quiet zone in DrawingBrushRenderer",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 737
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "k. Fixed. Should be in next checkin. \r\nMy create quietZone geometry method was incomplete. \r\nIf you want test out before checkin. Just find ConstructQZDrawing under DrawingBrushrenderer class, put following code between using(streamgeometrycontext .....){}\r\nqrCodeCtx.DrawRectGeometry(new Int32Rect(0, 0, width, width));\r\nThat will fix the issue. ",
+      "PostedDate": "2012-04-16T14:36:34.71-07:00",
+      "Id": 85184
+    },
+    {
+      "Message": "Check In 15134\r\nFixed",
+      "PostedDate": "2012-04-16T21:45:33.927-07:00",
+      "Id": 85185
+    }
+  ]
+}

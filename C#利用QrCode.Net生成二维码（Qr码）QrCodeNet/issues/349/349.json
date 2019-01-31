@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>Implement calculation and embedding Format information according to Chapter 6.9  ISO/IEC 18004:2006(E)</p>\n<p>Implement appropriate unit tests.</p>\n",
+    "LastUpdatedDate": "2011-12-21T13:13:04.937-08:00",
+    "PlannedForRelease": "v0.3",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-24T23:49:35.267-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Format information according to Chapter 6.9  ISO/IEC 18004:2006(E)",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 349
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with check in 10651 ",
+      "PostedDate": "2011-12-21T13:13:04.937-08:00",
+      "Id": 85123
+    }
+  ]
+}

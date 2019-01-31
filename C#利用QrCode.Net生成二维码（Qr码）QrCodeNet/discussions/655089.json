@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1474719",
+    "ThreadId": "655089",
+    "Html": "Public Function GenerateQRCode(URL As String, DarkColor As System.Drawing.Color, LightColor As System.Drawing.Color) As Bitmap<br />\n<pre><code>    Dim Encoder As New Gma.QrCodeNet.Encoding.QrEncoder(Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.M)</code></pre>\n\n<strong>I am using following VB.NET code to generate QR-Code</strong><br />\n<pre><code>        Dim Code As Gma.QrCodeNet.Encoding.QrCode = Encoder.Encode(URL)\n\n        Dim TempBMP As New Bitmap(Code.Matrix.Width, Code.Matrix.Height)\n        For X As Integer = 0 To Code.Matrix.Width - 1\n            For Y As Integer = 0 To Code.Matrix.Height - 1\n                If Code.Matrix.InternalArray(X, Y) Then TempBMP.SetPixel(X, Y, DarkColor) Else TempBMP.SetPixel(X, Y, LightColor)\n            Next\n        Next\n        Return TempBMP\n    End Function</code></pre>\n\nAnd then to make a call<br />\n<pre><code>   Dim obj As New QRGenerator()\n        Dim img = obj.GenerateQRCode(&quot;www.google.co.uk&quot;, Drawing.Color.Black, Drawing.Color.Aqua)\n        img.Save(Context.Server.MapPath(&quot;images/stars_5.png&quot;))</code></pre>\n\nIt generate the image as which is very small in size:\r<br />\n<a href=\"http://stackoverflow.com/questions/37544220/qr-code-custom-size\" rel=\"nofollow\">TEXT</a>\r<br />\n<br />\nHow I can generate image with bigger size?<br />\n",
+    "PostedDate": "2016-05-31T04:46:34.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

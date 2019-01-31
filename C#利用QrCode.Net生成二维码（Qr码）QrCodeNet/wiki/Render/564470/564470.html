@@ -1,0 +1,21 @@
+<div class="wikidoc"><h1>ISizeCalculation</h1>This page provides a guide to interface ISizeCalculation and its related classes. <br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.Render<br />
+<h3>Remarks</h3>ISizeCalculation is interface for different print size style. Classes that uses this interface are FixedCodeSize and FixedModuleSize. <br /><br /><b>FixedCodeSize</b>: This class is for people who want to draw QrCode at constant size. <br /><b>FixedModuleSize</b>: This class is for people who want to draw QrCode at constant module size. (Check <a href="https://qrcodenet.codeplex.com/wikipage?title=QrCode&referringTitle=Size">QrCode info</a> for information about module.)<br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>ISizeCalculation</td><td>Initialize a new instance of interface</td></tr>
+<tr><td>FixedCodeSize</td><td>Initialize a new instance of FixedCodeSize class.</td></tr>
+<tr><td>FixedModuleSize</td><td>Initialize a new instance of FixedModuleSize class.</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>GetSize</td><td>Get DrawingSize struct for input matrix width</td></tr></table><br />
+<h3>Example</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding.Windows.Render;
+</pre></div><br /><div style="color:Black;background-color:White;"><pre>
+FixedCodeSize fCodeSize = <span style="color:Blue;">new</span> FixedCodeSize(200, QuietZoneModules.Two); <span style="color:Green;">//ISize, QrCode will be draw at 200 pixels x 200 pixels with quiet zone size at two. </span>
+fCodeSize.QuietZoneModules = QuietZoneModules.Four;   <span style="color:Green;">//Change quiet zone size to four. </span>
+
+DrawingSize dSize = fCodeSize.GetSize(21);    <span style="color:Green;">//21 is version 1 QrCode&#39;s width. GetSize method will be use by Renderer, it&#39;s not something people will be using during coding. </span>
+
+FixedModuleSize fModuleSize = <span style="color:Blue;">new</span> FixedModuleSize(20, QuietZoneModules.Two);
+
+<span style="color:Green;">//fModuleSize will cause Renderer to draw version 1 QrCode at width 462 pixels x 462 pixels. </span>
+<span style="color:Green;">//Version 1 QrCode 21 modules for width.  21 * 20 + 2 * 20. </span>
+</pre></div></div><div class="ClearBoth"></div>

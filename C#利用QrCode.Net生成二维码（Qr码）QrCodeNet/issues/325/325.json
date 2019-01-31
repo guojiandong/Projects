@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "<p>Hi</p>\n<p>&nbsp;</p>\n<p>Move QrCodeControl.cs and Renderer.cs to the assembly as it makes it possible to add the QrCodeControl to the Toolbox by adding the assembly dll.</p>\n<p>&nbsp;</p>\n<p>wvd_vegt</p>\n",
+    "LastUpdatedDate": "2011-10-20T22:17:34.243-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-17T01:36:15.413-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Move QrCodeControl.cs and Renderer.cs to Gma.QeCodeNet.Encoder Assembly",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 325
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

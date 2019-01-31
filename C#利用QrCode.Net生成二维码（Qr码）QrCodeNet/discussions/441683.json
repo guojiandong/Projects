@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1036129",
+    "ThreadId": "441683",
+    "Html": "Hello everyone!<br />\n<br />\nI am new to the area of &quot;studying and using someonelse's libraries&quot;, so I got this question:<br />\nI downloaded the library QrCode.Net and looked through it. <br />\nMy task is to generate a QR code image exactly like the one from <a href=\"https://qrcodenet.codeplex.com/\" rel=\"nofollow\">the picture on the homepage of the library.</a><br />\nI am not really sure how to use the QrCodeGraphicControl (because I suppose that's where I should start from).<br />\nSo yeah... any suggestion ? <br />\n",
+    "PostedDate": "2013-04-26T08:13:13.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036283",
+    "ThreadId": "441683",
+    "Html": "<a href=\"https://qrcodenet.codeplex.com/wikipage?title=GraphicsRenderer&amp;referringTitle=Renderer\" rel=\"nofollow\">https://qrcodenet.codeplex.com/wikipage?title=GraphicsRenderer&referringTitle=Renderer</a>\r<br />\n<br />\nDocumentation and example here. This is for winform.<br />\n",
+    "PostedDate": "2013-04-26T13:01:39.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037513",
+    "ThreadId": "441683",
+    "Html": "Can't I simply use something like Can't I simply use something like <br />\n<pre><code>private void Form1_Load(object sender, EventArgs e)\n        {\n            pictureBox1.Image = qrCodeImage;\n        }</code></pre>\n\nBut then I need to get the qrImage from somewhere ?<br />\n",
+    "PostedDate": "2013-04-30T00:04:21.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

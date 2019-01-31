@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "934542",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>It's possible ?</p>\r\n",
+    "PostedDate": "2012-10-30T22:05:34.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934590",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>Its already enabled. It will determine by your input string. If your string not fully kanji, it will most likely use utf8.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Also which language are you trying to encode?</p>\r\n<p>&nbsp;</p>\r\n<p>I'm asking that as kanji =&nbsp;Japanese&nbsp;kanji. Some what feel like you are asking for&nbsp;Chinese.&nbsp;</p>\r\n",
+    "PostedDate": "2012-10-31T01:15:19.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934770",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>Ups, my bad. I mean can i use SHIFT_JIS character encoding ? Because recognition not working properly i gues. If u try encode &amp; decode russian word &quot;привет&quot;, u will get &quot;привет&quot;, but if u try another one word &quot;пока&quot;, u get just this &quot;п&quot;. With another\r\n qrcode encoders like this <a href=\"http://zxing.appspot.com/generator/\">http://zxing.appspot.com/generator/</a>&nbsp;work fine with SHIFT_JIS.</p>\r\n",
+    "PostedDate": "2012-10-31T07:21:01.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934892",
+    "ThreadId": "401342",
+    "Html": "<p>It is using kanji. I will take look later see what's going on.&nbsp;</p>",
+    "PostedDate": "2012-10-31T10:44:10.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935184",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>I think that's a lot to do with decoder. The one use QrCode.Net, can be properly decode by zxing. Where zxing and our's encoder's version can not be decode by ingma mobile decoder.&nbsp;</p>\r\n<p>Currently QrCode.Net is base on ZXing, but more restrict on shift-jis. &nbsp;Our encoder is 100% according to ISO specification, where zxing is not for shift-jis.</p>\r\n<p>Shift-jis under iso specification, only first 225 char should be used for 8 bit byte. As what iso said is most original shift-jis table, not full version. Where zxing uses full version. Shift-jis table have been expand for several times.</p>\r\n<p>Another reason why our code can be decode by zxing is we are base on their encoder. It was originally re-craft on top of zxing. So even though our rule is restrict, but still within their range. Where I have never seen any other decoder's internal code.</p>\r\n<p>One down side of our encoder is that we automatically decide which encoder to use. That's something I want to address later for advanced encode. As 99% of people who uses encoder, they want auto decide for them. (Well my assumption. As most people never\r\n read iso spec, they also never read char table. There is no way for them to decide which table is best for what situation).&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>One way could resolve it if you know your target is most likely use shift-jis or utf8. I can tell you which code to remove, then it will only check for specific table without use kanji. I bet a lot of decoder don't care about kanji table, as its not widely\r\n used even for Japanese. So once remove detection code you can compile and have your own special version without big issue.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Let me know if you want to do that.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Edit: For what I mean ZXing use full table. Shift-jis first 225 chars are what we call original shift-jis table, where rest of table is what Qrcode ISO specified as kanji table. Reason I said even Japanese won't use kanji much, as their language usage a\r\n lot of time will be in first 225 chars table or mixed with kanji. Pure kanji is rare from my understanding.&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-01T02:33:58.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935584",
+    "ThreadId": "401342",
+    "Html": "\r\n<blockquote style=\"padding-bottom:0px; font-style:italic; margin:0.25em 1em 0px; padding-left:0.25em; padding-right:0.25em; padding-top:0px; border:#ccc 0.1em solid\">\r\n<strong>silverlancer wrote:</strong>&nbsp;\r\n<p>Let me know if you want to do that.&nbsp;</p>\r\n</blockquote>\r\n<p>&nbsp;Yes. I want to do that. :)</p>\r\n",
+    "PostedDate": "2012-11-02T01:00:41.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936232",
+    "ThreadId": "401342",
+    "Html": "<p>Recognition class is under <span>Gma.QrCodeNet.Encoder.Dataencodation.<span>InputRecognise<span>.cs</span></span></span></p>\r\n<p>Inside has a method call&nbsp;<span>Recognise(string content)</span></p>\r\n<p><span>It will basically go through whole set of encode and find proper one.&nbsp;</span></p>\r\n<p>Simply change following code:</p>\r\n<p><span>int</span><span> tryEncodePos = ModeEncodeCheck.TryEncodeKanji(content, contentLength); </span></p>\r\n<p><span>to</span></p>\r\n<p><span>int&nbsp;tryEncodePos = 0;</span></p>\r\n<p><span>It will skip kanji detection.&nbsp;</span></p>\r\n<p>For eight bit byte, you can check char tables under&nbsp;<span>Gma.QrCodeNet.Encoder.Dataencodation.ECIset.cs.</span></p>\r\n<p><span>Remove any table that you don't want include inside detection. That will do the trick.&nbsp;</span></p>\r\n<p>&nbsp;</p>\r\n<p>UTF8 should be best option for most decoder. But it will result large QrCode size. It has its pro and cons. Currently decoder on market are rather messy. Hardly anyone want to follow ISO specification, also because of localized ISO specification makes some chaos around QrCode encode and decode. That's something really bad for special&nbsp;European chars.&nbsp;</p>\r\n<p>If you want most of decoder able to read your code, UTF8 is best, if code size is really important, like print on business card. Then specific char table should be used, then it will have risk of some decoder can not decode.</p>\r\n<p>&nbsp;</p>\r\n<p>Good luck on your project, let me know if you have anything not clear.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-11-03T22:51:10.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943359",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>No bro, unfortunately <span>int tryEncodePos = 0;&nbsp;it <span>does not work</span> :(</span></p>\r\n",
+    "PostedDate": "2012-11-17T14:38:54.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943384",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>Have you remove&nbsp;<span>int</span><span>&nbsp;tryEncodePos = ModeEncodeCheck.TryEncodeKanji(content, contentLength); ?</span></p>\r\n<p><span>Can you pass the code you have changed to me? I will take look for you.&nbsp;</span></p>\r\n",
+    "PostedDate": "2012-11-17T16:16:20.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943386",
+    "ThreadId": "401342",
+    "Html": "\r\n<p><span><span>Yes of course</span> <span>I remove it.</span></span></p>\r\n<p><span>//int</span><span> tryEncodePos = ModeEncodeCheck.TryEncodeKanji(content, contentLength);\r\n</span></p>\r\n<p><span>int tryEncodePos = 0;</span></p>\r\n<p><span>Just insert in textbox&nbsp;word &quot;пока&quot; &amp; try to decode it. Y<span>ou will see</span>\r\n<span>a different word.</span></span></p>\r\n",
+    "PostedDate": "2012-11-17T16:59:29.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943418",
+    "ThreadId": "401342",
+    "Html": "\r\n<p>Works fine on my decoder.&nbsp;</p>\r\n<p>I have looked inside, and found out it start using ISO-8859-5 char table. If some decoder doesn't have that ECI char table knowledge, then they won't be able to figure out how to decode.&nbsp;</p>\r\n<p>Recently discover so many cheap decoder issue. Guess my next goal will be given some choice, so developer can choose if they want to run in safe mode or not. Where safe mode will be strict to most commonly and widely used character table.&nbsp;</p>\r\n<p>One way to resolve it is keep that &quot;<span>int tryEncodePos = 0;&quot; there and try look into ECISet.cs. That file is under dataEncodation.&nbsp;</span></p>\r\n<p>Inside initialize method, disable all char table other than iso-8859-1, shift_jis and utf-8. And try encode again.&nbsp;</p>\r\n<p>I will most likely spend some time during Christmas and get those thing sorted.&nbsp;</p>\r\n<p>Hope that solves your problem, let me know if otherwise.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Edit: Comment out AppendECI method and don't change any value inside. Like shift_jis = 17, those are ECI ISO set, value is according to ISO table, not index. If you are interested at those table, I have two link inside source file.</p>\r\n",
+    "PostedDate": "2012-11-17T21:17:22.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

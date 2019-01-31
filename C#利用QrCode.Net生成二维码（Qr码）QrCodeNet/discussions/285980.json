@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "724452",
+    "ThreadId": "285980",
+    "Html": "\r\n<p>...does it runs even on Silverlight 5?</p>\r\n",
+    "PostedDate": "2012-01-12T13:12:42.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724561",
+    "ThreadId": "285980",
+    "Html": "<p>Hi Sandex.&nbsp;</p>\r\n<p>For Silverlight, as far as I understand that it doesn't support System.Drawing. So Renderer class under Controls won't work for Silverlight. But you can inspire from code inside renderer to create your own method that drawing 2D graphic under Silverlight.&nbsp;</p>\r\n<p>For Silverlight drawing 2D you might want to check this post:</p>\r\n<p><a href=\"http://stackoverflow.com/questions/8462193/silverlight-5-drawing-sprites\">http://stackoverflow.com/questions/8462193/silverlight-5-drawing-sprites</a></p>\r\n<p>&nbsp;</p>\r\n<p>If you already familiar with drawing 2D graphic on Silverlight, you can simply use QrEncoder which it will return a bitMatrix for you. Where you just draw blank square for false and black square for true. Pretty simple. Also don't forget to draw quiet zone outside of matrix. Quiet zone is 2 module ~ 4 module wide around matrix. (One module = one bit variable inside bit matrix).&nbsp;</p>\r\n<p>Drawing algorithm is under Windows.Controls.Renderer.cs. Which you just grab from source code.&nbsp;</p>\r\n<p>BitMatrix will return bool value for each index, and it's square matrix (x: 0 ~ width ) (y: 0 ~ width).&nbsp;</p>\r\n<p>Hope that helps. Ask if you have further questions.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Jason</p>",
+    "PostedDate": "2012-01-12T17:16:05.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724569",
+    "ThreadId": "285980",
+    "Html": "<p>oh. Sorry. Another solution probably much more&nbsp;simpler.&nbsp;</p>\n<p>You can use Renderer.cs to create png image file, then put that file into your Silverlight Control. That should work for anything that can accept image file.&nbsp;</p>\n<p>Renderer.cs also has method for write image to stream.&nbsp;</p>\n<p>Silverlight just same as WPF is for UI design, main code should be still under C#. So just use C# to create image files for your Silverlight control, I think that will&nbsp;definitely&nbsp;work.&nbsp;</p>",
+    "PostedDate": "2012-01-12T17:24:22.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724623",
+    "ThreadId": "285980",
+    "Html": "\r\n<p>Hi.</p>\r\n<p>Clear... i ll create a wcf service. my sl controllo Will call the service to get the rendered image eh eh it tooks less time....</p>\r\n<p>Alberto</p>\r\n<div>Il giorno 13/gen/2012 02:16, &quot;Silverlancer&quot; &lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt; ha scritto:<br type=\"attribution\">\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: Silverlancer</p>\r\n<div>\r\n<p>Hi Sandex. </p>\r\n<p>For Silverlight, as far as I understand that it doesn't support System.Drawing. So Renderer class under Controls won't work for Silverlight. But you can inspire from code inside renderer to create your own method that drawing 2D graphic under Silverlight.\r\n</p>\r\n<p>For Silverlight drawing 2D you might want to check this post:</p>\r\n<p><a href=\"http://stackoverflow.com/questions/8462193/silverlight-5-drawing-sprites\" target=\"_blank\">http://stackoverflow.com/questions/8462193/silverlight-5-drawing-sprites</a></p>\r\n<p></p>\r\n<p>If you already familiar with drawing 2D graphic on Silverlight, you can simply use QrEncoder which it will return a bitMatrix for you. Where you just draw blank square for false and black square for true. Pretty simple. Also don't forget to draw quiet zone\r\n outside of matrix. Quiet zone is 2 module ~ 4 module wide around matrix. (One module = one bit variable inside bit matrix).\r\n</p>\r\n<p>Drawing algorithm is under Windows.Controls.Renderer.cs. Which you just grab from source code.\r\n</p>\r\n<p>BitMatrix will return bool value for each index, and it's square matrix (x: 0 ~ width ) (y: 0 ~ width).\r\n</p>\r\n<p>Hope that helps. Ask if you have further questions. </p>\r\n<p></p>\r\n<p>Jason</p>\r\n</div>\r\n<div>\r\n<p>Read the <a href=\"http://qrcodenet.codeplex.com/discussions/285980#post724561\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:QrCodeNet@discussions.codeplex.com?subject=[QrCodeNet:285980]\" target=\"_blank\">QrCodeNet@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:QrCodeNet@discussions.codeplex.com\" target=\"_blank\">\r\nQrCodeNet@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://qrcodenet.codeplex.com/discussions/285980/unsubscribe/\" target=\"_blank\">\r\nunsubscribe</a> on CodePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n",
+    "PostedDate": "2012-01-12T22:05:33.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724949",
+    "ThreadId": "285980",
+    "Html": "<p>Cool. It looks like you have found a way to deal with Silverlight. One thing I would like to remind you is size of image file. Width of each QrCode matrix is 17 + 4 * version. &nbsp;So for version 1 matrix size will be 21 x 21 modules. Where version 40 will be  177 x 177 modules. Even though normally char number under 255 will be around version 1 to version 10.&nbsp;</p>\n<p>More detail I would suggest you to download QrCode specification at our main page. Scroll to page 42 under Adobe reader or page 34 on it's page corner. &nbsp;Chapter 6.4.10 Table 7. &nbsp; (PDF: ISO/IEC 18004:2006(E) ) &nbsp;Download link I will list below.&nbsp;</p>\n<p>http://www.codeplex.com/Download?ProjectName=QrCodeNet&amp;DownloadId=321409</p>\n<p>On that table you can have roughly idea about how many char you can store there and then give&nbsp;proximate Character to create image file to measure size.&nbsp;</p>\n<p>&nbsp;</p>\n<p>I might do some test later as well and create reference page for other developer. &nbsp;</p>\n<p>Edit: By the way. I did some research for creating 2D image for Silverlight. But same as what has been said from the link I provide earlier. Silverlight doesn't support 2D image. Shapes namespace under System.Windows.Media which is used by developer to create 2D shape. But they are all UIElement. Surely you don't want few hundred of them lay on your control just for a QrCode display. Use image file is best bet for now.</p>",
+    "PostedDate": "2012-01-13T12:25:39.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724963",
+    "ThreadId": "285980",
+    "Html": "Very Good! in the end... i've to put just a fixed url &#43; a GUID...\r\n<div><br>\r\n</div>\r\n<div>the idea is to print a qrcode generated server side containing just a link to the product itself... and store all the data server side... so a guid of fixed size should be ok!\r\n</div>\r\n<div><br>\r\n</div>\r\n<div>in this way the &quot;stupid&quot; client as a smart phone can open the product just opening the link, an other client can take the guid as KEY for further query on the product table....</div>\r\n<div><br>\r\n</div>\r\n<div>...i'm trying to handling a small warehouse..... and i choose QR Code for labeling the incoming goods....<br>\r\n<br>\r\n<div>2012/1/13 Silverlancer <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt;</span><br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: Silverlancer</p>\r\n<div>\r\n<p>Cool. It looks like you have found a way to deal with Silverlight. One thing I would like to remind you is size of image file. Width of each QrCode matrix is 17 &#43; 4 * version. So for version 1 matrix size will be 21 x 21 modules. Where version 40 will be\r\n 177 x 177 modules. Even though normally char number under 255 will be around version 1 to version 10.\r\n</p>\r\n<p>More detail I would suggest you to download QrCode specification at our main page. Scroll to page 42 under Adobe reader or page 34 on it's page corner. Chapter 6.4.10 Table 7. (PDF: ISO/IEC 18004:2006(E) ) Download link I will list below.\r\n</p>\r\n<p><a href=\"http://www.codeplex.com/Download?ProjectName=QrCodeNet&DownloadId=321409\" target=\"_blank\">http://www.codeplex.com/Download?ProjectName=QrCodeNet&DownloadId=321409</a></p>\r\n<p>On that table you can have roughly idea about how many char you can store there and then give proximate Character to create image file to measure size.\r\n</p>\r\n<p></p>\r\n<p>I might do some test later as well and create reference page for other developer.\r\n</p>\r\n</div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://qrcodenet.codeplex.com/discussions/285980#post724949\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:QrCodeNet@discussions.codeplex.com?subject=[QrCodeNet:285980]\" target=\"_blank\">QrCodeNet@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:QrCodeNet@discussions.codeplex.com\" target=\"_blank\">\r\nQrCodeNet@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://qrcodenet.codeplex.com/discussions/285980/unsubscribe/\" target=\"_blank\">\r\nunsubscribe</a> on CodePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2012-01-13T12:55:13.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724969",
+    "ThreadId": "285980",
+    "Html": "<p>I see. well I have just performed size test. I will post result here.</p>\n<p>(output as png files)</p>\n<p>Version 1: 2.55 kb</p>\n<p>Version 5: 7.30 kb</p>\n<p>Version 10: 15.9 kb</p>\n<p>Version 20: 44.1 kb</p>\n<p>Version 30: 86.6 kb</p>\n<p>Version 40: 144 kb</p>\n<p>Even though you will probably use up to version 15, but just an guide line I guess? :)</p>\n<p>Also for your project, I think there won't be any source to damage your image, thus use lowest error correction level will do and you can store more data with smaller version.&nbsp;</p>",
+    "PostedDate": "2012-01-13T13:07:21.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724973",
+    "ThreadId": "285980",
+    "Html": "\r\n<p>can you send me a sample TO generate a qrcode containing ab url?</p>\r\n<p>Alberto</p>\r\n<div>Il giorno 13/gen/2012 22:07, &quot;Silverlancer&quot; &lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt; ha scritto:<br type=\"attribution\">\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: Silverlancer</p>\r\n<div>\r\n<p>I see. well I have just performed size test. I will post result here.</p>\r\n<p>Version 1: 2.55 kb</p>\r\n<p>Version 5: 7.30 kb</p>\r\n<p>Version 10: 15.9 kb</p>\r\n<p>Version 20: 44.1 kb</p>\r\n<p>Version 30: 86.6 kb</p>\r\n<p>Version 40: 144 kb</p>\r\n<p>Even though you will probably use up to version 15, but just an guide line I guess? :)</p>\r\n<p>Also for your project, I think there won't be any source to damage your image, thus use lowest error correction level will do and you can store more data with smaller version.\r\n</p>\r\n</div>\r\n<div>\r\n<p>Read the <a href=\"http://qrcodenet.codeplex.com/discussions/285980#post724969\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:QrCodeNet@discussions.codeplex.com?subject=[QrCodeNet:285980]\" target=\"_blank\">QrCodeNet@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:QrCodeNet@discussions.codeplex.com\" target=\"_blank\">\r\nQrCodeNet@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://qrcodenet.codeplex.com/discussions/285980/unsubscribe/\" target=\"_blank\">\r\nunsubscribe</a> on CodePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n",
+    "PostedDate": "2012-01-13T13:11:13.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724997",
+    "ThreadId": "285980",
+    "Html": "<p>Take look at this page.&nbsp;</p>\n<p><a href=\"http://code.google.com/p/zxing/wiki/BarcodeContents\">http://code.google.com/p/zxing/wiki/BarcodeContents</a></p>\n<p>It should well explain how to create url string for qrcode.&nbsp;</p>\n<p>Also check out Docomo's bookmark format.&nbsp;</p>\n<p>http://www.nttdocomo.co.jp/english/service/imode/make/content/barcode/function/application/bookmark/index.html</p>\n<p>&nbsp;</p>\n<p>For basic url qrcode just include http//: string with your url. For example,&nbsp;</p>\n<p>--------------------</p>\n<pre>QrEncoder qrEncoder = <span>new</span> QrEncoder(ErrorCorrectionLevel.H);\nQrCode qrCode = qrEncoder.Encode(<span>\"<a href=\"http://qrcodenet.codeplex.com/\">http://qrcodenet.codeplex.com</a>\"</span>);\n\nRenderer renderer = <span>new</span> Renderer(5, Brushes.Black, Brushes.White);</pre>\n<pre>//You can also write as: Renderer renderer = new Renderer(5); &nbsp;</pre>\n<pre>//as default brushes already set up as black and white. </pre>\n<pre><pre>//Create stream for WriteToStream method. then put into following method. </pre>\nrenderer.WriteToStream(qrCode.Matrix, <span>stream</span>, ImageFormat.Png);</pre>\n<pre>//Send stream to client side. </pre>\n<pre>----------------</pre>\n<pre>Hope that helps. </pre>",
+    "PostedDate": "2012-01-13T14:00:53.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

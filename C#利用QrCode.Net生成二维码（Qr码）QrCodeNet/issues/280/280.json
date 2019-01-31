@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": "",
+    "Description": "<p>Specification for penalty score calculation can be found under </p>\n<p>http://www.codeplex.com/Download?ProjectName=QrCodeNet&amp;DownloadId=284291</p>\n<p>Chapter: 8.8.2 Evaluation of masking results</p>\n<p>Reference algorithms for score calculation can be found in </p>\n<p>$/QrCodeNet/Gma.QrCodeNet/Gma.QrCodeNet.Encoder/_legacy/encoding/MaskUtil.cs</p>\n<p>Implementation should take place under</p>\n<p>$/QrCodeNet/Gma.QrCodeNet/Gma.QrCodeNet.Encoder/Masking/Scoring</p>\n",
+    "LastUpdatedDate": "2011-11-01T19:07:10.15-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-29T00:15:48.43-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement penalty score calculation algorithm",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 280
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "ZXing's legacy code is actually use ISO/IEC 18004:2006's specification. Which it has minor difference. \r\n\r\nhttps://www.kssn.net/StdForeign/corrDown.asp?category=ISO&fileName=CPDF043655E.pdf&stdNumber=ISOIEC%2018004_2006Cor%201_2009.pdf\r\n\r\nChapter 6.8.2.1 Evaluation of QR code symbols from ISO/IEC 18004:2006. P.54\r\n\r\nPattern 3,   dark, light dark light dark(1:1:3:1:1) ratio in row / column. Preceded or followed by light area 4 modules wide. \r\n\r\nAnd for ISO/IEC 18004:2000 The one we currently working on. \r\n\r\nChapter 8.8.2 Evaluation of masking results. P. 52   1:1:3:1:1 ratio (dark:light:dark:light:dark) pattern in row/column.\r\n\r\nOur version of specification doesn't have to count light area before or after that mask. \r\n\r\nAnd here is description for MaskUtil pattern 2 method\r\n\r\n// Apply mask penalty rule 3 and return the penalty. Find consecutive cells of 00001011101 or\r\n// 10111010000, and give penalty to them.  If we find patterns like 000010111010000, we give\r\n// penalties twice (i.e. 40 * 2).\r\n\r\nEven thought it doesn't give 40*2 penalty at all for pattern 00010111010000 in their code. But it does follow white area specification. ",
+      "PostedDate": "2011-10-09T16:43:56.44-07:00",
+      "Id": 85105
+    },
+    {
+      "Message": "Associated with check-in 5792\r\nImplement Penalty rule three. \r\n\r\nI'm following ISO/IEO 18004:2000's rule first. If we need to check light area(4 modules wide) later. I can put it in. ",
+      "PostedDate": "2011-10-10T22:55:23.03-07:00",
+      "Id": 85106
+    },
+    {
+      "Message": "I would suggest to switch over to the newer specification. Any doubts?\r\nBy the way I am reading your scoring code. Looks like a very elegant solution. Still tying to understand.\r\nWhat I am missing are unit tests. There are several reasons except quality why it is good to have tests:\r\n1. They document intended usage of classes. This is where a developer says to others - \"Hey! Look here, I want you use my code like this. That's what my class get, and what it does.\"\r\n2. Very often we need to optimize code. Starting from renaming members up to replacing underlying algorithms and data structures. Having unit test give us convenience after every refactoring step that we do not break anything.\r\nI will try to understand the code better and write some unit tests.\r\nRegards\r\nGeorge\r\n",
+      "PostedDate": "2011-10-12T00:56:16.313-07:00",
+      "Id": 85107
+    },
+    {
+      "Message": "Thanks for comment. I really need some feedback for that algorithm. That's my first time come up with that solution. Also for NodeValue class. I don't really feel it's name can explain it's usage. It feel more like document for AI agent. Where it give next move according to check result. \r\n\r\nMain idea of that algorithm is trying to find oxxxo instead of whole pattern. When ever change location of next check point, It will reverse check 5 bit values. From index i+4 to i+0. And according to how bit value layout, it will jump to next check point. \r\n\r\nAnd yea you are right. Unit test is very important. I did first implement on a test project, Trick bitmatrix with boolean 2D array. It gives correct result. I will try to finish rest of rule first then working with you on rule test part. \r\n\r\nBy the way. I'm a bit new to Linq. The structure of penalty rule sum part is inspired from your pattern implementation. It might have some error. \r\n\r\nRegards\r\nJason",
+      "PostedDate": "2011-10-12T15:01:15.53-07:00",
+      "Id": 85108
+    },
+    {
+      "Message": "Associated with check-in 5940\r\nImplement Rule one and two. Also use maskPatternTestCaseFactory to created a temporary TestCaseFactory for PenaltyScore. \r\n\r\nChecked Linq function inside MatrixScoreCalculator.PenaltyScore. The way I'm use that sum function looks like correct. I will create test for it after implement Rule four",
+      "PostedDate": "2011-10-13T01:18:37.08-07:00",
+      "Id": 85109
+    },
+    {
+      "Message": "Associated with check-in 5940\r\nImplement Rule one and two. Also test for first three rules. \r\n\r\nPenaltyScoreTestCaseFactory is rush made base on MaskPatternTestCaseFactory. \r\n\r\ntodo: create rule four and test function for it. Also test function for Linq sun function used in MatrixScoreCalculator.PenaltyScore",
+      "PostedDate": "2011-10-13T01:21:44.6-07:00",
+      "Id": 85110
+    },
+    {
+      "Message": "Associated with check-in 6009\r\nImplement penalty rule 4. Fix bug for penalty rule 3. \r\n\r\nFor Rule 4. Count all dark value for matrix is a bit tricky. BitArray doesn't support Linq, if force to use Linq might be slower than normal For loop(in case of a bitarray). So I choose to stick with ZXing's implementation as use For loop to get count. Result as O(n).",
+      "PostedDate": "2011-10-13T21:02:55.69-07:00",
+      "Id": 85111
+    }
+  ]
+}

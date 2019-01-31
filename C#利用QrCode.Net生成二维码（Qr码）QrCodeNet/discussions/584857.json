@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1360679",
+    "ThreadId": "584857",
+    "Html": "Firstly I have read all the posts on this project and I did not find an answer.\r<br />\n<br />\nI do however understand your standpoint regarding artistic QR Codes.\r<br />\n<br />\nI would like to alter the library in such a way as to produce artistic qr codes similar to visualead.com and qrunched.com regardless of whether it is standard or not\r<br />\n<br />\nI would like to make the changes myself but I am having a hard time understanding the library code.\r<br />\n<br />\nCould you point me in the right direction as to which part does the actual drawing of the Matrix, the Eyes/Corners and the eyeball shape/squares inside corners.\r<br />\n<br />\nI would really appreciate it any pointers.\r<br />\n<br />\nLastly I would like to thank you for the library, it has helped me a lot so far.<br />\n",
+    "PostedDate": "2015-03-07T16:36:48.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1360770",
+    "ThreadId": "584857",
+    "Html": "Not within encoder, you can draw it yourself. So once you got 2d matrix of bar code, you can manually draw it on control and add picture at center after. There is not magic on artistic QrCodes. Its just use QrCode's error correction to do all the work. \r<br />\n<br />\nFirst encode to get raw 2D matrix. then draw code on panel, break code by chop of middle where you place your picture. Make sure error correction level is on high.\r<br />\n<br />\nArtistic code is not part of this project's goal, it was with original coordinator, but it is less to do with encoder but drawing library. Its less to do with Math but more to do with arts.<br />\n",
+    "PostedDate": "2015-03-08T13:24:19.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1360771",
+    "ThreadId": "584857",
+    "Html": "Visualead's approach probably better than qrunched. Qrunched is 100% damage QrCode, but visualead's example feels like image under the QrCode. Also make sure those color won't cause readability issue of QrCode. Those are color contrast setting you have to make sure. You also have to check decoder, how decoder filter out colors, so your color contrast setting have to according to that. \r<br />\n<br />\nAnd those QrCode, don't expect to work on all decoder. Some of them just not good at error correction.<br />\n",
+    "PostedDate": "2015-03-08T13:28:06.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1362256",
+    "ThreadId": "584857",
+    "Html": "Many thanks for this advice you have given me.\r<br />\n<br />\nIt already helps a lot. I am not sure if I want to add images to the qr codes, it is risky for what I want to use it but I want to change the corners and eyes and the colours.\r<br />\n<br />\nMay I ask which method does the 2D matrix drawing in the library?<br />\n",
+    "PostedDate": "2015-03-10T10:31:45.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1362583",
+    "ThreadId": "584857",
+    "Html": "We use several different way to drawing under different environment. \r<br />\n<br />\nwinform: bitmap, write as raw byte array.\r<br />\nwpf: Geometry, Path\r<br />\nHTML: SVG (Similar to WPF's path, vector graph)\r<br />\nAlso on PDF is vector graph as well.<br />\n",
+    "PostedDate": "2015-03-11T12:11:51.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

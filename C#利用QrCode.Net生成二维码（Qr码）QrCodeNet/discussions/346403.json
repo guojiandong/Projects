@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "801930",
+    "ThreadId": "346403",
+    "Html": "\r\n<p>Hi, i've been playing around with this wonderfull component and noticed this: if i choose the &quot;Artistic&quot; option, wich includes text at the middle of the generated QRCODE, all the bar code readers i tried simply don't read the QRCODE anymore.</p>\r\n<p>Am i making something wrong? I've seen a lot of QRCODES wich include text and even images and my bar code readers still can read those.</p>\r\n<p>Is this a limitation of this library?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-02-27T04:10:39.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802248",
+    "ThreadId": "346403",
+    "Html": "<p>You are correct. That's why I have turned off that function from design point of view. so you can only access by code now. That function is only for&nbsp;demonstration, where proper function is not yet implemented. Where I'm still&nbsp;struggle if we should implement that function.&nbsp;</p>\r\n<p>Reason behind that would be, with properly select text, and thickness of each line for those text will make huge different. &nbsp;If thickness for text's line, like very bold text. You can probably use extremely large Artistic on QrCode that can make decoder still able to decode.</p>\r\n<p>The one inside current implementation, those small tinny text, decoder will treat as white module with some noise. That's just really bad, if you do some test just wipe out same amount of space on a QrCode, you will never receive anything from decoder. That damage is huge.</p>\r\n<p>But if you use bold text, with short text string and enlarge a bit. To make thickness of text line match to module size. Then decoder will treat part of text as black dark module instead of white module. That damage will be minimal compare to replace everything with pure white module. That way decoder can sometime decode it properly.&nbsp;</p>\r\n<p>Some papers are saying QrCode have different error correction level, at highest will be 30%. Which is not explain properly. It really depends on where you damage it. When we count damage percentage, we need to separate quiet zone, position mark and actual text. For current implementation damage is not 30%. It's actually 50%. As if you remove quiet zone and position mark. That Artistic is within actual text only, that cause half of text wipe out. There is no way you can recover that with reed solomon error correction.</p>\r\n<p>The way some company deal with that is what I have explained above. Use bold text to test again and again to find out most suitable result for each QrCode. As different QrCode, dark module's position will be different. Maximum area you can apply will be different too. That's one of reason the Artistic function you can find out online normally just replace very tinny space at centre not huge area accross QrCode. As a tinny area we can determine without issue. Large Artistics? I haven't found a proper way yet, that can make 100% accuracy without lose much performance. Another way will be test huge number of implementation to find out proper size and bold for text and the total coverage on QrCode. Use probability to place Artistic, so that 80~90% of implementation could be proper decode.</p>\r\n<p>Hope that&nbsp;explanation&nbsp;helps.&nbsp;</p>",
+    "PostedDate": "2012-02-27T13:46:16.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

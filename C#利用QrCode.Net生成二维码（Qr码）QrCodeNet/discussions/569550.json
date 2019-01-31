@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1312448",
+    "ThreadId": "569550",
+    "Html": "Hello, I'm developing a system of school where it's necessary use the QrCode in the badge, I using Crystal Reports, the language of I programming is VB.NET and I don't have any idea about how I can put de image of QrCode in the reports.\r<br />\n<br />\nWith this problematic I think in, save the image (send the archive to server online, FTP), when the user click in select the student the software generates the QrCode, but how I can put the image in a Crystal Reports where the user will choose the class and will show all students badges with each have your QrCode?\r<br />\n<br />\nSorry about my english :v I'm brazilian (hue hue), and new in the area, my course compels me to utilize VB.NET @_@<br />\n",
+    "PostedDate": "2014-10-11T05:54:40.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1315222",
+    "ThreadId": "569550",
+    "Html": "Sorry because I return now, I have successfully one day after, but I forget to answer how I finish.\r<br />\n<br />\nhmmm, I needed make de software save the image in one folder and post this in ftp server, when the user/client select the student, the software make download of the image of it's save in database (with the code of student, all images, in your table, huuuur duuur) and the crystal reports make all alone :v\r<br />\n<br />\nsorry about the question where don't have anything to the work of the group!\r<br />\n<br />\nAnd sorry again because my english :v , this time I try to write this with no translator aehuaheuaehuaeha\r<br />\n<br />\nSorry and good bye!<br />\n",
+    "PostedDate": "2014-10-21T00:05:14.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-10-21T00:05:27.223-07:00"
+  }
+]

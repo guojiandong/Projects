@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>ISO/IEC 18004:2000 Chapter 8.8.1 Mask patterns. Page 50, 50. </p>\n<p>&nbsp;</p>\n<p>Redo Xor method to apply mask pattern to TristateMatrix and only to state of Data. Also fix error for test.</p>\n",
+    "LastUpdatedDate": "2012-01-04T19:41:44.02-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-12-18T19:46:03.953-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Re struct MatrixExtensions under Masking",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 457
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with check in 10552 10553 ",
+      "PostedDate": "2011-12-18T20:40:36.313-08:00",
+      "Id": 85147
+    }
+  ]
+}

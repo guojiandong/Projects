@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1055718",
+    "ThreadId": "446768",
+    "Html": "I want to integrate Qr Code with ssrs Report, Does anyone of you done this earlier? <br />\n",
+    "PostedDate": "2013-06-12T01:43:49.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075578",
+    "ThreadId": "446768",
+    "Html": "I, too, am interested in an SSRS implementation of this project. Has anyone tried this?<br />\n",
+    "PostedDate": "2013-08-01T07:13:08.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075625",
+    "ThreadId": "446768",
+    "Html": "How do I add the control to the toolbox in Visual Studio 2008 for SSRS (BIDS). <br />\n<br />\nI added the dll to:  C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\PrivateAssemblies\\QrCode.Net 0.4 Pre-Release\\Gma.QrCodeNet.Encoding.Net35<br />\nI also added to: C:\\Program Files\\Microsoft SQL Server\\MSRS10_50.MSSQLSERVER\\Reporting Services\\ReportServer\\bin\\QrCode.Net 0.4 Pre-Release\\Gma.QrCodeNet.Encoding.Net35<br />\n",
+    "PostedDate": "2013-08-01T08:54:38.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075835",
+    "ThreadId": "446768",
+    "Html": "\r\n<div dir=\"ltr\">Do it through in code rdl (SSRS) file generation in C# . NET then it is very simple\r\n</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2013-08-01T21:56:15.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075976",
+    "ThreadId": "446768",
+    "Html": "Can you give an example of the code (code used within SSRS is VB, not C#)<br />\n",
+    "PostedDate": "2013-08-02T06:07:51.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083339",
+    "ThreadId": "446768",
+    "Html": "<a href=\"http://technet.microsoft.com/en-us/library/ms153561.aspx\" rel=\"nofollow\">http://technet.microsoft.com/en-us/library/ms153561.aspx</a>\r<br />\n<br />\nI have never done this. Here is link might resolve that reference issue. <br />\n",
+    "PostedDate": "2013-08-21T15:02:10.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1459885",
+    "ThreadId": "446768",
+    "Html": "Which Class Name must be called in SSRS Report?<br />\n<br />\nCan you send any sample code?<br />\n",
+    "PostedDate": "2016-01-20T02:06:24.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

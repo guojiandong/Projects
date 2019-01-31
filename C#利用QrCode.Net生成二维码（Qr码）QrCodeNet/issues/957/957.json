@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I using the QRCode.net on a internal project and the when I sign my assemblies, it complains that the Gma.QrCodeNet.Encoding does not have a strong name.\r\n\r\nAs I workaround I have to sign the QrCode assemblies during my build process\r\n\r\nThanks",
+    "LastUpdatedDate": "2015-06-22T16:40:06.713-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2015-06-22T16:40:06.713-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Please sign the assemblies on the Nuget package",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 957
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

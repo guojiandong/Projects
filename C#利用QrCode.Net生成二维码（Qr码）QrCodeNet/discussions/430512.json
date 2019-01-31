@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "990606",
+    "ThreadId": "430512",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>First I have to say that your product is great! &nbsp;Pretty straightforward to use. &nbsp;I think you've really got something going here.</p>\r\n<p>Secondly, I'm attempting to specify the size of the QR Code when it is generated, however I don't see an easy way to do so. &nbsp;Please see my code below and let me know if the answer is obvious.</p>\r\n<p>Oh, and this is for a 4.0 web application.</p>\r\n<p>Thanks!</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> Successful <span style=\"color:blue\">As</span> <span style=\"color:blue\">Boolean</span> = <span style=\"color:blue\">False</span>\r\n<span style=\"color:blue\">Dim</span> Encoder <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> QrEncoder(ErrorCorrectionLevel.M)\r\n<span style=\"color:blue\">Dim</span> QRCode <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Gma.QrCodeNet.Encoding.QrCode\r\n\r\nSuccessful = Encoder.TryEncode(StringToEncode, QRCode)\r\n\r\n<span style=\"color:blue\">Dim</span> imageRenderer <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Renderer(5, Brushes.Black, Brushes.White)\r\n\r\nimageRenderer.CreateImageFile(QRCode.Matrix, outFileName, System.Drawing.Imaging.ImageFormat.Png)\r\n\r\n<span style=\"color:blue\">Return</span> Successful\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-22T16:07:19.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990678",
+    "ThreadId": "430512",
+    "Html": "\r\n<p>From your code, it looks like you are using 0.3 version of library. Which it doesn't have a nice way to specify the size of QrCode.&nbsp;</p>\r\n<p>I put a lot of work on next version, and will try to put it under release before end of Feb.&nbsp;</p>\r\n<p>One thing you can do is grab latest source code and compile it yourself. It doesn't have any dependency, all library used by this generator is from basic libraries. And what I want to add before next release is WinRT and Silverlight version. Normal version\r\n is pretty much solid.&nbsp;</p>\r\n<p>Documentation for latest source code can be found:</p>\r\n<p>http://qrcodenet.codeplex.com/wikipage?title=Renderer&referringTitle=Documentation</p>\r\n<p>I only refer you to render class, as you are building web application. Also inside source code you can find examples for winform and WPF.</p>\r\n<p>&nbsp;</p>\r\n<p>What I would suggest to use is EncapsulateScriptRenderer, SVGRenderer and DrawingBrushRenderer.&nbsp;</p>\r\n<p>DrawingBrushRenderer you have to add reference for some of WPF library, it should be safe under ASP.Net server. We just use those library to generate bitmap.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>EncapsulateScriptRenderer is for Adobe's EPS vector graph, while SVG you can use to display QrCode in MVC application or as SVG file.&nbsp;</p>\r\n<p>Use drawingBrushRenderer to create PNG or any other bitmap image files. Check out documentation for specify QrCode Size.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Let me know if you have any further question.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-22T21:37:37.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "991065",
+    "ThreadId": "430512",
+    "Html": "\r\n<p>Hey silverlancer,</p>\r\n<p>&nbsp;</p>\r\n<p>It worked great! &nbsp;I can't wait to see all that you do with this generator if you still have it in beta and it's turning out results like this!</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2013-01-23T08:44:33.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

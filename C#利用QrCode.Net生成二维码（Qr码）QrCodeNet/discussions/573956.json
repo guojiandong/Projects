@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1328598",
+    "ThreadId": "573956",
+    "Html": "Hi, \r<br />\n<br />\nI am a senior student doing my capstone design. My project needs to display a qrcode on a 25<em>25 LED array. There is a program which can display each pixel of an 1 bit BMP image corresponding to a LED.\r<br />\nSo I am trying to generate a 25</em>25 qrcode without quietzone with your project. I first generate a qrcode with your GraphicsRenderer demo then using bitmap.save to save the MemoryStream into a 25*25 BMP image. But I could only get a distorted version 1 qrcode if the content is short .\r<br />\n<br />\nSince I cannot find any instruction of how to adjust the version in your documentation, I am wondering if your project has this function?<br />\n",
+    "PostedDate": "2014-12-03T18:33:09.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1328872",
+    "ThreadId": "573956",
+    "Html": "Version cannot be adjust, non of qrcode encoder can adjust that. It's depend on the length of your input. You can only specify protection level.\r<br />\n<br />\nIn your case, I will never use any renderer. Just use pure matrix from encoder and render on your own. Origin matrix is without quiet zone.\r<br />\n<br />\nQrCode documentation is on front page, one thing you can do is append space at end your input, that can boost your input length so that output will e on higher version. But I would highly recommend stick with lower version. Since the smaller the QrCode is, large cell you can have and easier to scan. \r<br />\n<br />\nIf your LED have gap between each other, then you can use space to boost version. <br />\n",
+    "PostedDate": "2014-12-04T11:25:47.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1330037",
+    "ThreadId": "573956",
+    "Html": "Thank you for your prompt and detailed reply.<br />\n<br />\nI took your advice and directly converted the Boolean matrix into an array to be displayed on an LED array. This is much more effective. <br />\nAlso your suggestion of appending space is very helpful. But this weekend I found a program which can generate a version 10 QR-Code which only contains one character &quot;a&quot;. Here is the picture.<br />\n<img src=\"http://v2.freep.cn/3tb_141209162901idgm512293.png\" alt=\"Image\" /> Do you have any idea of how it does that?<br />\n<br />\nSince you mentioned a smaller QrCode is easier to scan and in practice the resolution is always limited, our team is planning to develop a new two-dimensional code. We hope the size of our code can be limited within 10*10 and we do not need some unnecessary function such as error correction and kanji. I am wondering if your could offer some suggestion? <br />\n",
+    "PostedDate": "2014-12-09T00:40:22.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1330285",
+    "ThreadId": "573956",
+    "Html": "I just use zxing decoder to decoded that image. here is result.\r<br />\n<br />\n40 00 16 10 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 ec 11 ec 11 ec 11   ec 11 ec 11 ec 11 ec 11\r<br />\nec 11 \r<br />\n<br />\nInstead of space, they probably using one of special character to extend your string. When decoder decode it, it will ignore those characters.\r<br />\n<br />\nQrCode specification is on our front page, you can take look how it define version. \r<br />\n<br />\nWhen I say small version of code is better, I mean less cell and each cell's size bigger. That helps scanner to detect at long distance or slightly blend. Without error correction will be a bit tricky, in real world scenario, when you print out, it mean to be damaged over time. High error correction is helpful.\r<br />\n<br />\nAnother thing is when decode, one way of reformat image is turn it to black and white, so when image become blend, very dense and small cell will cause some of single cell disappear.\r<br />\n<br />\nCurrently common scenario to use barcode on mobile is for URL link. Most time if people ask me, I would say minimize url before create QrCode. I mean URL shorten. That way you have less byte to encode, which helps you shrink down size and have some other space for error correction.\r<br />\n<br />\nOf course limit font to use ASCII will help too instead of Unicode. The goal is to limit input size, so you can use limited information space to include error correction or make code even more smaller. \r<br />\n<br />\nQrCode have Micro QrCode. You should take look, it only supports limited character. Very effective. <br />\n",
+    "PostedDate": "2014-12-09T11:28:09.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1330289",
+    "ThreadId": "573956",
+    "Html": "I think I know how he did it. QrCode specification says when your input string is less than specific version space, fill rest of space with 0 or some other bit. \r<br />\n<br />\nWhy I said it's depend on input string is that we always prefer smaller QrCode than larger. QrCode ISO is pretty much leading that way. A lot of thing we do is make sure input is small and output code have proper makeup (mask).<br />\n",
+    "PostedDate": "2014-12-09T11:39:48.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1331169",
+    "ThreadId": "573956",
+    "Html": "I really appreciate your help. \r<br />\nThe information you provided must help a lot in our further designing.\r<br />\nMy team and I will keep focusing on our project. <br />\n",
+    "PostedDate": "2014-12-11T16:52:48.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

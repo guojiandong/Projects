@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1457910",
+    "ThreadId": "649578",
+    "Html": "I am using the code below, the QR code is very small. If I set the picture box to stretch it is very blurry. How do I set the size of the QR code generated.\r<br />\n<br />\n<br />\n<br />\nPrivate Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load<br />\n<pre><code>    PictureBox1.Image = GenerateQRCode(&quot;http://google.com&quot;, Color.Black, Color.White)\n\n\n\nEnd Sub\n\n\n\nPrivate Function GenerateQRCode(URL As String, DarkColor As System.Drawing.Color, LightColor As System.Drawing.Color) As Bitmap\n    Dim Encoder As New Gma.QrCodeNet.Encoding.QrEncoder(Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.L)\n    Dim Code As Gma.QrCodeNet.Encoding.QrCode = Encoder.Encode(URL)\n\n\n    Dim TempBMP As New Bitmap(Code.Matrix.Width, Code.Matrix.Height)\n    For X As Integer = 0 To Code.Matrix.Width - 1\n        For Y As Integer = 0 To Code.Matrix.Height - 1\n            If Code.Matrix.InternalArray(X, Y) Then TempBMP.SetPixel(X, Y, DarkColor) Else TempBMP.SetPixel(X, Y, LightColor)\n        Next\n    Next\n    Return TempBMP\nEnd Function</code></pre>\n\n",
+    "PostedDate": "2016-01-04T09:34:53.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1474718",
+    "ThreadId": "649578",
+    "Html": "<strong>paulseven wrote:</strong><br />\n<blockquote>\nI am using the code below, the QR code is very small. If I set the picture box to stretch it is very blurry. How do I set the size of the QR code generated.<br />\n<br />\n<br />\n<br />\nPrivate Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load<br />\n<pre><code>    PictureBox1.Image = GenerateQRCode(&quot;http://google.com&quot;, Color.Black, Color.White)\n\n\n\nEnd Sub\n\n\n\nPrivate Function GenerateQRCode(URL As String, DarkColor As System.Drawing.Color, LightColor As System.Drawing.Color) As Bitmap\n    Dim Encoder As New Gma.QrCodeNet.Encoding.QrEncoder(Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.L)\n    Dim Code As Gma.QrCodeNet.Encoding.QrCode = Encoder.Encode(URL)\n\n\n    Dim TempBMP As New Bitmap(Code.Matrix.Width, Code.Matrix.Height)\n    For X As Integer = 0 To Code.Matrix.Width - 1\n        For Y As Integer = 0 To Code.Matrix.Height - 1\n            If Code.Matrix.InternalArray(X, Y) Then TempBMP.SetPixel(X, Y, DarkColor) Else TempBMP.SetPixel(X, Y, LightColor)\n        Next\n    Next\n    Return TempBMP\nEnd Function\n</code></pre>\n\n</blockquote>\n<strong>Did you found the solution for this? I</strong> am have same problem. It is creating image by 21<em>21 pixel while I need to create it with custom size. E.g. 300</em>300 pixels.<br />\n",
+    "PostedDate": "2016-05-31T04:37:42.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi all,\r\n\r\nI am trying to generate a QR code image (png or jpeg) for any given string and save it to a file in my local system. I am using VS 2015 and .net framework 4.5\r\nI have include the Gma.QrCodeNet.Encoding.Net45.dll in my project\r\n\r\nAs the example given in here I am trying to create a QR code.\r\nhttps://qrcodenet.codeplex.com/wikipage?title=GraphicsRenderer&referringTitle=Renderer\r\n\r\nI wrote a button click function to create QR Code\r\n\r\nprivate void button1_Click(object sender, EventArgs e)\r\n        {\r\n            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);\r\n            QrCode qrCode;\r\n            encoder.TryEncode(\"Test\", out qrCode);\r\n\r\n            GraphicsRenderer gRenderer = new GraphicsRenderer(\r\n                new FixedModuleSize(2, QuietZoneModules.Two),\r\n                Brushes.Black, Brushes.White);\r\n            MemoryStream ms = new MemoryStream();\r\n            gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);\r\n\r\n            using (FileStream file = new FileStream(\"C:/Users/vxt/Desktop/test.png\", FileMode.Create, System.IO.FileAccess.Write))\r\n            {\r\n                byte[] bytes = new byte[ms.Length];\r\n                ms.Read(bytes, 0, (int)ms.Length);\r\n                file.Write(bytes, 0, bytes.Length);\r\n                ms.Close();\r\n            }\r\n\r\n            GraphicsRenderer tRend = new GraphicsRenderer(new FixedCodeSize(200, QuietZoneModules.Two), Brushes.Black, Brushes.White);\r\n            MemoryStream ms1 = new MemoryStream();\r\n            tRend.WriteToStream(qrCode.Matrix, ImageFormat.Jpeg, ms1);\r\n\r\n            using (FileStream file1 = new FileStream(\"C:/Users/vxt/Desktop/test1.jpeg\", FileMode.Create, System.IO.FileAccess.Write))\r\n            {\r\n                byte[] bytes = new byte[ms1.Length];\r\n                ms1.Read(bytes, 0, (int)ms1.Length);\r\n                file1.Write(bytes, 0, bytes.Length);\r\n                ms1.Close();\r\n            }\r\n\r\n        }\r\n\r\nFiles are created but when I open its says file either too large or corrupted. i checked the file size in properties it is just 4KB.\r\nCan any of you tell me what am I doing wrong",
+    "LastUpdatedDate": "2016-11-24T22:03:04.48-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2016-11-24T21:53:58.063-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Can't create Qr Code as a image file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 959
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I figured it out my self. instead of using a memory stream and copying to a file stream we can use a file stream directly\n\nSomething like this.\nQrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);\n            QrCode qrCode;\n            encoder.TryEncode(\"Test\", out qrCode);\n\n            GraphicsRenderer gRenderer = new GraphicsRenderer(\n                new FixedModuleSize(2, QuietZoneModules.Two),\n                Brushes.Black, Brushes.White);\n            MemoryStream ms = new MemoryStream();\n            FileStream file = new FileStream(\"C:/Users/vxt/Desktop/test.png\", FileMode.Create, System.IO.FileAccess.Write);\n            gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, file);",
+      "PostedDate": "2016-11-24T22:03:04.48-08:00",
+      "Id": 205283
+    }
+  ]
+}

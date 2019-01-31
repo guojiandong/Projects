@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "689333",
+    "ThreadId": "277204",
+    "Html": "\r\n<p>The Render class has a <span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">CreateImageFile() method which renders to a specified filename.</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">A more general approach is to render to a Stream object.</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">This way, it can be used to render to an in memory object which may be placed within another object (e.g. PDF).</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">Another reason is that some of the hosting providers that may run the code may not allow 'write' access to the filesystem and would make\r\n</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">it impossible to use the code in that environment.</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">Thanks for the code, it appears to work well!</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">&nbsp;</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">glenn</span></span></p>\r\n",
+    "PostedDate": "2011-10-25T15:55:21.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "689355",
+    "ThreadId": "277204",
+    "Html": "<p>I will put this under Issue tracker. Thanks for suggestion.&nbsp;</p>",
+    "PostedDate": "2011-10-25T16:55:31.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "689784",
+    "ThreadId": "277204",
+    "Html": "<p>Implemented with&nbsp;<a title=\"6855\" href=\"http://qrcodenet.codeplex.com/SourceControl/changeset/changes/6855\">http://qrcodenet.codeplex.com/SourceControl/changeset/changes/6855</a></p>",
+    "PostedDate": "2011-10-26T11:10:32.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

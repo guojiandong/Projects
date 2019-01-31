@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-08-03T00:08:43.267-07:00",
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "<p>Badly built qr-codes can give a critical error.</p>\n<p>Try to scan the file attached. Also you can uploade to zxing. Both QrCode.net &amp; zxing give a critical error.</p>\n",
+    "LastUpdatedDate": "2012-08-03T00:08:43.267-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-08-02T05:21:56.527-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "My qrcode hangs up qrcode.net (zxing hangs up too)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 847
+  },
+  "FileAttachments": [
+    {
+      "FileId": 596024,
+      "FileName": "qr_code_that_hang_system.png",
+      "DownloadUrl": ".\\596024"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "A more detailed description for your case will be appreciate. \r\n\r\nWhat string did you pass to encoder?\r\nAre you using out of box method from QrCode.Net's encoder to generate that code or something else. \r\n\r\nTwo issues you have post here is sort of weird and uncommon.\r\n\r\nQrCode.Net doesn't have decoder at all, so where is critical error comes from? If you mean code generate by our encoder cause decoder fail then please provide input string and the way you use our encoder. ",
+      "PostedDate": "2012-08-02T16:17:13.92-07:00",
+      "Id": 85193
+    },
+    {
+      "Message": "I used a decoder on my phone, I thought it was based on qrcode.net :) Sorry, it was a mistake, it was based on Xzing. I have to delete this issue & resubmit it to the proper developer - to Zxing :) ",
+      "PostedDate": "2012-08-02T18:09:54.817-07:00",
+      "Id": 85194
+    }
+  ]
+}

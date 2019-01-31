@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "694549",
+    "ThreadId": "278536",
+    "Html": "\r\n<p>I would like to share the encoding process for QR code that I have discovered so far by reading ZXing's code and ISO/IEC document. So people could read and give feed back. Also I have list some issue we currently have. Those issue you won't notice from QR-CodeControl,\r\n as it is still under ZXing code wrapper. Thus this is just for&nbsp;development&nbsp;reference.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Here is document link.&nbsp;</p>\r\n<p>https://docs.google.com/document/d/1fpxe6Ex9WNTx7kCsm8zlgDNiqNcc_sB9U8n3oJqOHLI/edit</p>\r\n<p>&nbsp;</p>\r\n<p>Also for future decode part. I have found this framework. It might be useful, I will list it here for future reference. &nbsp;It's C# AI framework, and it has a lot of image process and detection function. It should be useful to detect un-expect or damaged\r\n QR code picture.&nbsp;</p>\r\n<p><a href=\"http://www.aforgenet.com/framework/projects.html\">http://www.aforgenet.com/framework/projects.html</a></p>\r\n",
+    "PostedDate": "2011-11-06T18:04:40.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "695659",
+    "ThreadId": "278536",
+    "Html": "<p>Implemented Auto detect for Mode.&nbsp;</p>",
+    "PostedDate": "2011-11-08T22:01:47.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

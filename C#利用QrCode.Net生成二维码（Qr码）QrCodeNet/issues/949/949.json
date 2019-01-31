@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I'm french and i'm try to use the svg feature.\r\n\r\nWhen i look the generated svg code i noticed that decimals are not well formated. In cause the decimal separator in French is \",\". \r\n\r\nSo you have to specify the culture when you generating SVG code.",
+    "LastUpdatedDate": "2015-09-15T02:02:23.777-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2013-05-22T07:11:29.39-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Culture Issue with SVG",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 949
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "SVG is display correctly but message you put in contain separator?\n\nCould you give some more detailed example. ",
+      "PostedDate": "2013-05-23T00:05:56.46-07:00",
+      "Id": 100951
+    },
+    {
+      "Message": "I submitted a correction in the SVG StringBuilderExtension class. The string.Format calls use the current thread's culture, which may format floating point values with commas instead of dots.\nEach call now explicitly specifies CultureInfo.InvariantCulture.NumberFormat.",
+      "PostedDate": "2013-05-27T09:51:31.093-07:00",
+      "Id": 101305
+    },
+    {
+      "Message": "Cool, thanks iVan. ",
+      "PostedDate": "2013-05-27T23:30:00.01-07:00",
+      "Id": 101360
+    },
+    {
+      "Message": "Would it be possible to get this fix merged and published to NuGet?\n\nI'm experiencing the same problem with Danish culture settings where the decimal seperator is \",\" and not \".\"  which makes the SVG inrenderable. I used a couple of hours debugging my code, until our designer pointed out that the SVG was incorrect :) \n\nThanks!",
+      "PostedDate": "2015-09-15T02:02:10.47-07:00",
+      "Id": 190208
+    }
+  ]
+}

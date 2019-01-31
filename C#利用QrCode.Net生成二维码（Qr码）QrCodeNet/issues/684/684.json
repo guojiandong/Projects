@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "The renderer is now implemented, any future issue will be managed in separate work items.",
+    "ClosedDate": "2012-04-16T03:36:59.36-07:00",
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "<p>QR Codes are often intended to be printed, and an image format is not best suited: it is not lightweight, might be rendered with anti aliasing, transparency is not well supported.</p>\n<p>A vector format like Encapsuled PostScript is widely supported among publishing softwares, and fits all the needs.</p>\n",
+    "LastUpdatedDate": "2012-04-16T03:36:59.36-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-03-15T13:24:24.847-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Create an Encapsuled PostScript (EPS) renderer",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 684
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Commited the first version of the EncapsulatedPostScriptRenderer class and updated the WinForms demo to export EPS files.\r\nSVN revision 13377.",
+      "PostedDate": "2012-03-15T15:18:51.453-07:00",
+      "Id": 85152
+    },
+    {
+      "Message": "Added the ability to have transparent light modules and quiet zone, which allows to blend the QR Code into an existing background. The background should be light and rather uniform and the error correction level of the QR Code should be raised, but my experiments showed that detection still works well.\r\nThis is an alternative to \"Artistic\" QR Codes inserting text within the code.\r\nSVN revision 13398",
+      "PostedDate": "2012-03-16T23:35:51.05-07:00",
+      "Id": 85153
+    },
+    {
+      "Message": "Although the current export is correct, two contiguous modules drawn as filled squares may be rendered by some devices or softwares (for example Adobe Illustrator, at some zoom levels only) with a tiny gap.\r\nFor this reason, I am currently working on an alternative rendering using the 'image' or 'colorimage' PostScript command.",
+      "PostedDate": "2012-03-21T23:45:10.257-07:00",
+      "Id": 85154
+    },
+    {
+      "Message": "Corrected the rare tiny gaps between dark modules by making neighbors overlap by 1% of their dimension. It is now rendered perfectly in any circumstance.\r\n\r\nAdded a second drawing technique using the PostScript 'image' or 'colorimage' command. To select that second drawing technique, set the DrawingTechnique property of the renderer to EpsModuleDrawingTechnique.Image before calling WriteToStream.\r\n\r\nSVN revision 13910",
+      "PostedDate": "2012-03-26T14:12:07.617-07:00",
+      "Id": 85155
+    },
+    {
+      "Message": "Fixed handling of null BitMatrix.\r\nAdded support for sizing using the ISizeCalculation interface.\r\nSVN revision 14116",
+      "PostedDate": "2012-03-30T01:39:28.463-07:00",
+      "Id": 85156
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "929929",
+    "ThreadId": "400178",
+    "Html": "\r\n<p>like the subject said</p>\r\n<p>&quot;Any plans of supporting Windows Phone and Windows 8?&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>I found another QRCode encoder for Windows Phone but I think your QrCode.NET seems fast in WPF, would you mind creating one for Windows Phone and Windows 8 too?</p>\r\n",
+    "PostedDate": "2012-10-20T19:34:28.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929968",
+    "ThreadId": "400178",
+    "Html": "<p>Will do. Going to get win 8 and dev environment next week or so. Once I check out latest graphic stuff should be able to craft for win8. Win phone 7.5, there already a version in issue tracker, I might improve it and put it out with win 8 version.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Currently, Main generator should be working on any environment, only renderer and controller have to be specifically craft.&nbsp;</p>",
+    "PostedDate": "2012-10-20T23:56:12.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986164",
+    "ThreadId": "400178",
+    "Html": "\r\n<p>awesome! how was it now? I just noticed your reply. LOL</p>\r\n",
+    "PostedDate": "2013-01-13T12:39:22.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986259",
+    "ThreadId": "400178",
+    "Html": "\r\n<p>Been busy, also did SVG renderer while forgot about Win8 at end of last year. My bad.&nbsp;</p>\r\n<p>I will try to get my hand on it during this weekend and let you know as soon as possible.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-13T21:30:55.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998051",
+    "ThreadId": "400178",
+    "Html": "First of all, wonderful work! It works like a charm!\r<br />\n<br />\nI'm very interested too in a Windows Phone 7 or 8  version of your project.\r<br />\n<br />\nThank you very much! <br />\n",
+    "PostedDate": "2013-02-07T09:42:44.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "999045",
+    "ThreadId": "400178",
+    "Html": "Just finished WinRT encoding and custom control, just have to work a bit more on renderer, then winRT port should be finished. Hopefully I can push newest change next weekend. <br />\n",
+    "PostedDate": "2013-02-09T20:51:40.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027045",
+    "ThreadId": "400178",
+    "Html": "Hi,\r<br />\n<br />\nGreat lib. Any support for Windows Phone 8?<br />\n",
+    "PostedDate": "2013-04-08T01:09:42.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1028010",
+    "ThreadId": "400178",
+    "Html": "Not at moment. If you are in hurry, then just use silverlight source code, it probably only need to change few using reference.<br />\n",
+    "PostedDate": "2013-04-09T11:23:26.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

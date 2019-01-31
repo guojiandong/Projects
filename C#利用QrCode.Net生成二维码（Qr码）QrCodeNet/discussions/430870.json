@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "992114",
+    "ThreadId": "430870",
+    "Html": "\r\n<p>How can I define an artistic qrcode?</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>\r\n<p>my test code is:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>  Console.Write(<span style=\"color:#a31515\">&quot;Type some text to QR code: &quot;</span>)\r\n        <span style=\"color:blue\">Dim</span> sampleText = Console.ReadLine()\r\n\r\n        <span style=\"color:blue\">Dim</span> qrEncoder <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> QrEncoder(ErrorCorrectionLevel.M)\r\n        <span style=\"color:blue\">Dim</span> qrCode = qrEncoder.Encode(sampleText)\r\n\r\n\r\n        <span style=\"color:blue\">Dim</span> gRender <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Gma.QrCodeNet.Encoding.Windows.Render.DrawingBrushRenderer(<span style=\"color:blue\">New</span> Gma.QrCodeNet.Encoding.Windows.Render.FixedModuleSize(4, Windows.Render.QuietZoneModules.Four))\r\n        <span style=\"color:blue\">Dim</span> matrix = qrCode.Matrix\r\n\r\n        <span style=\"color:blue\">Using</span> stream <span style=\"color:blue\">As</span> IO.FileStream = <span style=\"color:blue\">New</span> IO.FileStream(<span style=\"color:#a31515\">&quot;qrcode.png&quot;</span>, IO.FileMode.CreateNew)\r\n            gRender.WriteToStream(matrix, Windows.Render.ImageFormatEnum.PNG, stream)\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Using</span>\r\n\r\n\r\n        Console.WriteLine(<span style=\"color:#a31515\">&quot;Press any key to quit.&quot;</span>)\r\n        Console.ReadKey()\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-25T07:39:31.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992182",
+    "ThreadId": "430870",
+    "Html": "\r\n<p>Artistic code will not be part of this project's feature anymore.</p>\r\n<p>&nbsp;</p>\r\n<p>Artistic code itself is useless on nearly any situation. Error correction is QrCode's biggest feature, even though is not unique, but QRCode won't exist without it. Artistic code approach simple removed that ability, then QrCode is not&nbsp;usable&nbsp;anymore.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Code should not just attracting people's eye, 99% of usage is that people want to scan code. Artistic code cause people can not scan from far distance, or poor environment. Then what's different to normal poster?</p>\r\n<p>&nbsp;</p>\r\n<p>Leave those artistic code for artist. &nbsp;I will remove Artistic Code stuff from front page.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-25T10:11:57.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992400",
+    "ThreadId": "430870",
+    "Html": "\r\n<p>Maybe you're right, but maybe artistic code can be useful. For example, I need to print qrCodes on small paper (A4, or business cards) and the degraded code quality is wide acceptable (in fact I've tried to superimpose a entire logo over the qrcode and it\r\n remains very affordable in this scenario). Your example on codeplex is really impressive as marketing result, my opinion.</p>\r\n<p>However, if you did remote it, it's mandatory to remote all references on codeplex because they create false expectations.</p>\r\n<p>However, good library :)</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-26T06:12:55.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992490",
+    "ThreadId": "430870",
+    "Html": "\r\n<p>That one never worked. Also most of artistic QrCode are done by artist anyway. Some of them done by library, but you can not do word or large image over, only very tiny small image at center.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Most of time when artist trying to resolve that is to check different QrCode output, to find a proper one, so that once image or word you want put there won't change a lot of cell's color. And adjust image or word according to exist QrCode layout. &nbsp;For word\r\n you can notice, if they are large, it will be ugly. They are trying to make word fit QrCode not other way around.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>For business card I won't suggest that. We had people trying to print on QrCode, because too many information have been stick into the content, QrCode too big. Cause cell model too small, had really hard time to read even without artist code. &nbsp;If you print\r\n on A4, then there are plenty of space to describe your QrCode than put on code.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>It might be good at initial impression, but if that cause large number of failure decode, your business lose will be larger than gain. That come down to whether you want them to impressed by client's eye look at code or their mobile.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>It's also true that I haven't found a proper way of implement it. And on other hand, they are not on huge demand. I still remember a mobile client use small icon inside QrCode, I had huge issue of detect it. Nearly throw that application away. Then later\r\n on found that they removed that implementation. All in all, I would rather spend time to improve current class structure, and platform support than wasting time on that.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>That's my experience with artistic code. And thanks that you like our work. :)&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>I only changed front page. Don't think there are any other reference on codeplex's project page. Codeproject has an article which done by previous coordinator. Can't not really change that. Thanks for point out, I will check around see if there are any left\r\n over.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-26T12:59:34.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

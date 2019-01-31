@@ -1,0 +1,234 @@
+[
+  {
+    "Id": 272,
+    "Title": "Implementing encoder for numeric mode according to chapter 8.4 Data encodation / 8.4.2 Numeric Mode"
+  },
+  {
+    "Id": 273,
+    "Title": "Implementing encoder for alphanumeric mode according to chapter 8.4 Data encodation / 8.4.3 Alphanumeric Mode"
+  },
+  {
+    "Id": 274,
+    "Title": "Improvement / rewrite of BitVector class to enable O(1) concatenation of BitVectors"
+  },
+  {
+    "Id": 275,
+    "Title": "Implementing encoder for 8-bit Byte mode according to chapter 8.4 Data encodation / 8.4.4 8-bit Byte Mode"
+  },
+  {
+    "Id": 279,
+    "Title": "Implement penalty score calculation unit tests"
+  },
+  {
+    "Id": 280,
+    "Title": "Implement penalty score calculation algorithm"
+  },
+  {
+    "Id": 284,
+    "Title": "Implement unit test for positioning patterns."
+  },
+  {
+    "Id": 285,
+    "Title": "Implement positioning patterns"
+  },
+  {
+    "Id": 289,
+    "Title": "Implementing encoder for Kanji mode according to chapter 8.4 Data encodation / 8.4.4 Kanji Byte Mode"
+  },
+  {
+    "Id": 325,
+    "Title": "Move QrCodeControl.cs and Renderer.cs to Gma.QeCodeNet.Encoder Assembly"
+  },
+  {
+    "Id": 326,
+    "Title": "Rename Size/Point etc so they do not clash with System.Drawing"
+  },
+  {
+    "Id": 327,
+    "Title": "Make the control respond to property changes"
+  },
+  {
+    "Id": 347,
+    "Title": "Version Control. Chapter 8.5.1 Error correction capacity (ISO/IEC 18004:2000)"
+  },
+  {
+    "Id": 349,
+    "Title": "Format information according to Chapter 6.9  ISO/IEC 18004:2006(E)"
+  },
+  {
+    "Id": 350,
+    "Title": "Expand output to stream function for Render class"
+  },
+  {
+    "Id": 372,
+    "Title": "Implement Reed-Solomon Encode And test"
+  },
+  {
+    "Id": 377,
+    "Title": "Auto-Detect Mode and Test"
+  },
+  {
+    "Id": 384,
+    "Title": "WPF control"
+  },
+  {
+    "Id": 396,
+    "Title": "Implement support for UTF8 Encode"
+  },
+  {
+    "Id": 423,
+    "Title": "Terminator, Padding, Pad codewords implementation and Test"
+  },
+  {
+    "Id": 424,
+    "Title": "Restructure EncoderBase.cs"
+  },
+  {
+    "Id": 430,
+    "Title": "Error Correction generate for data codewords"
+  },
+  {
+    "Id": 452,
+    "Title": "Change TriStateMatrix's status bool matrix to enum matrix"
+  },
+  {
+    "Id": 453,
+    "Title": "Embed codewords and Test"
+  },
+  {
+    "Id": 454,
+    "Title": "Implement BCH calculator for Version Information and Format Information"
+  },
+  {
+    "Id": 455,
+    "Title": "Implement Version Information according to ISO/IEC 18004:2000(E) 8.10"
+  },
+  {
+    "Id": 457,
+    "Title": "Re struct MatrixExtensions under Masking"
+  },
+  {
+    "Id": 479,
+    "Title": "Performance improvement"
+  },
+  {
+    "Id": 682,
+    "Title": "Redesign Renderer classes and WinForm WPF controls"
+  },
+  {
+    "Id": 684,
+    "Title": "Create an Encapsuled PostScript (EPS) renderer"
+  },
+  {
+    "Id": 695,
+    "Title": "Silverlight"
+  },
+  {
+    "Id": 713,
+    "Title": "Provide signed assemblies out of the box"
+  },
+  {
+    "Id": 717,
+    "Title": "Redirect of QR-Code"
+  },
+  {
+    "Id": 720,
+    "Title": "WriteToStream - Suggest"
+  },
+  {
+    "Id": 721,
+    "Title": "Artistic - without QRCodeControl?"
+  },
+  {
+    "Id": 730,
+    "Title": "System Brush vs System Color - Suggest"
+  },
+  {
+    "Id": 733,
+    "Title": "System.Drawing.Imaging.ImageFormat - Suggest"
+  },
+  {
+    "Id": 736,
+    "Title": "ECISet class not thread safe"
+  },
+  {
+    "Id": 737,
+    "Title": "Missing quiet zone in DrawingBrushRenderer"
+  },
+  {
+    "Id": 752,
+    "Title": "Improve Bitmatrix"
+  },
+  {
+    "Id": 841,
+    "Title": "Penalty score counted wrong"
+  },
+  {
+    "Id": 847,
+    "Title": "My qrcode hangs up qrcode.net (zxing hangs up too)"
+  },
+  {
+    "Id": 930,
+    "Title": "1st character of URL always replaced with '*'?"
+  },
+  {
+    "Id": 945,
+    "Title": "Modulesize becoming too large"
+  },
+  {
+    "Id": 946,
+    "Title": "High CPU Usage / Multithreading-Problem"
+  },
+  {
+    "Id": 947,
+    "Title": "Decoding"
+  },
+  {
+    "Id": 948,
+    "Title": "Nuget Unable to resolve dependency 'SampleDependency'"
+  },
+  {
+    "Id": 949,
+    "Title": "Culture Issue with SVG"
+  },
+  {
+    "Id": 950,
+    "Title": "FixedCodeSize should allow float width"
+  },
+  {
+    "Id": 951,
+    "Title": "I failed to load the .dll into a Windows phone 8 project created by VS 2013"
+  },
+  {
+    "Id": 952,
+    "Title": ".NET 3.5 QrCodeImgControl does not display QR code"
+  },
+  {
+    "Id": 953,
+    "Title": "issues for encoding unicode string in Recognise function"
+  },
+  {
+    "Id": 954,
+    "Title": "Not working on .NET 4.5"
+  },
+  {
+    "Id": 955,
+    "Title": "600 character Q.R. Code"
+  },
+  {
+    "Id": 956,
+    "Title": "Polish national signs encoding"
+  },
+  {
+    "Id": 957,
+    "Title": "Please sign the assemblies on the Nuget package"
+  },
+  {
+    "Id": 958,
+    "Title": "Avoid WPF?"
+  },
+  {
+    "Id": 959,
+    "Title": "Can't create Qr Code as a image file"
+  }
+]

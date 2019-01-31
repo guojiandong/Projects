@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Received following error when attempting to install via nuget.\r\n\r\nAttempting to resolve dependency 'SampleDependency (≥ 1.0)'.\r\nUnable to resolve dependency 'SampleDependency (≥ 1.0)'.",
+    "LastUpdatedDate": "2013-12-23T03:29:26.667-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2013-05-04T20:06:13.287-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Nuget Unable to resolve dependency 'SampleDependency'",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 948
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "What's your project's .net version. Which VS do you use. \n\nYour project is .net 2.0, 4.0, 4.5, silverlight 5, or others. Your VS is 2010, 2012 or.",
+      "PostedDate": "2013-05-04T22:02:18.393-07:00",
+      "Id": 99400
+    },
+    {
+      "Message": "IT appears there are two copies of this library posted on Nuget. 1 is owned by silverlancer and 1 by stimms.\nThe one owned by stimms has what looks like a sample dependency that cannot be resolved. The one owned by silverlancer installed fine with no dependencies. Both list gmamaladze and Silverlancer as authors.\nWhen searching the working one comes up with QrCode.Net. The broken one doesn't have the 'dot'.\n",
+      "PostedDate": "2013-05-05T17:05:00.89-07:00",
+      "Id": 99450
+    },
+    {
+      "Message": "Stimms post that before I do, and I didn't notice it either when I release mine. :P\n\nSorry about that, it's good that all works now. ",
+      "PostedDate": "2013-05-05T23:33:23.52-07:00",
+      "Id": 99461
+    },
+    {
+      "Message": "That issue did catch me as well. I wonder if it is possible to contact the author of another package and ask them to take it down, since it is broken.",
+      "PostedDate": "2013-12-23T03:29:26.667-08:00",
+      "Id": 128302
+    }
+  ]
+}

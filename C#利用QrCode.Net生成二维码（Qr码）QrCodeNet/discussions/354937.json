@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "833477",
+    "ThreadId": "354937",
+    "Html": "\r\n<p>i download the last version project file .i want user it on my website .but the&nbsp; code can't go as usual ,i use the renderer which used can be user .this time can't work .so i user the last version's</p>\r\n<p>GraphicsRenderer</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>GraphicsRenderer renderer = <span style=\"color:blue\">new</span> GraphicsRenderer(2);\r\n</pre>\r\n</div>\r\n<p>&nbsp;but it can't work .it said the param is wrong ,and could'nt work.</p>\r\n",
+    "PostedDate": "2012-05-08T07:31:48.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833713",
+    "ThreadId": "354937",
+    "Html": "<p>First, param is wrong. I have redesigned all renderer. If you want to check full documentation I will post link below.&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>\r\n<p>&nbsp;</p>\r\n<p>Second, as you want to use it on your website, are you using it with ASP.Net or Silverlight. As GraphicsRenderer is for Winform's Graphics class, which is under namespace System.Drawing.&nbsp;</p>\r\n<p>For silverlight, I haven't put it into main stream, but it is available under one of issue thread.&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/workitem/695\">http://qrcodenet.codeplex.com/workitem/695</a></p>\r\n<p>Download -&nbsp;<a id=\"FileLink3\" href=\"http://qrcodenet.codeplex.com/Download/AttachmentDownload.ashx?ProjectName=qrcodenet&amp;WorkItemId=695&amp;FileAttachmentId=280\">SilverlightQR Geometry Control and Image control.7z</a>.&nbsp;</p>\r\n<p>Newest implementation will not simply ask you to input module size. It has two option, FixedCodeSize or FixedModuleSize.&nbsp;</p>\r\n<p>CodeSize = QrCode's pixel width.&nbsp;</p>\r\n<p>ModuleSize = QrCode each small module's width.&nbsp;</p>\r\n<p>So now format is like this.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>{code:c#}</p>\r\n<p>GraphicsRenderer renderer =&nbsp;new GraphicsRenderer(</p>\r\n<pre>        <span>new</span> FixedCodeSize(200, QuietZoneModules.Two))</pre>\r\n<p>{code:c#}</p>\r\n<p>&nbsp;</p>\r\n<p>If you have further question just leave behind.&nbsp;</p>\r\n<p>For Silverlight I will sort it out and put it in before next release. The one I post there should work mostly fine.&nbsp;</p>",
+    "PostedDate": "2012-05-08T16:47:42.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833764",
+    "ThreadId": "354937",
+    "Html": "<p>Thanks very much,</p>\n<p>with you help i solve it ,</p>\n<p>and i user it on ASP.net web site ;it work well.</p>\n<div style=\"color: black; background-color: white;\">\n<pre>   <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> CreateImage(<span style=\"color: blue;\">string</span> sampleText)\r\n    {\r\n        QrEncoder qrEncoder = <span style=\"color: blue;\">new</span> QrEncoder(ErrorCorrectionLevel.H);\r\n        QrCode qrCode = <span style=\"color: blue;\">new</span> QrCode();\r\n        qrEncoder.TryEncode(sampleText, <span style=\"color: blue;\">out</span> qrCode);\r\n        <span style=\"color: blue;\">const</span> <span style=\"color: blue;\">int</span> moduleSizeInPixels = 5;\r\n        GraphicsRenderer renderer = <span style=\"color: blue;\">new</span> GraphicsRenderer(<span style=\"color: blue;\">new</span> FixedModuleSize(moduleSizeInPixels, QuietZoneModules.Two), Brushes.Black, Brushes.White);\r\n        MemoryStream ms = <span style=\"color: blue;\">new</span> MemoryStream();\r\n        renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png,ms);\r\n        Response.ClearContent(); \r\n        Response.ContentType = <span style=\"color: #a31515;\">\"image/Png\"</span>;\r\n        Response.BinaryWrite(ms.ToArray());\r\n        Response.End();\r\n    }\r\n</pre>\n</div>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-05-08T19:24:23.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895257",
+    "ThreadId": "354937",
+    "Html": "<p>Hello,</p>\r\n<p>ElmerWang how did you manage to use the control in the asp proyect ?</p>\r\n<p>I for the life of me, can't event reference the dll to the proyect it displays a warning on the reference list in the solution explorer and i don't see the methods ( obviously ) when i type \"QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);\"</p>\r\n<p>It's been 2 days and i'm starting to think that the dll that i downloaded is just for winforms.</p>\r\n<p>If anyone reads this, could you help me solve this please?</p>\r\n<p>Thanks.</p>\r\n<p>-- Sam.</p>",
+    "PostedDate": "2012-08-03T09:51:50.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895388",
+    "ThreadId": "354937",
+    "Html": "<p>What's that exception you talking about? Also your project's .Net version. The dll from this website is .Net 4.0. If you are working on .Net 3.5, you have to download source code and compile yourselves.&nbsp;</p>",
+    "PostedDate": "2012-08-03T14:08:24.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895397",
+    "ThreadId": "354937",
+    "Html": "<p>Hello and thank you for your feedback.</p>\r\n<p>My project is indeed 4.0, I created a new project just to test the dll and in this project i can get it to work, maybe there's something wrong with the project i'm working on.</p>\r\n<p>This is a legacy project that spawned in the early .Net Framework 1, then started from scratch ( supposedly ) for Framework 2 and then ported to 3.5 and currently it's being rewritten ( mostly ) for 4.0 maybe some (legacy) dependencies are interfering with the control?</p>\r\n<p>The exception is not really an exception is just the warning icon that shows in the reference list that tells me that something's wrong about that reference, i can't get it to live with the rest of the project.</p>\r\n<p>Anyway, I'll try to figure this one out and come here with the outcome.</p>\r\n<p>The control that we are currently using is MessagingToolkit's QRCode, It's fast and easy to setup, but this project seems best in my opinion.</p>\r\n<p>Thanks again and see you later.</p>\r\n<p>Sam.</p>",
+    "PostedDate": "2012-08-03T14:27:59.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895430",
+    "ThreadId": "354937",
+    "Html": "<p>Sounds weird. Our library doesn't use any dependency library, it's purely written in native official C# framework.&nbsp;</p>\r\n<p>Download source code from our project page and check which library we have been using and compare to your project.&nbsp;</p>\r\n<p>Another thing is that our assembly is not signed. It will be in next release version. Not sure if that can be problem.&nbsp;</p>",
+    "PostedDate": "2012-08-03T16:27:07.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

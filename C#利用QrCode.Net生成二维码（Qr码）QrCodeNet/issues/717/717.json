@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "<p>Hello,</p>\n<p>i implemented this library and need to say: Well work, but i&#39;ve got a &quot;problem&quot;, don&#39;t know, maybe i can parametrize it somewhere but i didn&#39;t find the location.</p>\n<p>What i want to do is: After i took the QR-Code picture, i don&#39;t want to see the link-text &quot;www.example.com&quot; i want to be redirected immediately to the given link, is this possible?</p>\n<p>Thanks &amp; Best regards</p>\n",
+    "LastUpdatedDate": "2012-04-16T21:43:24.687-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-10T06:24:21.32-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Redirect of QR-Code",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 717
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi. This might relate to two issues. I will list below. \r\n\r\n1st: string url format. Please according to this wiki and construct your input string. \r\nhttp://code.google.com/p/zxing/wiki/BarcodeContents\r\nThat will make sure decoder application can properly pick up content of QrCode and recognise as Url. \r\n2nd: Depends on decoder. Some decoder can recognise that link as url even you don't follow the format according to that wiki. \"i-nigma\" is pretty good decoder application for mobile. \r\n\r\nPlease check for that two issue and let me know if still not work. ",
+      "PostedDate": "2012-04-11T03:35:35.087-07:00",
+      "Id": 85165
+    },
+    {
+      "Message": "Hey Silverdance,\r\n\r\nthanks for reply, i'll have a look.\r\nBest regards\r\nHasenzahn",
+      "PostedDate": "2012-04-11T03:50:13.547-07:00",
+      "Id": 85166
+    },
+    {
+      "Message": "Hi Silverlancer,\r\nafter \"http://\" it worked. thanks for the suggest.\r\n\r\nBest regards\r\nHasenzahn",
+      "PostedDate": "2012-04-12T01:43:41.39-07:00",
+      "Id": 85167
+    }
+  ]
+}

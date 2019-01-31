@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "902375",
+    "ThreadId": "392562",
+    "Html": "\r\n<p>Trying to use QrCode.Net with Swedish characters such as &aring; &auml; &ouml; but do not really know how to do this. Is that possible? Someone who can lead me in the right direction?</p>\r\n",
+    "PostedDate": "2012-08-22T00:17:17.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902451",
+    "ThreadId": "392562",
+    "Html": "<p>It is possible. Either get source code and compile yourselves or grab 0.3 beta. It will detect your language and use proper encode. You don't have to do anything other than normal action that's described under documentation.&nbsp;</p>",
+    "PostedDate": "2012-08-22T02:43:44.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902480",
+    "ThreadId": "392562",
+    "Html": "\r\n<p><span>Thanks for the reply</span><span>.</span> <span>I</span> <span>have downloaded</span>\r\n<span>version 0.3</span> <span>and ran</span> <span>Gma.QrCodeNet.Demo.exe</span>\r\n<span>and tested</span> <span>with</span> <span>&aring; &auml; &ouml;</span> <span>\r\nbut it</span> <span>is</span> <span>not right.</span> <span>I</span> <span>create QR</span>\r\n<span>code</span> <span>by</span> <span>another program</span> <span>so my</span>\r\n<span>QR</span> <span>reader</span> <span>can handle</span> <span>&aring; &auml;</span>\r\n<span>&ouml;</span><br>\r\n<br>\r\n<span>This</span> <span>is created by</span> <span>QrCode.Net</span><span>,</span> dont\r\n<span>work</span>&nbsp;<span>with</span> <span>&aring; &auml; &ouml;</span><br>\r\n<a href=\"http://www.securum.se/download/qr/qr-code_dontwork.PNG\">http://www.securum.se/download/qr/qr-code_dontwork.PNG</a></p>\r\n<p><br>\r\n<span>This</span> <span>is created with</span> <span>another program</span><span>,</span>\r\n<span>work with</span> <span>&aring; &auml; &ouml;<br>\r\n</span><span><a href=\"http://www.securum.se/download/qr/qr-code_work.PNG\">http://www.securum.se/download/qr/qr-code_work.PNG</a></span></p>\r\n<p><span>Any</span> <span>idea?</span></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-22T04:46:23.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902664",
+    "ThreadId": "392562",
+    "Html": "\r\n<p>I can not decode with my mobile devise but able to with ZXing's online decoder. I have also look into code which it uses standard encoding iso-8859-1. My guess is some of mobile decoder still base on ISO 18004 2000. Where shift jis treated as default encoder.\r\n Where in ISO 18004 2006, iso-8859-1 is present as default. I can give it a quick fix later. Which you will have to use latest source code once I upload my changes.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Here is link to ZXing decode result.&nbsp;http://goo.gl/whpiy</p>\r\n<p>Where you can test at :&nbsp;<a href=\"http://zxing.org/w/decode.jspx\">http://zxing.org/w/decode.jspx</a></p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for report</p>\r\n<p>&nbsp;</p>\r\n<p>Edit: Did more test, other iso-8859-1 works fine but special&nbsp;Europe&nbsp;character&nbsp;won't work.&nbsp;&nbsp;Guess its related to decoder's smart detection. Shrug. Will see how it goes when I change some of code around.&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-22T11:52:00.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902857",
+    "ThreadId": "392562",
+    "Html": "<p>Ok, Its pretty clear now. It's not our encoder's problem, it's decoder's issue. They are using ISO 18004:2000 instead of ISO 18004:2006.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><a href=\"http://en.wikipedia.org/wiki/ISO/IEC_8859-1\">http://en.wikipedia.org/wiki/ISO/IEC_8859-1</a></p>\r\n<p><a href=\"http://en.wikipedia.org/wiki/Shift_JIS\">http://en.wikipedia.org/wiki/Shift_JIS</a></p>\r\n<p>&nbsp;</p>\r\n<p>Here are two links for encoder table which I will post here so you can easily understand what I am saying.&nbsp;</p>\r\n<p>QrCode will have default 8 bit byte encoder, which default encoder won't need any header to describe what encoder it is. ISO 18004:2000 is japanese QrCode documentation which register way back at 2000, where ISO 18004:2006 is international QrCode specification register at year 2006.</p>\r\n<p>2000's version is using shift-jis as default encoder, where 2006 using iso 8859-1 as their default encoding. So if decoder is tailor to use ISO 18004:2000 to decode, your char&nbsp;<span>&auml; for shift-jis table is empty. Thus gives error while trying to decode by ISO 18004:2000 decoder. So if I type&nbsp;<a title=\"Vertical bar\" href=\"http://en.wikipedia.org/wiki/Vertical_bar\">&brvbar;</a>&nbsp;char, which is A6 in ISO 8859-1 table, when I try to decode I will get&nbsp;<span>ｦ as&nbsp;Japanese&nbsp;character.&nbsp;</span></span></p>\r\n<p>&nbsp;</p>\r\n<p><span><span>So now problem comes to fix, One of fix is add header for both 8859-1 and shift-jis, then it will support by all decoder. Is that good? I don't know actually. Few reasons.&nbsp;</span></span></p>\r\n<p><span><span>1. It will be against ISO specification. Which can be nasty if some project required.&nbsp;</span></span></p>\r\n<p><span><span>2. The advantage of be a default encoder will be gone for good. As I have to write header for that, the QrCode we generate will be larger than what we expect.&nbsp;</span></span></p>\r\n<p><span><span>Thus, currently I decide to against change, and once I have time I will add support to create QrCode for specific ISO specification. One thing you can do is either ask your user to use proper decoder(which is western focused decoder that use latest ISO specification), or if you know they are not decoder that made by Japan you can ask them to change their code, or last option edit our source code on your own( which I can help you out, it's not hard, only take few min).&nbsp;</span></span></p>\r\n<p><span><span>Let me know your opinion also try to read carefully about what I have written up their and make your decision according to that. One thing you might notice is that the one we can decode is using utf8. Which that QrCode is so large. It's good that we can decode, but on the other hand, if you want print something on your small business card, you are going to have hard time. As the larger code you get, the smaller cells when it paint on card, thus it will be really hard to decode. Smaller size code is optimal choice to print on limit space, that's one major reason I'm against to change our code. Please understand that.&nbsp;</span></span></p>",
+    "PostedDate": "2012-08-22T23:44:06.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902989",
+    "ThreadId": "392562",
+    "Html": "<p><span class=\"hps\">okay,</span> <span class=\"hps\">now I understand.</span> <span class=\"hps\">I have tested</span> <span class=\"hps\">another.</span> <span class=\"hps\">NET component</span><span>.</span> <span class=\"hps\">It was</span> <span class=\"hps\">the one who made</span> <span class=\"hps\">the second</span> <span class=\"hps\">QR</span> <span class=\"hps\">code</span> <span class=\"hps\">I sent</span> <span class=\"hps\">the</span> <span class=\"hps\">previous post.</span> <span class=\"hps\">It also has a</span> <span class=\"hps\">QR</span> <span class=\"hps\">decoder.</span> <span class=\"hps\">When I tested</span> <span class=\"hps\">both</span> <span class=\"hps\">QR</span> <span class=\"hps\">codes in</span> <span class=\"hps\">the</span> <span class=\"hps\">decoder</span> <span class=\"hps\">both were</span> <span class=\"hps\">right</span><span>, that</span> <span class=\"hps\">shows</span> <span class=\"hps\">&aring; &auml;</span> <span class=\"hps\">&ouml;.</span><br /><br /><span class=\"hps\">Now</span> <span class=\"hps\">we</span> <span class=\"hps alt-edited\">handle</span> <span class=\"hps\">most of it without</span> <span class=\"hps\">&aring; &auml; &ouml;</span> <span class=\"hps\">so I'll</span> going to <span class=\"hps\">think about how we</span> <span class=\"hps\">should do</span> <span class=\"hps\">in the future.</span><br /><br /><span class=\"hps\">Thanks for the help</span></p>",
+    "PostedDate": "2012-08-23T05:03:32.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903147",
+    "ThreadId": "392562",
+    "Html": "<p>You are welcome.&nbsp;</p>\r\n<p>One thing I would like to point out is include head is not that expensive unless your task require to print it on a small limited space. So if you don't have that requirement, I can teach you how to enable that header so that you can use those character safely.&nbsp;</p>",
+    "PostedDate": "2012-08-23T11:32:25.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1020655",
+    "ThreadId": "437899",
+    "Html": "I'm using QrCode.net in a web forms project.  I got it to output raster graphic qr codes but I'm having trouble with vector output to SVG.  The SVGRenderer is asking for GColor darkcolor and GColor lightcolor.\r<br />\n<br />\nI can not figure out how to define the darkcolor and lightcolor.  From the GColor class I see it's looking for RGBA values but everything I try is not working.\r<br />\n<br />\nCan you give an example of initializing the SVGRenderer?\r<br />\n<br />\nAlso in the documentation you talk about setting the viewbox width and height inside the renderer.  Are these attributes available after the renderer is initialized?\r<br />\n<br />\nThank You!<br />\n",
+    "PostedDate": "2013-03-25T07:29:16.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020684",
+    "ThreadId": "437899",
+    "Html": "Sorry for the double post.  I found the answer I was looking for in the QRCodeNet Demo in the source code section.  In case others are looking:\r<br />\n<br />\n<a href=\"http://qrcodenet.codeplex.com/SourceControl/changeset/view/73a7d2eead68#Gma.QrCodeNet/Gma.QrCodeNet.Demo/MainForm.cs\" rel=\"nofollow\">http://qrcodenet.codeplex.com/SourceControl/changeset/view/73a7d2eead68#Gma.QrCodeNet/Gma.QrCodeNet.Demo/MainForm.cs</a><br />\n",
+    "PostedDate": "2013-03-25T08:17:42.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020761",
+    "ThreadId": "437899",
+    "Html": "GColor is for either color structure from system.drawing or the one from WPF. It's a wrapper. They only exist for EPS and SVG renderer. \r<br />\n<br />\nWidth and height is set up inside ISizeCalculation. You can still change ISizeCalculation inside renderer after initialize.<br />\n",
+    "PostedDate": "2013-03-25T10:37:55.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1124884",
+    "ThreadId": "437899",
+    "Html": "Had this same problem, the types you are looking for are FormColor or Media color<br />\n<pre><code>SVGRenderer render = new SVGRenderer(new FixedCodeSize(200, QuietZoneModules.Two), new FormColor(System.Drawing.Color.Black), new FormColor(System.Drawing.Color.White));</code></pre>\n\n",
+    "PostedDate": "2013-11-16T16:11:07.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

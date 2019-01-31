@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1016935",
+    "ThreadId": "437020",
+    "Html": "I just used QRCode for my App.\r<br />\nI can show the QR Code with my button event, but how can i save that Code as an Image ?\r<br />\nSorry for my bad English :(<br />\n",
+    "PostedDate": "2013-03-18T03:05:16.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016940",
+    "ThreadId": "437020",
+    "Html": "Oh, sorry , i find out the way to save as an image file.\r<br />\nSorry ^^<br />\n",
+    "PostedDate": "2013-03-18T03:10:51.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017206",
+    "ThreadId": "437020",
+    "Html": "I'm not sure if you are using the correct way of saving image file. \r<br />\n<br />\nFor QrCode Controller that our library provides, it can extract bit matrix. Use that bit matrix and dump into any renderer, it can help you to save as image file. \r<br />\n<br />\nImage file include normal image, and vector image (EPS for adobe and SVG for web).\r<br />\n<br />\n<a href=\"http://qrcodenet.codeplex.com/wikipage?title=DrawingBrushRenderer&amp;referringTitle=Renderer\" rel=\"nofollow\">http://qrcodenet.codeplex.com/wikipage?title=DrawingBrushRenderer&referringTitle=Renderer</a>\r<br />\n<br />\nHere is link to one of renderer that focus on WPF environment to save normal image file. While EncapsulateRenderer and SVGRenderer are both for vector image.\r<br />\n<br />\nDownload source code, there are some examples. <br />\n",
+    "PostedDate": "2013-03-18T10:29:33.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017421",
+    "ThreadId": "437020",
+    "Html": "Thanks Silverlancer(nice name) for replying me .\r<br />\ni simply do like this : qrCodeImgControl1.Image.Save(&quot;demo.jpg&quot;);\r<br />\nIt's totally wrong ?<br />\n",
+    "PostedDate": "2013-03-18T18:59:22.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017464",
+    "ThreadId": "437020",
+    "Html": "Image control should be alright. <br />\n<br />\nThe only problem will be that you can not control size, nor you can create any vector image. But if that's not your goal, don't worry then. :)<br />\n",
+    "PostedDate": "2013-03-18T22:34:49.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017487",
+    "ThreadId": "437020",
+    "Html": "^^, Thank you Silverlancer !\r<br />\nI wiil note your hint :)<br />\n",
+    "PostedDate": "2013-03-19T00:16:18.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1220283",
+    "ThreadId": "437020",
+    "Html": "Hi:\r<br />\n<br />\nI'm trying to extract bit matrix..but I can't...in silverlight ... help me please<br />\n",
+    "PostedDate": "2014-03-07T05:22:52.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

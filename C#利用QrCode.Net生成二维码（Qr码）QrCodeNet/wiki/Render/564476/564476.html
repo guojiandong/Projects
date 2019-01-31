@@ -1,0 +1,42 @@
+<div class="wikidoc"><h1>GraphicsRenderer</h1>This page provides a guide for use GraphicsRenderer. (After <b>check-in 13336</b>)<br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.Render<br />
+<h3>Syntax</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> GraphicsRenderer
+</pre></div>
+<h3>Remarks</h3>GraphicsRenderer is renderer that uses method under System.Drawing to paint or create image. <br /><br />It uses Graphics for paint and Bitmap class for saving it to stream. Basically this is renderer to use under WinForm&#39;s OnPaint event. <br /><br />Currently, WriteToStream supports following image format:<br />Normal image: Bmp, Gif, Jpeg, Png, Tiff<br />MetaFile: Emf, Wmf. <br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>GraphicsRenderer</td><td>Initializes a new instance of GraphicsRenderer class.</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>Draw</td><td>Draw QrCode at given Graphics object</td></tr>
+<tr><td>WriteToStream</td><td>Create specific QrCode image and store inside stream</td></tr></table><br />
+<h3>Properties</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DarkBrush</td><td>Property for Dark Module&#39;s color</td></tr>
+<tr><td>LightBrush</td><td>Property for Light Module&#39;s color</td></tr>
+<tr><td>SizeCalculator</td><td>Property for interface ISizeCalculator</td></tr></table><br />
+<h3>Example</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding.Windows.Render;
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding;
+</pre></div><br /><div style="color:Black;background-color:White;"><pre>
+QrEncoder encoder = <span style="color:Blue;">new</span> QrEncoder(ErrorCorrectLevel.M);
+QrCode qrCode;
+encoder.TryEncode(<span style="color:#A31515;">&quot;Test&quot;</span>, <span style="color:Blue;">out</span> qrCode);
+
+GraphicsRenderer gRenderer = <span style="color:Blue;">new</span> GraphicsRenderer(
+    <span style="color:Blue;">new</span> FixedModuleSize(2, QuietZoneModules.Two), 
+    Brushes.Black, Brushes.White);
+
+MemoryStream ms = <span style="color:Blue;">new</span> MemoryStream();
+gRenderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
+</pre></div><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">protected</span> <span style="color:Blue;">override</span> <span style="color:Blue;">void</span> OnPaint(PaintEventArgs e)
+{
+    QrEncoder encoder = <span style="color:Blue;">new</span> QrEncoder(ErrorCorrectLevel.M);
+    QrCode qrCode;
+    encoder.TryEncode(<span style="color:#A31515;">&quot;Test&quot;</span>, <span style="color:Blue;">out</span> qrCode);
+
+    <span style="color:Blue;">new</span> GraphicsRenderer(
+        <span style="color:Blue;">new</span> FixedCodeSize(200, QuietZoneModules.Two)).Draw(
+            e.Graphics, qrCode.Matrix);
+    <span style="color:Green;">//It will use default brush, black and white. and default position (0,0).</span>
+    <span style="color:Blue;">base</span>.OnPaint(e);
+}
+</pre></div></div><div class="ClearBoth"></div>

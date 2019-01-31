@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "<p>Add UTF8 to ECI set. According to: http://strokescribe.com/en/ECI.html</p>\n<p>&nbsp;</p>\n<p>Change EightBitByte to support UTF8 encoding. (Add UTF8 BOM in front of data content. BOM= &quot;0xEF 0xBB 0xBF&quot; reference: http://en.wikipedia.org/wiki/Byte-order_mark  ZXing&#39;s decoder and some others will try to figure out UTF8 encode by either ECI header or BOM. We need further test once our encoder is done. To see which combination most of QR reader will accept)</p>\n<p>&nbsp;</p>\n<p>Change AutoSelectMode method, So that if all other mode is fail to encode input content, result should be utf8-eightbitbyte encode. </p>\n<p>&nbsp;</p>\n<p>Change AutoSelectMode test according to changes.</p>\n<p>&nbsp;</p>\n<p>Reference: http://code.google.com/p/zxing/issues/detail?id=103</p>\n",
+    "LastUpdatedDate": "2011-11-13T17:50:32.69-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-11-13T16:36:00.623-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement support for UTF8 Encode",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 396
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

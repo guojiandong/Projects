@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-25T10:20:25.397-08:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "Hey,<br><br>I am trying to implement the QrCode.Net librabry into one of our projects. But we are experiencing a problem with the modulesize method. <br>Whenever we set the modulesize to lets say 65 the QrCode becomes around 1500px wide / high with the text 'test'. And increases the more chars included.<br>Even if we set the QrCodeImgControl's width and height it doesn't seem to do anything.<br><br>Is there a way we can increase the density of the QrCodeImgControl when more chars are added instead of increasing the QrCodes width / height? (as seen at http://www.qrstuff.com/blog/2011/11/23/qr-code-minimum-size for example)<br><br>Or maybe it's simple a coding error, in that case could you point out the problem please?<br><br>Image qrCodeImage = new Image();<br>QrCodeImgControl imgControl = new QrCodeImgControl(); <br>//imgControl.ModuleSize = 65;  //when uncommented becomes ultra-large<br>imgControl.Text = input_txt.Text;<br>Rectangle rtc = new Rectangle { Height = imgControl.Height, Width = imgControl.Width }; <br>using (Bitmap bmp = new Bitmap(rtc.Width, rtc.Height))<br>{<br>    imgControl.DrawToBitmap(bmp, rtc);<br>    using (MemoryStream memoryStream = new MemoryStream())<br>    {<br>        bmp.Save(memoryStream, ImageFormat.Bmp);<br>        byte[] byteImage = memoryStream.ToArray(); <br>        qrCodeImage.ImageUrl = &quot;data:image/png;base64,&quot; + Convert.ToBase64String(byteImage);<br>     }<br>    QrPlaceHolder.Controls.Add(qrCodeImage); <br>}<br><br>attached image shows the difference with the modulesize uncommented and commented. Both were generated with the wordt test.",
+    "LastUpdatedDate": "2013-01-25T10:20:25.397-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-12-13T00:31:28.077-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Modulesize becoming too large",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 945
+  },
+  "FileAttachments": [
+    {
+      "FileId": 596025,
+      "FileName": "QrCodeSizeDifference.png",
+      "DownloadUrl": ".\\596025"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I think you got totally confused and used wrong way to create image. \r\n\r\nFirst, modules size didn't become too large, module size is fixed. In your way of creating image, main issue is QrCode size become too large. \r\n\r\nSmall QrCode: 25x25, module size = 50, then QrCode size should be at least (25 * 50) wide and height. Larger one: 41x41, module size = 50, QrCode size will be (41 * 50) wide and height. \r\n\r\nNow things become interesting. Which is depends on what your project really needs. \r\n\r\nFirst thing first, download latest source code and compile yourselves, those code will gives you latest version which have better way of creating images. \r\n\r\nGuide to use latest API will be here: http://qrcodenet.codeplex.com/wikipage?title=Renderer&referringTitle=Documentation\r\n\r\nThat's another mistake you have made. You need to use renderer to create image instead of use controller. \r\n\r\nController: They are for interface display. (It internally uses renderer)Renderer: Render QrCode to image stream.\r\n\r\nHere are another two guide for how to use controller and info about QrCode. Which you might need it if you want to work on desk top application. if not forget about it. http://qrcodenet.codeplex.com/wikipage?title=QrCode&referringTitle=Documentationhttp://qrcodenet.codeplex.com/wikipage?title=User%20Controls&referringTitle=Documentation\r\n\r\nHere is another thing I want to point out. Once you start to use Renderer to create images. You have to think about which image you want to create. And where you are going to use it. \r\n\r\nIf you are creating images for printing. I would suggest to use EncapsulatePostScriptRenderer to create vector image. That Adobe can edit and print it on any size. \r\n\r\nIf you are using ASP.Net and passing images to display on website. You have 2 options, 1. Use SVG renderer to create SVG vector graph that you can link or embed on website.2. Use WriteableBitmapRenderer or DrawingBrushRenderer to create images and save it as PNG. \r\n\r\nSecond option will need to import assembly for ASP.Net, as ASP.Net won't include some of desktop graphic assembly. \r\n\r\nMy documentation have cons and pros about different renderer and how you should use it. \r\n\r\nLast will be how to use ISizeCalculation interface. \r\n\r\nhttp://qrcodenet.codeplex.com/wikipage?title=Size&referringTitle=Renderer\r\n\r\nHere is documentation for that. And let me know if you have any questions. ",
+      "PostedDate": "2012-12-13T23:00:30.447-08:00",
+      "Id": 85196
+    },
+    {
+      "Message": "Hello Silverlancer,\r\n\r\nThanks for the additional info. It was quite usefull.The only question I have is about the ISizeCalculation interface.\r\n\r\nI have downloaded the latest build available v0.3, but I do not seem to be able to implement the interface.Neither am I able to find it with the object-browser within visual studio when I look at the imported reference.\r\n\r\nAm I missing something here? or is v0.3 not the correct version to use?\r\n\r\nGreetings,",
+      "PostedDate": "2012-12-17T00:42:26.983-08:00",
+      "Id": 85197
+    },
+    {
+      "Message": "Download from source code. 0.3 is not latest. ",
+      "PostedDate": "2012-12-17T10:01:00.26-08:00",
+      "Id": 85198
+    }
+  ]
+}

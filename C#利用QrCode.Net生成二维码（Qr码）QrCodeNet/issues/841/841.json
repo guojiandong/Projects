@@ -1,0 +1,91 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Issue under issue tracker should be something relate to current project. Question or anything that not relate to this project should post under Discussions. \r\nNot detailed description. ",
+    "ClosedDate": "2012-08-05T11:35:30.273-07:00",
+    "CommentCount": 8,
+    "Custom": "",
+    "Description": "<p>Dear Sirs, just check 21x21 for the string &quot;HELLO WORLD&quot; (no quotation marks) with correction Level &quot;Q&quot;</p>\n<p>The demo gives a code masked with pattern#6, which has a penalty score 357.</p>\n<p>But, it has to show a qr-code masked with pattern#0, its penalty score is 350. It is the minimal among all the 8 masks.</p>\n<p>&nbsp;</p>\n<p>Thanks.</p>\n",
+    "LastUpdatedDate": "2013-03-25T22:48:03.133-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-07-29T23:31:00.71-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Penalty score counted wrong",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 841
+  },
+  "FileAttachments": [
+    {
+      "FileId": 596022,
+      "FileName": "HELLO_WORLD.png",
+      "DownloadUrl": ".\\596022"
+    },
+    {
+      "FileId": 596023,
+      "FileName": "HELLO WORLD.txt",
+      "DownloadUrl": ".\\596023"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "As what I have said in your other issue post, how do you use encoder? How come you can get into a point saying pattern#0 has lower penalty score 350 and not been chosen? And where is 350 penalty score comes from?\r\n\r\nThere are different way to calculate penalty score and it will give different result.\r\n\r\n1. ISO 2000\r\n2. ISO 2006\r\n\r\n2006's penalty scale calculation rule is different compare to 2000, and it will give lower score than 2000 for some cases but will never larger.  QrCode.Net using 2006's rule, which should always lower than 2000's rule. Thus I don't get where you get that 350 score from. Clearly is not calculate by 2000's rule. \r\n\r\nAlso I don't get why you are digging into penalty score, Different mask will not cause critical error like you said in the other issue post. It's just to choose a more balanced output. Whatever mask you choose should be able to decode regardless. Some encoder even skip mask check just for performance. \r\n\r\nIt's good that you can help out debug, appreciate your effort, but I just got confused by your issue posts. One issue says critical error without detail description of how you made that code, second issue is about penalty score, I can not find relationship between that two. ",
+      "PostedDate": "2012-08-02T16:31:08.547-07:00",
+      "Id": 85187
+    },
+    {
+      "Message": "Just create the code you have mentioned up there. Both ZXing and QrCode.Net generate same output with \"HELLO WORLD\". \r\n\r\nThe penalty score ZXing is using is same to us. Which is 2006. \r\n\r\nI also did step by step check in penalty calculation. Here is result for \"HELLO WORLD\" error correction level \"Q\"'s penalty calculation check. \r\n\r\npattern:\r\n0 - 347\r\n1 - 470\r\n2 - 506\r\n3 - 441\r\n4 - 539\r\n5 - 516\r\n6 - 314\r\n7 - 558\r\n\r\nSo non of the numbers you provide up there are correct. Only thing is right is that pattern 6 has been chosen. My guess is that you are trying to build your own encoder. If that's the case I don't want to invest further, all of our code is here. Take it or discard it that's your choice. We will not take responsibility  for edited source code. \r\n\r\nNote: Each beta release we did unit testing by using ZXing's encoder as reference. So even algorithm changes won't affect result. \r\n\r\nIf my guessing is wrong, then sorry about that. Please provide more detail about how you find those number, which revision. Without detail I can not check anything. ",
+      "PostedDate": "2012-08-02T17:15:41.963-07:00",
+      "Id": 85188
+    },
+    {
+      "Message": "Can you check the attached form, please. There you will see that 350.",
+      "PostedDate": "2012-08-02T18:34:15.363-07:00",
+      "Id": 85189
+    },
+    {
+      "Message": "Well as I said earlier, I really want to know which encoder you have been using to generate that code. If you use our encoder, which revision and how do you test it. Create a demo project and pass to me that will make things easier. \r\n\r\nAs I have post my result by using latest revision from our repository. The result I'm getting is totally different to the one you have post here. ",
+      "PostedDate": "2012-08-03T00:02:41.95-07:00",
+      "Id": 85190
+    },
+    {
+      "Message": "I would like to make things clear. If you are building a QrCode encoder and use our library as reference to test. Use proper unit test to compare penalty score. And use more simpler input to test each line of penalty score result. Also because it's simpler input, you can judge by your human calculation too.\r\n\r\nI did all of that while I coding for this encoder, hand calculate all of rules and such and compare to ZXing's implementation. Their result is very solid. So if I got result different to theirs, it must be my own algorithm's issue not ZXing's. Your situation now is sort of same. If you are building your own encoder, do what I said above. \r\n\r\nI really like to help you, but only if you can provide solid prove that our result is wrong. Other than that, I really don't want to hand calculate all of result again. I had it and don't want do it any more unless I know there are critical issues. \r\n\r\nAbove all belong to my assumption. No offence. You don't want to tell me the key information so the only thing I could do is make assumption.  Please provide solid information regard your claim, else I will close this issue without reply. ",
+      "PostedDate": "2012-08-03T00:21:54.76-07:00",
+      "Id": 85191
+    },
+    {
+      "Message": "Here is QrCode.Net's penalty result. ",
+      "PostedDate": "2012-08-03T01:26:57.95-07:00",
+      "Id": 85192
+    },
+    {
+      "Message": "I also saw this manual at Thonsky.com and I must say it contains several gross errors. The reason you cannot obtain the correct mask is the following:\n\n1. The author has got the correct ECC codes for HELLO WORLD in Quality (BTW his devision algorithm doesn't work with Low and Medium). \n\nHELLO WORLD\ndata:  32 91 11 120 209 114 220 77 67 64 236 17 236\nECC: 168 72 22 82 217 54 156 0 46 15 180 122 16\n\nBut when he draw QR matrix he forgot the last data byte:\n 32 91 11 120 209 114 220 77 67 64 236 17 0\n\nTherefore the matrix was drawn with wrong data and accordingly the mask 6 was counted incorrectly.\n\nIf you want to see the same picture as in the manual, you also must distort the last data byte (put 0 instead of 236).",
+      "PostedDate": "2013-03-25T04:02:49.61-07:00",
+      "Id": 94268
+    },
+    {
+      "Message": "Interesting website.\n\nHis result is not just that I believe. If you check his penalty calculation result, penalty rule 4 are all 0. It's really hard to get that value. From what I imagine, he probably used integer all over the place. Especially for rule 4, he got totally wrong. \n\nOther rules? I'm not sure. It's annoying when he needs help but post under issue track, then not tell me what he want to achieve and where did those number come from. \n\nI spent tons of time try to hunt down error, end up it's not related to this project at all. I wish he could post more info like you that can make things easier. \n",
+      "PostedDate": "2013-03-25T22:48:03.133-07:00",
+      "Id": 94363
+    }
+  ]
+}

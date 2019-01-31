@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1332146",
+    "ThreadId": "575084",
+    "Html": "Is it possible generate a QR code in Framework 1.1 application?\r<br />\n<br />\nHow can i do?, Because, my application was develop in this framework.\r<br />\n<br />\nThanks for your help. :)<br />\n",
+    "PostedDate": "2014-12-15T07:35:16.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1332507",
+    "ThreadId": "575084",
+    "Html": "I'm not sure if it can be compiled under 1.1 or not. Do you want to grab source code and try compile it?\r<br />\n<br />\nSome of stuff you might not need, like WPF and winform. You can remove them from source code. Once QrCode is generated you can paint yourself from bit matrix. <br />\n",
+    "PostedDate": "2014-12-15T11:16:06.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

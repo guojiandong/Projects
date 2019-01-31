@@ -1,0 +1,40 @@
+<div class="wikidoc"><h1>WriteableBitmapRenderer</h1>This page provides a guide for use WriteableBitmapRenderer. (After <b>check-in 13336</b>)<br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.Render<br />
+<h3>Syntax</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> WriteableBitmapRenderer
+</pre></div>
+<h3>Remarks</h3>WriteableBitmapRenderer is a renderer directly dealing with WriteableBitmap&#39;s pixel pointer. It aims for fast paint. <br /><br />It currently only supports Gray8 and Pbgra32 pixel format.<br /><br />DPI(Dot per inch) is heavily used inside this renderer. Default DPI is 96, 96. You should be aware of where you are going to use this bitmap and set up DPI according to it.<br /><br />Offset is position for top left corner of QrCode. <br /><br />DrawDarkModule method should be viable for people want to paint QrCode at exist Bitmap and it has background already set up. It will paint dark modules at given offset position. <br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>WriteableBitmapRenderer</td><td>Initialize a new instance of WriteableBitmapRenderer class.</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>Draw</td><td>Draw QrCode at given writeablebitmap</td></tr>
+<tr><td>DrawDarkModule</td><td>Draw dark modules at position offset with given WriteableBitmap.(It will include quiet zone gap. Set quiet zone to zero to remove that space.)</td></tr>
+<tr><td>WriteToStream</td><td>Write QrCode to image inside stream</td></tr></table><br />
+<h3>Properties</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DarkColor</td><td>Color for dark modules</td></tr>
+<tr><td>LightColor</td><td>Color for light modules</td></tr>
+<tr><td>ISize</td><td>Property for ISizecalculation</td></tr></table><br />
+<h3>Example</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding.Windows.Render;
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding;
+</pre></div><br /><div style="color:Black;background-color:White;"><pre>
+QrEncoder encoder = <span style="color:Blue;">new</span> QrEncoder(ErrorCorrectLevel.M);
+QrCode qrCode;
+encoder.TryEncode(<span style="color:#A31515;">&quot;Test&quot;</span>, <span style="color:Blue;">out</span> qrCode);
+
+WriteableBitmapRenderer wRenderer = <span style="color:Blue;">new</span> WriteableBitmapRenderer(
+    <span style="color:Blue;">new</span> FixedModuleSize(2, QuietZoneModules.Two), 
+    Colors.Black, Colors.White);
+
+WriteableBitmap wBitmap = <span style="color:Blue;">new</span> WriteableBitmap(200, 200, 96, 96, PixelFormat.Gray8, <span style="color:Blue;">null</span>);
+wRenderer.Draw(wBitmap, qrCode.Matrix);
+
+MemoryStream ms = <span style="color:Blue;">new</span> MemoryStream();
+wRenderer.WriteToStream(qrCode.Matrix, ImageFormatEnum.png, ms);
+
+<span style="color:Green;">//You can also use above wBitmap to encode to image file on your own. </span>
+MemoryStream wms = <span style="color:Blue;">new</span> MemoryStream();
+PngBitmapEncoder pngEncoder = <span style="color:Blue;">new</span> PngBitmapEncoder();
+pngEncoder.Interlace = PngInterlaceOption.On;
+pngEncoder.Frames.Add(BitmapFrame.Create(wBitmap));
+pngEncoder.Save(wms);
+</pre></div></div><div class="ClearBoth"></div>

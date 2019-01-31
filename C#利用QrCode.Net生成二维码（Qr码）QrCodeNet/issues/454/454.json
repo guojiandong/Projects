@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>ISO/IEC 18004/2000(E) Chapter 8.9 8.10</p>\n<p>Implement BCH calculator for Version Information and Format Information</p>\n",
+    "LastUpdatedDate": "2011-12-16T21:03:41.153-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-12-16T21:03:22.69-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement BCH calculator for Version Information and Format Information",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 454
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with check in 10450 ",
+      "PostedDate": "2011-12-16T21:03:41.153-08:00",
+      "Id": 85145
+    }
+  ]
+}

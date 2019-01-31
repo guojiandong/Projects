@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2011-10-26T11:07:50.95-07:00",
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>Render Barcode matrix to stream object.</p>\n",
+    "LastUpdatedDate": "2011-10-26T11:07:50.95-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-25T16:57:29.663-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Expand output to stream function for Render class",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 350
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 6855.",
+      "PostedDate": "2011-10-26T11:07:50.95-07:00",
+      "Id": 85124
+    }
+  ]
+}

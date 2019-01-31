@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1334272",
+    "ThreadId": "575674",
+    "Html": "Hi, \r<br />\n<br />\nI need to encode an event in Vcalendar format. \r<br />\n<br />\nI encode the string into format: \r<br />\n<br />\nBEGIN:VCALENDAR\r<br />\nVERSION:1.0\r<br />\nBEGIN:VEVENT\r<br />\nDTSTART:20141216T090000Z\r<br />\nDTEND:20141216T100000Z\r<br />\nSUMMARY:Prova\r<br />\nLOCATION:Tortona\r<br />\nDESCRIPTION:via della prva\r<br />\nPRIORITY:3\r<br />\nEND:VEVENT\r<br />\nEND:VCALENDAR\r<br />\n<br />\nbut when I scan the qrcode my readers didn't recognize it.\r<br />\nHow I can encode an event?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2014-12-17T11:41:43.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1334352",
+    "ThreadId": "575674",
+    "Html": "<a href=\"https://github.com/zxing/zxing/wiki/Barcode-Contents\" rel=\"nofollow\">https://github.com/zxing/zxing/wiki/Barcode-Contents</a>\r<br />\n<br />\nCheck out here. Also be aware that not all QrCode reader supports this.<br />\n",
+    "PostedDate": "2014-12-17T18:05:51.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

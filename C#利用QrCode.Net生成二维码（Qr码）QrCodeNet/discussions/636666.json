@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1422761",
+    "ThreadId": "636666",
+    "Html": "Is there any reason why there is no option &quot;One&quot; in the QuietZoneModules enum?\r<br />\nI would really like to have the quiet zone the same size of each module.<br />\n",
+    "PostedDate": "2015-05-04T08:37:59.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1422848",
+    "ThreadId": "636666",
+    "Html": "ISO default is 4. \r<br />\n<br />\nZero for people that wish to draw under area where it has same background as white module. \r<br />\n<br />\nTwo works for most of case, might be too small for larger code. \r<br />\n<br />\nNo particular reason but to cover 90% of usage. I would prefer 4 in most of case, and if its zero, draw the code myself. Since if I put code at a proper background, then I don't have to draw white module at all. <br />\n",
+    "PostedDate": "2015-05-04T17:15:40.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

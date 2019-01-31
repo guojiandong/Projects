@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1099804",
+    "ThreadId": "459382",
+    "Html": "I'm testing the Web Demo application.  In the app that I will develop, I need to combine several strings with a CRLF between each one.\r<br />\n<br />\nHow do I go about entering a CRLF into the web demo?  I've tried several variations  (0x0D0x0A, %13%10, etc.) and all I get in the QR code is the literal string entered.\r<br />\n<br />\nTIA\r<br />\nBob<br />\n",
+    "PostedDate": "2013-09-26T12:09:18.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110418",
+    "ThreadId": "459382",
+    "Html": "Hello everybody,\r<br />\n<br />\nDoes anyone has an answer to this question ? I also need to use the CRLF and the simple \\n used in a String seems not to work.\r<br />\nAny help would be greatly appreciated,\r<br />\n<br />\nThanks,\r<br />\nOlivier<br />\n",
+    "PostedDate": "2013-10-22T01:36:33.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

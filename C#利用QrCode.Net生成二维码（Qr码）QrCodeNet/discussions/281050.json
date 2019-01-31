@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "704166",
+    "ThreadId": "281050",
+    "Html": "\r\n<p>Great library, I hope the project maintains some momentum.</p>\r\n<p>Are there any plans to create a .NET 3.5 compatible release? &nbsp;There isn't much use of .NET 4 specific functionality so changing the target framework to 3.5 for the encoding project wouldn't require much effort but would allow a wider audience to use\r\n the library in their applications.</p>\r\n",
+    "PostedDate": "2011-11-28T06:17:11.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705196",
+    "ThreadId": "281050",
+    "Html": "<p>You can try compile under .Net 3.5. I just made a copy of project then use sharpdeveloper 4.0 change project to .Net 3.5. Convert successfully without any issue. Most our code under Encoder is not specifically using 4.0 unique method. So normal convert and then compile should work for now, and let me know if there is any issue.&nbsp;</p>",
+    "PostedDate": "2011-11-30T02:27:25.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705209",
+    "ThreadId": "281050",
+    "Html": "<p>Thanks for the reply. &nbsp;</p>\r\n<p>Yes I've already converted the Encoding and Demo projects to target .NET 3.5 in Visual Studio. &nbsp;I changed this in the project properties without having to use any other tools. &nbsp;This resulted in just two compile errors because of calls to .NET 4 specific methods. &nbsp;For example String.IsNullOrWhiteSpace, but these were easy to work around.</p>\r\n<p>That's not really the problem, I was aware I could do this and I did. &nbsp;The problem is that I would have to do this every time I get the latest version of the library in the future, for bug fixes, features etc, which because of the overhead, is discouraging.&nbsp;</p>\r\n<p>My point is, have you considered switching the target framework to .NET 3.5 since you are not really using any major .NET 4 API's or C# 4 language features? &nbsp;Like I said this would open up the library to a much wider audience, as it's not always possible or straightforward to move to .NET 4 for some applications and/or environments (think big corporate IT). &nbsp;</p>",
+    "PostedDate": "2011-11-30T03:20:53.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705231",
+    "ThreadId": "281050",
+    "Html": "<p>I don't mind change it to .Net 3.5 project. Like you what you have said above. &nbsp;</p>\r\n<p>Is that OK to send your converted project to me? As I don't have VS 2010, I'm not sure if there are any compatibility issue with Sharpdevelop's conversion function.&nbsp;</p>\r\n<p>Also please list the locations of compile errors, so I could check out.&nbsp;</p>\r\n<p>Thanks for suggest.</p>",
+    "PostedDate": "2011-11-30T04:16:46.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705564",
+    "ThreadId": "281050",
+    "Html": "<p>I have just rechecked goal of this project which set up by&nbsp;<a class=\"UserAvatarLink Bold\" href=\"http://www.codeplex.com/site/users/view/gmamaladze\">gmamaladze</a>. One of them is that this library should be support windows phone 7. &nbsp;I'm not experienced with Windows phone 7 development. From the document I have found online it looks like it will be good to develop under .Net 4.0&nbsp;environment.</p>\r\n<p><a href=\"http://msdn.microsoft.com/en-us/library/gg490765.aspx\">http://msdn.microsoft.com/en-us/library/gg490765.aspx</a></p>\r\n<p><a href=\"http://msdn.microsoft.com/en-us/library/gg490765.aspx\"></a><a href=\"http://dotnet.dzone.com/articles/not-every-library-will-work\">http://dotnet.dzone.com/articles/not-every-library-will-work</a></p>\r\n<p><a href=\"http://dotnet.dzone.com/articles/not-every-library-will-work\"></a>Even though we don't use .Net 4.0 specifically API much, but as assembly side after compile there should be some difference. Fix me if I'm wrong. Thus it is probably good idea to stay and develop under .Net 4.0 and try to get some 3.5 convert version working during major release. &nbsp;</p>",
+    "PostedDate": "2011-11-30T15:04:03.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705755",
+    "ThreadId": "281050",
+    "Html": "<p>I haven't done any WP7 dev (but would like to). &nbsp;However as I understand it, WP7 applications target .NET Compact Framework 3.7, and support a subset of Silverlight 3. &nbsp;Therefore I don't think this library would actually work as it stands now since you are using some .NET 4 specific methods. &nbsp;Also for example the encoding library includes a Windows Forms control which references the&nbsp;System.Windows.Forms namespace. &nbsp;I don't believe this would work on WP7, but I'm not sure.</p>\r\n<p>I think if that's your real goal you should consider the way the solution is&nbsp;set-up as well. &nbsp;Maybe consider splitting out the encoding library into several smaller projects. &nbsp;For example, move the rendering control to a&nbsp;separate&nbsp;windows form library, a&nbsp;separate ASP.NET library and possibly a WP7 library as well with the core encoding library being non platform specific.&nbsp;For example, you could easily take the bit matrix from a qr code and write platform specific rendering code. &nbsp;Provided the core library is using the lowest common denominator, that is to say CF 3.7 features than it should be compatible with all target platforms.</p>\r\n<p>Also I don't believe you'd actually want to create a WP7 app that generated a QR code, you would only want to read/decode QR codes from a phone right? &nbsp;Therefore it doesn't make sense to have the rendering code in the core library or&nbsp;targeting&nbsp;WP7. &nbsp;</p>\r\n<p>These are just suggestions, I hope they make sense and help. &nbsp;If I can contribute to the project in any other way I'd be happy to do so. &nbsp;Like I said it's already a great library at this early stage. &nbsp;My suggestions are intended to help you reach a larger audience of users.</p>",
+    "PostedDate": "2011-12-01T02:32:13.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705773",
+    "ThreadId": "281050",
+    "Html": "<p>You can submit request to gmamaladze to become one of developer.&nbsp;</p>\r\n<p>From link I post above, Windows phone 7 developer guide from MSFT. One of system requirement is&nbsp;<span>Microsoft .NET Framework 4.0 or later. Also as I search around, .Net compact 3.7 is not yet released version.&nbsp;</span></p>\r\n<p><span>It's true that current control is for windows form. Which gmamaladze made it for demo, and then someone request to put that control and render class into encoder assenbly. That's how it end up. WPF control should be next goal after finish encoder part.&nbsp;</span></p>\r\n<p><span>Currently, I'm still trying to finish encoder, as all the code for windows form control is still base on ZXing's C# code wrap. We are trying to rewrite it to native .Net based code instead of port from Java. For reason we rewrite ZXing's code you can check gmamaladze's codeproject page.&nbsp;</span></p>\r\n<p><span><a href=\"http://www.codeproject.com/Articles/258779/Just-launched-new-open-source-project-QrCode-Net-a.aspx\">http://www.codeproject.com/Articles/258779/Just-launched-new-open-source-project-QrCode-Net-a.aspx</a></span></p>\r\n<p><span>He is currently busy at moment, you can message him through codeplex and ask his opinion on framework for this project. I'm not experienced with WP development, so for now I will try to limit the use of .Net 4 specific methods and finish encode part first.&nbsp;</span></p>\r\n<p><span>Thanks for suggestion though. Really appreciated.&nbsp;</span></p>\r\n<p><span>Regard</span></p>\r\n<p><span>Jason</span></p>",
+    "PostedDate": "2011-12-01T03:27:47.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705794",
+    "ThreadId": "281050",
+    "Html": "<p>I'll contact&nbsp;<span>gmamaladze (maybe after Christmas) to become a contributing dev.</span></p>\r\n<p><span>Regarding the two changes I made to the Encoder library to make it compile under .NET 3.5:</span></p>\r\n<p>1 - \\Windows\\Controls\\QRCodeControl.cs(42) - I had to change the&nbsp;IsNullOrWhiteSpace method to</p>\r\n<p>if (String.IsNullOrEmpty(this.Text) || (this.Text.Trim() == String.Empty))</p>\r\n<p>2 -&nbsp;\\Masking\\Scoring\\MatrixScoreCalculator.cs(14) - I had to change&nbsp;.OrderByDescending(PenaltyScore) to&nbsp;.OrderByDescending(p =&gt; p.PenaltyScore())</p>\r\n<p>Note that the line numbers might be slightly off, this was based on the source taken on Monday November 28th approx.</p>\r\n<p>Thanks again, S</p>",
+    "PostedDate": "2011-12-01T04:08:58.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706210",
+    "ThreadId": "281050",
+    "Html": "<p>Ok. I will take look and apply those changes.&nbsp;</p>\r\n<p>Thanks for report.&nbsp;</p>",
+    "PostedDate": "2011-12-01T19:38:40.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726913",
+    "ThreadId": "281050",
+    "Html": "<p>HI!</p>\r\n<p>I found one more compile error. .Net 3.5 framework don't have&nbsp;string.Join method, which is used in VersionDetail.cs.</p>\r\n<p>I propose to use this.Version + \";\" + this.NumTotalBytes + \";\" + this.NumDataBytes + \";\" + this.NumECBlocks; instead of string.Join(\";\", this.Version, this.NumTotalBytes, this.NumDataBytes, this.NumECBlocks);</p>",
+    "PostedDate": "2012-01-18T01:02:16.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727366",
+    "ThreadId": "281050",
+    "Html": "<p>Check in 11737.</p>\r\n<p>Thanks for report.&nbsp;</p>",
+    "PostedDate": "2012-01-18T20:35:27.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

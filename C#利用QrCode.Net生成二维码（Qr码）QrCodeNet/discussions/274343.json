@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "678530",
+    "ThreadId": "274343",
+    "Html": "\r\n<p>I have found two&nbsp;source&nbsp;to solve 8BitByte JIS 8 table map with Unicode 16. Which is C#'s standard.&nbsp;</p>\r\n<p><a href=\"http://charset.7jp.net/jis0201.html\">http://charset.7jp.net/jis0201.html</a></p>\r\n<p><a href=\"http://en.wikipedia.org/wiki/JIS_X_0201\">http://en.wikipedia.org/wiki/JIS_X_0201</a></p>\r\n<p>Encode for JIS8 should be &quot;euc-jp&quot; if we use C#'s GetEncoding(&quot;euc-jp&quot;).getbytes(content). Which used to represent the element of three Japanese character set standards, namely JIS X 0208, JIS X 0212 and JIS X 0201</p>\r\n<p>ZXing's encode check I don't really understand. If that one didn't limit to specific encoding. That might lead to 8BitByte encode not working as intend. 8BitByte only support value from 0x00 to 0xFF. Bit count for each char is limited to 8.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>ZXing's encoding string check</p>\r\n<p>System.String encoding = hints ==&nbsp;<span>null</span>?<span>null</span>:(System.String)&nbsp;hints[EncodeHintType.CHARACTER_SET];</p>\r\n",
+    "PostedDate": "2011-09-30T01:09:30.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678534",
+    "ThreadId": "274343",
+    "Html": "<p>I would suggest you write a test against reference implementation and play around with proposed options.<br />We should not stick with ZXing implementation thus it was ported from old C implementation and don't use any modern encoding out-of-the box functionality which is already available in modern Java and .NET,&nbsp;but we still need to remain 100% compatible with that proven implementation.</p>",
+    "PostedDate": "2011-09-30T01:27:03.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678834",
+    "ThreadId": "274343",
+    "Html": "<p>I will try to write a test against reference implementation later.&nbsp;</p>\r\n<p>Also I might found reason why ZXing is using ISO 88591 Encoding as default for 8BitByte.&nbsp;</p>\r\n<p>https://www.kssn.net/StdForeign/corrDown.asp?category=ISO&amp;fileName=CPDF043655E.pdf&amp;stdNumber=ISOIEC%2018004_2006Cor%201_2009.pdf</p>\r\n<p>Page 28 table 6. Instead of ISO/IEC 18004:2000 table 6 JIS8. it uses ISO/IEC 8859-1. and call that as Byte mode instead of 8Bit-Byte mode, same as ZXing's 8bitbyte mode is represent as Mode.byte. Problem is under that table's notes is still for JIS8. not ISO/IEC 8859-1. And there is no watermark for that documentation.&nbsp;</p>\r\n<p>I have also download ISO/IEC 18004 2006 Cor 1:2009 from official ISO website. Every fix towards ISO/IEC18004:2006 is at correct page location. But fix starts from 55. Nothing about page 28.&nbsp;</p>",
+    "PostedDate": "2011-09-30T14:22:37.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679185",
+    "ThreadId": "274343",
+    "Html": "<p>I have just implement reference test for EightBitByteEncoder test. I will explain result as below.&nbsp;</p>\n<p>First change to Legacy EncoderInternal.cs</p>\n<p>EncoderInternal.append8BitBytes will take \"encoding\" property. While EncoderTestCaseFactory.EncodeUsingReferenceImplementation simply give \"Encoding\" property as \"null\"</p>\n<p>So I have changed code under append8BitBytes method according for different test.</p>\n<p><strong>&nbsp;Case 1</strong>. Auto generate char between \"<a title=\"Wo (kana)\" href=\"http://en.wikipedia.org/wiki/Wo_(kana)\">ｦ</a>\" and \"<a title=\"N (kana)\" href=\"http://en.wikipedia.org/wiki/N_(kana)\">ﾝ</a>\" &nbsp;[EncoderInternal.append8BitBytes Encoding = \"EUC-JP\"]</p>\n<p>\\xFF8B =&gt; JIS8 203 - &nbsp;1100 1011 &nbsp;<br /> Gma.QrCodeNet.Encoding.Tests.DataEncodation.EightBitByteEncoderTest.Test_against_reference_implementation(\"\\xFF8B\",1,0100000000011000111011001011):&nbsp; Expected: equivalent to &lt; False, True, False, False, False, False, False, False, False, False... &gt;&nbsp; But was:  &nbsp;&lt; False, True, False, False, False, False, False, False, False, False... &gt;</p>\n<p>0100[8BitByte] 0000 0001[Num of char=1] 1000 1110[???] 1100 1011[Char \\xFF8B]</p>\n<p>\\xFF96 =&gt; JIS8 214 - 1101 0110<br /> Gma.QrCodeNet.Encoding.Tests.DataEncodation.EightBitByteEncoderTest.Test_against_reference_implementation(\"\\xFF96\",1,0100000000011000111011010110):&nbsp; Expected: equivalent to &lt; False, True, False, False, False, False, False, False, False, False... &gt;&nbsp; But was:  &nbsp;&lt; False, True, False, False, False, False, False, False, False, False... &gt;</p>\n<p>0100[8BitByte] 0000 0001[Num of Char=1] 1000 1110[???] 1101 0110[Char \\xFF96]</p>\n<p>I really don't know why ZXing's code put 1000 1110 there. Maybe relate to [bytes = SupportClass.<span>ToSByteArray</span>(System.Text.Encoding.<span>GetEncoding</span>(<span>\"EUC-JP\"</span>).<span>GetBytes</span>(content));]</p>\n<p><strong>Case 2</strong>. Auto generate char between \"A\" and \"Z\" [EncoderInternal.append8BitBytes Encoding = \"EUC-JP\"]</p>\n<p>No error. All passed</p>\n<p><strong>Case 3</strong>.&nbsp;&nbsp;Auto generate char between \"A\" and \"z\" [EncoderInternal.append8BitBytes Encoding = \"EUC-JP\"]</p>\n<p>Error when auto generate content have char \"\\\" . Because JIS doesn't have \"\\\", and use \"<a title=\"&yen;\" href=\"http://en.wikipedia.org/wiki/%C2%A5\">&yen;</a>\" [JP Dollar mark] instead. &nbsp;So as long as auto generate char doesn't give char \"\\\" it will not have any  error.&nbsp;</p>\n<p>&nbsp;<strong>Case 4</strong>. Auto generate char between \"<a title=\"&Agrave;\" href=\"http://en.wikipedia.org/wiki/%C3%80\">&Agrave;</a>\" and \"<a class=\"mw-redirect\" title=\"&Yuml;\" href=\"http://en.wikipedia.org/wiki/%C5%B8\">&yuml;</a>\" [EncoderInternal.append8BitBytes Encoding = \"<span>ISO-8859-1</span>\"]</p>\n<p>[Table for ISO-8859-1: <a href=\"http://en.wikipedia.org/wiki/ISO/IEC_8859-1\">http://en.wikipedia.org/wiki/ISO/IEC_8859-1</a>]</p>\n<p>\\x00F1 241 - &nbsp;1111 0001<br /> Gma.QrCodeNet.Encoding.Tests.DataEncodation.EightBitByteEncoderTest.Test_against_reference_implementation(\"\\x00F1\",1,01000000000111110001):&nbsp; Expected: equivalent to &lt; False, True, False, False, False, False, False, False, False, False... &gt;&nbsp; But was: &nbsp;&lt; False,  True, False, False, False, False, False, False, False, False... &gt;<br /> 0100[8BitByte] 0000 0001[Num of char = 1] 1111 0001[\\x00F1] &nbsp;There is no strange char \"1000 1110\"</p>\n<p>My EightBitByteEncoder is according to ISO/IEC 18004 2000-06-15 First Edition. It use JIS-8 table instead of ISO-8859-1. That's why Case 4 is full of errors.&nbsp;</p>\n<p>If I'm not change&nbsp;EncoderInternal.append8BitBytes's Encoder property and use default [bytes = SupportClass.<span>ToSByteArray</span>(System.Text.Encoding.<span>GetEncoding</span>(<span>encoding</span>).<span>GetBytes</span>(content));]. It will throw exception.  As encoding can not be \"null\".</p>\n<p>That's my test so far. Currently ZXing's code can not use to test JIS8 table as that strange char \"1000 1110\".&nbsp;</p>\n<p>Also if the document(ISO/IEC 18004 2006 Second edition) I have found earlier is not fake. Then use ISO-8859-1 table for 8BitByte is reasonable. But we can not&nbsp;determine during decode, as 8BitByte doesn't indicate which char table it uses. So our 8BitByte  code will be either for Second edition only or First edition. &nbsp;&nbsp;</p>",
+    "PostedDate": "2011-10-02T18:35:13.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679187",
+    "ThreadId": "274343",
+    "Html": "<p>I have found reason behind char \"1000 1110\". That char is 8E. According to link below.&nbsp;</p>\n<p><a href=\"http://www.sljfaq.org/afaq/encodings.html#encodings-EUC-JP\">http://www.sljfaq.org/afaq/encodings.html#encodings-EUC-JP</a></p>\n<p>EUC-JP is combination of JIS X 0201, JIS X 0208, JIS X 0212.&nbsp;</p>\n<p><strong><a href=\"http://www.sljfaq.org/afaq/encodings.html#encodings-JIS-X-0201\">JIS X 0201</a></strong>: Two-byte encoding. 1st byte: 0x8E. 2nd byte: raw JIS X 0201 byte.<br /> <strong><a href=\"http://www.sljfaq.org/afaq/encodings.html#encodings-JIS-X-0208\">JIS X 0208</a></strong>: Two-byte encoding. Just take the raw JIS X 0208 two-byte code and set the top bit of each byte.<br /> <strong><a href=\"http://www.sljfaq.org/afaq/encodings.html#encodings-JIS-X-0212\">JIS X 0212</a></strong>: Three-byte encoding. 1st byte: 0x8F. 2nd and 3rd bytes: take the raw JIS X 0212 code and set the top bit of each byte.</p>\n<p>Our JIS8 table is from JIS X 0201. Thus 8E is placed before each char.&nbsp;</p>\n<p>As I look further into encoding table. I have found Shift_JIS can be use for JIS X 0201. Which I changed encoding from&nbsp;EncoderInternal.append8BitBytes according to that. Reference test all green for auto generate char between&nbsp;\"<a title=\"Wo (kana)\" href=\"http://en.wikipedia.org/wiki/Wo_(kana)\">ｦ</a>\" and \"<a title=\"N (kana)\" href=\"http://en.wikipedia.org/wiki/N_(kana)\">ﾝ</a>\".</p>",
+    "PostedDate": "2011-10-02T19:14:12.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679212",
+    "ThreadId": "274343",
+    "Html": "<p>Hi. gmamaladze. Because I was curious about how QR Code only apply to English and Japanese char, so &nbsp;I did some research towards QR code's encoding. Here is one of the&nbsp;document&nbsp;I have found.&nbsp;</p>\n<p><a href=\"http://qrbcn.com/imatgesbloc/Three_QR_Code.pdf\">http://qrbcn.com/imatgesbloc/Three_QR_Code.pdf</a></p>\n<p>On page 063. Efficiently encoding of Kanji and Kana characters. According to that document, different country could have their own set of rule for 8BitByte encode and Kanji encode. So for most&nbsp;European country use&nbsp;<span>ISO-8859-1 for 8BitByte encoding should  be better than JIS8. As it covers most European country's language. Thus we need add encoding property for encoder method. </span></p>\n<p><span>Rule for 8bitbyte encode and decode should be as long as encoding for each char is one byte length, we should accept it. And let application side to choose which encoding for 8BitByte instead of library side.</span></p>\n<p>Edit: I got wrong with Kanji part. I will try to finish Kanji encode tomorrow</p>",
+    "PostedDate": "2011-10-02T21:34:57.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679305",
+    "ThreadId": "274343",
+    "Html": "<p>Great document I will refer to it on the start page.</p>",
+    "PostedDate": "2011-10-03T04:26:57.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

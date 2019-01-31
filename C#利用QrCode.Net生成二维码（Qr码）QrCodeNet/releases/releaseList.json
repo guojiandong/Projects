@@ -1,0 +1,64 @@
+[
+  {
+    "Id": "0",
+    "Name": "v0.3",
+    "DevelopmentStatus": "Beta",
+    "Description": "This version contains only following functionality:\n# Generation QR code\n# GDI+ QR code rendering: WinForm, WriteableBitmap(WPF), DrawingContext.\n# QR code Windows Forms Control, WPF control\n# Save to file\n# Demo application which generates QR code from text as you type and allows you to save it into the image file.\n# Encoder should be now native code, no longer ZXing's port.\n# Auto analyse input string and use proper char encoder to encode. (It will switch to UTF8 if normal encoder can not handle input string)\n_It will throw exception when input string is empty, null or too huge where even version 40 QrCode can not contain, or you can use TryEncode method, return value's isContainMatrix property will indicate whether encode successful or not._",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2012-01-29T19:25:23.48-08:00",
+    "Files": [
+      {
+        "Id": "2630c776-aa20-4aa8-8ca0-85931ff92e57",
+        "FileName": "QrCode.Net.zip",
+        "Url": "./0/2630c776-aa20-4aa8-8ca0-85931ff92e57",
+        "Type": "Application",
+        "UploadDate": "2012-01-29T19:25:23.277-08:00"
+      },
+      {
+        "Id": "505a2812-b84e-47a9-b60c-d63afdb34c44",
+        "FileName": "Gma.QrCodeNet.bin.zip",
+        "Url": "./0/505a2812-b84e-47a9-b60c-d63afdb34c44",
+        "Type": "Application",
+        "UploadDate": "2011-09-22T06:41:48.007-07:00"
+      },
+      {
+        "Id": "1b9d54dc-0c9f-4592-92fe-703b94dcde07",
+        "FileName": "Gma.QrCodeNet.src.zip",
+        "Url": "./0/1b9d54dc-0c9f-4592-92fe-703b94dcde07",
+        "Type": "Source Code",
+        "UploadDate": "2011-09-22T06:41:48.037-07:00"
+      },
+      {
+        "Id": "25c54c93-2c1e-4d8f-a1cc-2722a98b28ac",
+        "FileName": "Gma.QrCodeNet.bin.zip",
+        "Url": "./0/25c54c93-2c1e-4d8f-a1cc-2722a98b28ac",
+        "Type": "Application",
+        "UploadDate": "2012-01-03T00:17:42.097-08:00"
+      },
+      {
+        "Id": "ba06a6f3-1db6-438f-9c77-413f4366c117",
+        "FileName": "qrcodenet-11247.zip",
+        "Url": "./0/ba06a6f3-1db6-438f-9c77-413f4366c117",
+        "Type": "Source Code",
+        "UploadDate": "2012-01-03T00:17:42.097-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "1",
+    "Name": "0.4 Pre-release",
+    "DevelopmentStatus": "Beta",
+    "Description": "Nuget package:\n[url:https://nuget.org/packages/QrCode.Net/]\n\nChanged:\nRe-write all render and control classes. Include some bug fix.\nAdd 3.5, 4.5, Silverlight and WinRT port.\nAdd Color Contrast class to help rank color decision for light and dark modules. \nRelease dlls are strong signed.\n\nTODO:\n0.41  Bug fix if there are any reports, Documentation and some examples.\n\n0.5 Rewrite some of core class, to bring flexibility into library. Makes it easier to switch between different ISO specification, and other adjustable settings.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2013-03-16T17:35:34.017-07:00",
+    "Files": [
+      {
+        "Id": "764e04f4-0787-414b-9088-de16560db0a4",
+        "FileName": "QrCode.Net 0.4 Pre-Release.zip",
+        "Url": "./1/764e04f4-0787-414b-9088-de16560db0a4",
+        "Type": "Application",
+        "UploadDate": "2013-03-02T12:51:16.067-08:00"
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1475720",
+    "ThreadId": "655402",
+    "Html": "I'm a newbie to QR Code generation and I have a big question.  When using this code to generate a bitmap image:\r<br />\n<br />\nWriteableBitmap     wBitmap     = new WriteableBitmap  ( numImageWidth, numImageHeigth, 96, 96, PixelFormats.Gray8, null );\r<br />\n<br />\nLater I use this to do the rendering:\r<br />\n<br />\nWriteableBitmapRenderer wRenderer = new WriteableBitmapRenderer ( new FixedModuleSize ( numPixelSize, QuietZoneModules.Two ), Colors.Black, Colors.White );\r<br />\n<br />\nThe NumPixelSize is 8 most of the time, but I had to make it 6 when I tried a 68 character text.\r<br />\n<br />\nHow do you determine the values for the width and height?  I've been experimenting with different text content and have to manipulate the width and height variables to make the code come out right.  For instance if there is only 15 or 20 characters, the value of both the width and height is 232.  For 42 characters it is 235, etc.<br />\n",
+    "PostedDate": "2016-06-10T06:05:02.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

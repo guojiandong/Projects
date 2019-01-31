@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "957405",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>My problem is how can i implement the QR CODE in my web project.</p>\r\n<p>Currently i am developing a Member Related website where i want to generate a QR Code for each member with specific URL (www.mywebsite.com/MemberDetails.aspx?id=123456).</p>\r\n<p>So the members can download the image and attached it to as per there requirement.</p>\r\n<p>So please help me how can i generate the Code & save its image to the server after saving the member profile.</p>\r\n<p>Please Help.</p>\r\n",
+    "PostedDate": "2012-12-17T23:00:43.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958147",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>I don't have enough information about what you really want to do. Generate QrCode and render it on image are all under documentation. Depends on which version you use.&nbsp;</p>\r\n<p>Version 0.3's documentation is just under documentation page.&nbsp;</p>\r\n<p>Newest source code's documentation's links are on top of documentation page.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Which info do you want to put into Qrcode. Do you want to show image to user before save. Why do you want them to download and attach to their profile. Without proper information I can not give any advice.&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-18T23:13:46.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958199",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Actually i am developing a asp.net website where i want to generate a new QrCode whenever a user register with the member details .</p>\r\n<p>But i try you documentation , and unable to create and save the QRCode in my website.</p>\r\n<p>So if you&nbsp;provide&nbsp;me the source code of 1) generate the QRCode and 2) Save it as a .png file that will be very&nbsp;helpful&nbsp;for me .</p>\r\n<p>Please help&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-19T01:15:16.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958213",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>Please come down. Which version are you using. Could you provide the code you have written to use our library.&nbsp;</p>\r\n<p>I know you want to develop asp.net website, It can be tell from your aspx web url. The thing is, generate a QrCode and then send to client, or generate a QrCode save on server's directory, or save at somewhere else are totally different story.&nbsp;</p>\r\n<p>You don't have to tell me exactly about your project, but at least you need tell me following.</p>\r\n<p>1. which version you are using. The one from download tab marked as 0.3 or the one from source code tab.&nbsp;</p>\r\n<p>2. Which documentation you have been using. Provide your library related code with version if possible. So I can check out where you went wrong.</p>\r\n<p>3. Which info you want to store inside QrCode. vCard? Just give some example. Something like John A, address etc etc.&nbsp;</p>\r\n<p>4. Where you want to save file towards.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>As I said on my previous post. 0.3 and newest source code are bit of different. That's why I wrote two documentations. It's not that simple as generate QrCode, save as png.&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-19T01:29:17.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958339",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Ok &nbsp;silverlancer</p>\r\n<p>1. The one from download tab marked as 0.3.</p>\r\n<p>2. Actually &nbsp;unable to write the code . I want to convert the url =&quot;<span>www.mywebsite.com/MemberDetails.aspx?id=123456&quot; into QR Code. And Save the File into My &quot;~/MYapps/&quot; folder with Member1.png Image which is included in the library.</span></p>\r\n<p><span><br>\r\n</span></p>\r\n<p><span><br>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-19T04:39:55.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958564",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<pre>QrEncoder qrEncoder = <span>new</span> QrEncoder(ErrorCorrectionLevel.H);\r\n            QrCode qrCode = <span>new</span> QrCode();\r\n            qrEncoder.TryEncode(strInput, <span>out</span> qrCode);\r\n\r\n            Renderer renderer = <span>new</span> Renderer(5, Brushes.Black, Brushes.White);\r\n            renderer.CreateImageFile(qrCode.Matrix, <span>@&quot;c:\\temp\\HelloWorld.png&quot;</span>, ImageFormat.Png);</pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre>Response to your given information. That's code from documentation. Input you might want to use: </pre>\r\n<pre>string strInput = &quot;http://<span>www.mywebsite.com/MemberDetails.aspx?id=123456</span>&quot;; Your mark up, decoder won't know it's url. </pre>\r\n<pre>Another mark up for url is described here. : http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/bookmark/</pre>\r\n<pre>But that's mainly for book mark. </pre>\r\n",
+    "PostedDate": "2012-12-19T09:35:55.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "971379",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot for your help .</p>\r\n<p>For visual Studio 2008 which version should i use?</p>\r\n<p>I need one more thing can i add one text line &quot;Scan to Mywebsite&quot; below the QrCode Image, At the time of QR image creation.</p>\r\n<p>Please help.</p>\r\n",
+    "PostedDate": "2012-12-25T21:41:36.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "971519",
+    "ThreadId": "407100",
+    "Html": "\r\n<p>It's not base on your visual studio version, but more towards .net version. Current project is set up on .Net 4.0, so with that project it should be able to support 4.0+.&nbsp;</p>\r\n<p>But people do ask for 3.5 support, and at end I end up coding according to 3.5.</p>\r\n<p>Cut in short, for dll in download page, that one is compiled under .Net 4.0. If you want to use under 3.5, just download latest source code compile yourselves under 3.5. Then, to create QrCode should be according to new documentation not the one I post up\r\n there.&nbsp;</p>\r\n<p>You can also download QrCode.Net 3.0's revision, and compile under 3.5. Then above code will stay same.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>For creating text line below QrCode image, that's not something I will put into our project, and it also have so many different ways to solve it. One of easiest way will be use latest source code and use WriteableBitmapRenderer.&nbsp;</p>\r\n<p>First, decide what's module size you are going to use, then create a QrCode according to input.&nbsp;</p>\r\n<p>Once you got QrCode matrix back, get size of it. &nbsp;(Size + (Quiet zone size * 2)) * module size / DPI. That's how wide that image will be. In inch. Create a writeablebitmap object according to that wide, and with longer height. Then use WriteableBitmapRenderer's\r\n method&nbsp;<span>DrawDarkModule to daw QrCode at top left corner, and you can draw word under that. Or use&nbsp;<span>Draw(WriteableBitmap wBitmap, BitMatrix matrix,\r\n</span><span>int</span><span> offsetX, </span><span>int</span><span> offsetY) method to draw whole QrCode at specific location. You just have to play around with those method.&nbsp;</span></span></p>\r\n<p>I have provide them all, and source code is there for you to check out too. This is out of basic functionality, I will not provide exactly walk through for it now. But above information is more than enough to lead you there and save a lot of time.&nbsp;</p>\r\n<p>Hope that helps.&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-25T23:19:04.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

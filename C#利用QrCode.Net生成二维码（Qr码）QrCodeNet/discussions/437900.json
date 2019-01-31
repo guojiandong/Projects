@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1020656",
+    "ThreadId": "437900",
+    "Html": "I'm using QrCode.net in a web forms project.  I got it to output raster graphic qr codes but I'm having trouble with vector output to SVG.  The SVGRenderer is asking for GColor darkcolor and GColor lightcolor.\r<br />\n<br />\nI can not figure out how to define the darkcolor and lightcolor.  From the GColor class I see it's looking for RGBA values but everything I try is not working.\r<br />\n<br />\nCan you give an example of initializing the SVGRenderer?\r<br />\n<br />\nAlso in the documentation you talk about setting the viewbox width and height inside the renderer.  Are these attributes available after the renderer is initialized?\r<br />\n<br />\nThank You!<br />\n",
+    "PostedDate": "2013-03-25T07:29:16.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020683",
+    "ThreadId": "437900",
+    "Html": "Sorry for the double post.  I found the answer I was looking for in the QRCodeNet Demo in the source code section.  In case others are looking:\r<br />\n<br />\n<a href=\"http://qrcodenet.codeplex.com/SourceControl/changeset/view/73a7d2eead68#Gma.QrCodeNet/Gma.QrCodeNet.Demo/MainForm.cs\" rel=\"nofollow\">http://qrcodenet.codeplex.com/SourceControl/changeset/view/73a7d2eead68#Gma.QrCodeNet/Gma.QrCodeNet.Demo/MainForm.cs</a><br />\n",
+    "PostedDate": "2013-03-25T08:17:20.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

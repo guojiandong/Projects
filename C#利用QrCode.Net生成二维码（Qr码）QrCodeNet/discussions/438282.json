@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1022270",
+    "ThreadId": "438282",
+    "Html": "Hello Bros !<br />\nI want to ask about adding a hyperlink to a QRCode<br />\nExample : I have a code like this DQ000001 and parse it to QR Image<br />\nThen i use a software &quot;QR Code Scanner&quot; in my phone to scan an Image, it returns for me a Text DQ000001<br />\nWhat i want to ask is how can we add a link to that Text, like we can click to that Text and link us to a website, like add a string &quot;<a href=\"http://abc.com?qrcode=\" rel=\"nofollow\">http://abc.com?qrcode=</a>&quot; in front of &quot;DQ000001&quot; <br />\nBut when we scan ,it only returns DQ000001 with underline (a link)<br />\nThanks and sorry about my bad English &gt;.&lt;<br />\n",
+    "PostedDate": "2013-03-28T01:58:43.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022329",
+    "ThreadId": "438282",
+    "Html": "It will be easier if you give exactly what you put into encoder. I mean whole string. \r<br />\n<br />\n&quot;<a href=\"http://abc.com?qrcode=DQ000001\" rel=\"nofollow\">http://abc.com?qrcode=DQ000001</a>&quot;  This string should be a proper URL. If you encode that string decoder will redirect you to that website. Unless you add something else inside. That's why I'm asking for what exactly you put into QrCode.\r<br />\n<br />\nAnother fact is that decoder might not support. Even though I have never encounter such case but it would be nice to create a QrCode and host at somewhere, post link to me so I can check out for you. <br />\n",
+    "PostedDate": "2013-03-28T04:25:50.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022517",
+    "ThreadId": "438282",
+    "Html": "First thing, thank you for replying me Silver ^^\r<br />\nA whole string i put into encoder is : DQ000001(an ID of Product).\r<br />\nMy boss want when we scan the image, it still returns DQ000001, but we can click on this and link us to a website to view that product's detail\r<br />\nOr when we scan the image, it returns that product's detail\r<br />\nI was googled a whole time but cannot find a solution &gt;.&lt;\r<br />\nIs it possible to do ? Or there is another way to solve this problem ?\r<br />\nMy boss dont want to encode a string with &quot;<a href=\"http://\" rel=\"nofollow\">http://</a>....&quot; :(<br />\n",
+    "PostedDate": "2013-03-28T09:42:19.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022542",
+    "ThreadId": "438282",
+    "Html": "First thing, thank you for replying me Silver ^^\r<br />\nA whole string i put into encoder is : DQ000001(an ID of Product).\r<br />\nMy boss want when we scan the image, it still returns DQ000001, but we can click on this and link us to a website to view that product's detail\r<br />\nOr when we scan the image, it returns that product's detail\r<br />\nI was googled a whole time but cannot find a solution &gt;.&lt;\r<br />\nIs it possible to do ? Or there is another way to solve this problem ?\r<br />\nMy boss dont want to encode a string with &quot;<a href=\"http://\" rel=\"nofollow\">http://</a>....&quot; :(<br />\n",
+    "PostedDate": "2013-03-28T10:21:31.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022658",
+    "ThreadId": "438282",
+    "Html": "er...  QrCode decoder is not some magic machine. If they only see DQ000001, they can not translate that to URL. \r<br />\n<br />\nThus. <strong>you must include full URL.</strong>\r<br />\n<br />\nTell your boss that, if he doesn't understand then too bad. Just say impossible. XD\r<br />\n<br />\n<a href=\"https://code.google.com/p/zxing/wiki/BarcodeContents\" rel=\"nofollow\">https://code.google.com/p/zxing/wiki/BarcodeContents</a>\r<br />\n<br />\nThis link will explain what you can achieve and what you have to put into QrCode.<br />\n",
+    "PostedDate": "2013-03-28T14:44:00.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022747",
+    "ThreadId": "438282",
+    "Html": "Okay...I see.\r<br />\nThank for helping me ^^.<br />\n",
+    "PostedDate": "2013-03-28T19:40:41.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

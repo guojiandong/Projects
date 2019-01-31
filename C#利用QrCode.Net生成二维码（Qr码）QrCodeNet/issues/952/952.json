@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nI've just tried this library with WPF and it works just fine.. with .NET4.\r\nFor my project i had to use it with a .NET 3.5 WPF application and the QR code is just not displayed.\r\n\r\nAny idea ?\r\n\r\nKind regards,\r\n\r\nGuillaume",
+    "LastUpdatedDate": "2014-07-29T00:28:38.54-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2014-01-24T04:12:36.81-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": ".NET 3.5 QrCodeImgControl does not display QR code",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 952
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\nI had similar problem I used .Net4 and everything was ok but when I tried to use .net45 QrCode didn't display. What I did a downloaded project from hare.  Rebuild it and used that dll and it worked. Before i used package from nugget and I think something is wrong there.\n\nRegards\n\nDracomithril",
+      "PostedDate": "2014-07-29T00:28:38.54-07:00",
+      "Id": 153796
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "824110",
+    "ThreadId": "352376",
+    "Html": "\r\n<p>I need to display a QR code in &quot;Image&quot; control in WPF. &nbsp;I followed the example found in the &quot;Documentation&quot; part of this site. &nbsp;The writable bitmap displayed when added to the Image's source property is skewed by about 45 degrees and the QR code\r\n looks as if it was cut into 3 separate, obliquely-oriented sections. &nbsp;Sorry if that's not a better description but I couldn't figure out how to attach a screen shot.</p>\r\n<p>&nbsp;Could someone please tell me what I'm doing wrong or is this a known issue? &nbsp;I'm running VS2010, Windows 7 (64-bit).</p>\r\n<p>Thanks for such a great project otherwise.</p>\r\n",
+    "PostedDate": "2012-04-15T16:04:42.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824142",
+    "ThreadId": "352376",
+    "Html": "<p>Check code under namespace&nbsp;Gma.QrCodeNet.Encoding.Windows.WPF, There is a control I did early which called QrCodeImgControl. You can either use that or according to code I did inside to create your own.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>I will also given out latest version out this week. I have recreate all WPF, Winform controls. It should be a proper example for you. Check back later you should find it under source code.&nbsp;</p>",
+    "PostedDate": "2012-04-15T18:46:43.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824169",
+    "ThreadId": "352376",
+    "Html": "<p>Check in 15096.&nbsp;</p>\n<p>You should find out new QrCodeImgControl under&nbsp;<span>Gma.QrCodeNet.Encoding.Windows.WPF.&nbsp;</span></p>\n<p><span>It's now have most of properties change to DependencyProperty. &nbsp;Also it's theme based. Check Xaml file under Theme folder.&nbsp;</span></p>\n<p>Lock and Freeze is useful when you want change more than 1 property in a row. Thus lock image update could increase performance. If not use those, bitmap will redraw everytime QrCode property changes.&nbsp;</p>\n<p>Lock is for ErrorCorrectLevel and Text change event, while Freeze is for property that dealing with visual effect. For example quietzone size, brush, DPI etc.&nbsp;</p>\n<p>&nbsp;</p>\n<p>Check in 15987</p>\n<p>That one change function GetQrMatrix, so you could get a proper bitmatrix from control and use for wirtetostream method. Instead of encode again</p>",
+    "PostedDate": "2012-04-15T21:11:07.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824352",
+    "ThreadId": "352376",
+    "Html": "<p>I think I got same issue as what you had before. Currently if I use Pbgra32 to create writeablebitmap, there won't be any issue. I will look into it and see if I can find out what exactly happen behind.&nbsp;</p>",
+    "PostedDate": "2012-04-16T04:44:09.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824637",
+    "ThreadId": "352376",
+    "Html": "<p>Found problem. It's memory issue. WriteableBitmap's data saved as int32 array, not byte. So when we use Gray8, every byte count as one colour. Which I thought maximum data will be pixelwidth * pixelheight. Which is not. row data which is pixelwidth / 4(int 32), if result is not integer, then they will give one more int32 for that row. It end up 1~3 byte more than pixelwidth.&nbsp;</p>\r\n<p>Pbgra32 does not have such issue because Pbgra32 present as int32, so pixelwidth * 4 = row byte. Where gray8 will sometime screw up.&nbsp;</p>\r\n<p>I will fix code and give proper implementation later today or tomorrow.&nbsp;</p>\r\n<p>Thanks for report this issue.&nbsp;</p>",
+    "PostedDate": "2012-04-16T18:25:34.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824670",
+    "ThreadId": "352376",
+    "Html": "<p>Fixed with check in 15134</p>",
+    "PostedDate": "2012-04-16T21:46:22.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824720",
+    "ThreadId": "352376",
+    "Html": "<p>Silverlancer - many thanks. &nbsp;I've been using your WPF control. &nbsp;Absolutely brilliant and couldn't be easier to use. &nbsp;Thanks again for your tremendous efforts.</p>",
+    "PostedDate": "2012-04-17T01:08:05.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825095",
+    "ThreadId": "352376",
+    "Html": "<p>Glade you like it. Thanks for bug report.</p>",
+    "PostedDate": "2012-04-17T14:02:59.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

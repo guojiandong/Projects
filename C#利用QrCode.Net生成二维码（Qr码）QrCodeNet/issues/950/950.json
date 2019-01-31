@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 9,
+    "Custom": null,
+    "Description": "In contexts where you don't print on controls but on paper, using different units like \"mm\" requires a floating point size for FixedCodeSize. Otherwise the GraphicsRenderer will stop drawing if the module size gets smaller than \"1\", which is not a problem if we are talking about millimeters and thus should not prevent it from drawing.",
+    "LastUpdatedDate": "2014-03-31T22:48:57.447-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2013-06-04T01:48:02.61-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "FixedCodeSize should allow float width",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 950
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "That's actually by design. Less than 1 pixel is not acceptable. If you want to print with high DPI, then use EPSRenderer or use DrawingBrushRenderer. \n\nEPSRenderer output file is vector image where DrawingBrushRenderer you can output vector image source then adjust on your own. \n\nAs for display, module should never have any float point pixel width. That will cause code blur and hard to read. Also impossible to display when module width less than 1 pixel. \n\nOn the other hand, graphics renderer is purely for backward support. Other than application for winxp or earlier that use winform, all project should be on WPF, silverlight or asp.net now. There is no point to use graphics renderer. (You can use drawingbrush renderer in asp.net)",
+      "PostedDate": "2013-06-04T11:39:28.35-07:00",
+      "Id": 102056
+    },
+    {
+      "Message": "Well, I am on WinForms, so assume I need to use this renderer? A switch to WPF in my scenario is not possible.",
+      "PostedDate": "2013-06-05T03:39:14.873-07:00",
+      "Id": 102107
+    },
+    {
+      "Message": "I think you misunderstand what I said. If you only want to display on PC, then there is no float point at all. There is no half pixel that you can display. \n\nWhere if you want to print out, you have to explicitly setup proper DPI then set up width and height. Even then there is no half dot in printing world. It's all depend on DPI (Dot per inch). \n\nWhile on vector world, you can still not go under one pixel, but with larger size, it will automatically smooth out for you. Like if you setup width as 3.5, then some of module will print as 3 some will print as 4. Or between 3 and 4 it will print decreased color which result as small blur. \n\nUnit in renderer is pixel not mm.  That's main point. ",
+      "PostedDate": "2013-06-05T13:11:25.357-07:00",
+      "Id": 102167
+    },
+    {
+      "Message": "So...I have a Graphics object, which uses the PageUnit \"mm\". I need to draw it at location X and Y, with 20 mm in width and height. How would I do this?\n\nI'm using this code at the moment:\n\nGraphicsRenderer renderer = new GraphicsRenderer(new FixedCodeSize(Convert.ConvertToInt(this.Width), QuietZoneModules.Two), foreColorBrush, backColorBrush);\nrenderer.Draw(g, qrCode.Matrix, new Point(Convert.ConvertToInt(this.Left), Convert.ConvertToInt(this.Top)));\n\nThis basically draws at the correct position and size, with the problem that it doesn't show anymore if the module size gets below 1. I don't see how I would work with DPI values here. I can access the DPIX and DPIY info of the graphics object, but would I put it to use with your classes?",
+      "PostedDate": "2013-06-05T23:10:43.187-07:00",
+      "Id": 102234
+    },
+    {
+      "Message": "Fastest way is not use our renderer, but to take part of code inside renderer and use in your code. \n\nThen you can apply int or double whatever you want. If you check source code you can find out that algorithm that I have been use to draw code are almost same for every renderer. \n\n1. Draw background, which is white for basic color theme.\n2. Draw all dark module, When drawing dark module, draw several module together as rectangle if they are near each other. ",
+      "PostedDate": "2013-06-06T04:09:34.873-07:00",
+      "Id": 102253
+    },
+    {
+      "Message": "Doesn't your library exist to prevent me from copy and pasting code? I did in fact modify your code to use floats as suggested by me, and it works just fine, but I thought that it would be reasonable to add such a functionality to your library so that other developers like me don't have to figure it out all again.",
+      "PostedDate": "2013-06-06T06:11:39.337-07:00",
+      "Id": 102258
+    },
+    {
+      "Message": "There are more than half of renderer require int. Even though double can convert to int, it only brings in confuse.\n\nThere are way too many different way to draw code on winform or wpf. We can only choose to support portion of them. What open source project stand for, one of reason is to provide code to assist special usage.\n\nThere are plenty of example on other open source library, that just leave special case to user to comment on discussion board for other people to use or let them create plugin.\n\nOr more clearly, if I change to double, one day someone might come ask. \"Hey, I use pageunit pixel, and I put 0.5 in how come result looks so weird?\"",
+      "PostedDate": "2013-06-06T11:39:46.497-07:00",
+      "Id": 102293
+    },
+    {
+      "Message": "I don't think this is too special. The drawing methods of the Graphics class more or less all have both float and int overloads (or Size/SizeF and Rectangle/RectangleF). So it would be only natural in my opinion to have the same methods available here.\n\nIf you don't find that valuable, I can live with it since it works for me anyway. Still, I think it makes sense to have this per default :)",
+      "PostedDate": "2013-06-06T13:08:40.053-07:00",
+      "Id": 102315
+    },
+    {
+      "Message": "I will take look at it later. But currently my home pc's VS having registry issue. I was trying to resolve last weekend without luck. Cannot even open VS. ~__~\n\nI might have to re-install windows later as last option. I will keep this in mind and update once I got everything sorted.",
+      "PostedDate": "2013-06-10T00:09:32.24-07:00",
+      "Id": 102599
+    }
+  ]
+}

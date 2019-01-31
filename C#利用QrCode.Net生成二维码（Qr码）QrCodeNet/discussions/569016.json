@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1310486",
+    "ThreadId": "569016",
+    "Html": "i want to insert a logo to the qrcode\r<br />\nbut seems this project cannot do it well\r<br />\nbecause insert a image to the center of the qrcode will dicrease the qrcode recongizeable.<br />\n",
+    "PostedDate": "2014-10-04T10:59:16.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1310600",
+    "ThreadId": "569016",
+    "Html": "Non of QRCode project can insert image without decrease recognize ability. That's what a lot of people's misunderstanding. It should never insert image. \r<br />\n<br />\nIf you want to insert image, you have to optimize it one by one. Image in QrCode is not part of ISO specification. We have ISO specification on front page.<br />\n",
+    "PostedDate": "2014-10-05T12:15:33.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

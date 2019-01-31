@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "<p>Implement method to auto detect Mode for input string. </p>\n<p>Implement Nunit test for Auto-detect method.</p>\n",
+    "LastUpdatedDate": "2011-12-13T00:25:08.54-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-11-08T19:40:29.867-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Auto-Detect Mode and Test",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 377
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Check-in 7704\r\nImplemented Auto-Detect mode method. \r\n\r\nUser could use that method now to get proper mode and encoding string for their input string. Only problem is that currently ZXing wrapper's ECI table has error. Only default iso-8859-1 and shift_jis can output correct ECI header. ",
+      "PostedDate": "2011-11-08T19:45:14.263-08:00",
+      "Id": 85130
+    },
+    {
+      "Message": "Associated with check-in 10244 \r\nImprove speed of input recognition method. ",
+      "PostedDate": "2011-12-13T00:25:08.54-08:00",
+      "Id": 85131
+    }
+  ]
+}

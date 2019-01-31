@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "<p>Implement code for Reed Solomon encode and test. </p>\n<p>This is for QRCode&#39;s Error correction. </p>\n<p>&nbsp;</p>\n<p>Some resource:</p>\n<p>http://www.pclviewer.com/rs2/calculator.html</p>\n<p>http://www.ee.unb.ca/cgi-bin/tervo/calc2.pl?num=1+0+7+6&amp;den=1+6+3&amp;f=m&amp;p=4&amp;d=1&amp;y=1</p>\n<p>http://sidewords.wordpress.com/2007/10/08/algebraic-soft-decoding-of-reed-solomon-codes/</p>\n<p>http://www.schifra.com/faq.html</p>\n<p>http://www.cs.cmu.edu/~guyb/realworld/reedsolomon/reed_solomon_codes.html</p>\n",
+    "LastUpdatedDate": "2011-11-29T22:14:44.137-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-11-04T01:08:40.17-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement Reed-Solomon Encode And test",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 372
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I would suggest to reuse code without importing the whole external library.\r\nThus we are targeting also small scaled systems like Windows Mobile.\r\nPlease keep in mind to check the license of used code and keep appropriate copyright notes in code respectively.",
+      "PostedDate": "2011-11-07T08:05:21.813-08:00",
+      "Id": 85125
+    },
+    {
+      "Message": "Yep. I was thinking of same thing. I will look into code from ZXing later.\r\nAlso take look at discussion page if you have time. See if encode process list is correctly listed. ",
+      "PostedDate": "2011-11-08T02:18:01.55-08:00",
+      "Id": 85126
+    },
+    {
+      "Message": "http://www.pclviewer.com/rs2/calculator.html\r\nDetailed calculation for QR code error correction. \r\nList here for reference. ",
+      "PostedDate": "2011-11-09T16:54:19.247-08:00",
+      "Id": 85127
+    },
+    {
+      "Message": "Just figured everything out for reed solomon encode part. I will try to finish it winthin next few weeks. ",
+      "PostedDate": "2011-11-09T21:54:02.533-08:00",
+      "Id": 85128
+    },
+    {
+      "Message": "Checkin 9360\r\nImplement reed solomon encoder for QRcode. ",
+      "PostedDate": "2011-11-29T22:14:44.137-08:00",
+      "Id": 85129
+    }
+  ]
+}

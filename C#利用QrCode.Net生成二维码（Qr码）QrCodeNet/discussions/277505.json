@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "690617",
+    "ThreadId": "277505",
+    "Html": "\r\n<p>Currently Encoder method from EncoderBase will output data header and data base all together. That will require variable version for EncoderBase.</p>\r\n<p>Which technically you can not decide version until you know the bit size of DataBits for input content.&nbsp;</p>\r\n<p>In ZXing's code they just assume header will cost max space. 4 bits for mode indicator and 16 bit as EightBitByte char count indicator. Which is not efficient. Way too many assume will make use of version sometime larger than the one we should actually use.&nbsp;</p>\r\n<p>Also for ZXing's code. Their version detector totally ignore ECI indicator. So it might happen some version can not fully contain the bits we wanna to store. It haven't had any error just because ECI will only exist at EightBitByte encoder and only if encoding\r\n is not default encoding.&nbsp;</p>\r\n<p>I have changed version detector method according to ISO/IEC. It will count ECI indicator and dynamically check version with different level of char count indicator.&nbsp;</p>\r\n<p>Thus my suggestion is change Encoderbase &nbsp;structure. Make it able to convert content without version requirement, and use it's result inside VersionControl to decide which version to use. Then we can add header before actual content.&nbsp;</p>\r\n",
+    "PostedDate": "2011-10-27T22:28:47.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

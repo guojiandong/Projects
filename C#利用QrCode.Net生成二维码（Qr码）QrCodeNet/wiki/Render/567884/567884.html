@@ -1,0 +1,66 @@
+<div class="wikidoc"><h1>QrCodeGraphicControl</h1>This page provides a guide for use QrCodeGraphicControl. (After <b>check-in 15097</b>)<br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.Forms<br />
+<h3>Syntax</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> QrCodeGraphicControl : Control
+</pre></div><h3>Remarks</h3>QrCodeGraphicControl is WinForm control.<br /><br />QrCodeGraphicControl override Control&#39;s OnPaint event to display QrCode. Each time OnPaint event raise, it will read whole Bitmatrix and paint it on Control. <br /><br />Very straight forward implementation. Memory cost is low. It will be performance hit if it encounter large version of QrCode. Also if half of control covered by other object, it will still perform full QrCode paint action. (Version of QrCode please check QrCode Info here)<br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>QrCodeGraphicControl</td><td>Initializes a new instance of QrCodeGraphicControl class.</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>Lock</td><td>Lock class, changes to Text or ErrorCorrectLevel properties won&#39;t update QrCode</td></tr>
+<tr><td><a href="http://goo.gl/3OYYE">Unlock</a></td><td>Unlock class and re-encode, then repaint control if is not freezed</td></tr>
+<tr><td>Freeze</td><td>Freeze class, changes to any visual properties won&#39;t repaint QrCode</td></tr>
+<tr><td>UnFreeze</td><td>Unfreeze class and repaint QrCode</td></tr>
+<tr><td>GetQrMatrix</td><td>Return clone of BitMatrix for QrCode. Bitmatrix value is null if text is empty or text is too large</td></tr>
+<tr><td>OnDarkBrushChanged</td><td>Raises when DarkBrush&#39;s value changed</td></tr>
+<tr><td>OnLightBrushChanged</td><td>Raises when LightBrush&#39;s value changed</td></tr>
+<tr><td>OnQuietZoneModuleChanged</td><td>Raises when QuietZoneModule value changed</td></tr>
+<tr><td>OnErrorCorrectLevelChanged</td><td>Raises when ErrorCorrectLevel value changed</td></tr>
+<tr><td>OnQrMatrixChanged</td><td>Raises after re-encode QrMatrix</td></tr></table><br />
+<h3>Properties</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DarkBrush</td><td>Brush for dark modules</td></tr>
+<tr><td>LightBrush</td><td>Brush for light modules</td></tr>
+<tr><td>QuietZoneModule</td><td>Number of modules for width of Quiet Zone</td></tr>
+<tr><td>ErrorCorrectLevel</td><td>Error correction level for QrCode encode</td></tr>
+<tr><td>Text</td><td>Input string for QrCode</td></tr>
+<tr><td>IsFreezed</td><td>Boolean state if class is freezed</td></tr>
+<tr><td>IsLocked</td><td>Boolean state if class is locked</td></tr></table><br />
+<h3>Events</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DarkBrushChanged</td><td>Occurs when DarkBrush changes</td></tr>
+<tr><td>LightBrushChanged</td><td>Occurs when LightBrush changes</td></tr>
+<tr><td>QuietZoneModuleChanged</td><td>Occurs when QuietZoneModule changes</td></tr>
+<tr><td>ErrorCorrectLevelChanged</td><td>Occurs when ErrorCorrectLevel changes</td></tr>
+<tr><td>QrMatrixChanged</td><td>Occurs when re-encode, and BitMatrix changes</td></tr></table><br />
+<h3>Example</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding.Windows.Forms;
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding; <span style="color:Green;">//Import this only if you want to extract bitmatrix.</span>
+</pre></div><br /><div style="color:Black;background-color:White;"><pre>
+QrCodeGraphicControl qrControl = <span style="color:Blue;">new</span> QrCodeGraphicControl();
+
+<span style="color:Green;">//control update text then encode and repaint.</span>
+qrControl.Text = <span style="color:#A31515;">&quot;QrCode.Net&quot;</span>;
+
+BitMatrix qrMatrix = qrControl.GetQrMatrix(); <span style="color:Green;">//Qr bit matrix for input string &quot;QrCode.Net&quot;.</span>
+
+qrControl.Lock();  <span style="color:Green;">//Lock class.</span>
+qrControl.ErrorCorrectLevel = ErrorCorrectionLevel.M;  <span style="color:Green;">//It won&#39;t encode and repaint.</span>
+qrControl.Text = <span style="color:#A31515;">&quot;next test&quot;</span>;
+qrMatrix = qrControl.GetQrMatrix(); <span style="color:Green;">//Qr bit matrix for input string &quot;QrCode.Net&quot;.</span>
+qrControl.Unlock(); <span style="color:Green;">//Unlock class, re-encode and repaint. </span>
+
+qrMatrix = qrControl.GetQrMatrix(); <span style="color:Green;">//Qr bit matrix for input string &quot;next test&quot;.</span>
+
+qrControl.Freeze() <span style="color:Green;">//Freeze class.</span>
+qrControl.DarkBrush = Brushes.Red; <span style="color:Green;">//It won&#39;t repaint QrCode.</span>
+qrControl.Text = <span style="color:#A31515;">&quot;freeze test&quot;</span>; <span style="color:Green;">//Control will re-encode, but won&#39;t repaint right away. Unless windows re-renderer this control.</span>
+qrMatrix = qrControl.GetQrMatrix();  <span style="color:Green;">//QrCode matrix for string &quot;Freeze test&quot;</span>
+qrControl.UnFreeze(); <span style="color:Green;">//Repaint control. </span>
+
+qrControl.Lock();
+qrControl.Freeze();
+qrControl.LightBrush = Brushes.Yellow;  <span style="color:Green;">//It won&#39;t repaint QrCode.</span>
+qrControl.Text = <span style="color:#A31515;">&quot;Lock and Freeze test&quot;</span>;  <span style="color:Green;">//Control won&#39;t re-encode.</span>
+qrMatrix = qrControl.GetQrMatrix();  <span style="color:Green;">//QrCode matrix is still for string &quot;Freeze test&quot;</span>
+qrControl.Unlock();    <span style="color:Green;">//Unlock class, re-encode QrCode but won&#39;t repaint QrCode</span>
+qrControl.Unfreeze();  <span style="color:Green;">//UnFreeze class, repaint QrCode.</span>
+
+<span style="color:Green;">//If lock and freeze together. Always Unlock before Unfreeze. Else it will repaint QrCode twice. </span>
+</pre></div></div><div class="ClearBoth"></div>

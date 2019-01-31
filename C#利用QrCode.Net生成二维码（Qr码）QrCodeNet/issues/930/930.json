@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-25T10:23:08.493-08:00",
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "I've tried just about every property available, the URL always has the first character replace with an asterisk (*). This is particularly annoying as my QRCode represents a URL. So 'http://' becomes: '*ttp://'\n\nTo get around this I put a space at the beginning, so ' http://' &gt; '*http://'. The problem is some QRCode readers don't recognise this as a valid URL so you can't launch the URL in a browser.\n\nHas anyone seen this before? Or know how to get around it? (ASP.Net 3.5, VB.Net project). Thanks!",
+    "LastUpdatedDate": "2013-01-25T10:23:08.493-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-11-15T10:15:24.88-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "1st character of URL always replaced with '*'?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 930
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "http://zxing.appspot.com/generatorTry generate QrCode here and test with your QrCode decoder. If still happen, change decoder or ask them to fix it. \r\n\r\nIf encoder not properly follow specification, the harder decoder's job will gets. As result, as long as result is legally follow ISO specification, then should be decoder to fix the issue not other way around. \r\n\r\nAlso is that possible to post your whole URL? Does your URL contain any special character that's not English?\r\n\r\nI'm asking that as so far I haven't encounter any issue like the one you describe up there with our encoder. It should use eight bit byte and iso-8859-1 char table, even Japanese based decoder should be able to decode it properly, as URL should never ever contain any language char other than English. That's most basic encode, it should't have any conflict with any decoder. \r\n\r\nOnly issue I thought about will be UTF8, thus that your URL contain non English character. \r\n\r\nGive full detail so I can have proper idea what's going on. \r\n\r\nMost easiest way will be give me your input string, and the image you have generate. ",
+      "PostedDate": "2012-11-15T22:23:30.537-08:00",
+      "Id": 85195
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": "",
+    "Description": "<p>Currently, QrCode.Net&#39;s encoder has huge performance issue. I have create Nunit performance test and solved part of problem. But there are still some major issue around, especially the BitArray we have been using.  </p>\n<p>&nbsp;</p>\n<p>Only thing good from BitArray is memory size. Which is 1/8 of bool array. Impact of using it is huge. During resize it will be same as BitVector, Copy all element from original collection to new container. That&#39;s state under MSDN and I have also test it. Also each call to Get will result the method checking all parameters. </p>\n<p>&nbsp;</p>\n<p>Here is Performance result(microsec):</p>\n<p>ErrorCorrection Calculation</p>\n<p>N = 1000  ZXing 20 QrCode.Net 34</p>\n<p>ReedSolomon Test</p>\n<p>N = 10000 ZXing 1688 QrCode.Net 1202</p>\n<p>Terminator Test</p>\n<p>N = 1000 ZXing 7  QrCode.Net 40</p>\n<p>PenaltyScore rule 1 Test</p>\n<p>N = 1000 ZXing 673  QrCode.Net 736</p>\n<p>PenaltyScore rule 2 Test</p>\n<p>N = 1000 ZXing 683 QrCode.Net 670</p>\n<p>PenaltyScore Rule 3 Test</p>\n<p>N = 1000 ZXing 740 QrCode.Net 964</p>\n<p>PenaltyScore Rule 4 Test</p>\n<p>N = 1000 ZXing 278 QrCode.Net 431</p>\n<p>&nbsp;</p>\n<p>This chart looks pretty sad. Especially when you look at ErrorCorrection test and ReedSolomon test. As ReedSolomon is a method using by ErrorCorrection, We had huge lead on ReedSolomon algorithem, but fall behind at BitArray list. I have already tweak last part of ErrorCorrection method to only resize BitArray once, but as huge bits need to store one by one and at start of that method we have to convert it to Byte array. Performance hit so hard. </p>\n<p>&nbsp;</p>\n<p>Penalty score calculation, our matrix using BitArray as well, I have simplified old QrCode.Net&#39;s recursive method to Iterative method which gained huge performance boost. But still, As you can see from result. Simple compare is to use Penalty score rule 4, as that algorithm is exactly same as ZXing&#39;s algorithm. </p>\n<p>&nbsp;</p>\n<p>Goal:</p>\n<p>Refactor whole library, Try to use bool array or byte array instead of BitArray. </p>\n<p>Decrease resize of an collection during expand action. </p>\n<p>Decrease layer of wrapper collections. </p>\n<p>&nbsp;</p>\n<p>Reference:</p>\n<p>Retrieving the value of this property is an O(1) operation. Setting this property is an O(n) operation.</p>\n<p>From: http://msdn.microsoft.com/en-us/library/system.collections.bitarray.length.aspx</p>\n<p>Performance issue for bitArray:</p>\n<p>http://www.dotnetperls.com/bitarray</p>\n<p>Avoid Overuse of Collection Wrappers</p>\n<p>From: http://dotnet.sys-con.com/node/46342</p>\n",
+    "LastUpdatedDate": "2012-01-02T23:31:53.603-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-01-01T20:33:05.933-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Performance improvement",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 479
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with Check in 11226 \r\nPerformance test and fix it was mentioned at this issue. ",
+      "PostedDate": "2012-01-01T20:46:32.02-08:00",
+      "Id": 85148
+    },
+    {
+      "Message": "Associated with Check in 11227 \r\nChange BitArray to bool[,] inside SimpleBitMatrix\r\n\r\nPerformance Test:(Microsecond)\r\nCreate QrCode\r\nN = 1000  ZXing 820  QrCode.Net 782\r\nPenaltyScore rule 1 Test\r\nN = 1000 ZXing 669 QrCode.Net 551\r\nPenaltyScore rule 2 Test\r\nN = 1000 ZXing 668  QrCode.Net 491\r\nPenaltyScore Rule 3 Test\r\nN = 1000 ZXing 731 QrCode.Net 737\r\nPenaltyScore Rule 4 Test\r\nN = 1000 ZXing 294 QrCode.Net 350\r\n\r\nAs you can see. Performance improved a lot after switch to bool array. But thing still tricky. For penalty Rule 4 test. Same algorithm our result still 60 microsecond higher. Which I assume is cause by extra layer of wrapper for Matrix. As their approach is simply one wrapper (ByteMatrix). QrCode.Net using 4 layer. BitMatrix => SquareMatrix => SimpleMatrix => TristateMatrix. But at this stage it's still my guess. I have to do more test. \r\n\r\nTodo collection wrapper performance check.  BitList reconstruction. ",
+      "PostedDate": "2012-01-01T20:55:55.08-08:00",
+      "Id": 85149
+    },
+    {
+      "Message": "Associated with Check in 11244 \r\nImplement new BitList and shrink down the layer of wrapper for collection. \r\n\r\nPerformance test(Microsecond):\r\nCreate QrCode(Encode long string):\r\nN = 1000 Zxing 3303  QrCode.Net 2381\r\nErrorCorrection Test:\r\nN = 1000 ZXing 21 QrCode.Net 19\r\nReedSolomon Test\r\nN = 10000 ZXing 1659 QrCode.Net 1179\r\nTerminator Test\r\nN = 1000 ZXing 7 QrCode.Net 7\r\nPenaltyScore rule 1 Test\r\nN = 1000 ZXing 672 QrCode.Net 457\r\nPenaltyScore rule 2 Test\r\nN = 1000 ZXing 671 QrCode.Net 393\r\nPenaltyScore Rule 3 Test\r\nN = 1000 ZXing 729 QrCode.Net 596\r\nPenaltyScore Rule 4 Test\r\nN = 1000 ZXing 281 QrCode.Net 268\r\nVersionControl Test:\r\nHugeLength input\r\nN = 1000 ZXing 2   QrCode 1\r\nSmallLength input\r\nN = 1000 ZXing 0  QrCode 1\r\n\r\nPerformance improvement partly done. Next check in will clean up some class and code. ",
+      "PostedDate": "2012-01-02T23:15:05.89-08:00",
+      "Id": 85150
+    },
+    {
+      "Message": "Associated with Check in 11245 \r\nClean up code and classes. \r\nIssue fixed. ",
+      "PostedDate": "2012-01-02T23:31:35.753-08:00",
+      "Id": 85151
+    }
+  ]
+}

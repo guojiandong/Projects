@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, I failed to add all the .dll files(.Net45, .Net35, Silverlight) into a Windows phone 8 project created by VS 2013.\r\nI got the following error message:\r\n\"A reference to a higher version or incompatible assembly cannot be added to the project\"\r\n\r\nThe .dll files are not support the VS2013?\r\n\r\nThanks,\r\nKen",
+    "LastUpdatedDate": "2013-12-29T23:11:16.163-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2013-12-29T23:11:16.163-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "I failed to load the .dll into a Windows phone 8 project created by VS 2013",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 951
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

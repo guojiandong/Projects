@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I'm currently using this library to generate QR Codes on a .NET MVC website running as a cloud service running in Microsoft Azure. Because this library uses WPF to manipulate the qr code images that are generated, and using WPF to build Windows services is not supported, we are running into issues with memory leaks and need to move away from using WPF.\r\n\r\nDoes this library have a way to render a bitmap of a QR Code that doesn't use WPF? \r\n\r\nAlso, if this library is still being supported, would you consider adding functionality to use Windows Imaging Component or Direct2D to render the bitmap instead of WPF?\r\n\r\nThanks,\r\n\r\n--Matt Limbocker",
+    "LastUpdatedDate": "2015-11-17T09:05:44-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2015-11-17T09:05:44-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Avoid WPF?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 958
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

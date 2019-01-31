@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "748508",
+    "ThreadId": "299701",
+    "Html": "\r\n<p>Hi,</p>\r\n<p><span style=\"white-space:pre\"></span>I'd like to generate the QR in a file or stream with custom size but i can&acute;t find a way to do that. Is there any way I can do that?? I found the Measure function in the Renderer class</p>\r\n<p><span style=\"white-space:pre\">public Size Measure(int matrixWidth)&nbsp; &nbsp; &nbsp; &nbsp;\r\n</span></p>\r\n<p><span style=\"white-space:pre\">&nbsp;</span><span style=\"white-space:pre\"> {</span></p>\r\n<p><span style=\"white-space:pre\"><span style=\"white-space:pre\">int areaWidth = m_ModuleSize * matrixWidth;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n</span></span></p>\r\n<p><span style=\"white-space:pre\"><span style=\"white-space:pre\">m_Padding = quietZoneModules * m_ModuleSize;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n</span></span></p>\r\n<p><span style=\"white-space:pre\"><span style=\"white-space:pre\">int padding = m_Padding;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n</span></span></p>\r\n<p><span style=\"white-space:pre\"><span style=\"white-space:pre\">int totalWidth = areaWidth &#43; 2 * padding;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n</span></span></p>\r\n<p><span style=\"white-space:pre\"><span style=\"white-space:pre\">return new Size(totalWidth &#43; 1, totalWidth &#43; 1);</span></span></p>\r\n<p><span style=\"white-space:pre\"><span style=\"white-space:pre\"><span style=\"white-space:pre\"></span></span>}</span></p>\r\n<p>I didn't understand why is doing that to calculate the size. I&acute;d like to tell via a paremeter, for example with the value &quot;200&quot;, the size of the QR Img (so that the size would be 200 x 200). Is there anything I'm missing to do that??</p>\r\n<p>(Sorry for my english)</p>\r\n<p>Thanks</p>\r\n<p>Andres</p>\r\n",
+    "PostedDate": "2012-02-09T06:31:44.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748714",
+    "ThreadId": "299701",
+    "Html": "<p><span class=\"hps\">I forgot to mention</span>&nbsp;<span class=\"hps\">I need to do</span>&nbsp;<span class=\"hps\">this because I'm</span>&nbsp;<span class=\"hps\">doing</span>&nbsp;<span class=\"hps\">a web service that</span>&nbsp;<span class=\"hps\">receives text</span>&nbsp;<span class=\"hps\">and size&nbsp;</span><span class=\"hps\">and returns a</span>&nbsp;<span class=\"hps\">QR</span>&nbsp;<span class=\"hps\">code</span>&nbsp;<span class=\"hps\">for</span>&nbsp;<span class=\"hps\">that text in</span>&nbsp;<span class=\"hps\">the specified size. That QR code that returns the web service&nbsp;</span><span class=\"hps\">is directly embedded in</span>&nbsp;<span class=\"hps\">a webpage.</span></p>\r\n<p><span class=\"hps\">Thanks Again</span></p>\r\n<p><span class=\"hps\">Andres</span></p>",
+    "PostedDate": "2012-02-09T08:08:01.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "750921",
+    "ThreadId": "299701",
+    "Html": "<p>Currently you can only use module size to specify the actual display size of QrCode.&nbsp;</p>\r\n<p>Number of modules for width will be matrixWidth + 2 * QuietZoneModules.</p>\r\n<p>Pixel width will be number of modules for width times module size.</p>\r\n<p>Above Measure method is mess, It's from original demo which I should replace with newest code. Proper one you can find under WPF version of renderer class.&nbsp;</p>\r\n<p>matrixWidth is determine by input text. &nbsp;</p>\r\n<p>Create a image then resize probably is more accuracy than draw according to specific size. Easiest way probably will be HTML's stretch function.&nbsp;</p>\r\n<p><span>&lt;img src=\"image.jpg\" width=\"200\" height=\"200\"&gt;</span></p>\r\n<p><span>That will display any image with size 200x200.</span></p>\r\n<p><span>Just make sure to give proper module size to renderer. Module size too big will cause image size way too large. Module size too small, stretch hard out, small QrCode will display poorly.&nbsp;</span></p>",
+    "PostedDate": "2012-02-09T20:23:52.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "752609",
+    "ThreadId": "299701",
+    "Html": "<p>Thanks for the comment. I'll try to implement the solution you mention.</p>\r\n<p>It'd be a good enhacement to be able to select the size of the QR when you generate ir to a file or stream. I hope you keep that in mind for the future if it is possible.</p>\r\n<p>Thanks again! You're doing a great job! It's the only serious open source component that I've found for Net. It's full of QR generators in PHP but nothing good for Net (except this one =) )</p>\r\n<p>(Again sorry for my english)</p>\r\n<p>Andres</p>",
+    "PostedDate": "2012-02-10T06:26:03.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "753375",
+    "ThreadId": "299701",
+    "Html": "<p>Hi. I'm glade you like it.&nbsp;</p>\r\n<p>I have thought about it before, but as matrix size is&nbsp;controlled&nbsp;by input string, so module width might be decimal. There is no decimal pixel, result will cause a single square module to display like \"gray, black, .... black, gray\". I could do some tricks, where QuietZone is not constant, but that might make it looks ugly. Anyway I will give it a try later. Thanks for suggestion. :)</p>\r\n<p>Jason</p>",
+    "PostedDate": "2012-02-10T09:40:21.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

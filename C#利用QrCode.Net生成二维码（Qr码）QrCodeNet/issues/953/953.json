@@ -1,0 +1,110 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 14,
+    "Custom": null,
+    "Description": "The logic in your Recognise function has flaws. I suggest the sequence is:\r\nNumeric -->AlphaNumeric -->Kanji -->utf8\r\n\r\nThe purpose is to reduce the encoded size of Matrix.\r\n\r\nHowever,your logic always return utf-8 for unicode (except kanji). \r\n\r\ne.g. \"123支花朵\" is Chinese, logically, if we don't assign an encoding name, program should give encoding name \"gb2321\" or \"GB18030\" with ECIValue 29 and 8 bit mode instead of utf-8.",
+    "LastUpdatedDate": "2014-07-06T13:51:56.077-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2014-07-03T01:18:05.4-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "issues for encoding unicode string in Recognise function",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 953
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have re-read my code, there is nothing wrong with it. The on you have proposed is wrong. You only looked at high level of my method order but didn't actually look into method itself. \n\nI check Kanji first,  base on result I separate them to 3 category. First one is kanji success, second one is detect mix between alphanumeric and kanji, which automatically go to 8bitbyte encoding. Last one is high possibility of alphanumeric, which then go to loop numeric -> alpha numeric.\n\nKanji first is the way to check mix match. It might be slow for pure numeric, but overall it's probably fast for mixed one. Like your example. \n\nWhy we don't use GB2321?, that's not on code table. Majority of decoder not even support it. I did my research, I had full table of barcode specification of which kind of encode table is allowed. Utf8 is not on the table but was widely used. And people use Utf8 dom to identify. \n\nYour example is clearly utf8 category. Unless you use chinese QRCode specification. I do have, but it's not supported. This library focus on ISO  18004:2006 and ISO 18004:2000. Either international or japanese. Majority of decoder support 18004:2000, latest decoder support mainly 2006 while good one support both.",
+      "PostedDate": "2014-07-03T13:30:47.54-07:00",
+      "Id": 151557
+    },
+    {
+      "Message": "Also kanji is japanese, not chinese. In your case is most likely 99% of time utf8. Avoid use simplified Chinese might help. Traditional Chinese might often go to Kanji category which result as smaller size. But Kanji table cannot mix match with alphanumeric. If you check Kanji table's rule you will find it require pure kanji. ",
+      "PostedDate": "2014-07-03T13:34:49.667-07:00",
+      "Id": 151558
+    },
+    {
+      "Message": "https://qrcodenet.codeplex.com/discussions/274343\n\nIf you take look at research I did way back then, might find something useful. I have dig through whole kanji table and related Japanese specification. QrCode was originally designed by japanese for their product label use. ",
+      "PostedDate": "2014-07-03T13:37:23.547-07:00",
+      "Id": 151559
+    },
+    {
+      "Message": "8 bite byte supported encoding table is called ECI table. \n\nhttps://qrcodenet.codeplex.com/SourceControl/latest#Gma.QrCodeNet/Gma.QrCodeNet.Encoder/DataEncodation/ECISet.cs\n\nIt's under here, I also have link to the resource. Official ISO for ECI table cost money, which I don't have. Chinese listed there at bottom, I'm not sure how many have been supporting it. You can simply add to that dictionary list and give it a try. Main thing is match encode table with that number. GB is 29. Also you have to find encode table name from .net. ",
+      "PostedDate": "2014-07-03T14:19:34.313-07:00",
+      "Id": 151564
+    },
+    {
+      "Message": "```\nChinese listed there at bottom, I'm not sure how many have been supporting it. You can simply add to that dictionary list and give it a try. Main thing is match encode table with that number. GB is 29. Also you have to find encode table name from .net. \n```\nSince GB (Value 29) is in the ECI table, that means we should use CodePage 936 instead of 65001. I know most scanners has problem to read but theory is right. Just like your put BOM for 65001,but ZXing android application failed to read.\n\nin function TryEncodeEightBitByte:\n\nelse if(length > 1)\n\treturn index;\n\nsupposed to be:\nElse If (length > 1 And index == contentLength - 1) \n      return -1;",
+      "PostedDate": "2014-07-03T17:27:46.497-07:00",
+      "Id": 151582
+    },
+    {
+      "Message": "I don't think you understand what I did there, but it's ok. \n\nResult of what I did there can decrease execute time, able to use BigO(n) to find correct solution. Your propose is BigO(n^2).\n\nI have sorted encoding sorting order to be smallest table first then go to wider range. If I checked up to index 10, I'm not going to check previous 10 chars anymore for larger table. I will execute from 10th and forward. Until I find a table that can execute to the end, I will run it again. So in theory it's BigO(n*2). But since it's BigO, normally we count as BigO(n). If my algorithm course didn't fail me. :P\n\nI'm not going to add 29, it has high failure rate, if 80~90% of decoder doesn't support it, then there is no point to output such thing.\n\nQrCode now a day, most of usage in my guess is Uri/Url. It shouldn't include any special char, and should always use minimize service to shorten URL. This is best practice. So if you are going to do anything with Url and have special char, you are doing it wrong.\n\nElse you just have to add that to list and recompile it, since you went so far you should know what's going on there.",
+      "PostedDate": "2014-07-03T19:34:28.397-07:00",
+      "Id": 151586
+    },
+    {
+      "Message": "ZXing encoder only support Utf8, ISO8859-1, way back then. I'm not sure about now. We had more table but I was thinking of remove them at some stage, since not many decoder supports it. Not saying there is Chinese GB.\n\nFor utf8, I remember I have tested against ZXing decoder online before. \nhttp://zxing.org/w/decode.jspx\n\nI might do some test later.",
+      "PostedDate": "2014-07-03T19:44:11.5-07:00",
+      "Id": 151587
+    },
+    {
+      "Message": "The BOM signature is &HEF,&HBB and &HBF. After I reverse those 3 bytes (&HBF,&HBB and &HEF), then ZXing can read my QRCode. ZXing can read UTF-8 QRCode generated by your .NET program.\nSorry for this confusion.\n\nI am wondering why ECITable has GB. Since the ECI header only has ECI mode indicator and and ECI Assignment Number but without specifying CodePage, how the decoder know what CodePage the encoder using? This stupid mistake just like MS ANSI text file.\n\nOK, I agree you. Just ignore GB by using UTF-8.",
+      "PostedDate": "2014-07-03T20:44:11.983-07:00",
+      "Id": 151591
+    },
+    {
+      "Message": "Decoder use ECI indicator and that number to decide which encoder to use. Indicator will include 29 for GB for example. so when decoder see 29 and know it's for ECI, it will use their programming language's proper char encoder to decode.",
+      "PostedDate": "2014-07-03T22:35:32.12-07:00",
+      "Id": 151593
+    },
+    {
+      "Message": "Thanks for your explanation. I know better now.",
+      "PostedDate": "2014-07-04T00:16:42.183-07:00",
+      "Id": 151597
+    },
+    {
+      "Message": "```\n//in TryEncodeKanji\nelse if((mostSignificantByte < 0x81 || mostSignificantByte > 0x9F) && (mostSignificantByte < 0xE0 || mostSignificantByte > 0xEB))\n```\nAny documentation support those boundary?\nI didn't see those identified Hex values in kanji code table.\n\nhttp://www.rikai.com/library/kanjitables/kanji_codes.sjis.shtml",
+      "PostedDate": "2014-07-04T18:51:35.793-07:00",
+      "Id": 151645
+    },
+    {
+      "Message": "\nFrom the Shift-JIS Kanji Table, the first byte fall in 0x81-0x9F and 0xE0-0xEE, not you specify the range of 0xE0-0xEB.\n\nMaybe I am wrong again.",
+      "PostedDate": "2014-07-04T21:47:50.273-07:00",
+      "Id": 151647
+    },
+    {
+      "Message": "I found a document how to add Chinese GB2312 support without using UTF-8. In GB/T 18284—2000 specification (can't find original official pdf,but got photocopy one in Chinese), there is a new Mode called Hanzi = 13 ' binary 1101,  We should add GB sub-character set indicator 0001 for GB2312 after Mode indicator 1101.\n\na. Put bits \"1101\", bits count is 4\nb. Put bits \"0001\", bits count is 4\nc. Character Count Indicator\nd. content encoding using Codepage 936 which is gb2312\n\nContent encoding is similar with Kanji but slight difference:\n\n1、First Byte is in range 0xA1~0xAA and second byte is in range 0xA1~0xFE：\na) (FirstByte -0xA1) * 0x60 + (secondbyte - 0xA1)\nb) write into 13 bits format\n\n2、First Byte is in range 0xB0~0xFA and second byte is in range 0xA1~0xFE：\na) (FirstByte -0xA6) * 0x60 + (secondbyte - 0xA1)\nb) write into 13 bits format\n\nYou can write similar TryEncodeHanzi like TryEncodeKanji.\n( you read http://ash.jp/code/cn/gb2312tbl.htm  and http://www.rikai.com/library/kanjitables/kanji_codes.sjis.shtml then you will understand how to check the pattern of GB)\n\n__ZXing android can scan GB2312 encoding qrcode.__\n\nEdited: I still think you Recognise function can be simplified. (tryEncodePos = -1,-2,0,index make the checking complicated; TryEncodeEightBitByte  has problem as I mentioned early)\n\n",
+      "PostedDate": "2014-07-05T03:08:08.613-07:00",
+      "Id": 151659
+    },
+    {
+      "Message": "That's ISO 18004:200x  one of specification for China. I do have that specification in pdf, it is on same category as kanji. I'm not sure how decoder deal with that, how do you identify whether it's kanji or GB. \n\nAs for kanji table, that if loop is for fail, not in range. When return -1 that's success. Also that if loop is working but might not be perfect. Forgot how I write it there. It should turn into following.\n\nif(mostSignificantByte < 0x81 || (mostSignificantByte > 0x9F && mostSignificantByte < 0xE0) || mostSignificantByte > 0xEB)\n{ return 0 or -2 }\n\n===\n I know that return value with -1, -2, 0 aren't very clear. It will be nice to use Enum or other way of identify result.  But that's what I come up with way back then.\n\nIf you could give an example of when try encode eight bit byte will fail, please let me know. In simple answer, I don't want to encode same string 20+ times to find out which one is correct. This goes same to final QrCode mark evaluation. Both use same principle. Else it will be as slow as ZXing's encoder. I know from normal coding view, it's so weird. This is more relate to probability and pattern diagnose. \n\nWrite a lot of different input from different table, see if it come up with correct result then try to understand why I did that or let me know why I failed. At least for now I cannot find a string that will fail through that eight bit byte check.",
+      "PostedDate": "2014-07-06T13:51:56.077-07:00",
+      "Id": 151700
+    }
+  ]
+}

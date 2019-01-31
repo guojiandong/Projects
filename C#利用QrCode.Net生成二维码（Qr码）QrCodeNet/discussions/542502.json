@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1235010",
+    "ThreadId": "542502",
+    "Html": "Can anyone please suggest how to embed logo in QR Code? These are the requirements in one of my project, so any help will be appreciated?<br />\n",
+    "PostedDate": "2014-04-17T05:11:30.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1236311",
+    "ThreadId": "542502",
+    "Html": "I would suggest not to do so. Even it's requirement, you can always educate people who write requirement instead of give them un-usable product.\r<br />\n<br />\nQrCode's ability to correct error is used for decode where code image will have blur under different environment. If you have image within code, then your code will only be readable under perfect condition and within close range. Those limitation is mostly 2D barcode killer. It's visual doesn't represent content within code anyway.\r<br />\n<br />\nAlso embed logo is not part of documentation and it's not suggest by official.\r<br />\n<br />\nIf you really want to do it after all of that, you just have to write your own implementation. Once code is generated and painted to image, you add another layer on top of it. It's less to do with QrCode encoder but more relate to image editing. Which fall into photo shop related tools. Don't do automatically, unless you have mechanism to decode right after embed to check if code is usable. I have seen software did auto embed then removed at later stage. <br />\n",
+    "PostedDate": "2014-04-21T13:27:31.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1249887",
+    "ThreadId": "542502",
+    "Html": "<a href=\"http://www.keepdynamic.com/dotnet-barcode-reader/\" rel=\"nofollow\">how to embed qr reader to vb.net application\r\n</a><br />\n",
+    "PostedDate": "2014-05-27T01:11:44.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>ISO/IEC 18004:2000(E)</p>\n<p>Page: 46</p>\n<p>8.7.3 Symbol character placement. </p>\n<p>Nunit test for Embed codewords.</p>\n",
+    "LastUpdatedDate": "2011-12-16T00:28:33.923-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-12-16T00:27:32.307-08:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Embed codewords and Test",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 453
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with check in 10403 ",
+      "PostedDate": "2011-12-16T00:28:33.923-08:00",
+      "Id": 85144
+    }
+  ]
+}

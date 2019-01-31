@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "<p>Hi,</p>\n<p>&nbsp;</p>\n<p>For this one would need:</p>\n<p>&nbsp;</p>\n<p>1) Modulesize as a property of the QRCodeControl (runtime changeable)</p>\n<p>2) ErrorCorrectionLevel as property of the QRCodeControl (runtime changeable)</p>\n<p>&nbsp;</p>\n<p>Code neccesary is somthing like:</p>\n<p>&nbsp;</p>\n<p>Add the following code to the QRCodeControl (and removed the readonly from some fields):</p>\n<p>&nbsp;</p>\n<p>        public ErrorCorrectionLevel ErrorCorrection</p>\n<p>        {</p>\n<p>            get</p>\n<p>            {</p>\n<p>                return m_Encoder.ErrorCorrectionLevel;</p>\n<p>            }</p>\n<p>            set</p>\n<p>            {</p>\n<p>                m_Encoder = new QrEncoder(value);</p>\n<p>                m_QrCode = m_Encoder.Encode(Text);</p>\n<p>&nbsp;</p>\n<p>                AdjustSize();</p>\n<p>&nbsp;</p>\n<p>                Invalidate();</p>\n<p>            }</p>\n<p>        }</p>\n<p>&nbsp;</p>\n<p>        private int fModuleSize = 7;</p>\n<p>        public int moduleSize</p>\n<p>        {</p>\n<p>            get</p>\n<p>            {</p>\n<p>                return fModuleSize;</p>\n<p>            }</p>\n<p>            set</p>\n<p>            {</p>\n<p>                fModuleSize = value;</p>\n<p>&nbsp;</p>\n<p>                m_Renderer = new Renderer(fModuleSize);</p>\n<p>&nbsp;</p>\n<p>                AdjustSize();</p>\n<p>&nbsp;</p>\n<p>                Invalidate();</p>\n<p>            }</p>\n<p>        }</p>\n<p>    }</p>\n<p>&nbsp;</p>\n<p>It seems to do the trick (except the dotted outline of the control is not auto sized).</p>\n<p>&nbsp;</p>\n<p>wvd_vegt</p>\n",
+    "LastUpdatedDate": "2011-10-20T17:11:50.223-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-10-17T01:42:06.333-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Make the control respond to property changes",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 327
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

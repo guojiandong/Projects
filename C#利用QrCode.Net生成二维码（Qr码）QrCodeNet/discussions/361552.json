@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "855999",
+    "ThreadId": "361552",
+    "Html": "\r\n<p>Hi Guys, any ideas on what settings i should use for high resolution images for saving/printing onto avery labels?</p>\r\n",
+    "PostedDate": "2012-07-01T08:05:57.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856204",
+    "ThreadId": "361552",
+    "Html": "<p>With latest revision from source code, you can use DrawingBrushRenderer to achieve that. I will see if I can bring that function to other renderer. WriteableBitmapRenderer might also include that ability too, you can check under documentation.&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>",
+    "PostedDate": "2012-07-02T01:05:46.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "857031",
+    "ThreadId": "361552",
+    "Html": "<p>Thanks but we are unable to use this inside an asp.net app to automatically create the QRcodes since System.Windows.Media is not available in an aspx project. Is it possible for you to modify it to use System.Drawing instead?</p>\r\n<p><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\">\r\n<pre>using System;\r\nusing System.IO;\r\nusing System.Windows;\r\n//using System.Windows.Media;\r\n//using System.Windows.Media.Imaging;\r\n\r\nusing System.Drawing;\r\nusing System.Drawing.Imaging;\r\nusing System.Drawing.Drawing2D;\r\nusing System.Drawing.Printing;\r\nusing System.Drawing.Text;\r\nusing System.Drawing.Design;</pre>\r\n</span></span></span></p>",
+    "PostedDate": "2012-07-03T13:34:37.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "857196",
+    "ThreadId": "361552",
+    "Html": "<p>I can, but probably have no time to update until this weekend.&nbsp;</p>\r\n<p>If you want fast solution check out following website.&nbsp;</p>\r\n<p><a href=\"http://stackoverflow.com/questions/2682292/c-sharp-winforms-how-to-change-dpi-of-the-system-drawing-bitmap\">http://stackoverflow.com/questions/2682292/c-sharp-winforms-how-to-change-dpi-of-the-system-drawing-bitmap</a></p>\r\n<p>Create a bitmap on your own, then use Graphics.FromImage(bitmap) method to get graphics. Use graphicsRenderer to draw QrCode on graphics object. then save bitmap.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>using (Bitmap bitmap = new Bitmap(size.CodeWidth, size.CodeWidth))&nbsp;</p>\r\n<p>{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>bitmap.SetResolution(DPI, DPI);&nbsp;</p>\r\n<p>using (Graphics graphics = Graphics.FromImage(bitmap))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>GraphicsRenderer.Draw(graphics, QrMatrix);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>bitmap.Save(stream, imageFormat);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p>One thing keep in mind that GraphicsRenderer use default DPI 96, you might have to convert pixel size from specific DPI to 96's DPI and then pass it to Renderer. Try around and see what happens. Else you have to wait for my update this weekend.&nbsp;</p>",
+    "PostedDate": "2012-07-04T00:33:14.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "858740",
+    "ThreadId": "361552",
+    "Html": "<p>Did update with latest source code. It looks like use SetResolution method won't affect output image as WPF's WriteableBitmap. Let me know if there are any issue with it.&nbsp;</p>",
+    "PostedDate": "2012-07-07T15:55:40.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

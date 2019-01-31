@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-25T10:23:30.977-08:00",
+    "CommentCount": 4,
+    "Custom": "",
+    "Description": "<p>Hello Team,</p>\n<p>&nbsp;</p>\n<p>i saw that, if i implement the &quot;Gma.QrCodeNet.Enconding.Windows.Controls.QrCodeControl&quot; i can set the value &quot;Artistic&quot;, but if i implement this with my own code, its not possible to set this parameter with its value?</p>\n<p>&nbsp;</p>\n<p>I want to implement this in an ASP.NET System:</p>\n<p>    Dim sw As New System.IO.StreamWriter(&quot;D:\\myEpsPic.eps&quot;, IO.FileMode.Create)</p>\n<p>&nbsp;</p>\n<p>            Dim qrEncoder As New QrEncoder(ErrorCorrectionLevel.H)</p>\n<p>            Dim qrCode As New QrCode</p>\n<p>&nbsp;</p>\n<p>            qrEncoder.TryEncode(&quot;www.example.com&quot;, qrCode)</p>\n<p>&nbsp;</p>\n<p>            Dim epsRender As New Gma.QrCodeNet.Encoding.Windows.Render.EncapsulatedPostScriptRenderer(New Gma.QrCodeNet.Encoding.Windows.Render.FixedModuleSize(5, Gma.QrCodeNet.Encoding.Windows.Render.QuietZoneModules.Four), Color.Black, Color.White)</p>\n<p>            epsRender.WriteToStream(qrCode.Matrix, sw)</p>\n<p>&nbsp;</p>\n<p>            sw.Flush()</p>\n<p>            sw.Close()</p>\n<p>&nbsp;</p>\n<p>Is there a possibility to implement this &quot;Artistic&quot; there too?</p>\n<p>Or can i use the &quot;QrCodeControl&quot; also - but there i didn&#39;t found the methods to save the QR-Code to EPS or PNG?</p>\n<p>&nbsp;</p>\n<p>Thanks,</p>\n<p>Hasenzahn</p>\n",
+    "LastUpdatedDate": "2013-01-25T10:23:30.977-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-11T01:06:43.66-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Artistic - without QRCodeControl?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 721
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "http://qrcodenet.codeplex.com/discussions/346403\r\nYou can check this discussion. Currently I don't want to focus on that function. If I implement it, function will be very limited. Artistic should be hand craft, not part of library function. That way it can actually help people create more suitable Artistic, not limit how it looks. \r\n\r\nArtistic is not part of ISO/IEC's function. They are use QrCode's error correction capability to store images, but that will vary according to what you want put there, thus result as sometime embedded item could be very large and might be small as tiny icon. I will remove that function from that control on next check-in. ",
+      "PostedDate": "2012-04-11T14:43:33.133-07:00",
+      "Id": 85172
+    },
+    {
+      "Message": "Hi Silverlancer,\r\nsad but ok, i think that this implemented function (also its hard to code) would get a very effective and jutting point in this framework.\r\nBecause you can style your QR-Code individual and could implement a logo out of your CD/CI.\r\n\r\nMaybe when you got time, but thanks for this fast reply :)\r\nBest regards\r\nHasenzahn",
+      "PostedDate": "2012-04-12T00:59:06.47-07:00",
+      "Id": 85173
+    },
+    {
+      "Message": "i think it's a shame to not focus on this, it's what sets this library apart from any other QR code generation library.  Even if the implementation is limited it's still very applicable to a lot of use cases.",
+      "PostedDate": "2012-09-27T09:06:50.1-07:00",
+      "Id": 85174
+    },
+    {
+      "Message": "Without proper decoder, there is no way to check if output can be decode or not. If I cannot 100% guarantee the output can be decodable, I won't do it. Else it will only create fragment for many project that uses our library. \r\n\r\nIf you dig in more, 30% is not what you expect to be. Some of auto implementation just put a small image at lowest size. Which is not much point.",
+      "PostedDate": "2012-10-24T21:17:24.193-07:00",
+      "Id": 85175
+    }
+  ]
+}

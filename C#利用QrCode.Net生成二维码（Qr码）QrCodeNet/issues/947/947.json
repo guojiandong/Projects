@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI think this library includes only encoding.\r\nDo you plan to add decoding QR codes?\r\n",
+    "LastUpdatedDate": "2013-04-13T07:36:44.253-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2013-02-25T04:27:45.53-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Decoding",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 947
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "When I have time or some contributor that want to invested in. \n\nBut that's not that bad, if you look at ZXing's C# port, they do provide decoder, so until then people with urgent requirement can always fall back to use ZXing. \n\nThere are still plenty to do for encoder, after 0.4 there will be at least one more version purely for encoder. ",
+      "PostedDate": "2013-02-25T21:36:32.073-08:00",
+      "Id": 91527
+    }
+  ]
+}

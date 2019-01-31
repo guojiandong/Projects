@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1300966",
+    "ThreadId": "566042",
+    "Html": "Hello, I can't find any source or example code how to create QR code of exact size in pixels or non of them working for me. I am using VB.NET. Thank you a lot for any answers. <br />\n",
+    "PostedDate": "2014-09-06T06:29:23.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1302224",
+    "ThreadId": "566042",
+    "Html": "WPF can achieve that easily, else you have to draw it yourselves. <br />\n",
+    "PostedDate": "2014-09-07T13:14:41.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

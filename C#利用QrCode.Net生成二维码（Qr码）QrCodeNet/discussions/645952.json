@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1447555",
+    "ThreadId": "645952",
+    "Html": "Hello! I am developing an application in Silverlight that will need two-step verification. For this I am using silverlight control and the application that will generate the codes is Google Authenticator.\r<br />\n<br />\nThe problem I'm having is that Google Authenticator is not recognizing the QRCode generated. The text string is something like:\r<br />\n<br />\n<strong>otpauth://totp/Label?secret=secretKey</strong> (16 characters)\r<br />\n<br />\nBut to if I use any other class (for a Windows application), as shown here (<a href=\"http://qrcodenet.codeplex.com/wikipage?title=WriteableBitmapRenderer&amp;referringTitle=Renderer\" rel=\"nofollow\">http://qrcodenet.codeplex.com/wikipage?title=WriteableBitmapRenderer&referringTitle=Renderer</a>) to generate QRCode, works perfectly.\r<br />\n<br />\nI do not think it's a problem in silverlight class, because any QRCode Scanner reads perfectly the image.\r<br />\n<br />\nHas anyone had any similar problem? Or what can it be?\r<br />\n<br />\nPS .: To read the QRCode am using this program <a href=\"https://play.google.com/store/apps/details?id=com.srowen.bs.android\" rel=\"nofollow\">https://play.google.com/store/apps/details?id=com.srowen.bs.android</a>\r<br />\n<br />\nPS.: Sorry my bad english :)<br />\n",
+    "PostedDate": "2015-10-07T16:30:24.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

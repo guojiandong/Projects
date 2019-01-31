@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1022306",
+    "ThreadId": "438296",
+    "Html": "Can we add a logo to QRCode Image ?<br />\n",
+    "PostedDate": "2013-03-28T03:13:19.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022325",
+    "ThreadId": "438296",
+    "Html": "What do you mean logo. <br />\n",
+    "PostedDate": "2013-03-28T04:08:45.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022518",
+    "ThreadId": "438296",
+    "Html": "Hello Silver ^^\r<br />\nWhat i mean is can we add a logo to like this :\r<br />\n<a href=\"http://hackaday.com/2011/08/11/how-to-put-your-logo-in-a-qr-code/\" rel=\"nofollow\">http://hackaday.com/2011/08/11/how-to-put-your-logo-in-a-qr-code/</a>\r<br />\n<br />\nWith our control ?<br />\n",
+    "PostedDate": "2013-03-28T09:44:30.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022541",
+    "ThreadId": "438296",
+    "Html": "Hello Silver ^^\r<br />\nWhat i mean is can we add a logo to like this :\r<br />\n<a href=\"http://hackaday.com/2011/08/11/how-to-put-your-logo-in-a-qr-code/\" rel=\"nofollow\">http://hackaday.com/2011/08/11/how-to-put-your-logo-in-a-qr-code/</a>\r<br />\n<br />\nWith our control ?<br />\n",
+    "PostedDate": "2013-03-28T10:21:24.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022664",
+    "ThreadId": "438296",
+    "Html": "In short, I will not code that function. \r<br />\n<br />\nSimple answer, it's not in ISO specification and it will damage QrCode to cause you can not decode from far away or when you print on any container but container got damaged.\r<br />\n<br />\nA bit detailed answer. Those QrCode will never be main stream, they are for fun. They cause QrCode to not able to absorb any damage. Which it is one of QrCode's main ability. Lose that important ability equals lost in game. If a lot of people can not scan and get info from your code, what's point of creating and using it?\r<br />\n<br />\nOn that page's bottom you can see a wise man talking. Doubt anyone will read or try to understand. I will post again. \r<br />\n<br />\n__The only trouble is the more you modify the less parity you have in your QR code, meaning it’s more prone to errors. It has really high parity because phone cameras and lighting situations can combine to a really shitty photo; if you wipe out parity with a graphical overlay, people have to take <em>perfect</em> snaps of QR codes or it’ll end up corrupted. Not to discourage anyone from having a good time hacking them, just a thing to be aware of that you didn't really bring up in the article.__\r<br />\n<br />\nNo offense, but what he said is exactly true. I did a lot of test to come up with same conclusion as well. <br />\n",
+    "PostedDate": "2013-03-28T14:56:42.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022746",
+    "ThreadId": "438296",
+    "Html": "Thank you again Silver ^^.\r<br />\nI will not try this one ^^<br />\n",
+    "PostedDate": "2013-03-28T19:38:59.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

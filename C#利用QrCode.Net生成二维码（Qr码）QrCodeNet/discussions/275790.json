@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "683834",
+    "ThreadId": "275790",
+    "Html": "<p>Hi,</p>\n<p>First of all: Nice code!!</p>\n<p>I would like to see/propose some changes:</p>\n<p>* Modulesize as a property&nbsp;of the&nbsp;QRCodeControl&nbsp;(runtime changeable)<br /> * ErrorCorrectionLevel as property of the&nbsp;QRCodeControl&nbsp;(runtime changeable)<br /> * The control moved to the assembly (it's now inside the executable).<br /> * Rename Size/Point etc so they do not clash with System.Drawing.<br /> &nbsp; It makes it difficult to move the&nbsp;QRCodeControl into the assembly.</p>",
+    "PostedDate": "2011-10-13T10:32:03.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683844",
+    "ThreadId": "275790",
+    "Html": "<p>Hi,</p>\n<p>I added the following code to the&nbsp;QRCodeControl (and removed the readonly from some fields):</p>\n<div style=\"color: black; background-color: white;\">\n<pre>        <span style=\"color: blue;\">public</span> ErrorCorrectionLevel ErrorCorrection\n        {\n            <span style=\"color: blue;\">get</span>\n            {\n                <span style=\"color: blue;\">return</span> m_Encoder.ErrorCorrectionLevel;\n            }\n            <span style=\"color: blue;\">set</span>\n            {\n                m_Encoder = <span style=\"color: blue;\">new</span> QrEncoder(value);\n                m_QrCode = m_Encoder.Encode(Text);\n\n                AdjustSize();\n\n                Invalidate();\n            }\n        }\n\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">int</span> fModuleSize = 7;\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">int</span> moduleSize\n        {\n            <span style=\"color: blue;\">get</span>\n            {\n                <span style=\"color: blue;\">return</span> fModuleSize;\n            }\n            <span style=\"color: blue;\">set</span>\n            {\n                fModuleSize = value;\n\n                m_Renderer = <span style=\"color: blue;\">new</span> Renderer(fModuleSize);\n\n                AdjustSize();\n\n                Invalidate();\n            }\n        }\n    }\n\n</pre>\n<pre>It seems to do the trick (except the dotted outline of the control is not auto sized).</pre>\n<pre><br /></pre>\n<pre>Furthermore did i move the code into the assembly project and&nbsp;</pre>\n<pre>solved some of the clashes with System.Draw.</pre>\n</div>",
+    "PostedDate": "2011-10-13T10:57:14.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683880",
+    "ThreadId": "275790",
+    "Html": "<p>Yes, makes sense. I think we should adopt all of your proposals. By the way feel free to create issues here &nbsp;<a href=\"http://qrcodenet.codeplex.com/workitem/list/basic\">http://qrcodenet.codeplex.com/workitem/list/basic</a></p>\r\n<p>You can also just join us and contribute&nbsp;<a href=\"http://qrcodenet.codeplex.com/team/view\">http://qrcodenet.codeplex.com/team/view</a></p>",
+    "PostedDate": "2011-10-13T11:55:19.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686648",
+    "ThreadId": "275790",
+    "Html": "<p>Done rename for Point and Size.&nbsp;</p>\r\n<p>Probably won't add property for QRCodeControl until we finish implement our own code. As QRCodeControl is currently using ZXing's code to generate QRCode. That control is for demo only at current stage.&nbsp;</p>",
+    "PostedDate": "2011-10-19T21:01:31.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687179",
+    "ThreadId": "275790",
+    "Html": "<p>Just add those attribute to QR Code Control.&nbsp;</p>\r\n<p>One thing must beware, Artistic only available when ErrorCorrectionLevel = High. I have written some code to prevent Artistic to be set up unless ErrorCorrectionLevel is set up to high. Also it will reset to false if you change ErrorCorrectionLevel to lower value.&nbsp;</p>\r\n<p>I have also add QuietZoneModules attribute. Default according to ISO it should be four. But sometime people might prefer set up as two. &nbsp;You can find description for Quiet Zone at Chapter 7.3.7, Page 13. &nbsp;(ISO/IEC 18004 2000)</p>\r\n<p>Also you can edit those attribute under design properties window.&nbsp;</p>\r\n<p>I will try to move them over to Encoding assembly later.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Regard</p>",
+    "PostedDate": "2011-10-20T17:09:14.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687230",
+    "ThreadId": "275790",
+    "Html": "<p>QR Code Control is now under Encoder.Windows.Controls.</p>\r\n<p>Also I have renamed Rectangle. As it is same as \"Point\" and \"Size\" conflict with Drawing class.&nbsp;</p>",
+    "PostedDate": "2011-10-20T22:19:17.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727974",
+    "ThreadId": "275790",
+    "Html": "Thank you for exploring the world of QR Codes in your blog. Letting people know about them I'd the first link to making them mainstream. Please visit my QRCode resource website for a free ecourse <a href=\"http://www.pqscan.com/generate-barcode/qrcode.html\" rel=\"nofollow\">QR Code generator</a> and <a href=\"http://www.pqscan.com/read-barcode/qrcode.html\" rel=\"nofollow\">QR Code Reader</a>,<br />\n",
+    "PostedDate": "2012-01-19T22:53:33.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1200457",
+    "ThreadId": "528296",
+    "Html": "I am generating QR code image using  &quot;Gma.QrCodeNet.Encoding&quot; assembly,  is there any possibility  of changing  eye colors  of QR Image. ( QR Image corner inner and outer colors )<br />\n<br />\nPlease let me know if any possibility.<br />\n<br />\nRegards<br />\nShashidhar <br />\n",
+    "PostedDate": "2014-01-29T06:08:22.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1246763",
+    "ThreadId": "528296",
+    "Html": "QrCode.Net only allow you to change color for white cell or black cell as whole, but not for specific eye colors of code.\r<br />\n<br />\nFor example, you can change all black cells to red, but not part of cells.\r<br />\n<br />\nIf you want to do that, you have to write your own code to draw code.\r<br />\n<br />\n<br />\nAnother thing that you have to know is, eye colors are not part of ISO, thus depend on decoder, your code might not be able to decode. It depends on decoder's algorithm. If decoder convert picture to black and white first then decode, change eye colors is fine. If decoder diagnose colored image directly, then you might encounter issue. <br />\n",
+    "PostedDate": "2014-05-18T16:35:29.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

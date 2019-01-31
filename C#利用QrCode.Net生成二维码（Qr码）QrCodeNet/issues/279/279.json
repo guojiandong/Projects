@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>1. Implement unit tests against reference implementation.</p>\n<p>2. Implement unit test data set from csv file.</p>\n<p>For implementing such tests look at following example:</p>\n<p>$/QrCodeNet/Gma.QrCodeNet/Gma.QrCodeNet.Encoding.Tests/Masking/MaskPatternTest.cs</p>\n<p>and</p>\n<p>$/QrCodeNet/Gma.QrCodeNet/Gma.QrCodeNet.Encoding.Tests/Masking/TestCases/MaskPatternTestCaseFactory.cs</p>\n<p>&nbsp;</p>\n<p>--------------</p>\n<p>Specification for penalty score calculation can be found under </p>\n<p>http://www.codeplex.com/Download?ProjectName=QrCodeNet&amp;DownloadId=284291</p>\n<p>Chapter: 8.8.2 Evaluation of masking results</p>\n<p>Reference algorithms for score calculation can be found in </p>\n<p>$/QrCodeNet/Gma.QrCodeNet/Gma.QrCodeNet.Encoder/_legacy/encoding/MaskUtil.cs</p>\n<p>Implementation should take place under</p>\n<p>$/QrCodeNet/Gma.QrCodeNet/Gma.QrCodeNet.Encoder/Masking/Scoring</p>\n",
+    "LastUpdatedDate": "2011-11-01T16:22:10.96-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-29T00:01:46.707-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement penalty score calculation unit tests",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 279
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Check in 7269.\r\n\r\nBase on MaskPatternTest to generate matrix for penalty score test. \r\n\r\nBoth reference test and test dataset from txt file implemented. ",
+      "PostedDate": "2011-11-01T16:22:10.96-07:00",
+      "Id": 85104
+    }
+  ]
+}

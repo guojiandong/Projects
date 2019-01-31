@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "730652",
+    "ThreadId": "287392",
+    "Html": "\r\n<p>Hi, can some one help me,</p>\r\n<p>i need to specify the ISO/IEC version:&nbsp;<span style=\"font-size:9pt\">18004:2000</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:9pt\">tnks</span></p>\r\n",
+    "PostedDate": "2012-01-25T10:49:54.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730841",
+    "ThreadId": "287392",
+    "Html": "<p>Currently project change to use 18004:2006, instead of old version. Difference between two version mainly at two point.&nbsp;</p>\r\n<p>One: default 8-bit-byte encode. 2000 use shift-jis as default where 2006 use Europe char set as default. Default encode won't include ECI heading.</p>\r\n<p>Two: Penalty calculation for penalty rule 3. That won't effect decoder read it's QrCode. You won't feel a different between 2000 and 2006, it's just a way to select most efficient mask.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Could you tell me why you want to create 18004:2000 QrCode? So I may able to help you.</p>\r\n<p>&nbsp;</p>\r\n<p>Regard</p>",
+    "PostedDate": "2012-01-25T15:45:20.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730845",
+    "ThreadId": "287392",
+    "Html": "<p>im developing a ERP in Mexico and for legal print of electronic invoice I need to put a QRcode on it, but specific the ISO/IEC&nbsp;<span>18004:2000 otherwise the invoice isn't legal, and i can find a dll for qrcode with such characteristics for asp.net</span></p>",
+    "PostedDate": "2012-01-25T16:03:36.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730863",
+    "ThreadId": "287392",
+    "Html": "<p>Hi, At current stage, you might have to edit some of source code. I will list below.&nbsp;</p>\r\n<p>First one.&nbsp;</p>\r\n<p>QRCodeConstantVariable.cs</p>\r\n<p>change =&gt;&nbsp;public const string DefaultEncoding = \"iso-8859-1\"; &nbsp;</p>\r\n<p>To =&gt;&nbsp;public const string DefaultEncoding = \"shift_jis\";&nbsp;</p>\r\n<p>Second one:</p>\r\n<p>Under folder masking and scoring, you will find Penalty3.cs</p>\r\n<p>Under method&nbsp;&nbsp;private int PatternCheck(BitMatrix matrix, int i, int j, bool isHorizontal)</p>\r\n<p>You will find two small for loop. Which is following:</p>\r\n<p>if((j - 5) &gt;=0)</p>\r\n<p>{</p>\r\n<p>For loop here.&nbsp;</p>\r\n<p>}</p>\r\n<p>If((j+9) &lt; matrix.Width)</p>\r\n<p>{</p>\r\n<p>forloop</p>\r\n<p>}</p>\r\n<p>else&nbsp;</p>\r\n<p>Return 0;</p>\r\n<p>&nbsp;</p>\r\n<p>Which is between line 85, 112.</p>\r\n<p>Remove all code that I have list above and simply place \"return 40;\" at where you removed previews code.&nbsp;</p>\r\n<p>Now encoder should be function as specified inside ISO/IEC 18004:2000</p>\r\n<p>Let me know if you have any other issues.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Also for detail reason behind those changes. First one which is what I said in previews post. Second penalty calculation rule 3, ISO/IEC 18004:2006 have to check one more condition before return penalty score value. So we just remove that check and return the score.&nbsp;</p>",
+    "PostedDate": "2012-01-25T17:07:55.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730871",
+    "ThreadId": "287392",
+    "Html": "<p>Tank you very much for the quick response and for all the help,</p>\r\n<p>&nbsp;</p>\r\n<p>P.D.</p>\r\n<p>I one u one.</p>\r\n<p>Sergio Inzunza</p>",
+    "PostedDate": "2012-01-25T17:58:02.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

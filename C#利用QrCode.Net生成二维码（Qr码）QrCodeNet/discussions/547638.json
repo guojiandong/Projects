@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1253216",
+    "ThreadId": "547638",
+    "Html": "Hello everybody,\r<br />\n<br />\nI am using the QRCode generator in VB .net, and all works fine except one thing that I cannot do.\r<br />\n<br />\nI would like to add a tabulation char between two string (basically user and password read in only one QRCode scan). But standard representation seems not to work. \r<br />\n<br />\nCould you please tell me what character should be used in order to add a tabulation, or where can I find the documentation?\r<br />\n<br />\nThanks a lot :)<br />\n",
+    "PostedDate": "2014-06-05T03:13:31.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253474",
+    "ThreadId": "547638",
+    "Html": "<a href=\"https://qrcodenet.codeplex.com/SourceControl/latest#Gma.QrCodeNet/Gma.QrCodeNet.Encoder/DataEncodation/AlphanumericTable.cs\" rel=\"nofollow\">https://qrcodenet.codeplex.com/SourceControl/latest#Gma.QrCodeNet/Gma.QrCodeNet.Encoder/DataEncodation/AlphanumericTable.cs</a>\r<br />\n<br />\nAll the character allowed from alpha numeric table.\r<br />\n<br />\nIf you have tabulation char, it should automatically use ascII char table. The issue with that is depend on decoder, if decoder use old ISO, then default char table is japanese char table. Newest international ISO use ascII char table as default char table. Some decoder auto detect, most of them doesn't. \r<br />\n<br />\n<br />\nUse something else to separate two string or use unicode to separate. Then it depends on if decoder supports unicode or not. Unicode is not part of ISO.\r<br />\n<br />\nQrCode was design for Japan's manual factory, to mark up each component. So that original ISO is Japanese specific, then we have other different country version. And international one. Most of new encoder uses international spec which is ascii table.\r<br />\n<br />\nAnswer for your question is hard to give a clear answer.\r<br />\n<br />\nAlso password in QrCode is some what security hole, but I'm not sure about your project.<br />\n",
+    "PostedDate": "2014-06-05T13:59:03.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-06-06T05:50:16.05-07:00"
+  },
+  {
+    "Id": "1253689",
+    "ThreadId": "547638",
+    "Html": "Thank you for your quick answer.\r<br />\n<br />\nwith these explanation, I have a better understanding of the process, and I know how to do my research. I wasn't aware that was decoder dependent, So I will check device configuration and so on.\r<br />\n<br />\nSo for me all is clear now.\r<br />\n<br />\nAnd of course, the password example was a visual easy representation of the aimed goal.\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-06-06T05:50:12.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

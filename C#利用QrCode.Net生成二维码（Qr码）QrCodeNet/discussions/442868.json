@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1040592",
+    "ThreadId": "442868",
+    "Html": "Hi, Is there any extra configuration needed tom get the websolution to run.<br />\n<br />\nWhen <a href=\"http://localhost:54539/QrCodeHandler.ashx\" rel=\"nofollow\">http://localhost:54539/QrCodeHandler.ashx</a> is hit I am getting:<br />\n<br />\n Could not create type 'Gma.QrCodeNet.Web.Demo.QrCodeHandler'.<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2013-05-07T14:01:01.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

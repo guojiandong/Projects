@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "902647",
+    "ThreadId": "392646",
+    "Html": "\r\n<p>I have been using the CreateImageFile function as following:</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">string</span> texte = <span style=\"color:#a31515\">&quot;Hello4&quot;</span>;\r\n\r\n        QrEncoder qrEncoder = <span style=\"color:blue\">new</span> QrEncoder(ErrorCorrectionLevel.H );\r\n        QrCode qrCode = qrEncoder.Encode(texte);\r\n\r\n        <span style=\"color:blue\">const</span> <span style=\"color:blue\">int</span> moduleSizeInPixels = 4;\r\n        Renderer renderer = <span style=\"color:blue\">new</span> Renderer(moduleSizeInPixels );\r\n        renderer.CreateImageFile(qrCode.Matrix, AppDomain.CurrentDomain.BaseDirectory.ToString() &#43; texte &#43;<span style=\"color:#a31515\">&quot;.jpg&quot;</span>, System.Drawing.Imaging.ImageFormat.Jpeg);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>But the file created has a right and bottom black border. &nbsp;I don't use much code here so it seems a problem of the source (which I didn't look at; I'm no graphic programmer).</p>\r\n<p>Can this be solved?&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-22T11:16:29.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902859",
+    "ThreadId": "392646",
+    "Html": "<p>Its already solved. Report by other user few months ago. Download latest source code and try again.&nbsp;</p>\r\n<p>For more detail please check following discussion page</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/discussions/360974\">http://qrcodenet.codeplex.com/discussions/360974</a></p>",
+    "PostedDate": "2012-08-22T23:47:10.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903073",
+    "ThreadId": "392646",
+    "Html": "<p>I'm not familiar with Graphics stuff at all. &nbsp;Can you lead me to create a standard image file?</p>",
+    "PostedDate": "2012-08-23T08:07:33.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903125",
+    "ThreadId": "392646",
+    "Html": "<p>Ok, I managed this:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">string</span> texte = <span style=\"color: #a31515;\">\"Hello18hell\"</span>;\r\n\r\n        QrEncoder qrEncoder = <span style=\"color: blue;\">new</span> QrEncoder(ErrorCorrectionLevel.H );\r\n        QrCode qrCode = qrEncoder.Encode(texte);\r\n    \r\n        Image1.ImageUrl = texte + <span style=\"color: #a31515;\">\".jpg\"</span>;\r\n\r\n        GraphicsRenderer renderer = <span style=\"color: blue;\">new</span> GraphicsRenderer(<span style=\"color: blue;\">new</span> FixedModuleSize(4, QuietZoneModules.Four));\r\n        \r\n        System.IO.MemoryStream ms = <span style=\"color: blue;\">new</span> System.IO.MemoryStream();\r\n        renderer.WriteToStream(qrCode.Matrix ,System.Drawing.Imaging.ImageFormat.Jpeg,ms);\r\n        System.IO.File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory.ToString() + texte + <span style=\"color: #a31515;\">\".jpg\"</span>, ms.ToArray());\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Thank you</p>",
+    "PostedDate": "2012-08-23T10:28:59.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903151",
+    "ThreadId": "392646",
+    "Html": "<p>I have graphics renderer example at this page.&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=GraphicsRenderer&amp;referringTitle=Renderer\">http://qrcodenet.codeplex.com/wikipage?title=GraphicsRenderer&amp;referringTitle=Renderer</a></p>\r\n<p>Is your project WPF based or winform? As WPF's DrawingBrush renderer is better in result and writeablebitmap renderer is faster. Thus if your project is WPF application, then use those two renderers will be ideal, as you don't have to use winform's library.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Also you don't have to write from memory stream to file, just create file stream and write onto file stream will do. So you don't have to do that extra step. As long as you don't put any text write stream in, it should work fine. Check our demo example in source code.&nbsp;</p>",
+    "PostedDate": "2012-08-23T11:40:28.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903944",
+    "ThreadId": "392646",
+    "Html": "<p>Thanks for you follow up.</p>\r\n<p>Actually, I'm writing to an html in ASP.NET. &nbsp;I'm at the point of writing the piece of software to create our departments, users, etc. barcodes that we'll print on labels around our shop floor. &nbsp;Eventually I might need to use the capacity in reports but most report generators can already generate barcodes.</p>\r\n<p>The image created goes inside a button with a text value under it. &nbsp;The user press that button and a clean \"printable\" version comes out on a popup.</p>\r\n<p>And yes I modified the code to this:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre> System.IO.FileStream fs = <span style=\"color: blue;\">new</span> System.IO.FileStream(AppDomain.CurrentDomain.BaseDirectory.ToString() + attributeValue.Text + <span style=\"color: #a31515;\">\".jpg\"</span>,System.IO.FileMode.OpenOrCreate);\r\n        renderer.WriteToStream(qrCode.Matrix, System.Drawing.Imaging.ImageFormat.Jpeg, fs);\r\n</pre>\r\n</div>\r\n</p>\r\n<p>and it works fine.</p>\r\n<p>Thank you for your help. &nbsp;</p>",
+    "PostedDate": "2012-08-25T04:03:16.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

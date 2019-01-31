@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nsporadically cpu usage of my web worker process increases to 100% in an infinite loop, i'm using v0.3. Stack trace of the affected threads (normally 2 oder 3) points to \r\n\r\nmscorlib.dll!System.Collections.Generic.Dictionary`2.Insert+0x1dc\r\nGma.QrCodeNet.Encoding.DLL!Gma.QrCodeNet.Encoding.DataEncodation.ECISet.Initialize+0x100\r\nGma.QrCodeNet.Encoding.DLL!Gma.QrCodeNet.Encoding.DataEncodation.InputRecognition.InputRecognise.EightBitByteRecognision+0x8d\r\nGma.QrCodeNet.Encoding.DLL!Gma.QrCodeNet.Encoding.DataEncodation.InputRecognition.InputRecognise.Recognise+0xf8\r\nGma.QrCodeNet.Encoding.DLL!Gma.QrCodeNet.Encoding.DataEncodation.DataEncode.Encode+0xf9\r\nGma.QrCodeNet.Encoding.DLL!Gma.QrCodeNet.Encoding.QRCodeEncode.Encode+0x7f\r\nGma.QrCodeNet.Encoding.DLL!Gma.QrCodeNet.Encoding.QrEncoder.TryEncode+0x8e\r\n\r\nSeems to be a multithreading problem on the dictionary similar to e.g. [this](http://blogs.msdn.com/b/tess/archive/2009/12/21/high-cpu-in-net-app-using-a-static-generic-dictionary.aspx?PageIndex=2) \r\n\r\nSolution could be a locking oder migration to ConcurrentDictionary (.Net 4)\r\n\r\nRegards",
+    "LastUpdatedDate": "2013-01-25T07:12:03.883-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2013-01-24T02:35:19.803-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "High CPU Usage / Multithreading-Problem",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 946
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Just checked 0.3 source code and the one we have now. Looks like I did change static to non static after 0.3.\n\nGrab newest source code, and compile, use that. \n\nDocument for new source code can be found under \nhttp://qrcodenet.codeplex.com/wikipage?title=Renderer&referringTitle=Documentation\n\nLet me know of problem still exist with newest source code. ",
+      "PostedDate": "2013-01-24T21:35:23.107-08:00",
+      "Id": 87291
+    },
+    {
+      "Message": "Thanks, will give it a try\n",
+      "PostedDate": "2013-01-25T07:12:03.883-08:00",
+      "Id": 87316
+    }
+  ]
+}

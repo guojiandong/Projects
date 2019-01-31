@@ -1,0 +1,49 @@
+<div class="wikidoc"><h1>DrawingBrushRenderer</h1>This page provides a guide for use DrawingBrushRenderer. (After <b>check-in 13336</b>)<br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.Render<br />
+<h3>Syntax</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> DrawingBrushRenderer
+</pre></div>
+<h3>Remarks</h3>DrawingBrushRenderer is a renderer that uses geometry to create DrawingBrush or Geometry groups. It also able to write image to stream.<br /><br />Stream geometry has been used within this class for better performance. <br /><br />It can write QrCode image to stream. It supports any format under BitmapEncoder, also able to give BitmapSource and let user to encode image on their own. This brings more detailed encoding. <br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DrawingBrushRenderer</td><td>Initialize a new instance of DrawingBrushRenderer class</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DrawBrush</td><td>It will return DrawingBrush that contains all dark modules. Light modules will not be include inside brush</td></tr>
+<tr><td>DrawGeometry</td><td>Returns StreamGeometry for dark modules.</td></tr>
+<tr><td>WriteToBitmapSource</td><td>Create BitmapSource for given Qr matrix. It will include light modules</td></tr>
+<tr><td>WriteToStream</td><td>Create Qr Image and put into stream</td></tr></table><br />
+<h3>Properties</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>DarkBrush</td><td>Brush for dark colour modules</td></tr>
+<tr><td>LightBrush</td><td>Brush for light colour modules</td></tr>
+<tr><td>ISize</td><td>Property for ISizecalculation</td></tr></table><br />
+<h3>Example</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding.Windows.Render;
+<span style="color:Blue;">using</span> Gma.QrCodeNet.Encoding;
+</pre></div><br /><div style="color:Black;background-color:White;"><pre>
+QrEncoder encoder = <span style="color:Blue;">new</span> QrEncoder(ErrorCorrectLevel.M);
+QrCode qrCode;
+encoder.TryEncode(<span style="color:#A31515;">&quot;Test&quot;</span>, <span style="color:Blue;">out</span> qrCode);
+
+DrawingBrushRenderer dRenderer = <span style="color:Blue;">new</span> DrawingBrushRenderer(
+    <span style="color:Blue;">new</span> FixedModuleSize(2, QuietZoneModules.Two), 
+    Brushes.Black, Brushes.White);
+
+DrawingBrush dBrush = dRenderer.DrawBrush(qrCode.Matrix);
+Rectangle rect = <span style="color:Blue;">new</span> Rectangle();
+rect.Width = 150;
+rect.Height = 150;
+rect.Fill = dBrush;
+<span style="color:Green;">//QrCode should be at center of rectangle, and Uniform stretched. </span>
+<span style="color:Green;">//Put rectangle on boarder and set up boarder&#39;s background will sort light modules out.</span>
+<span style="color:Green;">//Same as how to use stream geometry. It will be contain inside Path UIElement. </span>
+
+MemoryStream ms = <span style="color:Blue;">new</span> MemoryStream();
+dRenderer.WriteToStream(qrCode.Matrix, ImageFormatEnum.Png, ms, <span style="color:Blue;">new</span> Point(96, 96));
+<span style="color:Green;">//new Point(96, 96) is for DPI X and DPI Y. You can use WriteToStream(BitMatrix, ImageFormatEnum, Stream) to construct image at default DPI 96 96. </span>
+
+MemoryStream bms = <span style="color:Blue;">new</span> MemoryStream();
+BitmapSource bSource = dRenderer.WriteToBitmapSource(qrCode.Matrix, <span style="color:Blue;">new</span> Point(96, 96));
+PngBitmapEncoder pngEncoder = <span style="color:Blue;">new</span> PngBitmapEncoder();
+pngEncoder.Interlace = PngInterlaceOption.On;
+pngEncoder.Frames.Add(BitmapFrame.Create(bSource));
+pngEncoder.Save(bms);
+<span style="color:Green;">//This is example how to get bitmap source and use bitmap encoder to encode. Different bitmap encoder will have it&#39;s own specific option when encode image file. </span>
+</pre></div></div><div class="ClearBoth"></div>

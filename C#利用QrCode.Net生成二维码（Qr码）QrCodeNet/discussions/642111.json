@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1436491",
+    "ThreadId": "642111",
+    "Html": "I don't care about bitmatrixes and QrCode objects, \r<br />\n<br />\nI want to take a piece of text like a URL, and get a bitmap.<br />\n\r<br />\nI saw a cool youtube that had like 4 lines of code, but the perfect line was something like\r<br />\n<br />\nbitmap bmp=QrCode.Render(textstring);\r<br />\n<br />\nIs there a way - in less than 30 lines, to do this?<br />\n",
+    "PostedDate": "2015-07-29T09:16:25.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1437437",
+    "ThreadId": "642111",
+    "Html": "Create extension method with common setting. Then you can call it in one lines of code to create something.<br />\n",
+    "PostedDate": "2015-08-05T14:34:32.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1437596",
+    "ThreadId": "642111",
+    "Html": "<strong>Silverlancer wrote:</strong><br />\n<blockquote>\nCreate extension method with common setting. Then you can call it in one lines of code to create something.<br />\n</blockquote>\nok great.  How do I get from the stupid bit matrix to an image?<br />\n",
+    "PostedDate": "2015-08-06T11:12:49.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1439332",
+    "ThreadId": "642111",
+    "Html": "<a href=\"http://qrcodenet.codeplex.com/wikipage?title=WriteableBitmapRenderer&amp;referringTitle=Renderer\" rel=\"nofollow\">http://qrcodenet.codeplex.com/wikipage?title=WriteableBitmapRenderer&referringTitle=Renderer</a>\r<br />\n<br />\n<a href=\"http://qrcodenet.codeplex.com/wikipage?title=DrawingBrushRenderer&amp;referringTitle=Renderer\" rel=\"nofollow\">http://qrcodenet.codeplex.com/wikipage?title=DrawingBrushRenderer&referringTitle=Renderer</a>\r<br />\n<br />\nScroll to bottom, there is example there.<br />\n",
+    "PostedDate": "2015-08-12T13:29:27.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

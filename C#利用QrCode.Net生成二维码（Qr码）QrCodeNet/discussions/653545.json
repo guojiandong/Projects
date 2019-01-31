@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1469991",
+    "ThreadId": "653545",
+    "Html": "Is there a good reason that the encode method is not static?\r<br />\nWhy for example must I do the following:<br />\n<pre><code>var encoder = new  Gma.QrCodeNet.Encoding.QrEncoder(Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.L);\nqr = encoder.Encode(value)</code></pre>\n\ninstead of <br />\n<pre><code>qr = Gma.QrCodeNet.Encoding.QrEncoder.Encode(Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.L, value);</code></pre>\n\nor even have the error correction default to something so I can do this:<br />\n<pre><code>qr = Gma.QrCodeNet.Encoding.QrEncoder.Encode(value);</code></pre>\n\n",
+    "PostedDate": "2016-04-13T09:30:06.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

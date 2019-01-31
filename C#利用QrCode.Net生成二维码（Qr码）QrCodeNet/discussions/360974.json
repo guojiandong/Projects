@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "853787",
+    "ThreadId": "360974",
+    "Html": "\r\n<p>I'm having trouble writing a constructed QR code to both stream and file.</p>\r\n<p>I do the following:</p>\r\n<p>&nbsp;</p>\r\n<p>QrEncoder<span> qrEncoder = </span><span><strong>new</strong></span><span> </span>\r\nQrEncoder<span>(</span>ErrorCorrectionLevel<span>.H);</span></p>\r\n<p>Gma.QrCodeNet.Encoding.<span>QrCode</span> code;</p>\r\n<p>qrEncoder.TryEncode(<span>UrlRelayManager</span>.ConstructUrl(link), <span><strong>out</strong></span> code);</p>\r\n<p><span><strong>byte</strong></span>[] imageData;</p>\r\n<p><span><strong>using</strong></span> (<span>MemoryStream</span> stream = <span>\r\n<strong>new</strong></span> <span>MemoryStream</span>()) {</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>Renderer</span> renderer = <span>\r\n<strong>new</strong></span> <span>Renderer</span>(<span><strong>15</strong></span>,\r\n<span>Brushes</span>.Black, <span>Brushes</span>.White);</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; renderer.WriteToStream(code.Matrix, stream,\r\n<span>ImageFormat</span>.Png);</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; imageData = stream.ToArray();</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>When I then write imageData to a file, I get a 1px border right and bottom. It also happens if I try to use renderer.CreateImageFile.</p>\r\n<p>Furthermore, I would like to control the padding in the imageData. Can I do that?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-06-26T06:18:08.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "854074",
+    "ThreadId": "360974",
+    "Html": "\r\n<p>Looks like you have been using version 0.3 from download page. For that version you can change quiet zone outside of QrCode. But it's very limited. It will be either 2 or 4 modules wide. Module size is what you set up during creation for renderer class.\r\n 15 is what you give to it.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>For 1px border, I'm not really sure what happen there, I will check code later. Also could you give me the image file you create, like post it on some image store website. I would like to see which kind of border it exist. That will be easier for me to find\r\n out what's going on.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Another note will be, there are updated source code under this project. You can download the newest version and compile on your own. I have recreate all renderer since 0.3, but there are few more changes to the library before push out next release. But at\r\n mean time, newly created renderer and control are all working properly. I can not say that pixel border won't happen in GraphicsRenderer, as I feel that issue might relate to Microsoft's own out of box bitmap.Save method. The good thing about new renderers\r\n is that some of them allow you to draw QrCode at specific position without quiet zone(border outside QrCode). Like WriteableBitmapRenderer, you can have your own WriteableBitmap source and drop QrCode at specific location (Set up quiet zone to zero if you\r\n are doing that). Then you can do all sorts of things with WriteableBitmap.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>If you are locked with winform application, then quiet zone(border) will limit to zero, two, four models. But to be notice is that iMarti also created EncapsulatedPostScriptRenderer for this library. Which can create EPS files in winform or WPF. That's what's\r\n new in latest source code. Example will be inside source code project and document is under following link.&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=Renderer&referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=Renderer&amp;referringTitle=Documentation</a></p>\r\n<p>&nbsp;</p>\r\n<p>Edit: &nbsp;For WriteableBitmap, if you want draw QrCode on some exist background that you have. Use DrawDarkModule method. That one won't draw light color module, which you can still see your own background after paint QrCode on it. Also as I said above,\r\n don't forget to set up QuietZone to zero, else QrCode will be paint at padding location.&nbsp;</p>\r\n",
+    "PostedDate": "2012-06-26T15:14:01.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "854842",
+    "ThreadId": "360974",
+    "Html": "<p>Thank you for a quick reply.</p>\r\n<p>Yes, I'm using 0.3 from the download page. How do I set QuietZone to 0?</p>\r\n<p>You can get a sample QR code from my dropbox:&nbsp;http://db.tt/xihZFS8A. You'll have to open it in Photoshop or other image tool to actually visually see the borders, as they are transparent.</p>\r\n<p>I'm not stuck with WinForm application. In fact, it's a console application responsible for encoding and storing the QR codes in a database and optionally write them to a file. No matter what I do (memory stream to database or directly to file) i get the same problem.</p>\r\n<p>Any help would be greatly appreciated</p>",
+    "PostedDate": "2012-06-28T02:02:49.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "855249",
+    "ThreadId": "360974",
+    "Html": "<p>I can see what you mean now.&nbsp;</p>\r\n<p>I did some test. Using both 0.3 version and latest version from source code. There is issue with 0.3 but not with latest build. I think it relate to image size and actual paint area. Which inside 0.3 version, image size is equal to actual size plus one. That's what cause that happen.&nbsp;</p>\r\n<p>There is only one way to avoid is using latest version from source code instead.&nbsp;</p>\r\n<p>For quietzone, you can not set it to zero in 0.3. But you can reduce it to two after create renderer. &nbsp;For example: \"render.QuietZoneModules = QuietZoneModules.Two;\"</p>\r\n<p>I would suggest to use latest version from source code. Just compile it with release set up and grab dll file from it will do.&nbsp;</p>\r\n<p>Also as you want save QrCode into database, I would suggest save as vector image. Which you can create in latest version from source code using EncapsulatedPostScriptRenderer. Vector image will be superior as it can scale to any size without damage image. You can also store matrix inside database instead of image file, Same reason, matrix's memory usage will be much smaller than image file and draw it on demand.&nbsp;</p>\r\n<p>Detail about how to use latest renderer which I have posted at preview reply.&nbsp;</p>\r\n<p>Let me know if you have further question.&nbsp;</p>",
+    "PostedDate": "2012-06-28T19:51:06.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "855424",
+    "ThreadId": "360974",
+    "Html": "<p>Latest version from source code fixed the border problem. Thank you, and great idea saving the matrix in the database instead of one of the image file formats.</p>\r\n<p>Now I'm facing another problem. I want to give my users the option of selecting their&nbsp;preferred&nbsp;output format and resolution. My initial test is exporting the code to a 300dpi PNG file with the following code (much like the DrawingBrushRenderer example in the online documentation):</p>\r\n<p class=\"p1\"><span class=\"s1\"><strong>byte</strong></span>[] imageData;</p>\r\n<p class=\"p1\"><span class=\"s1\"><strong>using</strong></span><span class=\"s2\"> (</span>MemoryStream<span class=\"s2\"> stream = </span><span class=\"s1\"><strong>new</strong></span><span class=\"s2\"> </span>MemoryStream<span class=\"s2\">()) {</span></p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\"><span class=\"s2\">&nbsp;</span>DrawingBrushRenderer<span class=\"s2\"> renderer = </span><span class=\"s1\"><strong>new</strong></span><span class=\"s2\"> </span>DrawingBrushRenderer<span class=\"s2\">(</span><span class=\"s1\"><strong>new</strong></span> <span class=\"s3\">FixedModuleSize</span>(<span class=\"s4\"><strong>15</strong></span>, <span class=\"s3\">QuietZoneModules</span>.Two));</p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\"><span class=\"s1\">BitmapSource</span> bitmapSource = renderer.WriteToBitmapSource(matrix, <span class=\"s2\"><strong>new</strong></span> <span class=\"s1\">Point</span>(<span class=\"s3\"><strong>300</strong></span>, <span class=\"s3\"><strong>300</strong></span>));</p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\"><span class=\"s1\">PngBitmapEncoder</span> pngEncoder = <span class=\"s2\"><strong>new</strong></span> <span class=\"s1\">PngBitmapEncoder</span>();</p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\">pngEncoder.Interlace = <span class=\"s1\">PngInterlaceOption</span>.On;</p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\">pngEncoder.Frames.Add(<span class=\"s1\">BitmapFrame</span>.Create(bitmapSource));</p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\">pngEncoder.Save(stream);</p>\r\n<p class=\"p1\" style=\"padding-left: 30px;\">imageData = stream.ToArray();</p>\r\n<p class=\"p1\">}</p>\r\n<p class=\"p1\"><span class=\"s1\">File</span>.WriteAllBytes(file, imageData);</p>\r\n<p>But! When the file is saved to disk, it is cropped and only a small part of the QR is visible. Check this sample:&nbsp;http://db.tt/YIBnBOuD</p>\r\n<p>&nbsp;</p>\r\n<p>I hope you can help me out once again. Thanks.</p>",
+    "PostedDate": "2012-06-29T05:38:59.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "855865",
+    "ThreadId": "360974",
+    "Html": "<p>Thanks for report. I just fixed that issue. Please download latest check out and it should be fixed.&nbsp;</p>",
+    "PostedDate": "2012-06-30T17:38:41.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856159",
+    "ThreadId": "360974",
+    "Html": "<p>Great, thanks, I'll take a look at it later today.</p>\r\n<p>By the way, I had to change MStatus on TriStateMatrix from internal to public in my local version. I needed to do this in order to create a TriStateMatrix (BitMatrix) based on data from the database, but without having MStatus as public, I couldn't read the StateMatrix data and thus not save it in the first place. If you have any other ideas for this, please let me know.</p>\r\n<p>Thanks again</p>",
+    "PostedDate": "2012-07-01T23:31:55.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856202",
+    "ThreadId": "360974",
+    "Html": "<p>Good point. That's something I would like to fix before next release. I will take look at it this weekend and let you know once I commit new changes.&nbsp;</p>\r\n<p>Also try out EncapsulatePostScriptRenderer. Or you can call it EPS file. That's vector based image file which can print out at any size without lose quality.&nbsp;</p>",
+    "PostedDate": "2012-07-02T01:03:46.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856280",
+    "ThreadId": "360974",
+    "Html": "\r\n<div>\r\n<div>\r\n<div>Thanks so much</div>\r\n<div>\r\n<div><br>\r\n</div>\r\n<div>\r\n<div>Cheers,</div>\r\n<div><br>\r\n</div>\r\n<div>ezRover Inc.</div>\r\n<div>PC Board: <a href=\"http://ArduMotion.com\">http://ArduMotion.com</a></div>\r\n<div>Projects: <a href=\"http://ezRover.com\">http://ezRover.com</a></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<div><br>\r\n</div>\r\n<span id=\"OLK_SRC_BODY_SECTION\">\r\n<div style=\"font-family:Calibri; font-size:11pt; text-align:left; color:black; border-bottom:medium none; border-left:medium none; padding-bottom:0in; padding-left:0in; padding-right:0in; border-top:#b5c4df 1pt solid; border-right:medium none; padding-top:3pt\">\r\n<span style=\"font-weight:bold\">From: </span>silverlancer &lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt;<br>\r\n<span style=\"font-weight:bold\">Reply-To: </span>&lt;<a href=\"mailto:QrCodeNet@discussions.codeplex.com\">QrCodeNet@discussions.codeplex.com</a>&gt;<br>\r\n<span style=\"font-weight:bold\">Date: </span>Monday, July 2, 2012 1:03 AM<br>\r\n<span style=\"font-weight:bold\">To: </span>Nader Rahimizad &lt;<a href=\"mailto:ardumotion@gmail.com\">ardumotion@gmail.com</a>&gt;<br>\r\n<span style=\"font-weight:bold\">Subject: </span>Re: Writing to stream creates border right and bottom [QrCodeNet:360974]<br>\r\n</div>\r\n<div><br>\r\n</div>\r\n<div>\r\n<p>From: silverlancer</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Good point. That's something I would like to fix before next release. I will take look at it this weekend and let you know once I commit new changes.\r\n</p>\r\n<p>Also try out EncapsulatePostScriptRenderer. Or you can call it EPS file. That's vector based image file which can print out at any size without lose quality.\r\n</p>\r\n</div>\r\n</div>\r\n<div></div>\r\n</span>",
+    "PostedDate": "2012-07-02T04:16:44.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "858742",
+    "ThreadId": "360974",
+    "Html": "<p>Done. Create SqaureBitMatrix. That should be the one you will be using later on instead of TristateBitMatrix. They all inherit from Bitmatrix, that's what Renderer need anyway.</p>\r\n<p>Also to be notice that Control's GetQrMatrix method's return value is already deep copy of internal BitMatrix. You don't really have to recreate.&nbsp;</p>\r\n<p>One minor error will be SquareBitMatrix's InternalArray property's comment. It state that SquareBitMatrix's InternalArray return array itself, not deep copy but it actually is. I changed that right before commit, forgot to edit comment. Will fix that in next submit.&nbsp;</p>\r\n<p>Let me know if there are any more issues. Kind of busy recently, will try my best to keep source code update.&nbsp;</p>",
+    "PostedDate": "2012-07-07T16:00:35.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893118",
+    "ThreadId": "360974",
+    "Html": "\r\n<p>I am having a problem with the export to EPS function.<br>\r\nWhen I fill in information like the part below and export it as an EPS file, the left square isn't an square. The bottom is lost<br>\r\nso the QR Readers aren't able to scan the code.</p>\r\n<p>This only happens with EPS.. exporting to BMP or PNG is working correct... What is wrong?</p>\r\n<p>BEGIN:VCARD<br>\r\nVERSION:3.0<br>\r\nN:Braakie;Frankie;van;;<br>\r\nFN:Frankie van Braakie<br>\r\nORG:Logisz B.V.<br>\r\nTITLE:Senior Webdeveloper<br>\r\nEMAIL;type=INTERNET;type=WORK:frank.vanbraak@domain.nl<br>\r\nTEL;type=WORK:&#43;31111111145<br>\r\nTEL;type=FAX:&#43;31444444455<br>\r\nTEL;type=CELL:&#43;31666666665<br>\r\nADR;type=WORK:;;Street 7;city;;NL 7001 CH;Nederland<br>\r\nURL;type=WORK:http://www.domainname.nl/fbra<br>\r\nEND:VCARD</p>\r\n",
+    "PostedDate": "2012-07-30T08:46:41.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893629",
+    "ThreadId": "360974",
+    "Html": "<p>Just for the record, this question has also been asked and resolved in the <a title=\"Export as EPS\" href=\"http://qrcodenet.codeplex.com/discussions/344828\">Export as EPS</a> discussion.</p>\r\n<div id=\"_mcePaste\" class=\"mcePaste\" style=\"position: absolute; left: -10000px; top: 0px; width: 1px; height: 1px; overflow: hidden;\">\r\n<h1 class=\"page_title WordWrapBreakWord\">Export as Encapsuled PostScript (EPS)</h1>\r\n</div>",
+    "PostedDate": "2012-07-31T06:16:41.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

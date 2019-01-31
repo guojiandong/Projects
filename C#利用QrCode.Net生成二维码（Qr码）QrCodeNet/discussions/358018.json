@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "843644",
+    "ThreadId": "358018",
+    "Html": "\r\n<p>I have just stumbled upon what seem to be a really great library. I have checked a few others and this one is the best so far. Other libraries only generate an image while this one provides actual bits (BitMatrix).</p>\r\n<p>I think what I seek is unsupported but I should better ask. I would love to get the position / size of features in the generated QR code (e.g. &quot;<span>locator marks&quot;).</span></p>\r\n<p><span>Is there an easy way to extend the library to get this info (any quick source code pointers are appreciated)?</span></p>\r\n",
+    "PostedDate": "2012-06-01T11:54:56.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843761",
+    "ThreadId": "358018",
+    "Html": "<p>Could you give some examples.&nbsp;</p>\r\n<p>You mean position of locator marks? and size of QrCode?</p>\r\n<p>Size of QrCode should be easy, as its already there. Width of QrCode should be the one you want.&nbsp;</p>\r\n<p><a href=\"http://qrcodenet.codeplex.com/wikipage?title=QrCode&amp;referringTitle=Documentation\">http://qrcodenet.codeplex.com/wikipage?title=QrCode&amp;referringTitle=Documentation</a></p>\r\n<p>For QrCode picture under that link, do you mean those black position mark's location and those format information, version information's location?</p>",
+    "PostedDate": "2012-06-01T18:11:03.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

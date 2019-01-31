@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "<p>Hello together,</p>\n<p>&nbsp;</p>\n<p>i saw, that the EncapsulatedPostScriptRenderer uses &quot;system.drawing.color&quot; and the GraphicsRenderer uses &quot;system.drawing.brush&quot; maybe its possible to lay them both to &quot;system.drawing.color&quot;.</p>\n<p>Theres also the point, if i want to save my colors in database via &quot;red&quot;, &quot;green&quot; and so on.</p>\n<p>Later i just need to do &quot;Color.FromName(&quot;red&quot;)&quot; e.g. and get my right color, with system.drawing.brush its much more complicated.</p>\n<p>&nbsp;</p>\n<p>Best regards</p>\n<p>Hasenzahn</p>\n",
+    "LastUpdatedDate": "2012-04-16T21:44:05.383-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-04-12T00:32:18.013-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System Brush vs System Color - Suggest",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 730
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Reason I use brush for GraphicRenderer is you can use HatchBrush, LinearGradientBrush, PathGradientBrush for GraphicRenderer. EPS which use colour only. \r\n\r\nIt will be best to treat all renderer as different class which has no relationship at all. That's just come into a crossroad, whether you wanna choose maximum possibility, or easy to use but limited function. This can be apply to imageformat, artistic and current brush system that you suggest. \r\n\r\nThat's one of reason MSFT's WPF namespace doesn't have imageformat enum. They split encoder to different class that inherit bitmapencoder. The only method that might be able to share between renderer is WriteToStream. Which I will make an interface for that later. ",
+      "PostedDate": "2012-04-12T15:14:05.587-07:00",
+      "Id": 85176
+    }
+  ]
+}

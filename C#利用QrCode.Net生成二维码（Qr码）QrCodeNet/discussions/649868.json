@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1458740",
+    "ThreadId": "649868",
+    "Html": "Installed version 0.4.0 for a universal (Windows 10) app via nuget. Installation works but compilation is not possible afterwards.\r<br />\n<br />\nCompiler output is:\r<br />\n<br />\nDie Ladungsdatei &quot;C:\\Users\\MYUSER\\Documents\\Visual Studio Projects\\QrCodeTest2\\packages\\QrCode.Net.0.4.0.0\\lib\\netcore45\\Gma.QrCodeNet.Encoding\\Themes\\Generic.xaml&quot; ist nicht vorhanden.\r<br />\n<br />\n(File Generic.xaml can't be found).\r<br />\n<br />\nThe same problem occurs with a Windows 8.1 app project.\r<br />\n<br />\nAny ideas what is wrong here?<br />\n",
+    "PostedDate": "2016-01-11T03:26:47.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "<p>See chapter 7.3 Symbol structure</p>\n<p>7.3.2 Finder pattern</p>\n<p>7.3.3 Separators</p>\n<p>7.3.4 Timing Pattern</p>\n<p>7.3.5 Alignment Patterns</p>\n<p>Test should run against reference implementation and against generated data set.</p>\n<p>See reference implementation under:</p>\n<p>MatrixUtil.embedBasicPatterns</p>\n",
+    "LastUpdatedDate": "2011-10-02T13:36:30.713-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2011-09-30T08:37:01.62-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement unit test for positioning patterns.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 284
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Associated with changeset 4920.",
+      "PostedDate": "2011-09-30T08:38:33.517-07:00",
+      "Id": 85112
+    },
+    {
+      "Message": "Associated with changeset 5054.",
+      "PostedDate": "2011-10-02T13:36:30.713-07:00",
+      "Id": 85113
+    }
+  ]
+}

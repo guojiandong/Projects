@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "909416",
+    "ThreadId": "394706",
+    "Html": "\r\n<p>Guys, have you thought of creating a Nuget package for you wonderful project?<br>\r\nCan I contribute to this and create packaging scripts if you don't have that yet?</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers,<br>\r\nMax</p>\r\n",
+    "PostedDate": "2012-09-06T18:51:13.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "919311",
+    "ThreadId": "394706",
+    "Html": "<p>I would like to, probably later this year.&nbsp;</p>",
+    "PostedDate": "2012-09-28T23:55:52.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012838",
+    "ThreadId": "394706",
+    "Html": "Is there any progress with creating NuGet package? It would make installing it much easier.. Thanks!<br />\n",
+    "PostedDate": "2013-03-09T15:04:36.24-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012855",
+    "ThreadId": "394706",
+    "Html": "Not yet, but I do feel we should create NuGet package. I will see if I can get it done before I start working on next version.<br />\n",
+    "PostedDate": "2013-03-09T16:41:26.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012862",
+    "ThreadId": "394706",
+    "Html": "Thanks!<br />\n",
+    "PostedDate": "2013-03-09T17:11:37.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016467",
+    "ThreadId": "394706",
+    "Html": "Nuget package is here: <a href=\"https://nuget.org/packages/QrCode.Net/\" rel=\"nofollow\">https://nuget.org/packages/QrCode.Net/</a>\r<br />\nLet me know if there are any issues. <br />\n",
+    "PostedDate": "2013-03-16T17:36:09.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016613",
+    "ThreadId": "394706",
+    "Html": "Works perfectly.. thx<br />\n",
+    "PostedDate": "2013-03-17T07:27:55.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,96 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": "",
+    "Description": "<p>I&#39;m hoping that you might be able to help each other a little. I am trying to get this working with Silverlight and I think I am VERY close.</p>\n<p>&nbsp;</p>\n<p>I have been able to port over both the QrCodeControl nd QrCodeImgControl (the latter almost works!)</p>\n<p>&nbsp;</p>\n<p>What is happening is that when I scan the resulting code I get a stray character. This would be fiune except that most QR Codes are all about sending you to a URI (which since I have a stray character showing up it can&#39;t handle). </p>\n<p>&nbsp;</p>\n<p>Anyway, I am attaching my copy of my Silverlight project (hoping that the problem is pretty small. BTW, I wasn&#39;t really able to port you WriteableBitmapExtension (I ended up bringing over some of the code from the WriteableBitmapEx project)</p>\n<p>&nbsp;</p>\n<p>Thanks!</p>\n<p>&nbsp;</p>\n<p>Jay (DevTheo)</p>\n",
+    "LastUpdatedDate": "2013-01-25T10:24:12.7-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-03-27T08:18:34.707-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Silverlight",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 695
+  },
+  "FileAttachments": [
+    {
+      "FileId": 596018,
+      "FileName": "Gma.QrCodeNet.zip",
+      "DownloadUrl": ".\\596018"
+    },
+    {
+      "FileId": 596019,
+      "FileName": "SilverlightQR.7z",
+      "DownloadUrl": ".\\596019"
+    },
+    {
+      "FileId": 596020,
+      "FileName": "SilverlightQR-Improved Image control.7z",
+      "DownloadUrl": ".\\596020"
+    },
+    {
+      "FileId": 596021,
+      "FileName": "SilverlightQR Geometry Control and Image control.7z",
+      "DownloadUrl": ".\\596021"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I will take a look tomorrow, Use some code from writeableBitmapEx is correct. As writeableBitmap's commander is a bit different between WPF and silverlight. \r\nTwo main different, \r\none is that WPF use pointer to memory, where silverlight just simply use array. \r\nSecond, WPF have different colour format, for example 8 bit colour, 8bit grey, 16bit colour 32bit alpha colour. Where Silverlight only use 32 bit alpha colour. \r\n\r\nSo that two things you will have to look at, first remove unsafe code and use array instead, change memory copy to array block copy. Then remove grey colour I have implement there, as that one silverlight won't support. That's all you need to do. \r\nFor your code, I will take look tomorrow, once I'm done I will leave it here first. I would like to solve some issue before move into Silverlight. ",
+      "PostedDate": "2012-03-28T02:21:59.663-07:00",
+      "Id": 85157
+    },
+    {
+      "Message": "Ok, Here is my first implementation for Silverlight writeablebitmap control. I will write some overview of what I have done and what issue still remain. \r\n\r\nI have removed all class under Silverlight folder and create new QrCodeImgControl from scratch. As there are a lot of things I would like to change since last WPF version. Also I have updated WriteableBitmapExtention and move under render folder. Enabled some class there. \r\n\r\nFor WriteableBitmapRenderer, I use my own fill rectangle method instead of Silverlight's, it's a bit similar to WriteableBitmapEx project's implementation. That method is quiet advance on performance. \r\n\r\nAnd for QrCodeImgControl, I did it with inherit with panel, also I leave QrCode width and height there instead of module size. Image draw will according to that. Every class properties value change will cause QrCodeImgControl to update. \r\nI have also put a lot of SetValue method there, if you use those method to update properties, QrCodeImgControl won't update until you call UpdateBitmap method or EncodeAndUpdateBitmap method. That way you can change several properties at once then update whole control. Which is performance gain for some situations. This is what I want put into other controls as well. \r\n\r\nAs you can see here is what I have done, I was planning to implement Silverlight version awhile ago, but was trying to figure some other things out before actual start. As you have request here, I might as well do it now. \r\nThe issue currently I'm facing with that image control is that stretch problem. Image control element inside QrCodeImgControl is set up to be Width and Height to auto and alignment to stretch. But stretch method under image then won't work because of Width and Height set to auto. If I assign them variable, stretch will work. The stretch I'm talking about is not alignment stretch, it's image stretch. Which can be set up to fill, uniform etc. If you have any way to solve that, please let me know. I will be appreciate. ",
+      "PostedDate": "2012-03-28T23:56:10.223-07:00",
+      "Id": 85158
+    },
+    {
+      "Message": "Also I will working on geometry implementation for Silverlight as well, that one's performance might not be as good as WriteableBitmap, but memory will be a bit of constant compare to WriteableBitmap if people change size a lot. I will update again later this week or early next week. ",
+      "PostedDate": "2012-03-28T23:57:51.46-07:00",
+      "Id": 85159
+    },
+    {
+      "Message": "Very cool! I will check it out soon (been busy the last 2 days).",
+      "PostedDate": "2012-03-29T06:09:29.847-07:00",
+      "Id": 85160
+    },
+    {
+      "Message": "Ok, I just did more works towards image control instead of geometry. I have totally revamped old one and solved stretch issue. Also most of property under that control are now dependency property. \r\n\r\nI'm still planning for an geometry update. Shouldn't take long. ",
+      "PostedDate": "2012-04-04T02:34:59.647-07:00",
+      "Id": 85161
+    },
+    {
+      "Message": "Here you are. Path Geometry control implementation. \r\n\r\nLet me know if there are any bug or issue. also any suggestion is welcome as well. \r\n",
+      "PostedDate": "2012-04-04T21:54:23.053-07:00",
+      "Id": 85162
+    },
+    {
+      "Message": "Sorry I hadn't gotten back to you. I had been using this to generate the QR Code on Screen.. now I am generating it in a PDF so my work in Silverlight took a small turn to the back burner.. I will get back to this soon. BUT thanks for the help!",
+      "PostedDate": "2012-04-24T06:53:14.743-07:00",
+      "Id": 85163
+    }
+  ]
+}

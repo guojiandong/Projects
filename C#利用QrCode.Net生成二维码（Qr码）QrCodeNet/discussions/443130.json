@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1041433",
+    "ThreadId": "443130",
+    "Html": "Hi,\r<br />\n<br />\nCan you please share piece of code, which explains how can i use it read a bar-code as image and decode it.\r<br />\n<br />\nThanks.\r<br />\n-Shashank<br />\n",
+    "PostedDate": "2013-05-09T09:05:14.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1041516",
+    "ThreadId": "443130",
+    "Html": "Sorry bisenshashank. This project haven't yet step into decode part. <br />\n",
+    "PostedDate": "2013-05-09T11:58:41.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

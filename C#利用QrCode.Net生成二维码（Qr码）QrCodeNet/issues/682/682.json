@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-01-25T10:24:40.187-08:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "<p>Redesign Renderer to use strategy pattern taken different way to draw QrCode at specific size. </p>\n<p>Fixed module pixel size: module pixel size will be fixed, thus QrCode size will vary according to matrix size and module pixel size. </p>\n<p>Fixed Code pixel size: QrCode pixel size will be fixed, module pixel size may vary according to that. </p>\n<p>&nbsp;</p>\n<p>WinForm renderer will be still using Graphics.</p>\n<p>WPF renderer will be separate to DrawingBrush and WriteableBitmap. Remove drawingContext renderer. </p>\n<p>DrawingBrush will be vector based approach. </p>\n<p>WriteableBitmap will be good at performance, but quality won&#39;t be as good if choose fixed code pixel size. </p>\n<p>&nbsp;</p>\n<p>Redo Winform and WPF controls according to renderer.</p>\n",
+    "LastUpdatedDate": "2013-01-25T10:24:40.187-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2012-03-14T21:04:25.97-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Redesign Renderer classes and WinForm WPF controls",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 682
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

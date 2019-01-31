@@ -1,0 +1,37 @@
+<div class="wikidoc"><h1>QrCodeGeoControl</h1>This page provides a guide for use QrCodeGeoControl. (After <b>check-in 15097</b>)<br /><br /><b>Namespace</b>: Gma.QrCodeNet.Encoding.Windows.WPF<br />
+<h3>Syntax</h3><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> QrCodeGeoControl : Control
+</pre></div>
+<h3>Remarks</h3>QrCodeGeoControl is WPF user control. <br /><br />It is inheritance of WPF Control, It construct Geometry with StreamGeometry. Use Path&#39;s margin to represent Quiet Zone. Margin is recalculated at ArrangeOverride. <br /><br />Theme for this user control is stored under themes folder, file name Generic.xaml.<br /><br />It might have performance hit once QrCode&#39;s version is too large, as at that time, vector object will be way too many. Also memory usage will be growing according to QrCode&#39;s version. (QrCode version has described <a href="https://qrcodenet.codeplex.com/wikipage?title=QrCode&referringTitle=QrCodeGeoControlWPF">here</a>)<br /><br />Visual effect like colour, quiet zone size will be handle very easily. Thus it won&#39;t have Freeze method compare to image control. <br />
+<h3>Constructors</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>QrCodeGeoControl</td><td>Initialize a new instance of QrCodeGeoControl class.</td></tr></table><br />
+<h3>Methods</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>Lock</td><td>Lock class, changes to Text or ErrorCorrectLevel dependency property won&#39;t update QrCode</td></tr>
+<tr><td><a href="http://goo.gl/HrOKL">Unlock</a></td><td>Unlock class and re-encode. then update Geometry</td></tr>
+<tr><td>OnQrMatrixChanged</td><td>Raises after re-encode QrMatrix</td></tr></table><br />
+<h3>Properties</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>LightBrush</td><td>Dependency property for light module colour</td></tr>
+<tr><td>DarkBrush</td><td>Dependency property for dark module colour</td></tr>
+<tr><td>QuietZoneModule</td><td>Dependency property for QuietZoneModules enum</td></tr>
+<tr><td>ErrorCrrectLevel</td><td>Dependency property for ErrorCorrectionLevel enum</td></tr>
+<tr><td>Text</td><td>Dependency property for input text string</td></tr>
+<tr><td>QrGeometry</td><td>Dependency property for Geometry group(Read only)</td></tr></table><br />
+<h3>Events</h3><table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>QrMatrixChanged</td><td>Occur after QrCode re-encode</td></tr></table><br />
+<h3>Example</h3>
+<b>XAML</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">QrCodeGeoControl</span> <span style="color:Red;">Grid.Column</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">1</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Grid.Row</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">1</span><span style="color:Black;">&quot;</span> <span style="color:Red;">HorizontalAlignment</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Stretch</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Margin</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">0</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Name</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">qrControl</span><span style="color:Black;">&quot;</span> <span style="color:Red;">VerticalAlignment</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">Stretch</span><span style="color:Black;">&quot;</span> <span style="color:Red;">Text</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">test</span><span style="color:Black;">&quot;</span> <span style="color:Red;">LightBrush</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">#FF00CAEC</span><span style="color:Black;">&quot;</span> <span style="color:Red;">DarkBrush</span><span style="color:Blue;">=</span><span style="color:Black;">&quot;</span><span style="color:Blue;">#FF9F8100</span><span style="color:Black;">&quot;</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">QrCodeGeoControl</span><span style="color:Blue;">&gt;</span>
+</pre></div><br /><b>C#</b><br /><div style="color:Black;background-color:White;"><pre>
+qrControl.Text = <span style="color:#A31515;">&quot;QrCode.Net&quot;</span>;
+
+BitMatrix qrMatrix = qrControl.GetQrMatrix();  <span style="color:Green;">//Qr bit matrix for input string &quot;QrCode.Net&quot;</span>
+
+qrControl.Lock();
+qrControl.ErrorCorrectLevel = ErrorCrrectionLevel.M;  <span style="color:Green;">//It won&#39;t re-encode qrCode. </span>
+qrControl.Text = <span style="color:#A31515;">&quot;lock test&quot;</span>;
+qrMatrix = qrControl.GetQrMatrix();  <span style="color:Green;">//Bit matrix return from method is still for input string &quot;QrCode.Net&quot;</span>
+qrControl.Unlock();   <span style="color:Green;">//Re-encode and recreate Geometry.</span>
+
+qrControl.DarkBrush = Brushes.Blue;  <span style="color:Green;">//It will change Path&#39;s fill colour. visual change immediately. </span>
+qrControl.LightBrush = Brushes.Yellow; <span style="color:Green;">//It will change boarder&#39;s background colour. Visual change immediately. </span>
+</pre></div></div><div class="ClearBoth"></div>

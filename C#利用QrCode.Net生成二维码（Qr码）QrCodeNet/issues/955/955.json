@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "i wanted qr code for around 625 character text as under\r\n\r\n1,3-1496,7153,2015-03-17,0.0000,0.0000,0.0000,0.0000,0.0000,4222.1900,\"7153,1,2-161,100.000,10.0000,1000.0000,12.5000,126.5600,0.0000,20.0000,144.8800,33-100-1,33-1-1,33-2-2,33-500-10\",\"7153,2,1-702,200.000,20.0000,4000.0000,50.0000,506.2500,0.0000,80.0000,579.5300,33-100-2,33-1-2\",\"7153,3,1-703,300.000,30.0000,9000.0000,112.5000,1139.0600,0.0000,180.0000,1303.9500,33-100-3,33-2-1\",\"7153,4,1-708,400.000,40.0000,16000.0000,200.0000,2025.0000,0.0000,320.0000,2318.1300,33-100-4,33-4-1,33-500-5,33-750-5\",\"7153,5,1-1149,500.000,50.0000,25000.0000,312.5000,3164.0600,0.0000,500.0000,3622.0700,33-100-250,33-55-1\"\r\n\r\nthe attached qr code is generated using http://goqr.me/ service with ecc 1, border 1, size 400\r\n\r\nit was read correctly also.\r\n\r\nbut from codeplex library it is failing can you please explain how can i get Q.R. Code for 600-800 character correctly using your .net library ",
+    "LastUpdatedDate": "2015-04-13T19:35:17.55-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "QrCodeNet",
+    "ReportedDate": "2015-04-12T07:17:23.983-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "600 character Q.R. Code",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 955
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1448424,
+      "FileName": "QrCode.png",
+      "DownloadUrl": ".\\1448424"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I just generated one using our code under error level low. It can be properly read by i-nigma app. But I do have difficulty on reading code that's generated under level H. Since its way too big, error correction is not enough to fix code under 1920x1200 resolution monitor. (pretty much maximized QrCode image that generated under H). \r\n\r\nIf i-nigma cannot read such big code under that image size, don't expect general decoder able to read it. Also when you compare, make sure error level that use to generate code is same. level L code is much smaller than level H. Error correction bits are less.\r\n\r\nAlso are you serious about that big QrCode? Even though spec allow such big code, under normal condition its rare that you can assume average decoder can read properly. not saying it require you to print in large scale.",
+      "PostedDate": "2015-04-13T13:26:21.477-07:00",
+      "Id": 182117
+    },
+    {
+      "Message": "Dear silverlancer thank you very much to help my problem.\nIn deed i really want large data may be around 2000 character q.r.code can u help me with a sample code a how to set them all ok. I do not want them to be read by phone camera on screen but motorola 2d barcode scanner.",
+      "PostedDate": "2015-04-13T19:28:42.13-07:00",
+      "Id": 182145
+    },
+    {
+      "Message": "Does the code I generate works for you?\n\nIf so you have to be careful, because some of decoder might have limit on decode. Like zxing decoder complain about code too big, while i-nigma can decode alright. \n\nTo encode, there are some example in source code, or I did a sub project a while ago. \nhttps://github.com/Nness/Silver-QrCode-Generator\n\nThe code above, I use that project to generate and save to png file.",
+      "PostedDate": "2015-04-13T19:35:17.55-07:00",
+      "Id": 182146
+    }
+  ]
+}

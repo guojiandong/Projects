@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1291885",
+    "ThreadId": "561731",
+    "Html": "Hi, is it Possible to generate QR code in WIndows Mobile 6.5? Any SDK or library i can use to develop the application in Windows mobile 6.5\r<br />\n<br />\nwith .net 3.5 framework / 2.0\r<br />\n<br />\nPlease help me on this. Thanks you very much\r<br />\n<br />\nRegards,\r<br />\nKenneth<br />\n",
+    "PostedDate": "2014-08-20T21:44:58.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1302222",
+    "ThreadId": "561731",
+    "Html": "Generate QR Code is easy by using 2.0 version or compile yourself. Drawing it will be different under different environment. <br />\n",
+    "PostedDate": "2014-09-07T13:13:09.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

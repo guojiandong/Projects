@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "824111",
+    "ThreadId": "352377",
+    "Html": "\r\n<p>Is the &quot;CreateImageFile&quot; method of the &quot;Renderer&quot; class no longer available? &nbsp;I was following along the example under &quot;Saving QR code to file&quot; in the Documentation section of this site and this method doesn't appear to be present.</p>\r\n<p>Many thanks in advance. ;-)</p>\r\n",
+    "PostedDate": "2012-04-15T16:08:38.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824144",
+    "ThreadId": "352377",
+    "Html": "<p>There are two renderer class, one is under&nbsp;Gma.QrCodeNet.Encoding.Windows.WPF, the other one is under&nbsp;Gma.QrCodeNet.Encoding.Windows.Controls.&nbsp;</p>\r\n<p>It's very messy. CreateImageFile method only under the one inside namespace controls.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>As I reply to you under another post. There will be a major update this week. Which I rewrite not just control, but also for all renderer. One thing that I want to state will be CreateImageFile will not be there in any renderer in the future. You will be use WriteToStream instead.&nbsp;</p>\r\n<p>Simply create FileStream with path stick in, and pass that stream to WriteToStream method will do.&nbsp;</p>\r\n<p>For example</p>\r\n<p>Using(Filestream stream = new Filestream(path, filecreatemode.create))</p>\r\n<p>{</p>\r\n<p>// code here that pass stream to renderer.&nbsp;</p>\r\n<p>}</p>",
+    "PostedDate": "2012-04-15T18:51:03.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824152",
+    "ThreadId": "352377",
+    "Html": "<p>Silverlancer - thank you SO much for your speedy reply and this incredibly useful project. &nbsp;Look forward to seeing the coming upgrade.</p>",
+    "PostedDate": "2012-04-15T19:37:08.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824168",
+    "ThreadId": "352377",
+    "Html": "<p>Done. Check-in 15096</p>",
+    "PostedDate": "2012-04-15T21:05:53.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]
