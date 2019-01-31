@@ -1,0 +1,6 @@
+C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\Model\bin\Release\Model.dll
+C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\Model\bin\Release\Model.pdb
+C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\Model\obj\Release\Model.csprojAssemblyReference.cache
+C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\Model\obj\Release\Model.dll
+C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\Model\obj\Release\Model.pdb

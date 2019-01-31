@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4EE09AA6-2228-47C9-832E-9F328135DEF3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SpyTool</RootNamespace>
+    <AssemblyName>SpyTool</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>C:\Users\luxshare-ict\Downloads\Zip\google2google-ChatRoom-master\C-Excel(jb51.net)\C#-Excel(jb51.net)\DLL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UIForm\ColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FormCollectSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FormCollectSample.Designer.cs">
+      <DependentUpon>FormCollectSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForm\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIForm\FormSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FormSample.Designer.cs">
+      <DependentUpon>FormSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForm\FormSelectControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FormSelectControl.Designer.cs">
+      <DependentUpon>FormSelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForm\FormSelectNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FormSelectNode.Designer.cs">
+      <DependentUpon>FormSelectNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForm\FrmShowRect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForm\FrmShowRect.designer.cs">
+      <DependentUpon>FrmShowRect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForm\PicButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIForm\UcWindowInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIForm\UcWindowInfo.designer.cs">
+      <DependentUpon>UcWindowInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForm\Win32.cs" />
+    <Compile Include="UIForm\WindowInfo.cs" />
+    <Compile Include="UtilHelper\Model.cs" />
+    <Compile Include="UtilHelper\SimilarPhoto.cs" />
+    <Compile Include="UtilHelper\UtilHelper.cs" />
+    <EmbeddedResource Include="UIForm\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForm\FormCollectSample.resx">
+      <DependentUpon>FormCollectSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForm\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UIForm\FormSample.resx">
+      <DependentUpon>FormSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForm\FormSelectControl.resx">
+      <DependentUpon>FormSelectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForm\FormSelectNode.resx">
+      <DependentUpon>FormSelectNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForm\FrmShowRect.resx">
+      <DependentUpon>FrmShowRect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForm\UcWindowInfo.resx">
+      <DependentUpon>UcWindowInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15457004611553.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15458778511553.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1545878043373111111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111115458781103050.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,12 @@
+E:\I_Work\Spy\SpyTool\SpyTool\bin\Debug\SpyTool.exe.config
+E:\I_Work\Spy\SpyTool\SpyTool\bin\Debug\SpyTool.exe
+E:\I_Work\Spy\SpyTool\SpyTool\bin\Debug\SpyTool.pdb
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.Properties.Resources.resources
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.csproj.GenerateResource.cache
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.csproj.CoreCompileInputs.cache
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.exe
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.pdb
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.FormMain.resources
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.FrmShowRect.resources
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.UcWindowInfo.resources
+E:\I_Work\Spy\SpyTool\SpyTool\obj\Debug\SpyTool.csprojAssemblyReference.cache

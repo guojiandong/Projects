@@ -1,0 +1,11 @@
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\Reminder.csprojAssemblyReference.cache
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\bin\Debug\Reminder.exe.config
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\bin\Debug\Reminder.exe
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\bin\Debug\Reminder.pdb
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\Reminder.Properties.Resources.resources
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\PopupForm.FrmInfo.resources
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\PopupForm.Frm_Main.resources
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\Reminder.csproj.GenerateResource.cache
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\Reminder.csproj.CoreCompileInputs.cache
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\Reminder.exe
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Debug\Reminder.pdb

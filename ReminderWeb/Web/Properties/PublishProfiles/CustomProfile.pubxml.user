@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\WorkSpace\ReminderPublish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ashx/ExportExcel.ashx">
+      <publishTime>08/05/2015 09:28:01</publishTime>
+    </File>
+    <File Include="ashx/ImportExcel.ashx">
+      <publishTime>01/29/2019 15:34:57</publishTime>
+    </File>
+    <File Include="ashx/ProcessHandler.ashx">
+      <publishTime>01/29/2019 15:34:44</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>01/29/2019 16:31:29</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>01/29/2019 16:31:29</publishTime>
+    </File>
+    <File Include="bin/Common.dll">
+      <publishTime>01/29/2019 16:31:27</publishTime>
+    </File>
+    <File Include="bin/Common.pdb">
+      <publishTime>01/29/2019 16:31:27</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>01/03/2011 14:16:38</publishTime>
+    </File>
+    <File Include="bin/Model.dll">
+      <publishTime>01/24/2019 16:46:16</publishTime>
+    </File>
+    <File Include="bin/Model.pdb">
+      <publishTime>01/24/2019 16:46:16</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>11/23/2018 10:19:44</publishTime>
+    </File>
+    <File Include="bin/NPOI.dll">
+      <publishTime>03/21/2017 07:53:26</publishTime>
+    </File>
+    <File Include="bin/NPOI.OOXML.dll">
+      <publishTime>03/21/2017 07:53:26</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXml4Net.dll">
+      <publishTime>03/21/2017 07:53:26</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXmlFormats.dll">
+      <publishTime>03/21/2017 07:53:26</publishTime>
+    </File>
+    <File Include="bin/Web.dll">
+      <publishTime>01/29/2019 16:31:27</publishTime>
+    </File>
+    <File Include="bin/Web.pdb">
+      <publishTime>01/29/2019 16:31:27</publishTime>
+    </File>
+    <File Include="index - 复制.htm">
+      <publishTime>01/24/2019 14:49:53</publishTime>
+    </File>
+    <File Include="index.htm">
+      <publishTime>01/29/2019 15:43:52</publishTime>
+    </File>
+    <File Include="index1 - 复制.htm">
+      <publishTime>01/24/2019 14:50:00</publishTime>
+    </File>
+    <File Include="index2.htm">
+      <publishTime>01/24/2019 14:47:26</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>01/29/2019 16:31:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.7.2.js">
+      <publishTime>04/27/2015 17:06:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.form.js">
+      <publishTime>04/27/2015 16:53:43</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>04/16/2015 09:18:48</publishTime>
+    </File>
+    <File Include="Styles/Site.css">
+      <publishTime>04/16/2015 09:18:48</publishTime>
+    </File>
+    <File Include="UpFiles/说明.txt">
+      <publishTime>04/23/2015 11:15:20</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/24/2019 16:46:17</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

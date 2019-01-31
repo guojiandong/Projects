@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/form.html" method="GET">
+        <!-- action： 表单提交的地址 -->
+        <!-- method：提交保单的方法 -->
+        <div class="name">
+            <label for="name">用户名</label>
+            <input type="text" name="name" id="name" placeholder="请输入用户名">
+            <!-- placeholder是透明的提示文字 -->
+        </div>
+        <div class="password">
+            <label for="password">密码</label>
+            <input type="password" name="password" id="password" placeholder="请输入密码">
+        </div>
+        <div class="sex">
+            <label for="sex">性别</label>
+            <input type="radio" name="sex" value="male">男
+            <input type="radio" name="sex" value="female">女
+        </div>
+        <div class="city">
+            <label for="city">最喜欢的城市</label>
+            <select name="city" id="city">
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="chongqing" selected>重庆</option>
+                <!-- selected 表示被选中在页面展示的选项 -->
+            </select>
+        </div>
+
+        <div class="hobby">
+            <label for="hobby">爱好</label>
+            <input type="checkbox" name="hobby" value="read">读书
+            <input type="checkbox" name="hobby" value="flower">插花
+            <input type="checkbox" name="hobby" value="sing">唱歌
+            <!-- 所有选项name要一样 -->
+        </div>
+        <div class="area">
+            <textarea id="area" name="area" cols="30" rows="10"></textarea>
+        </div>
+        <button>button</button>
+        <!-- 可以提交表单 -->
+        <input type="submit" value="submit">
+        <!-- 可以提交表单 -->
+        <input type="button" value="button">
+        <!-- 不可以提交表单 -->
+        <input type="reset" value="reset">
+        <!-- 对表单里面已经输入的内容做重置 -->
+
+    </form>
+</body>
+</html>

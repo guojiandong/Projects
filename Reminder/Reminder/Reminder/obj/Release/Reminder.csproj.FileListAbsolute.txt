@@ -1,0 +1,10 @@
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\bin\Release\Reminder.exe.config
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\bin\Release\Reminder.exe
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\bin\Release\Reminder.pdb
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\Reminder.Properties.Resources.resources
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\PopupForm.FrmInfo.resources
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\PopupForm.Frm_Main.resources
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\Reminder.csproj.GenerateResource.cache
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\Reminder.csproj.CoreCompileInputs.cache
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\Reminder.exe
+E:\WorkSpace\Spy\Reminder\Reminder\Reminder\obj\Release\Reminder.pdb

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyToolVer0", "SpyTool\SpyToolVer0.csproj", "{4EE09AA6-2228-47C9-832E-9F328135DEF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EE09AA6-2228-47C9-832E-9F328135DEF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE09AA6-2228-47C9-832E-9F328135DEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE09AA6-2228-47C9-832E-9F328135DEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE09AA6-2228-47C9-832E-9F328135DEF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {176A1C84-9A3A-4165-95B0-120C2F8C5A42}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Excel导入、导出</title>
+    <script src="Scripts/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.form.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        // 导入Excel
+        function importExcel() {
+            $('#file-form').ajaxSubmit({
+                type: 'POST', // HTTP请求方式
+                url: 'ashx/ImportExcel.ashx', // 请求的URL地址
+                dataType: 'json', // 服务器返回数据转换成的类型
+                success: function (data, responseStatus) {
+                    var msg = ''; 
+                    if (data.success) {
+                        msg = '转换成功!\r\n';
+                    } else {
+                        msg = '转换失败!\r\n';
+                    }
+                    msg += data.msg + '\r\n'; // 获取异常信息
+                   
+                    $('#msg').val(msg);
+                }
+            });
+        }
+
+        // 导出Excel
+        function exportExcel() {
+            $('#file-form').ajaxSubmit({
+                type: 'POST', // HTTP请求方式
+                url: 'ashx/ExportExcel.ashx', // 请求的URL地址
+                dataType: 'json', // 服务器返回数据转换成的类型
+                success: function (data, responseStatus) {
+                    location.href = location.origin + '/' + data;
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<h3>一、Excel导入并上传数据库 </h3>
+    <!--  
+<h5>1.模板下载：<a href="UpFiles/TemplateFiles/导入工作表.xls">导入工作表</a></h5>
+        -->>
+<h5>1.选择Excel文件并上传</h5>
+<form enctype="multipart/form-data" id="file-form"  >
+1.1<input type="file" name="filed" /><br />
+</form>
+1.2<input type="button" onclick="importExcel()" value="导入数据库" name="submit" /><br />
+<textarea readonly="readonly" rows="30" cols="160" id="msg" ></textarea>
+    <!--
+        <h3>二、Excel导出</h3>
+        1.<input type="button" onclick="exportExcel()" value="导出Excel" /><br />
+        <h5>模拟数据：</h5>
+    -->
+</body>
+</html>
