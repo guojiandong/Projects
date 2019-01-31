@@ -1,0 +1,16 @@
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\JR.LogClient.Test.exe.config
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\log4net.config
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\JR.LogClient.Test.exe
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\JR.LogClient.Test.pdb
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\JR.LogClient.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\log4net.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\Newtonsoft.Json.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\JR.LogClient.pdb
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\log4net.xml
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\Newtonsoft.Json.xml
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\obj\Debug\JR.LogClient.Test.csprojResolveAssemblyReference.cache
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\obj\Debug\JR.LogClient.Test.exe
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient.Test\obj\Debug\JR.LogClient.Test.pdb
+D:\日志系统\Net\JR.LogClient\JR.LogClient.Test\bin\Debug\JR.LogClient.Test.exe.config
+D:\日志系统\Net\JR.LogClient\JR.LogClient.Test\obj\Debug\JR.LogClient.Test.exe
+D:\日志系统\Net\JR.LogClient\JR.LogClient.Test\obj\Debug\JR.LogClient.Test.pdb

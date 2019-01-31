@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{CDB694F3-A174-45EE-900A-E63F8CA9E499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGroup", "MyGroup\MyGroup.csproj", "{A52C8149-F5A0-43BA-B411-BC251DEF001C}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDB694F3-A174-45EE-900A-E63F8CA9E499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB694F3-A174-45EE-900A-E63F8CA9E499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB694F3-A174-45EE-900A-E63F8CA9E499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB694F3-A174-45EE-900A-E63F8CA9E499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A52C8149-F5A0-43BA-B411-BC251DEF001C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A52C8149-F5A0-43BA-B411-BC251DEF001C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A52C8149-F5A0-43BA-B411-BC251DEF001C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A52C8149-F5A0-43BA-B411-BC251DEF001C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

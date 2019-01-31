@@ -1,0 +1,9 @@
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\JR.LogClient.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\JR.LogClient.pdb
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\log4net.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\Newtonsoft.Json.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\log4net.xml
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\Newtonsoft.Json.xml
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\obj\Debug\JR.LogClient.dll
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\obj\Debug\JR.LogClient.pdb
+D:\WorkSpace\Net\JR.LogClient\JR.LogClient\bin\Debug\log4net.config

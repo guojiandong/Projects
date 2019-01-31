@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDB694F3-A174-45EE-900A-E63F8CA9E499}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.11.91, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Npgsql2.0.11.91-bin-ms.net4.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Npoi\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Npoi\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Npoi\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Npoi\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CF\Base\Start.cs" />
+    <Compile Include="CF\cls_Cache.cs" />
+    <Compile Include="CF\cls_Cache_DB.cs" />
+    <Compile Include="CF\cls_ClassLib.cs" />
+    <Compile Include="CF\cls_Common.cs" />
+    <Compile Include="CF\cls_CommonThread.cs" />
+    <Compile Include="CF\cls_DBA.cs" />
+    <Compile Include="CF\cls_DesTelecom.cs" />
+    <Compile Include="CF\cls_PGSql.cs" />
+    <Compile Include="CF\cls_RadixConvert.cs" />
+    <Compile Include="CF\cls_Random.cs" />
+    <Compile Include="CF\cls_Serialize.cs" />
+    <Compile Include="CF\cls_WebScript.cs" />
+    <Compile Include="CF\Http\HttpAsync.cs" />
+    <Compile Include="CF\Http\HttpRequest.cs" />
+    <Compile Include="CF\Http\RegexCommon.cs" />
+    <Compile Include="CF\Http\Util.cs" />
+    <Compile Include="CF\IO\cls_File.cs" />
+    <Compile Include="CF\IO\cls_Stream.cs" />
+    <Compile Include="CF\IO\cls_Zip.cs" />
+    <Compile Include="CF\IO\MSSocketClient.cs" />
+    <Compile Include="CF\IO\NpoiExcelOprator.cs" />
+    <Compile Include="CF\SNS\cls_Common.cs" />
+    <Compile Include="CF\SNS\UserBase.cs" />
+    <Compile Include="CF\Text\AesUtil.cs" />
+    <Compile Include="CF\Text\Base64.cs" />
+    <Compile Include="CF\Text\cls_AES.cs" />
+    <Compile Include="CF\Text\cls_HMACSHA1.cs" />
+    <Compile Include="CF\Text\cls_JSon.cs" />
+    <Compile Include="CF\Text\Common.cs" />
+    <Compile Include="CF\Text\Convert36.cs" />
+    <Compile Include="CF\Text\DesEncrypt.cs" />
+    <Compile Include="CF\Text\Md5.cs" />
+    <Compile Include="CF\Text\RandomStr.cs" />
+    <Compile Include="CF\Text\RSAFromPkcs8.cs" />
+    <Compile Include="MyAddressIp.cs" />
+    <Compile Include="MyCookies.cs" />
+    <Compile Include="MyCsvOperation.cs" />
+    <Compile Include="MyDateOperation.cs" />
+    <Compile Include="MyDocOperation.cs" />
+    <Compile Include="MyEmail.cs" />
+    <Compile Include="MyGZip.cs" />
+    <Compile Include="MyHttpMethods.cs" />
+    <Compile Include="MyMD5.cs" />
+    <Compile Include="MyPageValidate.cs" />
+    <Compile Include="MyParse.cs" />
+    <Compile Include="OrderHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Libs\Newtonsoft.Json.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\lang\de\Npgsql.resources.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\lang\es\Npgsql.resources.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\lang\fi\Npgsql.resources.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\lang\fr\Npgsql.resources.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\lang\ja\Npgsql.resources.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\lang\zh-CN\Npgsql.resources.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\Mono.Security.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\Npgsql.dll" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\Npgsql.pdb" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\Npgsql.XML" />
+    <Content Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\policy.2.0.Npgsql.dll" />
+    <Content Include="Libs\Npoi\NPOI.dll" />
+    <Content Include="Libs\Npoi\NPOI.OOXML.dll" />
+    <Content Include="Libs\Npoi\NPOI.OpenXml4Net.dll" />
+    <Content Include="Libs\Npoi\NPOI.OpenXmlFormats.dll" />
+    <Content Include="Libs\Npoi\NPOI.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\Npgsql2.0.11.91-bin-ms.net4.0\policy.2.0.Npgsql.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
